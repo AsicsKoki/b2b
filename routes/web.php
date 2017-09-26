@@ -19,10 +19,18 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('getHome');
-Route::get('/register', 'UserController@getRegister')->name('getRegister');
+// Route::get('/register', 'UserController@getRegister')->name('getRegister');
 // Route::get('/login', 'UserController@getLogin')->name('getLogin');
-Route::get('/logout', 'UserController@getLogout')->name('getLogout');
+// Route::get('/logout', 'UserController@getLogout')->name('getLogout');
 
+// Authentication routes...
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@postLogin');
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('/register', 'Auth\AuthController@getRegister');
+Route::post('/register', 'Auth\AuthController@postRegister');
 
 
 //User(applicant) related routes
