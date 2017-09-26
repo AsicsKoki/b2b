@@ -18,12 +18,12 @@
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('getHome');
 Route::get('/register', 'UserController@getRegister')->name('getRegister');
-Route::get('/login', 'UserController@getLogin')->name('getLogin');
+// Route::get('/login', 'UserController@getLogin')->name('getLogin');
 Route::get('/logout', 'UserController@getLogout')->name('getLogout');
 
 
-Route::get('/', 'UserController@getHome')->name('getHome');
 
 //User(applicant) related routes
 Route::get('/profile', 'UserController@getProfile')->name('getUserProfile');
@@ -44,3 +44,5 @@ Route::get('/history', 'UserController@getHistory')->name('getHistory');
 Route::get('/company', 'CompanyController@getProfile')->name('getCompanyProfile');
 Route::post('/profile', 'CompanyController@postProfile')->name('postCompanyProfile');
 Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getControlPanel');
+Route::get('/companyLogin', 'CompanyController@getLogin')->name('getCompanyLogin');
+
