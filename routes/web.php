@@ -18,10 +18,12 @@
 
 Auth::routes();
 
-Route::get('/register', 'UsersController@index');
+Route::get('/register', 'UserController@getRegister')->name('getRegister');
+Route::get('/login', 'UserController@getLogin')->name('getLogin');
+Route::get('/logout', 'UserController@getLogout')->name('getLogout');
 
 
-Route::get('/', 'HomeController@getHome')->name('getHome');
+Route::get('/', 'UserController@getHome')->name('getHome');
 
 //User(applicant) related routes
 Route::get('/profile', 'UserController@getProfile')->name('getUserProfile');
@@ -31,8 +33,14 @@ Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
 Route::get('/job/{uid}', 'JobController@getJob')->name('getSpecificJob');
 Route::get('/profile/{uid}/favorites', 'UserController@getFavorites')->name('getUserFavorites');
 Route::post('/profile/{uid}/favorites/{jid}', 'UserController@postFavorite')->name('postUserFavorites');
+Route::get('/cvCreator', 'UserController@getCvCreator')->name('getCvCreator');
+Route::get('/myFiles', 'UserController@getMyFiles')->name('getMyFiles');
+Route::get('/history', 'UserController@getHistory')->name('getHistory');
+Route::get('/history', 'UserController@getHistory')->name('getHistory');
+
 
 
 //Company routes
 Route::get('/company', 'CompanyController@getProfile')->name('getCompanyProfile');
 Route::post('/profile', 'CompanyController@postProfile')->name('postCompanyProfile');
+Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getControlPanel');
