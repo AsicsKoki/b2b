@@ -3,7 +3,7 @@
 @section('content')
 <main class="main_app_container">
 	<div class="login_register_container">
-		<form action="" method="" class="login_reg_form company_registration_form">
+		<form action="{{ route('postCompanyRegister') }}" method="POST" class="login_reg_form company_registration_form">
 			<div class="login_reg_form_item">
 				<p class="form_title">Country</p>
 				<select name="" id="">
@@ -22,14 +22,14 @@
 
 			<div class="login_reg_form_item">
 				<p class="form_title">EIK / BULSTAT</p>
-				<input type="text" id="" name="">
+				<input type="text" id="" name="pib">
 			</div>
 
 			<div class="login_reg_form_item">
 				<p class="form_title">Does your company/organization have a VAT registration?</p>
 				<div class="company_type_form_section">
-					<label for="company_organization_yes"><span>Yes</span><input type="radio" name="" id="company_organization_yes"></label>
-					<label for="company_organization_no"><span>No</span><input type="radio" name="" id="company_organization_no"></label>
+					<label for="company_organization_yes"><span>Yes</span><input type="radio" name="has_vat" value="1" id="company_organization_yes"></label>
+					<label for="company_organization_no"><span>No</span><input type="radio" name="has_vat" value="0" id="company_organization_no"></label>
 				</div>
 			</div>
 
@@ -57,15 +57,22 @@
 			<div class="login_reg_form_item form_smaller_text">
 				<p class="form_title">Company type:</p>
 				<div class="company_type_form_section">
-					<label for="company_type_org_companies"><span>	Companies / Organizations</span><input type="radio" name="" id="company_type_org_companies">
-					<small>(Companies looking for employers)</small></label>
+					<label for="company_type_org_companies">
+						<span>	Companies / Organizations</span>
+						<input type="radio" name="company_type" id="company_type_org_companies">
+						<small>(Companies looking for employers)</small>
+					</label>
 
-					<label for="company_type_hr_consultan"><span>HR Agencies/Consultancy companies, temp agencies </span><input type="radio" name="" id="company_type_hr_consultan"><small>(with fully free services for candidates)</small></label>
+					<label for="company_type_hr_consultan">
+						<span>HR Agencies/Consultancy companies, temp agencies </span>
+						<input type="radio" name="company_type" id="company_type_hr_consultan">
+						<small>(with fully free services for candidates)</small>
+					</label>
 				</div>
 				
 
 				<p class="form_title">Business sector:</p>
-				<select id="business_sector_select" name="" size="5">
+				<select id="business_sector_select" name="sector" size="5">
 				     <option value="3">Rose Tremain</option>
 				     <option value="4">Jonathan Coe</option>           
 				     <option value="5">Cecilia Ahern</option>
@@ -83,13 +90,13 @@
 				</ul>
 
 				<p class="form_title">Company website:</p>
-				<input type="text">
+				<input name="website" type="text">
 
 				<p class="form_title">Company phone:</p>
-				<input type="text">
+				<input name="phone" type="text">
 
 				<p class="form_title">Address:</p>
-				<input type="text">
+				<input name="address" type="text">
 				
 				<p class="form_title">Administrative information:</p>
 				<p>This information is required in order to verify the authenticity of the registration and IS NOT PUBLISHED on the website. Upon posting one or more job ads, an administrator of Jobs.bg will contact you by phone in order to verify the registration.</p>
@@ -97,43 +104,43 @@
 				<p class="form_title">Please, fill in your name, title and contact information:</p>
 
 				<p class="form_title">First Name:</p>
-				<input type="text">
+				<input name="first_name" type="text">
 
 				<p class="form_title">Last Name:</p>
-				<input type="text">
+				<input name="last_name" type="text">
 
 				<p class="form_title">Position:</p>
-				<input type="text"> 
+				<input name="position" type="text"> 
 
 				<p class="form_title">Business phone:</p>
-				<input type="text">
+				<input name="business_phone" type="text">
 
 				<p class="form_title">Business email:</p>
-				<input type="text">
+				<input name="business_email" type="text">
 
 				<small style="margin-bottom: 10px;display: inline-block;">An email to confirm your registration request will be sent to the designated company email)</small>
 				
-				<label for="weekly_jobs_newsletter"><input type="checkbox" name="" id="weekly_jobs_newsletter"> I would like to receive the weekly jobs.bg/economy.bg newsletter</label>
+				<label for="weekly_jobs_newsletter"><input type="checkbox" name="newsletter" id="weekly_jobs_newsletter"> I would like to receive the weekly jobs.bg/economy.bg newsletter</label>
 
 				<p class="form_title">Please select your log-in username:</p>
 
 				<p class="form_title">Username:</p>
-				<input type="text">
+				<input name="username" type="text">
 
 				<p class="form_title">Password:</p>
-				<input type="password" style="width: calc(100% - 30px);">
+				<input name="password" type="password" style="width: calc(100% - 30px);">
 
 				<p class="form_title">Confirm password:</p>
-				<input type="password" style="width: calc(100% - 30px);">
+				<input name="confirm_password" type="password" style="width: calc(100% - 30px);">
 			</div>
 
 			<div class="login_reg_form_item">
 				<p class="form_title">Are you the authorized person in your company whom our administrators can contact about registration confirmation, job ads verification, financial or other issues?</p>
 
-				<label for="" style="display: inline-block; margin-right: 10px;"><span>Yes</span> <input type="checkbox" name="" id="">
+				<label for="" style="display: inline-block; margin-right: 10px;"><span>Yes</span> <input type="checkbox" name="is_manager" value="1" id="">
 				</label>
 
-				<label for="" style="display: inline-block;"><span>No</span> <input type="checkbox" name="" id=""></label>
+				<label for="" style="display: inline-block;"><span>No</span> <input type="checkbox" name="is_manager" value="0" id=""></label>
 			</div>
 			
 
@@ -143,19 +150,19 @@
 				<p>Please, fill in the General manager/HR director of the company or a person in an equivalent position whom we can contact about important issues related to your company’s account in Jobs.bg</p>
 				<br>
 				<p class="form_title">First Name:</p>
-				<input type="text">
+				<input name="manager_first_name" type="text">
 
 				<p class="form_title">Last Name:</p>
-				<input type="text">
+				<input name="manager_last_name" type="text">
 
 				<p class="form_title">Position:</p>
-				<input type="text">
+				<input name="manager_position" type="text">
 
 				<p class="form_title">Business phone:</p>
-				<input type="text">
+				<input name="manager_phone" type="text">
 
 				<p class="form_title">Business email:</p>
-				<input type="email" style="width: calc(100% - 30px)">
+				<input name="manager_email" type="email" style="width: calc(100% - 30px)">
 
 				<small>(An email to confirm your registration request will be sent to the designated company email)</small>
 			</div>
@@ -177,7 +184,7 @@
 				</div>
 
 				<p class="form_title">Enter key:</p>
-				<input type="text">
+				<input name="key" type="text">
 			</div>
 
 			<div class="login_reg_form_item login_reg_form_submit">

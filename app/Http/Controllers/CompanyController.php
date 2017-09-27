@@ -39,4 +39,12 @@ class CompanyController extends Controller {
         return view('company.profile');
     }
 
+    public function postRegister()
+    {
+        
+        $company = new Company(Input::all());
+
+    }
+
+
 }
