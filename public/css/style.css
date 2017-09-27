@@ -37,6 +37,10 @@ body {
 	text-align: center;
 }
 
+.none {
+    display: none !important;
+}
+
 a {
 	text-decoration: none;
 	-webkit-transition: all .2s ease;
