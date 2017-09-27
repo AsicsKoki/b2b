@@ -1,7 +1,6 @@
 * {
 	padding: 0;
 	margin: 0;
-	line-height: 1;
 }
 
 @font-face {
@@ -16,7 +15,9 @@
 
 body {
 	font-family: open_sans_regular;
+	color: #444;
 }
+
 
 .cf:before,
 .cf:after {
@@ -32,6 +33,10 @@ body {
     *zoom: 1;
 }
 
+.center {
+	text-align: center;
+}
+
 a {
 	text-decoration: none;
 	-webkit-transition: all .2s ease;
@@ -39,6 +44,14 @@ a {
 	-ms-transition: all .2s ease;
 	-o-transition: all .2s ease;
 	transition: all .2s ease;
+}
+
+.page_title {
+    font-family: open_sans_bold;
+    padding: 25px 0;
+    text-align: center;
+    background: #efefef;
+    margin-bottom: 50px;
 }
 
 .main_header {
@@ -166,6 +179,9 @@ a {
 	padding: 0 20px;
 	max-width: 1160px;
 	margin: auto;
+	margin-bottom: 50px;
+	line-height: 1.4;
+	font-size: 17px;
 }
 
 .home_search_job {
@@ -365,4 +381,217 @@ p.job_search_option_triger {
 
 .section_title span {
 	border-bottom: 2px solid #ff5c5c;
+}
+
+.login_reg_form {
+	max-width: 600px;
+	margin: auto;
+}
+
+.login_reg_form_item label {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 9px;
+}
+
+.login_reg_form_item input {
+    width: calc(100% - 30px);
+    font-size: 18px;
+    line-height: 40px;
+    color: #444;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.login_reg_form_submit input[type="submit"], .login_reg_form_submit button.submit {
+    display: block;
+    width: 100%;
+    margin: auto;
+    font-size: 20px;
+    background: #4aa220;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: open_sans_bold;
+    line-height: 40px;
+}
+
+.forgot_pass_link {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.forgot_pass_link a {
+    color: #585858;
+    font-size: 15px;
+}
+
+a.login_reg_form_change_option {
+    display: block;
+    width: 100%;
+    margin: auto;
+    font-size: 20px;
+    background: #444444;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: open_sans_bold;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 40px;
+}
+
+.main_footer {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	right: 0;	
+	background: #444;
+}
+
+.copyrigts {
+    background: #ff5c5c;
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.login_reg_template .main_footer {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.footer_menu {
+	padding: 10px 0;
+	text-align: center;
+}
+
+.footer_menu li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #fff;
+}
+
+.footer_menu li:first-of-type {
+	border-left: 1px solid #fff;
+	padding-left: 10px;
+	margin-left: 10px;
+}
+
+.footer_menu a {
+	color: #fff;
+}
+
+.terms_register_content {
+    margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.terms_register_content_item {
+	margin-top: 30px;
+}
+
+.terms_register_content_item .terms_register_content_item_title {
+    font-size: 22px;
+    font-family: open_sans_bold;
+}
+
+.terms_register_content_item .terms_register_content_item_title p {
+	display: inline-block;
+	border-bottom: 2px solid #ff5c5c;
+    margin-left: 0;	
+}
+
+.terms_register_content_item p {
+	margin-left: 40px;
+	margin-bottom: 10px;
+}
+
+.terms_register_content_item p span {
+	font-family: open_sans_bold;
+}
+
+.register_terms_confirmation button {
+    background: #4aa220;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 20px;	
+}
+
+.login_reg_form_item select{
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    padding: 17px;
+    display: block;
+}
+
+.company_registration_form .login_reg_form_item label{
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+.company_registration_form .login_reg_form_item input[type="text"] {
+	width: calc(100% - 30px);
+}
+
+.login_reg_form_item label span {
+	vertical-align: middle;
+}
+
+.login_reg_form_item label input[type="radio"] {
+	margin-left: 8px;
+	margin-bottom: 0;
+	vertical-align: middle;
+}
+
+.company_registration_form .login_reg_form_item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.company_registration_form .login_reg_form_item input {
+	width: auto;
+}
+
+.form_title {
+    margin-bottom: 10px;
+    font-family: open_sans_bold;
+}
+
+.company_type_form_section label {
+	margin: 0 10px;
+}
+
+.company_type_form_section label:first-of-type {
+	margin-left: 0;
+}
+
+.company_registration_form .login_reg_form_submit {
+	border-bottom: none;
+}
+
+.company_registration_form .form_smaller_text label {
+    display: block;
+    font-size: 15px;
+    margin: 0;
+    text-align: left;
+}
+
+.company_registration_form .form_smaller_text label small {
+	display: block;
+	color: #888;	
 }
