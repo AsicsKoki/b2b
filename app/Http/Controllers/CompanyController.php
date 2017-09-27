@@ -13,9 +13,14 @@ class CompanyController extends Controller {
      */
 
 
-    public function register()
+    public function getRegister()
     {
+        return view('company.register');
+    }
 
+    public function getLogin()
+    {
+        return view('company.login');
     }
 
     public function authenticate()
@@ -29,9 +34,9 @@ class CompanyController extends Controller {
     }
 
 
-    public function getProfile($id)
+    public function getProfile()
     {
-        return view('user.profile', ['company' => Company::findOrFail($id)]);
+        return view('company.profile');
     }
 
 }

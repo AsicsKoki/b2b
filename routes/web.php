@@ -24,7 +24,7 @@ Route::get('/', 'HomeController@index')->name('getHome');
 // Route::get('/logout', 'UserController@getLogout')->name('getLogout');
 
 // Authentication routes...
-Route::get('/login', 'Auth\AuthController@getLogin');
+Route::get('/login', 'Auth\AuthController@getLogin')->name('getUserLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 Route::get('/logout', 'Auth\AuthController@getLogout');
 
@@ -53,4 +53,5 @@ Route::get('/company', 'CompanyController@getProfile')->name('getCompanyProfile'
 Route::post('/profile', 'CompanyController@postProfile')->name('postCompanyProfile');
 Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getControlPanel');
 Route::get('/companyLogin', 'CompanyController@getLogin')->name('getCompanyLogin');
+Route::get('/companyRegister', 'CompanyController@getRegister')->name('getCompanyRegister');
 

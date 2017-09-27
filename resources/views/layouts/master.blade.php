@@ -23,7 +23,7 @@
                     <ul class="header_login_reg_holder cf">
                         <li><i class="fa fa-sign-in" aria-hidden="true"></i></li>
                         <li>
-                            <a href="{{ route('login') }}">Korisnici</a>
+                            <a href="{{ route('getUserLogin') }}">Korisnici</a>
                         </li>
                         <li>
                             <a href="{{ route('getCompanyLogin') }}">Kompanije</a>
