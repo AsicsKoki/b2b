@@ -8,4 +8,20 @@ $(document).ready(function(){
 		$(this).toggleClass('open');
 		$('.search_job_filters_holder').slideToggle(200);
 	});
+
+	// Business sector form selection
+	$("#business_sector_select option").click(function () {           
+	  	var selectedVal = $(this).text();
+
+	  	$('ul').append(this)
+	  	$(this).remove();
+	}); 
+
+	$("li").click(function () {           
+	  	var selectedVal = $(this).text();
+
+	  	$('#business_sector_select').append('<option>'+selectedVal+'</option>');
+	  	$(this).remove();
+	}); 
+	// End business sector form selection
 });
