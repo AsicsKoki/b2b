@@ -51,42 +51,44 @@ class CompanyController extends Controller {
     {
 
     $request->validate([
-        'name'                                     => 'required',
-        'email'                                    => 'required',
+        'company_name'                             => 'required',
+        'country'                                  => 'required',
+        'foreign_name'                             => 'required',
+        // 'email'                                    => 'required',
         'password'                                 => 'required',
+        'username'                                 => 'required',
         'register_type'                            => 'required',
         'pib'                                      => 'required',
-        'foreign_name'                             => 'required',
+        'company_registered_office'                => 'required',
         'company_type'                             => 'required',
         // 'sector'                                   => 'required',
-        'website'                                  => 'required',
-        'phone'                                    => 'required',
-        'address'                                  => 'required',
+        'newsletter'                               => 'required',
+        'authorized_person'                        => 'required',
+        // 'key'                                      => 'required',
+        'has_vat'                                  => 'required',
+        'company_website'                          => 'required',
+        'company_phone'                            => 'required',
+        'company_address'                          => 'required',
         'first_name'                               => 'required',
         'last_name'                                => 'required',
         'position'                                 => 'required',
         'business_phone'                           => 'required',
         'business_email'                           => 'required',
-        'newsletter'                               => 'required',
-        'username'                                 => 'required',
-        'is_manager'                               => 'required',
-        'manager_first_name'                       => 'required',
-        'manager_last_name'                        => 'required',
-        'manager_position'                         => 'required',
-        'manager_phone'                            => 'required',
-        'manager_email'                            => 'required',
-        'key'                                      => 'required',
-        'has_vat'                                  => 'required',
-        'administrative_contact_first_name'        => 'required',
-        'administrative_contact_last_name'         => 'required',
-        'administrative_contact_position'          => 'required',
-        'administrative_contact_business_phone'    => 'required',
-        'administrative_contact_business_email'    => 'required',
+        // 'manager_first_name'                       => 'required',
+        // 'manager_last_name'                        => 'required',
+        // 'manager_position'                         => 'required',
+        // 'manager_phone'                            => 'required',
+        // 'manager_email'                            => 'required',
+        // 'administrative_contact_first_name'        => 'required',
+        // 'administrative_contact_last_name'         => 'required',
+        // 'administrative_contact_position'          => 'required',
+        // 'administrative_contact_business_phone'    => 'required',
+        // 'administrative_contact_business_email'    => 'required',
 
 
     ]);
     $company = new Company(Input::all());
-    $company->save();
+    // $company->save();
         return $company->toArray();
     }
 

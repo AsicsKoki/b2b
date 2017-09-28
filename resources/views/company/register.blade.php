@@ -18,7 +18,7 @@
 
 						<div class="login_reg_form_item">
 							<p class="form_title">Country</p>
-							<select name="country" id="">
+							<select name="country">
 								<option value="Serbia">Serbia</option>
 								<option value="Bulgaria">Bulgaria</option>
 							</select>
@@ -27,14 +27,14 @@
 						<div class="login_reg_form_item">
 							<p class="form_title">Your company / organisation is:</p>
 							<div class="company_type_form_section">
-								<label for="private_company"><span>Private</span><input type="radio" name="company_type" value="0" id="private_company"></label>
-								<label for="government_company"><span>Government / municipal</span><input type="radio" name="company_type" value="1" id="government_company"></label>
+								<label for="private_company"><span>Private</span><input type="radio" name="register_type" value="0" id="private_company"></label>
+								<label for="government_company"><span>Government / municipal</span><input type="radio" name="register_type" value="1" id="government_company"></label>
 							</div>
 						</div>
 
 						<div class="login_reg_form_item">
 							<p class="form_title">EIK / BULSTAT</p>
-							<input type="text" id="" name="">
+							<input type="text" id="" name="pib">
 						</div>
 
 						<div class="login_reg_form_item">
