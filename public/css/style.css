@@ -41,6 +41,10 @@ body {
     display: none !important;
 }
 
+.bold {
+    font-family: open_sans_bold;
+}
+
 a {
 	text-decoration: none;
 	-webkit-transition: all .2s ease;
@@ -48,6 +52,11 @@ a {
 	-ms-transition: all .2s ease;
 	-o-transition: all .2s ease;
 	transition: all .2s ease;
+}
+
+textarea {
+    font-size: 15px;
+    padding: 10px;
 }
 
 .page_title {
@@ -598,4 +607,249 @@ a.login_reg_form_change_option {
 .company_registration_form .form_smaller_text label small {
 	display: block;
 	color: #888;	
+}
+
+.popup_confirmation_register {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+}
+ 
+.popup_confirmation_register_content {
+    background: #fff;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 10%;
+    padding: 35px;
+    border-radius: 10px;
+    line-height: 1.6;
+    box-shadow: 0 0 5px 0 #000;
+}
+
+.popup_confirmation_register_btn {
+    text-align: center;
+}
+
+.popup_confirmation_register_btn button {
+    width: 100px;
+    line-height: 40px;
+    border: none;
+    background: #4aa220;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: open_sans_bold;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+.upload_profile_photo_holder {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ddd;
+}
+
+.upload_profile_photo_holder_text {
+    float: left;
+    width: 48%;
+}
+
+.upload_profile_photo {
+    float: right;
+    width: 48%;
+}
+
+.btn_submit {
+    border: none;
+    padding: 7px 30px;
+    font-size: 18px;
+    background: #4aa220;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.skip_btn_holder {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.skip_btn_holder button {
+    padding: 5px 30px;
+    border: none;
+    background: #48b3e0;
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 30px;
+    border-radius: 5px;
+}
+
+.cancel_btn {
+    padding: 5px 30px;
+    border: none;
+    background: #fb3332 !important;
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 30px;
+    border-radius: 5px;
+}
+
+.creating_comp_buisness_card_form {
+    padding: 25px 0;
+    margin: 25px 0;
+    border-top: 1px solid #ddd;
+}
+
+.office_out_country_section {
+    width: 60%;
+    margin: 30px auto;
+}
+
+.creating_comp_buisness_yes_no_section {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.office_out_country_section input[type="text"], .office_out_country_yes_section input[type="email"], .office_out_country_section input[type="password"] {
+    width: calc(100% - 30px);
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+.add_more {
+    border: none;
+    background: #4ebf15;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.office_out_country_section_item {
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs_job_offers section {
+  display: none;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.tabs_job_offers input {
+  display: none;
+}
+
+.tabs_job_offers label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+.tabs_job_offers label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+/* .tabs_job_offers label[for*='1']:before { content: '\f1cb'; }
+.tabs_job_offers label[for*='2']:before { content: '\f17d'; }
+.tabs_job_offers label[for*='3']:before { content: '\f16b'; }
+.tabs_job_offers label[for*='4']:before { content: '\f1a9'; } */
+
+.tabs_job_offers label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+.tabs_job_offers input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #ff5d5c;
+  border-bottom: 1px solid #fff;
+}
+
+.tabs_job_offers #tab1:checked ~ #content1,
+.tabs_job_offers #tab2:checked ~ #content2,
+.tabs_job_offers #tab3:checked ~ #content3,
+.tabs_job_offers #tab4:checked ~ #content4 {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .tabs_job_offers label {
+    font-size: 0;
+  }
+  .tabs_job_offers label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .tabs_job_offers label {
+    padding: 15px;
+  }
+}
+/* End Tabs */
+
+.filter_jobs_offer_item {
+    float: left;
+}
+
+.filter_jobs_offer_item:first-of-type {
+    margin-right: 20px;
+}
+
+p.tab_title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.new_job_add_choose_option {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.new_job_add_choose_option_item label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.new_job_add_choose_option_item span {
+    vertical-align: middle;
+}
+
+.new_job_add_choose_option_item input[type="radio"] {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.new_job_add_choose_form_item {
+    border-bottom: 1px solid #ddd;
+    padding: 30px 0; 
+}
+
+select.select_move_area {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.new_job_add_choose_form_item .select_move_area {
+    float: left;
+    width: 46%;
+    margin: 2%;
+    margin-top: 0;
+    padding: 20px;
+    font-size: 17px;
+    color: #444;
 }

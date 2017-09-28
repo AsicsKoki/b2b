@@ -14,8 +14,7 @@
 
 			<div class="login_register_container">
 				<form action="{{ route('postCompanyRegister') }}" method="POST" class="login_reg_form company_registration_form">
-
-					<div class="first_part_companies_reg">
+				<div class="first_part_companies_reg">
 
 						<div class="login_reg_form_item">
 							<p class="form_title">Country</p>
@@ -28,24 +27,21 @@
 						<div class="login_reg_form_item">
 							<p class="form_title">Your company / organisation is:</p>
 							<div class="company_type_form_section">
-								<label for="private_company">
-									<span>Private</span>
-									<input type="radio" value="1" name="company_registration" id="private_company">
-								</label>
-								<label for="government_company"><span>Government / municipal</span><input type="radio" value="0" name="company_registration" id="government_company"></label>
+								<label for="private_company"><span>Private</span><input type="radio" name="company_type" value="0" id="private_company"></label>
+								<label for="government_company"><span>Government / municipal</span><input type="radio" name="company_type" value="1" id="government_company"></label>
 							</div>
 						</div>
 
 						<div class="login_reg_form_item">
 							<p class="form_title">EIK / BULSTAT</p>
-							<input type="text" name="pib" id="" name="">
+							<input type="text" id="" name="">
 						</div>
 
 						<div class="login_reg_form_item">
 							<p class="form_title">Does your company/organization have a VAT registration?</p>
 							<div class="company_type_form_section">
-								<label for="company_organization_yes"><span>Yes</span><input type="radio" value="1" name="has_vat" id="company_organization_yes"></label>
-								<label for="company_organization_no"><span>No</span><input type="radio" value="0" name="has_vat" id="company_organization_no"></label>
+								<label for="company_organization_yes"><span>Yes</span><input type="radio" name="has_vat" value="1" id="company_organization_yes"></label>
+								<label for="company_organization_no"><span>No</span><input type="radio" name="has_vat" value="0" id="company_organization_no"></label>
 							</div>
 						</div>
 
@@ -66,17 +62,17 @@
 						<div class="login_reg_form_item">
 							<p class="">Please, fill in the name of the company as stated in the Trade Register, including the corresponding type of business ownership (Sole Proprietorship/ LTD/PLC, etc.):</p>
 							<p class="form_title">Company name (in Serbian):</p>
-							<input name="name" type="text">
+							<input name="company_name" type="text">
 							<p class="form_title">Company name (in foreign language):</p>
 							<input name="foreign_name" type="text">
 							<p class="form_title">Company registered office:</p>
-							<input name="address" type="text">
+							<input name="company_registered_office" type="text">
 						</div>
 
 						<div class="login_reg_form_item form_smaller_text">
 							<p class="form_title">Company type:</p>
 							<div class="company_type_form_section">
-								<label for="company_type_org_companies"><span>	Companies / Organizations</span><input type="radio" value="0" name="company_type" id="company_type_org_companies">
+								<label for="company_type_org_companies"><span>	Companies / Organizations</span><input type="radio" name="company_type" value="0" id="company_type_org_companies">
 								<small>(Companies looking for employers)</small></label>
 
 								<label for="company_type_hr_consultan"><span>HR Agencies/Consultancy companies, temp agencies </span><input type="radio" name="company_type" value="1" id="company_type_hr_consultan"><small>(with fully free services for candidates)</small></label>
@@ -84,7 +80,7 @@
 							
 
 							<p class="form_title">Business sector:</p>
-							<select id="business_sector_select" name="sector" size="5">
+							<select class="selectSector select_move_area" size="5">
 							     <option value="3">Rose Tremain</option>
 							     <option value="4">Jonathan Coe</option>           
 							     <option value="5">Cecilia Ahern</option>
@@ -97,18 +93,17 @@
 							     <option value="12">Dan-Silviu Boerescu</option>
 							</select>
 
-							<ul class="business_sector_selected_items">
-								<li></li>
-							</ul>
+							<select class="selectSectorSelected select_move_area" name="sector" size="5">
+							</select>
 
 							<p class="form_title">Company website:</p>
-							<input name="website" type="text">
+							<input name="company_website" type="text">
 
 							<p class="form_title">Company phone:</p>
-							<input name="phone" type="text">
+							<input name="company_phone" type="text">
 
 							<p class="form_title">Address:</p>
-							<input name="address" type="text">
+							<input name="company_address" type="text">
 							
 							<p class="form_title">Administrative information:</p>
 							<p>This information is required in order to verify the authenticity of the registration and IS NOT PUBLISHED on the website. Upon posting one or more job ads, an administrator of Jobs.bg will contact you by phone in order to verify the registration.</p>
@@ -125,14 +120,14 @@
 							<input name="position" type="text"> 
 
 							<p class="form_title">Business phone:</p>
-							<input name="phone" type="text">
+							<input name="business_phone" type="text">
 
 							<p class="form_title">Business email:</p>
-							<input name="email" type="text">
+							<input name="business_email" type="text">
 
 							<small style="margin-bottom: 10px;display: inline-block;">An email to confirm your registration request will be sent to the designated company email)</small>
 							
-							<label for="weekly_jobs_newsletter"><input type="checkbox" value="1" name="newsletter" id="weekly_jobs_newsletter"> I would like to receive the weekly jobs.bg/economy.bg newsletter</label>
+							<label for="weekly_jobs_newsletter"><input type="checkbox" name="newsletter" id="weekly_jobs_newsletter"> I would like to receive the weekly jobs.bg/economy.bg newsletter</label>
 
 							<p class="form_title">Please select your log-in username:</p>
 
@@ -143,16 +138,16 @@
 							<input name="password" type="password" style="width: calc(100% - 30px);">
 
 							<p class="form_title">Confirm password:</p>
-							<input name="repeat_password" type="password" style="width: calc(100% - 30px);">
+							<input name="password" type="password" style="width: calc(100% - 30px);">
 						</div>
 
 						<div class="login_reg_form_item">
 							<p class="form_title">Are you the authorized person in your company whom our administrators can contact about registration confirmation, job ads verification, financial or other issues?</p>
 
-							<label for="" style="display: inline-block; margin-right: 10px;"><span>Yes</span> <input type="radio" value="1" name="authorized_person" id="" value=" Yes">
+							<label for="" style="display: inline-block; margin-right: 10px;"><span>Yes</span> <input type="radio" name="authorized_person" value="1">
 							</label>
 
-							<label for="" style="display: inline-block;"><span>No</span> <input type="radio" value="0" name="is_manager" id="" class="no_authorized_checkbox" value="No"></label>
+							<label for="" style="display: inline-block;"><span>No</span> <input type="radio" name="authorized_person" class="no_authorized_checkbox" value="0"></label>
 							
 
 							
@@ -194,7 +189,7 @@
 							<input name="manager_last_name" type="text">
 
 							<p class="form_title">Position:</p>
-							<input name="position" type="text">
+							<input name="manager_position" type="text">
 
 							<p class="form_title">Business phone:</p>
 							<input name="manager_phone" type="text">
@@ -222,11 +217,11 @@
 							</div>
 
 							<p class="form_title">Enter key:</p>
-							<input name="key" type="text">
+							<input type="text">
 						</div>
 						 {{ csrf_field() }}
 						<div class="login_reg_form_item login_reg_form_submit">
-							<input type="submit" name="submit" value="Create account">
+							<input type="submit" value="Create account">
 						</div>
 					</div>
 				</form>
