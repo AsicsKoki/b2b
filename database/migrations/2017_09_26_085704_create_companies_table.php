@@ -34,6 +34,11 @@ class CreateCompaniesTable extends Migration {
 			$table->string('manager_position', 100);
 			$table->string('manager_phone', 100);
 			$table->string('manager_email', 100);
+			$table->string('administrative_contact_first_name', 100);
+			$table->string('administrative_contact_last_name', 100);
+			$table->string('administrative_contact_position', 100);
+			$table->string('administrative_contact_business_phone', 100);
+			$table->string('administrative_contact_business_email', 100);
 			$table->string('key', 100);
 			$table->boolean('active');
 			$table->rememberToken();

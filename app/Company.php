@@ -44,6 +44,11 @@ class Company extends Authenticatable
         'key', 
         'active', 
         'has_vat',
+        'administrative_contact_first_name',
+        'administrative_contact_last_name',
+        'administrative_contact_position',
+        'administrative_contact_business_phone',
+        'administrative_contact_business_email',
     ];
 
     /**

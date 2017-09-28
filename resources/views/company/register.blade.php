@@ -164,19 +164,19 @@
 								<br>
 							
 								<p class="form_title">First Name:</p>
-								<input name="first_name" type="text">
+								<input name="administrative_contact_first_name" type="text">
 
 								<p class="form_title">Last Name:</p>
-								<input name="last_name" type="text">
+								<input name="administrative_contact_last_name" type="text">
 
 								<p class="form_title">Position:</p>
-								<input name="position" type="text">
+								<input name="administrative_contact_position" type="text">
 
 								<p class="form_title">Business phone:</p>
-								<input name="business_phone" type="text">
+								<input name="administrative_contact_business_phone" type="text">
 
 								<p class="form_title">Business email:</p>
-								<input name="business_email" type="email" style="width: calc(100% - 30px)";>	
+								<input name="administrative_contact_business_email" type="email" style="width: calc(100% - 30px)";>	
 							</div>
 
 						</div>
