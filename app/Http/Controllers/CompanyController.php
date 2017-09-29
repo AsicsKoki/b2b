@@ -102,6 +102,21 @@ class CompanyController extends Controller {
         return view('company.step-2');
     }
 
+    public function store(Request $request)
+    {
+
+    // get current time and append the upload file extension to it,
+    // then put that name to $photoName variable.
+    $photoName = time().'.'.$request->company_logo->getClientOriginalExtension();
+
+    /*
+    talk the select file and move it public directory and make avatars
+    folder if doesn't exsit then give it that unique name.
+    */
+    $request->user_photo->move(public_path('photos'), $photoName);
+
+    }
+
     public function getRegisterStep3()
     {
         return view('company.step-3');
