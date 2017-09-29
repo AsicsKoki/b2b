@@ -91,6 +91,9 @@ class CompanyController extends Controller {
     $company->save();
         return $company->toArray();
     }
-
+    public function getControlPanel()
+    {
+        return view('company.panel');
+    }
 
 }
