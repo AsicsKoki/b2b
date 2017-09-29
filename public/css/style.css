@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: open_sans_regular;
-    src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+    src: url('{{ public_path('fonts/Open_Sans/OpenSans-Regular') }}');
 }
 
 @font-face {
     font-family: open_sans_bold;
-    src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+    src: url('{{ public_path('fonts/Open_Sans/OpenSans-Bold') }}');
 }
 
 body {
