@@ -89,11 +89,22 @@ class CompanyController extends Controller {
     ]);
     $company = new Company(Input::all());
     $company->save();
-        return $company->toArray();
+        return redirect()->route('postCompanyRegisterStep2');
     }
+
     public function getControlPanel()
     {
         return view('company.panel');
+    }
+
+    public function getRegisterStep2()
+    {
+        return view('company.step-2');
+    }
+
+    public function getRegisterStep3()
+    {
+        return view('company.step-3');
     }
 
 }
