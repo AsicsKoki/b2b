@@ -88,7 +88,7 @@ class CompanyController extends Controller {
 
     ]);
     $company = new Company(Input::all());
-    // $company->save();
+    $company->save();
         return $company->toArray();
     }
 
