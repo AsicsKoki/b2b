@@ -1,28 +1,28 @@
 * {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 @font-face {
     font-family: open_sans_regular;
-    src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
+    src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
 }
 
 @font-face {
     font-family: open_sans_bold;
-    src: url('../fonts/Open_Sans/OpenSans-Bold.ttf');
+    src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
 }
 
 body {
-	font-family: open_sans_regular;
-	color: #444;
+    font-family: open_sans_regular;
+    color: #444;
 }
 
 
 .cf:before,
 .cf:after {
-    content: " "; 
-    display: table; 
+    content: " ";
+    display: table;
 }
 
 .cf:after {
@@ -34,7 +34,7 @@ body {
 }
 
 .center {
-	text-align: center;
+    text-align: center;
 }
 
 .none {
@@ -46,12 +46,12 @@ body {
 }
 
 a {
-	text-decoration: none;
-	-webkit-transition: all .2s ease;
-	-moz-transition: all .2s ease;
-	-ms-transition: all .2s ease;
-	-o-transition: all .2s ease;
-	transition: all .2s ease;
+    text-decoration: none;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
 }
 
 textarea {
@@ -71,43 +71,43 @@ textarea {
 }
 
 .main_header_top {
-	padding: 10px 30px;
+    padding: 10px 30px;
 }
 
 .main_header_bottom {
-	background: #ff5c5c;
-	padding: 10px 30px;
+    background: #ff5c5c;
+    padding: 10px 30px;
 }
 
 .logo_header_holder {
-	float: left;
-	width: 150px;
-	margin-right: 30px;
+    float: left;
+    width: 150px;
+    margin-right: 30px;
 }
 
 .logo_header_holder img {
-	width: 100%;
+    width: 100%;
 }
 
 .main_nav {
-	float: left;
-	font-size: 17px;
-	margin-top: 34px;
-	font-family: open_sans_bold;
+    float: left;
+    font-size: 17px;
+    margin-top: 34px;
+    font-family: open_sans_bold;
 }
 
 .main_nav li {
-	float: left;
-	list-style: none;
-	margin-right: 10px;
+    float: left;
+    list-style: none;
+    margin-right: 10px;
 }
 
 .main_nav a {
-	color: #000;
+    color: #000;
 }
 
 .main_nav a:hover {
-	color: #ff5c5c;
+    color: #ff5c5c;
 }
 
 .main_header_reg_lang_menu {
@@ -116,33 +116,33 @@ textarea {
 }
 
 .main_header_reg_lang_menu_content {
-	float: right;
-	padding-right: 20px;
+    float: right;
+    padding-right: 20px;
 }
 
 .header_login_reg_holder {
-	float: left;
-	font-size: 14px;
-	font-family: open_sans_bold;
-	border-right: 1px solid #8c8b85;
+    float: left;
+    font-size: 14px;
+    font-family: open_sans_bold;
+    border-right: 1px solid #8c8b85;
 }
 
 .header_login_reg_holder li {
-	float: left;
-	list-style: none;
-	margin-right: 10px;
+    float: left;
+    list-style: none;
+    margin-right: 10px;
 }
 
 .header_login_reg_holder a {
-	color: #828282;
+    color: #828282;
 }
 
 .header_login_reg_holder .fa {
-	color: #545454;
+    color: #545454;
 }
 
 .header_login_reg_holder a:hover {
-	color: #ff5c5c;
+    color: #ff5c5c;
 }
 
 .choose_lang_header {
@@ -152,31 +152,31 @@ textarea {
 }
 
 .choose_lang_header li {
-	float: left;
-	list-style: none;
+    float: left;
+    list-style: none;
 }
 
 .choose_lang_header li:first-of-type {
-	margin-right: 2px;
+    margin-right: 2px;
 }
 
 .choose_lang_header a {
-	display: block;
-	width: 20px;
-	font-size: 0;
+    display: block;
+    width: 20px;
+    font-size: 0;
 }
 
 .choose_lang_header img {
-	width: 100%;
+    width: 100%;
 }
 
 .main_header_bottom_left {
-	float: left;
+    float: left;
 }
 
 .main_header_bottom_left a, .main_header_bottom_right a {
-	color: #fff;
-	font-family: open_sans_bold;	
+    color: #fff;
+    font-family: open_sans_bold;
 }
 
 .main_header_bottom_left a span, .main_header_bottom_right a span {
@@ -185,22 +185,22 @@ textarea {
 }
 
 .main_header_bottom_right {
-	float: right;
+    float: right;
 }
 
 .main_app_container {
-	padding: 0 20px;
-	max-width: 1160px;
-	margin: auto;
-	margin-bottom: 50px;
-	line-height: 1.4;
-	font-size: 17px;
+    padding: 0 20px;
+    max-width: 1160px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 1.4;
+    font-size: 17px;
 }
 
 .home_search_job {
-	margin-top: 50px;
-	padding: 20px;
-	background: #efefef;
+    margin-top: 50px;
+    padding: 20px;
+    background: #efefef;
 }
 
 .home_search_job_item_title {
@@ -211,13 +211,13 @@ textarea {
 }
 
 .home_search_job_form .home_search_job_item {
-	position: relative;
-	float: left;
-	width: 50%;
+    position: relative;
+    float: left;
+    width: 50%;
 }
 
 .home_search_job_form > .home_search_job_item:first-of-type {
-	margin-right: 2%;
+    margin-right: 2%;
 }
 
 .options_checkbox {
@@ -230,12 +230,12 @@ textarea {
     background: #fff;
     border: 1px solid #ccc;
     overflow-y: scroll;
-    z-index: 1;	
+    z-index: 1;
 }
 
 .options_checkbox label {
-	display: block;
-	padding: 10px;
+    display: block;
+    padding: 10px;
 }
 
 .job_category .job_search_option_triger {
@@ -259,31 +259,31 @@ textarea {
 }
 
 .job_search_option_triger.open .fa-angle-down {
-	display: none;
+    display: none;
 }
 
 .job_search_option_triger .fa-angle-up {
-	display: none;
+    display: none;
 }
 
 .job_search_option_triger.open .fa-angle-up {
-	display: block;
+    display: block;
 }
 
 
 .home_search_job_item.search_job_filters_item {
-	width: auto;
-	margin-right: 20px;
+    width: auto;
+    margin-right: 20px;
 }
 
 .home_search_job_item.search_job_filters_item p.job_search_option_triger {
-	width: auto;
-	padding: 0 45px 0 15px;
-	text-indent: 0;
+    width: auto;
+    padding: 0 45px 0 15px;
+    text-indent: 0;
 }
 
 p.job_search_option_triger {
-	position: relative;
+    position: relative;
     width: 100%;
     border: 1px solid #ccc;
     line-height: 42px;
@@ -310,8 +310,8 @@ p.job_search_option_triger {
 }
 
 .filter_search_triger .fa {
-	position: absolute;
-	left: 10px;
+    position: absolute;
+    left: 10px;
     line-height: 1;
     vertical-align: bottom;
     font-size: 20px;
@@ -320,20 +320,20 @@ p.job_search_option_triger {
 }
 
 .filter_search_triger .fa-sort-desc {
-	top: 5px;
+    top: 5px;
 }
 
 .filter_search_triger.open .fa-sort-desc {
-	display: none;
+    display: none;
 }
 
 .filter_search_triger.open .fa-sort-asc {
-	top: 13px;
-	display: block;
+    top: 13px;
+    display: block;
 }
 
 .filter_search_triger .fa-sort-asc{
-	display: none;
+    display: none;
 }
 
 .search_job_filters_holder {
@@ -343,9 +343,9 @@ p.job_search_option_triger {
 }
 
 .btn_job_search_home_submit {
-	text-align: center;
-	float: right;
-	margin: 20px 0;
+    text-align: center;
+    float: right;
+    margin: 20px 0;
 }
 
 .btn_job_search_home_submit button {
@@ -369,9 +369,9 @@ p.job_search_option_triger {
 }
 
 .home_top_employers_grid li {
-	float: left;
-	list-style: none;
-	width: 20%;
+    float: left;
+    list-style: none;
+    width: 20%;
 }
 
 .home_top_employers_grid li a {
@@ -382,23 +382,23 @@ p.job_search_option_triger {
 }
 
 .home_top_employers_grid li img {
-	width: 95%;
+    width: 95%;
 }
 
 .section_title {
-	font-size: 23px;
+    font-size: 23px;
     font-family: open_sans_bold;
     margin-bottom: 20px;
     color: #444;
 }
 
 .section_title span {
-	border-bottom: 2px solid #ff5c5c;
+    border-bottom: 2px solid #ff5c5c;
 }
 
 .login_reg_form {
-	max-width: 600px;
-	margin: auto;
+    max-width: 600px;
+    margin: auto;
 }
 
 .login_reg_form_item label {
@@ -432,8 +432,8 @@ p.job_search_option_triger {
 }
 
 .forgot_pass_link {
-	margin-top: 20px;
-	text-align: center;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .forgot_pass_link a {
@@ -458,11 +458,11 @@ a.login_reg_form_change_option {
 }
 
 .main_footer {
-	position: relative;
-	bottom: 0;
-	left: 0;
-	right: 0;	
-	background: #444;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #444;
 }
 
 .copyrigts {
@@ -474,15 +474,15 @@ a.login_reg_form_change_option {
 }
 
 .login_reg_template .main_footer {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .footer_menu {
-	padding: 10px 0;
-	text-align: center;
+    padding: 10px 0;
+    text-align: center;
 }
 
 .footer_menu li {
@@ -494,22 +494,22 @@ a.login_reg_form_change_option {
 }
 
 .footer_menu li:first-of-type {
-	border-left: 1px solid #fff;
-	padding-left: 10px;
-	margin-left: 10px;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+    margin-left: 10px;
 }
 
 .footer_menu a {
-	color: #fff;
+    color: #fff;
 }
 
 .terms_register_content {
     margin-top: 30px;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .terms_register_content_item {
-	margin-top: 30px;
+    margin-top: 30px;
 }
 
 .terms_register_content_item .terms_register_content_item_title {
@@ -518,18 +518,18 @@ a.login_reg_form_change_option {
 }
 
 .terms_register_content_item .terms_register_content_item_title p {
-	display: inline-block;
-	border-bottom: 2px solid #ff5c5c;
-    margin-left: 0;	
+    display: inline-block;
+    border-bottom: 2px solid #ff5c5c;
+    margin-left: 0;
 }
 
 .terms_register_content_item p {
-	margin-left: 40px;
-	margin-bottom: 10px;
+    margin-left: 40px;
+    margin-bottom: 10px;
 }
 
 .terms_register_content_item p span {
-	font-family: open_sans_bold;
+    font-family: open_sans_bold;
 }
 
 .register_terms_confirmation button {
@@ -540,7 +540,7 @@ a.login_reg_form_change_option {
     font-size: 15px;
     border-radius: 5px;
     margin-left: 10px;
-    margin-bottom: 20px;	
+    margin-bottom: 20px;
 }
 
 .login_reg_form_item select{
@@ -552,22 +552,22 @@ a.login_reg_form_change_option {
 }
 
 .company_registration_form .login_reg_form_item label{
-	display: inline-block;
-	margin-bottom: 0;
+    display: inline-block;
+    margin-bottom: 0;
 }
 
 .company_registration_form .login_reg_form_item input[type="text"] {
-	width: calc(100% - 30px);
+    width: calc(100% - 30px);
 }
 
 .login_reg_form_item label span {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 .login_reg_form_item label input[type="radio"] {
-	margin-left: 8px;
-	margin-bottom: 0;
-	vertical-align: middle;
+    margin-left: 8px;
+    margin-bottom: 0;
+    vertical-align: middle;
 }
 
 .company_registration_form .login_reg_form_item {
@@ -577,7 +577,7 @@ a.login_reg_form_change_option {
 }
 
 .company_registration_form .login_reg_form_item input {
-	width: auto;
+    width: auto;
 }
 
 .form_title {
@@ -586,15 +586,15 @@ a.login_reg_form_change_option {
 }
 
 .company_type_form_section label {
-	margin: 0 10px;
+    margin: 0 10px;
 }
 
 .company_type_form_section label:first-of-type {
-	margin-left: 0;
+    margin-left: 0;
 }
 
 .company_registration_form .login_reg_form_submit {
-	border-bottom: none;
+    border-bottom: none;
 }
 
 .company_registration_form .form_smaller_text label {
@@ -605,8 +605,8 @@ a.login_reg_form_change_option {
 }
 
 .company_registration_form .form_smaller_text label small {
-	display: block;
-	color: #888;	
+    display: block;
+    color: #888;
 }
 
 .popup_confirmation_register {
@@ -618,7 +618,7 @@ a.login_reg_form_change_option {
     bottom: 0;
     background: rgba(255, 255, 255, 0.95);
 }
- 
+
 .popup_confirmation_register_content {
     background: #fff;
     max-width: 600px;
@@ -778,10 +778,9 @@ a.login_reg_form_change_option {
   border-bottom: 1px solid #fff;
 }
 
-.tabs_job_offers #tab1:checked ~ #content1,
-.tabs_job_offers #tab2:checked ~ #content2,
-.tabs_job_offers #tab3:checked ~ #content3,
-.tabs_job_offers #tab4:checked ~ #content4 {
+.tabs_job_offers #job_offers1:checked ~ #con1,
+.tabs_job_offers #job_offers2:checked ~ #con2,
+.tabs_job_offers #job_offers3:checked ~ #con3 {
   display: block;
 }
 
@@ -836,20 +835,101 @@ p.tab_title {
 
 .new_job_add_choose_form_item {
     border-bottom: 1px solid #ddd;
-    padding: 30px 0; 
+    padding: 30px 0;
+}
+/* companies-prfile.html */
+.company_profile_content {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+.companies_profile_input {
+      display: none;
+}
+.companies_profile_label {
+    display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
 }
 
-select.select_move_area {
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
+.companies_profile_label:hover {
+  color: #888;
+  cursor: pointer;
 }
 
-.new_job_add_choose_form_item .select_move_area {
-    float: left;
-    width: 46%;
-    margin: 2%;
-    margin-top: 0;
-    padding: 20px;
-    font-size: 17px;
-    color: #444;
+.companies_profile_input:checked + .companies_profile_label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #FF5C5C;
+  border-bottom: 1px solid #fff;
+}
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5 {
+  display: block;
+}
+@media screen and (max-width: 650px) {
+  .companies_profile_label {
+    font-size: 0;
+  }
+.companies_profile_label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+ .companies_profile_label {
+    padding: 15px;
+  }
+}
+.company_profile_hr {
+    background: #ff5c5c;
+    height: 5px;
+}
+.company_questionnaire_options {
+    display: block;
+        text-align: right;
+        padding: 0px 10px;
+}
+.company_questionnaire_title {
+    margin-top: 20px;
+font-weight: bold;
+}
+.company_questionnaire_inputs {
+    display:block;
+}
+.company_questionnaire_edit {
+    display: none;
+}
+.listRow {
+    border-bottom:1px solid #cccccc;padding:10px 0px 10px 5px;
+}
+.pageSubTitle {
+    margin-bottom: 50px;
+}
+.business_card_edit {
+    background: #ff5c5c;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    padding: 10px;
+}
+
+.business_card_company_button {
+    height: 40px;
+    width: 200px;
+    border-radius: 7px;
+    background: #19d351;
+}
+
+.main_menu_user_profile_holder {
+    margin: 50px 0;
 }
