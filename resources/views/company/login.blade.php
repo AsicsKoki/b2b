@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<h1 class="page_title">Companie Log in</h1>
+<h1 class="page_title">Company Log in</h1>
 
 <main class="main_app_container">
 <div class="login_register_container">
