@@ -100,8 +100,7 @@ class CompanyController extends Controller {
     public function getRegisterStep2()
     {
         $id = Input::get('id');
-        return $id;
-        return view('company.step-2');
+        return view('company.step-2', ['id' => $id]);
     }
 
     public function postRegisterStep2(Request $request)
@@ -112,11 +111,14 @@ class CompanyController extends Controller {
     $photoName = time().'.'.$request->company_logo->getClientOriginalExtension();
 
     /*
-    talk the select file and move it public directory and make avatars
-    folder if doesn't exsit then give it that unique name.
+        talk the select file and move it public directory and make avatars
+        folder if doesn't exsit then give it that unique name.
     */
     $request->user_photo->move(public_path('photos'), $photoName);
 
+    $image = new Image;
+    $image->company_id = $id;
+    $image->path = 'public/photos/' . $photoName;
     return redirect()->route('getCompanyRegisterStep3');
 
     }
