@@ -89,7 +89,7 @@ class CompanyController extends Controller {
     ]);
     $company = new Company(Input::all());
     $company->save();
-        return redirect()->route('postCompanyRegisterStep2');
+    return redirect()->route('getCompanyRegisterStep2', ['id' => $company->id]);
     }
 
     public function getControlPanel()
@@ -99,10 +99,12 @@ class CompanyController extends Controller {
 
     public function getRegisterStep2()
     {
+        $id = Input::get('id');
+        return $id;
         return view('company.step-2');
     }
 
-    public function store(Request $request)
+    public function postRegisterStep2(Request $request)
     {
 
     // get current time and append the upload file extension to it,
@@ -114,6 +116,8 @@ class CompanyController extends Controller {
     folder if doesn't exsit then give it that unique name.
     */
     $request->user_photo->move(public_path('photos'), $photoName);
+
+    return redirect()->route('getCompanyRegisterStep3');
 
     }
 

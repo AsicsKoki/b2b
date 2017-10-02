@@ -57,5 +57,6 @@ Route::post('/companyLogin', 'CompanyController@postLogin')->name('postCompanyLo
 Route::get('/companyRegister', 'CompanyController@getRegister')->name('getCompanyRegister');
 Route::post('/companyRegister', 'CompanyController@postRegister')->name('postCompanyRegister');
 Route::get('/companyRegister-Step-2', 'CompanyController@getRegisterStep2')->name('getCompanyRegisterStep2');
+Route::post('/companyRegister-Step-2', 'CompanyController@postRegisterStep2')->name('postCompanyRegisterStep2');
 Route::get('/companyRegister-Step-3', 'CompanyController@getRegisterStep3')->name('getCompanyRegisterStep3');
 
