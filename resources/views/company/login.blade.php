@@ -1,9 +1,8 @@
 @extends('layouts.master')
 
-<h1 class="page_title">Companie Log in</h1>
+
 
 @section('content')
-
 <div class="login_register_container">
 	<form action="" method="" class="login_reg_form">
 		<div class="login_reg_form_item">
