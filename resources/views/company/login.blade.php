@@ -2,7 +2,9 @@
 
 
 
+
 @section('content')
+<main class="main_app_container">
 <div class="login_register_container">
 	<form action="" method="" class="login_reg_form">
 		<div class="login_reg_form_item">
@@ -26,4 +28,5 @@
 		<a href="register-terms.html" class="login_reg_form_change_option">Crate account</a>
 	</form>
 </div>
+</main>
 @endsection

@@ -17,11 +17,8 @@
 
     <div class="app_holder">
         @include('layouts.header')
-        <main class="main_app_container">
         @yield('content')
-        </main>
     </div>
-     
      @include('layouts.footer')
     <script src="{{ asset('js/custom.js') }}"></script>
 
