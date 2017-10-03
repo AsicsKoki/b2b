@@ -24,32 +24,32 @@
 		<div class="office_out_country_section none">
 			<div class="office_out_country_section_item">
 				<p class="form_title">Main activity:</p>
-				<textarea name="" id="" cols="30" rows="10" style="width: 100%" placeholder="Short description of the company’s main activity, up to 250 characters"></textarea>
+				<textarea name="main_activity" id="" cols="30" rows="10" style="width: 100%" placeholder="Short description of the company’s main activity, up to 250 characters"></textarea>
 			</div>
 
 			<div class="office_out_country_section_item">
 				<p class="form_title">Founded in:</p>
-				<input type="text">
+				<input name="founded_in" type="text">
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Started operations in Bulgaria in:</p>
-				<input type="text">
+				<input name="" type="text">
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Number of employees in Bulgaria:</p>
-				<input type="text">		
+				<input name="" type="text">		
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Locations in Bulgaria:</p>
-				<input type="text" placeholder="Cities where the company has offices/facilities">		
+				<input name="" type="text" placeholder="Cities where the company has offices/facilities">		
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Number of employees worldwide</p>
-				<input type="text">		
+				<input name="" type="text">		
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
