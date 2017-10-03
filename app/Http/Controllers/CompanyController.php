@@ -128,4 +128,9 @@ class CompanyController extends Controller {
         return view('company.step-3');
     }
 
+    public function addNewJob()
+    {
+        return view('company.new-job-add.blade.php');
+    }
+
 }
