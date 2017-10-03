@@ -89,6 +89,7 @@
 		</div>
 
 		<div class="office_out_country_section_item" style="text-align: center;">
+			{{ csrf_field() }}
 			<input type="submit" value="Upload" class="btn_submit">
 			<button class="cancel_btn">Cancle</button>
 		</div>

@@ -75,18 +75,6 @@ class CompanyController extends Controller {
         'position'                                 => 'required',
         'business_phone'                           => 'required',
         'business_email'                           => 'required',
-        // 'manager_first_name'                       => 'required',
-        // 'manager_last_name'                        => 'required',
-        // 'manager_position'                         => 'required',
-        // 'manager_phone'                            => 'required',
-        // 'manager_email'                            => 'required',
-        // 'administrative_contact_first_name'        => 'required',
-        // 'administrative_contact_last_name'         => 'required',
-        // 'administrative_contact_position'          => 'required',
-        // 'administrative_contact_business_phone'    => 'required',
-        // 'administrative_contact_business_email'    => 'required',
-
-
     ]);
     $company = new Company(Input::all());
     $company->save();
@@ -120,13 +108,13 @@ class CompanyController extends Controller {
     $image->company_id = Input::get('id');
     $image->path = 'public/photos/' . $photoName;
     $image->save();
-    return redirect()->route('getCompanyRegisterStep3');
+    return redirect()->route('getCompanyRegisterStep3', ['id' => Input::get('id')]);
 
     }
 
     public function getRegisterStep3()
     {
-        return view('company.step-3');
+        return view('company.step-3',['id' => Input::get('id')]);
     }
 
     public function getNewJob()
