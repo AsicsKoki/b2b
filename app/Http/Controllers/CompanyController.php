@@ -130,7 +130,7 @@ class CompanyController extends Controller {
 
     public function getNewJob()
     {
-        return view('company.new-job-add.blade.php');
+        return view('company.new-job-add');
     }
 
 }
