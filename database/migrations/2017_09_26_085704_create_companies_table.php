@@ -19,7 +19,7 @@ class CreateCompaniesTable extends Migration {
 			$table->string('pib', 100);
 			$table->string('foreign_name', 100);
 			$table->string('company_type', 100);
-			$table->string('has_vat', 100);
+			$table->string('has_vat', 100)->default('0');
 			$table->string('sector', 100);
 			$table->string('company_registered_office', 100);
 			$table->string('company_website', 100);
@@ -30,9 +30,9 @@ class CreateCompaniesTable extends Migration {
 			$table->string('position', 100);
 			$table->string('business_phone', 100);
 			$table->string('business_email', 100);
-			$table->string('newsletter', 100);
+			$table->string('newsletter', 100)->default('0');
 			$table->string('username', 100);
-			$table->string('authorized_person', 100);
+			$table->string('authorized_person', 100)->default('0');
 			$table->string('manager_first_name', 100)->nullable();
 			$table->string('manager_last_name', 100)->nullable();
 			$table->string('manager_position', 100)->nullable();

@@ -28,10 +28,6 @@ class Company extends Authenticatable
         'company_registered_office',
         'company_type',
         'sector',
-        'newsletter',
-        'authorized_person',
-        // 'key',
-        'has_vat',
         'company_website',
         'company_phone',
         'company_address',
@@ -60,4 +56,9 @@ class Company extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function image()
+    {
+    	return $this->hasMany('App\Image');
+    }
 }

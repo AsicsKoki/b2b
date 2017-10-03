@@ -16,9 +16,11 @@
 
 				<div class="upload_profile_photo">
 					<p class="" style="margin-bottom: 15px;">The logo should be in this formats: .jpg, .gif or .png</p>
-					<form action="{{ route('getCompanyRegisterStep2') }}" method="POST">
+					<form action="{{ route('getCompanyRegisterStep2') }}" method="POST" enctype="multipart/form-data">
+					{{Form::open(array('route' => 'getCompanyRegisterStep2','method'=>'POST', 'files'=>true))}}
 						<input type="file" name="company_logo">
 						<input type="hidden" name="id" value="{{$id}}">
+						{{ csrf_field() }}
 						<input type="submit" value="Upload" class="btn_submit">
 					</form>
 				</div>

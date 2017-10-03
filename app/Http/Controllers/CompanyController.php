@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Company as Company;
+use App\Image as Image;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class CompanyController extends Controller {
@@ -114,11 +115,11 @@ class CompanyController extends Controller {
         talk the select file and move it public directory and make avatars
         folder if doesn't exsit then give it that unique name.
     */
-    $request->user_photo->move(public_path('photos'), $photoName);
-
+    $request->company_logo->move(public_path('photos'), $photoName);
     $image = new Image;
-    $image->company_id = $id;
+    $image->company_id = Input::get('id');
     $image->path = 'public/photos/' . $photoName;
+    $image->save();
     return redirect()->route('getCompanyRegisterStep3');
 
     }
