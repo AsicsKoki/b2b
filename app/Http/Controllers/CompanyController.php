@@ -1,12 +1,13 @@
 <?php namespace App\Http\Controllers;
 
-use Auth;
+use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Company as Company;
 use App\Image as Image;
 use App\BusinessCard as BusinessCard;
+use Illuminate\Support\Facades\Hash as Hash;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class CompanyController extends Controller {
@@ -30,11 +31,13 @@ class CompanyController extends Controller {
 
     public function authenticate()
     {
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        $username = Input::get('username');
+        $password = Input::get('password');
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
             // Authentication passed...
-            return redirect()->intended('/');
+            return redirect()->route('getControlPanel');
         } else {
-            return redirect()->back();
+            return Hash::make(Input::get('password'));
         }
     }
 
@@ -44,10 +47,10 @@ class CompanyController extends Controller {
         return view('company.profile');
     }
 
-    public function postLogin()
-    {
-        return '123';
-    }
+    // public function postLogin()
+    // {
+    //     return '123';
+    // }
 
     public function postRegister(Request $request)
     {
@@ -78,13 +81,9 @@ class CompanyController extends Controller {
         'business_email'                           => 'required',
     ]);
     $company = new Company(Input::all());
+    $company->password = Hash::make(Input::get('password'));
     $company->save();
     return redirect()->route('getCompanyRegisterStep2', ['id' => $company->id]);
-    }
-
-    public function getControlPanel()
-    {
-        return view('company.panel');
     }
 
     public function getRegisterStep2()
@@ -129,6 +128,11 @@ class CompanyController extends Controller {
     public function getNewJob()
     {
         return view('company.new-job-add');
+    }
+
+    public function getControlPanel()
+    {
+        return view('company.panel');
     }
 
 }
