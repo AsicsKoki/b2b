@@ -6,18 +6,18 @@
 		
 <div class="creating_comp_buisness_card_holder">
 	<p style="text-align: center;">The business card provides the candidates with general information about the company.</p>
-	<form action="" method="" class="creating_comp_buisness_card_form">
+	<form action="{{ route('getCompanyRegisterStep3') }}" method="POST" class="creating_comp_buisness_card_form">
 		<div class="creating_comp_buisness_yes_no_section">
 			<p class="form_title">Does the company have offices/facilities outside of Bulgaria?</p>
 		
 			<label for="office_out_country" style="margin-right: 10px;">
 				Yes
-				<input type="radio" value="yes" name="office_out_country">
+				<input type="radio" value="1" name="office_out_country">
 			</label>
 
 			<label for="office_out_country">
 				No
-				<input type="radio" value="no" name="office_out_country">
+				<input type="radio" value="0" name="office_out_country">
 			</label>
 		</div>
 		
@@ -34,45 +34,45 @@
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Started operations in Bulgaria in:</p>
-				<input name="" type="text">
+				<input name="started_at" type="text">
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Number of employees in Bulgaria:</p>
-				<input name="" type="text">		
+				<input name="number_of_employees_bulgaria" type="text">		
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Locations in Bulgaria:</p>
-				<input name="" type="text" placeholder="Cities where the company has offices/facilities">		
+				<input name="locations_bulgaria" type="text" placeholder="Cities where the company has offices/facilities">		
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Number of employees worldwide</p>
-				<input name="" type="text">		
+				<input name="number_of_employees_worldwide" type="text">		
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Locations worldwide:</p>
-				<input type="text" placeholder="Countries/cities outside of Bulgaria where the company has offices/facilities">		
+				<input type="text" name="locations_worldwide" placeholder="Countries/cities outside of Bulgaria where the company has offices/facilities">		
 			</div>
 
 			<div class="office_out_country_section_item location_comp_reg">
 				<p class="form_title">Number of employees:</p>
-				<input type="text" placeholder="">		
+				<input name="number_of_employees" type="text" placeholder="">		
 			</div>
 
 			<div class="office_out_country_section_item location_comp_reg">
 				<p class="form_title">Locations:</p>
-				<input type="text" placeholder="">		
+				<input name="locations" type="text" placeholder="">		
 			</div>
 
 			<div class="office_out_country_section_item">
 				<p class="form_title">Benefits</p>
 				<p style="margin-bottom: 15px;">The benefits offered by the company are of interest to the candidates. In case your company offers benefits, you can list them here (Sample benefits).</p>
-				<input type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
-				<input type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
-				<input type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">		
+				<input name="benefits[1]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
+				<input name="benefits[2]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
+				<input name="benefits[3]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">		
 
 				<button class="add_more" style="">
 					<i class="fa fa-plus-square" aria-hidden="true"></i>
@@ -83,12 +83,13 @@
 			<div class="office_out_country_section_item">
 				<p class="form_title">Technologies:</p>
 				<p style="margin-bottom: 15px;">If your company uses technologies that you consider are of special interest to the candidates, you can list them here.</p>
-				<input type="text" placeholder="Technologies">		
+				<input name="technologies" type="text" placeholder="Technologies">		
 			</div>
 
 		</div>
 
 		<div class="office_out_country_section_item" style="text-align: center;">
+			<input type="hidden" name="id" value="{{$id}}">
 			{{ csrf_field() }}
 			<input type="submit" value="Upload" class="btn_submit">
 			<button class="cancel_btn">Cancle</button>

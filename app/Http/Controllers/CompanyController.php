@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Company as Company;
 use App\Image as Image;
+use App\BusinessCard as BusinessCard;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class CompanyController extends Controller {
@@ -115,6 +116,14 @@ class CompanyController extends Controller {
     public function getRegisterStep3()
     {
         return view('company.step-3',['id' => Input::get('id')]);
+    }
+
+    public function postRegisterStep3()
+    {
+        $businessCard = new BusinessCard(Input::all());
+        $businessCard->company_id = Input::get('id');
+        $businessCard->save();
+        return redirect()->route('getCompanyLogin');
     }
 
     public function getNewJob()

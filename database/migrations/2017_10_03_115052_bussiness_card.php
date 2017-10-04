@@ -13,7 +13,7 @@ class BussinessCard extends Migration
      */
     public function up()
     {
-       Schema::create('buisness_card', function(Blueprint $table) {
+       Schema::create('business_cards', function(Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
@@ -22,8 +22,13 @@ class BussinessCard extends Migration
             $table->string('founded_in', 100);
             $table->integer('number_of_employees');
             $table->string('locations', 100);
-            $table->string('benefits', 100);
-            $table->string('technologies', 100);
+            $table->string('benefits', 100)->nullable();
+            $table->string('technologies', 100)->nullable();
+            $table->string('office_out_country', 100)->nullable();
+            $table->string('number_of_employees_bulgaria', 100)->nullable();
+            $table->string('locations_bulgaria', 100)->nullable();
+            $table->string('number_of_employees_worldwide', 100)->nullable();
+            $table->string('locations_worldwide', 100)->nullable();
         });
     }
 

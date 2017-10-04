@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BuisnessCard extends Model
+class BusinessCard extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -19,6 +19,20 @@ class BuisnessCard extends Model
         'locations',
         'benefits',
         'technologies',
+        'office_out_country',
+        'number_of_employees_bulgaria',
+        'locations_bulgaria',
+        'number_of_employees_worldwide',
+        'locations_worldwide',
+    ];
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'benefits' => 'array',
     ];
 
     public function company()
