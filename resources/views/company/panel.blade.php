@@ -64,7 +64,7 @@
 
 					</div>
 
-					<a href="new-job-add.html" class="add_more" style="margin-top: 20px;display: inline-block;">
+					<a href="{{ route('addNewJob') }}" href="new-job-add.html" class="add_more" style="margin-top: 20px;display: inline-block;">
 						<i class="fa fa-plus-square" aria-hidden="true"></i>
 						<span>Add new job</span>
 					</a>
