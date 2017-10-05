@@ -78,5 +78,20 @@ $(document).ready(function(){
      return !$('.selectSectorSelected option:selected').remove().appendTo('.selectSector');
     });
 	// End business sector form selection
+
+
+    $('#about_us').click(function() {
+        var about_us = $(this).value(),
+        $.ajax
+        ({ 
+            url: '/updateAboutUs',
+            data: about_us
+            type: 'post',
+            success: function()
+            {
+                
+            }
+        });
+    });
 });
 

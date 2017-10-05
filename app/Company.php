@@ -66,4 +66,9 @@ class Company extends Authenticatable
     {
     	return $this->hasOne('App\BuisnessCard');
     }
+
+    public function ads()
+    {
+    	return $this->hasMany('App\Ad');
+    }
 }
