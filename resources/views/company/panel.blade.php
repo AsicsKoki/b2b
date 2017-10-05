@@ -149,20 +149,20 @@
 	  	</section>
 
 	    <section class="company_profile_content" id="content2">
-
-	    	<h2 class="page_title">Questionnaire</h2>
+			
+			<div class="big_subtitle">
+	    		<h3 class="">Questionnaire</h3>
+	    	</div>
 
 	    	<a href="#" class="add_more" style="margin-bottom: 10px;display: inline-block;"><i class="fa fa-plus" aria-hidden="true"></i>New Questionnaire</a>
 
-		    <p>
-		      Displaying <span>1-1 of 1</span>
-		    </p>
+		    <p>Displaying <span>1-1 of 1</span></p>
 
-	    	<hr class="company_profile_hr" />
+	    	<p id="date">22.2.1999</p>
 
-	    	<p id="date"></p>
-
-	    	<p class="company_questionnaire_title">Sample questionnaire</p>
+	    	<div class="small_subtitle">
+	    		<h3 class="">Questionnaire</h3>
+	    	</div>
 
 	    	<p>questions: 3</p>
 
@@ -211,76 +211,136 @@
 	    </section>
 
 	  	<section class="company_profile_content" id="content3">
+			
+			<div class="company_profile_edit_item">
 
-		   	<h2 class="page_title">Organization Profile</h2> 
+		   		<div class="big_subtitle">
+		   			<h3>Organization Profile</h3>
+		   		</div> 
 
-		   	<a href="#" class="company_questionnaire_options">View Company Profile</a>
-		    <p>You can edit your company profile here. The profile is the place where users expect to find concise and structured details about the company.</p>
+		   		<a href="#" class="company_questionnaire_options">View Company Profile</a>
+		    	<p>You can edit your company profile here. The profile is the place where users expect to find concise and structured details about the company.</p>
 
-		    <br />
+			</div>
 
-		  	<hr />
+			<div class="company_profile_edit_item">
+				<div class="small_subtitle">
+			   		<h3>Company Business Card</h3>
+			   	</div>
 
-		  	<br />
+			   	<small>* The business card provides the candidates with general information about the company.</small>
+				
+				<div class="company_profile_edit_section_view_info">				
+				    <p class="company_profile_edit_section_view_info_title bold">BooProWeb</p>
 
-		   	<h3>Company Business Card</h3>
+				    <p class="company_profile_edit_section_view_info_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
 
-		   	<br />
+				    <div class="company_profile_edit_section_view_info_data">
 
-		   <p>* The business card provides the candidates with general information about the company.</p>
+				    	<p class="edit_section_view_info_data_section">
+				    		<span class="bold">Emplyees:</span> <span>6</span>
+				    	</p>
 
-		   <br />
+				     	<p class="edit_section_view_info_data_section">
+				     		<span class="bold">Location:</span> <span>Serbia</span>
+				     	</p> 
 
-		   <h3>BooProWeb</h3>
+				    </div>
 
-		   <br />
+					<div class="business_card_edit">
+				    	<a href="#" class="">Edit The Business Card</a>
+				    </div>
+			    </div>
+			</div>
 
-		    <small>Emplyees: <span style="font-weight:bold;"> 6</span> Location:<span style="font-weight:bold;">Serbia</span> </small>
+			<div class="company_profile_edit_item">
+				<div class="small_subtitle">
+		   			<h3>Company logo</h3>
+		   		</div> 
+		   		<div class="company_profile_edit_item_logo_img">
+					<img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+				</div>
+			</div>
+			
+			<div class="company_profile_edit_item">
+			  	<div class="new_job_add_choose_form_item new_job_add_cover_photo_section">
+					
+					<div class="add_cover_preview_photo none">
+						<img src="" alt="">	
+					</div>
 
-			<br />
+					<div class="add_cover_btn_input">
+						<input type="file" id="" name="">
+					</div>
 
-		    <button class="business_card_edit">Edit The Business Card</button>
+					<div class="add_cover_btn">
+						<a href="#" class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Add cover</a>
+					</div>
 
-		   <hr />
+					<div class="add_cover_btn add_cover_btn_upload_cancle cf none">
+						<a href="#" class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Upload cover</a>
+						<a href="#" class="cancle_btn"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancle</a>
+					</div>
 
-		  	<form name="form" method="post">
-				<b>Cover Photo:</b>
+					<div class="add_cover_btn add_cover_btn_change_remove cf none">
+						<a href="#" class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Change cover</a>
+						<a href="#" class="cancle_btn"><i class="fa fa-times-circle" aria-hidden="true"></i> Remove cover</a>
+					</div>
 
-				<input type="file" name="cover_photo" id="cover_photo" />
-				<br />
-				<i>* the supported file formats are: .jpg, .gif or .png</i>
-		  	</form>
+				</div>
+			</div>
 
-		  	<hr />
+		
+			<div class="company_profile_edit_item">
+			
+				<div class="small_subtitle">
+			   		<h3>About The Company</h3>
+			   	</div>
 
-		  	<h2>BooProWeb</h2>
-		  	<p class="company_questionnaire_title">About The Company</p>
+			  	<p class="bold">BooProWeb</p>
 
-		  	<i>*You can tell about your organization, core activities, products and services here</i>
+			  	<small style="margin-bottom: 5px;display: inline-block;">*You can tell about your organization, core activities, products and services here</small>
+				
+				<form action="" method="">
+					<div class="edit_profile_textarea">
+				  		<textarea cols="40" rows="4"></textarea>
+				  	</div>
 
-		  	<br />
+				  	<button class="add_more save_section_btn">Save Section</button>
+			  	</form>
 
-		  	<textarea cols="40" rows="4" style="z-index: auto; position: relative; line-height: normal; font-size: 16px; transition: none; background: transparent !important; margin: 0px; height: 76px; width: 345px;"></textarea>
+		  	</div>
 
-		  	<br />
 
-		  	<button class="business_card_company_button">Save Section</button>
+			<div class="company_profile_edit_item">
 
-		   	<hr />
-		  	<p class="company_questionnaire_title">Career at the Company</p>
+				<div class="small_subtitle">
+			   		<h3>Career at the Company</h3>
+			   	</div>
 
-		  	<i>*You can introduce your company as an employer, tell about the career development opportunities</i>
+			  	<p class="company_questionnaire_title"></p>
 
-		  	<br />
-		  	<textarea cols="40" rows="4" style="z-index: auto; position: relative; line-height: normal; font-size: 16px; transition: none; background: transparent !important; margin: 0px; height: 76px; width: 345px;"></textarea>
-			<br />
-			    <button class="business_card_company_button">Save Section</button>
-			<hr />
-			<h2>Contacts</h2>
-			<h3>Adress:</h3>
-			<p>Anete And 9</p>
-			<h3>Phone</h3>
-			<p>4141424</p>
+			  	<small style="margin-bottom: 5px;display: inline-block;">*You can introduce your company as an employer, tell about the career development opportunities</small>
+				
+
+				<form action="" method="">
+				  	<div class="edit_profile_textarea">
+				  		<textarea cols="40" rows="4"></textarea>
+				  	</div>
+
+					<button class="add_more save_section_btn">Save Section</button>
+				</form>
+
+			</div>
+			
+			<div class="company_profile_edit_item">
+				<div class="small_subtitle">
+			   		<h3>Contacts</h3>
+			   	</div>
+				<p><span class="bold">Adress:</span> <span>Anete And 9</span></p>
+				<p><span class="bold">Phone:</span> <span>414 41414</span></p>
+
+			</div>
 
 	  	</section>
 
