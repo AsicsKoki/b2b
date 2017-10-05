@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    //
+    protected $fillable = [
+    'user_id',
+    'company_id',
+    'path',
+];
+    public function company()
+    {
+        return $this->belongsTo('App\Company');
+    }
 }

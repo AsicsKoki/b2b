@@ -10,8 +10,8 @@ class CreateImagesTable extends Migration {
 		Schema::create('images', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
-			$table->integer('user_id')->unsigned();
-			$table->integer('company_id')->unsigned();
+			$table->integer('user_id')->unsigned()->nullable();
+			$table->integer('company_id')->unsigned()->nullable();
 			$table->string('path', 250);
 		});
 	}
