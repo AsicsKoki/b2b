@@ -126,13 +126,29 @@ class CompanyController extends Controller {
     }
 
     public function getNewJob()
-    {
+    {  
         return view('company.new-job-add');
     }
 
     public function getControlPanel()
     {
         return view('company.panel');
+    }
+
+    public function updateAboutUs()
+    {
+        $about_us = Input::get('about_us');
+        $company = Company::find(Auth::company()->id;);
+        $company->about_us = $about_us;
+        return $company->save();
+    }
+
+    public function updateCareer()
+    {
+        $career = Input::get('career');
+        $company = Company::find(Auth::company()->id;);
+        $company->career = $career;
+        return $company->save();
     }
 
 }
