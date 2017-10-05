@@ -1126,6 +1126,89 @@ p.company_profile_edit_section_view_info_desc {
     border-radius: 5px;
 }
 
+.company_profile_view_main {
+    float: right;
+    width: 68%
+}
+
 .company_profile_edit_item_logo_img img {
     width: 100%;
+}
+
+.company_profile_view_holder {
+    margin-top: 50px;
+}
+
+.company_profile_view_side {
+    float: left;
+    padding-bottom: 25px;
+    max-width: 30%;
+}
+
+.company_profile_view_side_info p {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 5px;
+}
+
+.company_profile_view_side_logo {
+    margin-right: 30px;
+}
+
+.company_profile_view_side_logo img {
+    width: 100%;
+}
+
+.company_profile_view_main_title {
+    font-size: 30px;
+}
+
+.company_profile_view_cover {
+    width: 100%;
+}
+
+.company_profile_view_main_item {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    line-height: 1.6;
+}
+
+.company_profile_view_jobs_title {
+    font-size: 23px;
+    margin-bottom: 10px;
+    background: #ff5d5c;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.company_profile_view_jobs_title p {
+    border-bottom: none;
+}
+
+.company_profile_view_side_info {
+    margin: 20px 0;
+}
+
+.company_profile_view_jobs_item {
+    list-style: none;
+    font-size: 16px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.company_profile_view_jobs_item_link {
+    display: block;
+    color: #444;
+    background: #efefef;
+    padding: 7px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.company_profile_view_jobs_item_link:hover {
+    background: #dadada;
 }
