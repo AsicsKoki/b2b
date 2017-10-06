@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use App\BusinessCard as BusinessCard;
 
 
 class Company extends Authenticatable
@@ -59,12 +60,12 @@ class Company extends Authenticatable
 
     public function image()
     {
-    	return $this->hasMany('App\Image');
+    	return $this->hasOne('App\Image');
     }
 
-    public function buisnessCard()
+    public function businessCard()
     {
-    	return $this->hasOne('App\BuisnessCard');
+    	return $this->hasOne('App\BusinessCard');
     }
 
     public function ads()

@@ -218,7 +218,7 @@
 		   			<h3>Organization Profile</h3>
 		   		</div> 
 
-		   		<a href="#" class="company_questionnaire_options">View Company Profile</a>
+		   		<a href="{{ route('getCompanyProfile', ['cid' => Auth::user()->id]) }}" class="company_questionnaire_options">View Company Profile</a>
 		    	<p>You can edit your company profile here. The profile is the place where users expect to find concise and structured details about the company.</p>
 
 			</div>
@@ -248,7 +248,7 @@
 				    </div>
 
 					<div class="business_card_edit">
-				    	<a href="#" class="">Edit The Business Card</a>
+				    	<a href="{{ route('editBusinessCard') }}" class="">Edit The Business Card</a>
 				    </div>
 			    </div>
 			</div>

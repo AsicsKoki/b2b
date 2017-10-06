@@ -80,18 +80,18 @@ $(document).ready(function(){
 	// End business sector form selection
 
 
-    $('#about_us').click(function() {
-        var about_us = $(this).value(),
-        $.ajax
-        ({ 
-            url: '/updateAboutUs',
-            data: about_us
-            type: 'post',
-            success: function()
-            {
+    // $('#about_us').click(function() {
+    //     var about_us = $(this).value(),
+    //     $.ajax
+    //     ({ 
+    //         url: '/updateAboutUs',
+    //         data: about_us
+    //         type: 'post',
+    //         success: function()
+    //         {
                 
-            }
-        });
-    });
+    //         }
+    //     });
+    // });
 });
 

@@ -4,17 +4,18 @@
 		<div class="company_profile_view_holder cf">
 			<div class="company_profile_view_side cf">
 				<div class="company_profile_view_side_logo">
-					<img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+					<img src="{{ URL::to('/') . $logo }}" alt="">
 				</div>
+
 				<div class="company_profile_view_side_info">
 					<div class="company_profile_view_jobs_title">
 						<p class="bold">Company info</p>
 					</div>
-					<p class="bold">Booproweb</p>
-					<p class="bold"><a href="">www.booproweb.com</a></p>
-					<p class=""><span class="bold">Location:</span> Serbia<span>, <span>Nis</span>, <span>Ante Andrejevic 9</span></p>
-					<p><span class="bold">Phone:</span> <span>018/590-21</span> <span>069/590-21</span></p>
-					<p><span class="bold">Employers:</span> <span>12</span></p>
+					<p class="bold">{{ $company->company_name }}</p>
+					<p class="bold"><a href="{{ $company->company_website }}">{{ $company->company_website }}</a></p>
+					<p class=""><span class="bold">Location:</span> {{$company->country}}<span>, <span>{{$company->company_address}}</span></p>
+					<p><span class="bold">Phone:</span> <span>{{$company->phone}}</span></p>
+					<p><span class="bold">Employees:</span> <span>{{ $businessCard['number_of_employees'] }}</span></p>
 				</div>
 				<div class="company_profile_view_jobs">
 					<div class="company_profile_view_jobs_title">
@@ -44,22 +45,14 @@
 				<div class="company_profile_view_main_item">
 					<div class="company_profile_view_main_title"><p class="bold">About company</p></div>
 					<div class="company_profile_view_main_text">
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+						<p>{{$company->about_us}}</p>
 					</div>
 				</div>
 
 				<div class="company_profile_view_main_item">
 					<div class="company_profile_view_main_title"><p class="bold">Careers</p></div>
 					<div class="company_profile_view_main_text">
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+						<p>{{$company->career}}</p>
 					</div>
 				</div>
 			</div>

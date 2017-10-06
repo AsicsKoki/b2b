@@ -45,8 +45,9 @@ class CompanyController extends Controller {
     public function getProfile($id)
     {
         $company = Company::find($id);
-        $businessCard = $company->businessCard();
-        return view('company.profile', ['company' => $company, 'businessCard' => $businessCard]);
+        $businessCard = $company->businessCard;
+        $logo = $company->image;
+        return view('company.profile', ['company' => $company, 'businessCard' => $businessCard, 'logo' => $logo['path']]);
     }
 
     // public function postLogin()
@@ -108,7 +109,7 @@ class CompanyController extends Controller {
     $request->company_logo->move(public_path('photos'), $photoName);
     $image = new Image;
     $image->company_id = Input::get('id');
-    $image->path = 'public/photos/' . $photoName;
+    $image->path = '/photos/' . $photoName;
     $image->save();
     return redirect()->route('getCompanyRegisterStep3', ['id' => Input::get('id')]);
 
