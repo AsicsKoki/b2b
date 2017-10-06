@@ -42,9 +42,11 @@ class CompanyController extends Controller {
     }
 
 
-    public function getProfile()
+    public function getProfile($id)
     {
-        return view('company.profile');
+        $company = Company::find($id);
+        $businessCard = $company->businessCard();
+        return view('company.profile', ['company' => $company, 'businessCard' => $businessCard]);
     }
 
     // public function postLogin()
@@ -138,7 +140,7 @@ class CompanyController extends Controller {
     public function updateAboutUs()
     {
         $about_us = Input::get('about_us');
-        $company = Company::find(Auth::company()->id;);
+        $company = Company::find(Auth::company()->id);
         $company->about_us = $about_us;
         return $company->save();
     }
@@ -146,9 +148,16 @@ class CompanyController extends Controller {
     public function updateCareer()
     {
         $career = Input::get('career');
-        $company = Company::find(Auth::company()->id;);
+        $company = Company::find(Auth::company()->id);
         $company->career = $career;
         return $company->save();
+    }
+
+    public function editBuisnessCard()
+    {
+        $businessCard = BusinessCard::find(Auth::company()->id);
+        $businessCard->career = $career;
+        return $businessCard->save();
     }
 
 }
