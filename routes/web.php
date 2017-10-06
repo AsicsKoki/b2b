@@ -64,11 +64,11 @@ Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('edi
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
 
-Route::get('/addNewJob', 'CompanyController@getNewJob')->name('addNewJob');
-Route::get('/addNewJobStandard', 'CompanyController@getNewJobStandard')->name('addNewJobStandard');
-Route::get('/addNewJobCustom', 'CompanyController@getNewJobCustom')->name('addNewJobCustom');
-Route::get('/addNewJobFullCustomaddNewJobConfidental', 'CompanyController@getNewJobFullCustom')->name('addNewJobFullCustom');
-Route::get('/addNewJobConfidental', 'CompanyController@getNewJobConfidental')->name('addNewJobConfidental');
+Route::get('/addNewJob', 'JobController@getNewJob')->name('addNewJob');
+Route::get('/addNewJobStandard', 'JobController@getNewJobStandard')->name('addNewJobStandard');
+Route::get('/addNewJobCustom', 'JobController@getNewJobCustom')->name('addNewJobCustom');
+Route::get('/addNewJobFullCustomaddNewJobConfidental', 'JobController@getNewJobFullCustom')->name('addNewJobFullCustom');
+Route::get('/addNewJobConfidental', 'JobController@getNewJobConfidental')->name('addNewJobConfidental');
 
 
 
