@@ -19,4 +19,30 @@ class JobController extends Controller {
         return view('ad.allAds');
     }
 
+    public function getNewJob()
+    {  
+        return view('company.new-job-add');
+    }
+
+    public function getNewJobStandard()
+    {  
+        return view('company.new-job-standard');
+    }
+
+    public function getNewJobCustom()
+    {  
+        return view('company.new-job-custom');
+    }
+
+    public function getNewJobFullCustom()
+    {  
+        return view('company.new-job-full-custom');
+    }
+
+    public function getNewJobConfidental()
+    {  
+        return view('company.new-job-confidental');
+    }
+
+
 }
