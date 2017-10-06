@@ -1212,3 +1212,101 @@ p.company_profile_edit_section_view_info_desc {
 .company_profile_view_jobs_item_link:hover {
     background: #dadada;
 }
+
+.pagination {
+    margin: 30px 0;
+    text-align: center; 
+}
+
+.pagination ul {
+    display: inline-block;
+}
+
+.pagination li {
+    float: left;
+    list-style: none;
+    font-size: 16px;
+}
+
+.pagination li a {
+    display: block;
+    padding: 0 10px;
+    color: #fff;
+}
+
+.pagination_page {
+    width: 30px;
+    line-height: 30px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.pagination_fast_page {
+    background: #333;
+    margin: 0 5px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+.job_list_filter_item_logo {
+    width: 150px;
+    margin-right: 15px;
+}
+
+.job_list_filter_item_logo img {
+    width: 100%;
+}
+
+.job_list_filter_item {
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.job_list_filter_item_left {
+    float: left;
+    width: 60%;
+}
+
+.job_list_filter_item_right {
+    float: right;
+    width: 40%;
+}
+
+.job_list_filter_item_info {
+    font-size: 14px;
+}
+
+.job_list_filter_item_info span.bold {
+    margin-right: 5px;
+}
+
+.job_list_filter_item_right_section {
+    float: left;
+} 
+
+.company_ads_list li {
+    list-style: none;
+    float: left;
+    margin: 0 5px;
+}
+
+.company_ads_list a {
+    color: #444;
+}
+
+.job_list_filter_item_title a {
+    color: #ff5d5c;
+}
+
+.job_list_filter_item:first-of-type {
+    border-top: 1px solid #ddd;
+}
+
+
+.job_list_filter_holder {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    padding: 10px 0;
+}
