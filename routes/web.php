@@ -49,7 +49,7 @@ Route::get('/history', 'UserController@getHistory')->name('getHistory');
 
 
 //Company routes
-Route::get('/company', 'CompanyController@getProfile')->name('getCompanyProfile');
+Route::get('/company/{cid}', 'CompanyController@getProfile')->name('getCompanyProfile');
 Route::post('/profile', 'CompanyController@postProfile')->name('postCompanyProfile');
 Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getControlPanel');
 Route::get('/companyLogin', 'CompanyController@getLogin')->name('getCompanyLogin');
@@ -60,6 +60,7 @@ Route::get('/companyRegister-Step-2', 'CompanyController@getRegisterStep2')->nam
 Route::post('/companyRegister-Step-2', 'CompanyController@postRegisterStep2')->name('postCompanyRegisterStep2');
 Route::get('/companyRegister-Step-3', 'CompanyController@getRegisterStep3')->name('getCompanyRegisterStep3');
 Route::post('/companyRegister-Step-3', 'CompanyController@postRegisterStep3')->name('postCompanyRegisterStep3');
+Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('editBusinessCard');
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
 
