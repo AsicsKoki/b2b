@@ -5,6 +5,60 @@
 
 		<main class="main_app_container">
 			
+			<div class="new_job_ad_packege_holder cf">
+				<div class="new_job_ad_packege_item">
+					<div class="new_job_ad_packege_item_title">Basic</div>
+					<div class="new_job_ad_packege_item_price">
+						<p>Free</p>
+					</div>
+					<div class="new_job_ad_packege_item_desc">
+						<p>Job ad with standard design</p>
+					</div>
+					<div class="new_job_ad_packege_item_selcet_btn">
+						<a href="">Select</a>
+					</div>
+				</div>
+
+				<div class="new_job_ad_packege_item">
+					<div class="new_job_ad_packege_item_title">Standard</div>
+					<div class="new_job_ad_packege_item_price">
+						<p>50$</p>
+					</div>
+					<div class="new_job_ad_packege_item_desc">
+						<p>Job ad with custom text formatting and image</p>
+					</div>
+					<div class="new_job_ad_packege_item_selcet_btn">
+						<a href="">Select</a>
+					</div>
+				</div>
+
+				<div class="new_job_ad_packege_item">
+					<div class="new_job_ad_packege_item_title">Premium</div>
+					<div class="new_job_ad_packege_item_price">
+						<p>150$</p>
+					</div>
+					<div class="new_job_ad_packege_item_desc">
+						<p>Job ad with custom text formatting and image</p>
+					</div>
+					<div class="new_job_ad_packege_item_selcet_btn">
+						<a href="">Select</a>
+					</div>
+				</div>
+
+				<div class="new_job_ad_packege_item">
+					<div class="new_job_ad_packege_item_title">Dimond</div>
+					<div class="new_job_ad_packege_item_price">
+						<p>200$</p>
+					</div>
+					<div class="new_job_ad_packege_item_desc">
+						<p>Confidential job ad</p>
+					</div>
+					<div class="new_job_ad_packege_item_selcet_btn">
+						<a href="">Select</a>
+					</div>
+				</div>
+			</div>
+
 			<div class="">
 				<p class="form_title">Your company / organisation is:</p>
 				<div class="new_job_add_choose_option_item">
