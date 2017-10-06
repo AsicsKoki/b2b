@@ -65,4 +65,10 @@ Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAb
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
 
 Route::get('/addNewJob', 'CompanyController@getNewJob')->name('addNewJob');
+Route::get('/addNewJobStandard', 'CompanyController@getNewJobStandard')->name('addNewJobStandard');
+Route::get('/addNewJobCustom', 'CompanyController@getNewJobCustom')->name('addNewJobCustom');
+Route::get('/addNewJobFullCustomaddNewJobConfidental', 'CompanyController@getNewJobFullCustom')->name('addNewJobFullCustom');
+Route::get('/addNewJobConfidental', 'CompanyController@getNewJobConfidental')->name('addNewJobConfidental');
+
+
 
