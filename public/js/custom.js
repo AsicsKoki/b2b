@@ -10,24 +10,24 @@ $(document).ready(function(){
 		$('.search_job_filters_holder').slideToggle(200);
 	});
 
-    // New job ad options desc show/hide
-    $('.new_job_add_choose_option_item input').click(function() {
-        $('.new_job_add_desc').addClass('none');
-        $("input[type='radio']:checked").each(function() {
-            $(this).next('.new_job_add_desc').removeClass('none');
-        });
-    }); 
+    // // New job ad options desc show/hide
+    // $('.new_job_add_choose_option_item input').click(function() {
+    //     $('.new_job_add_desc').addClass('none');
+    //     $("input[type='radio']:checked").each(function() {
+    //         $(this).next('.new_job_add_desc').removeClass('none');
+    //     });
+    // }); 
 
-    // Pop up job ad custom design
-    $('.job_ad_enter_instuction_btn').on('click',function(e){
-        e.preventDefault();
-        $('.custom_job_ad_popup').fadeIn(200);
-    });
+    // // Pop up job ad custom design
+    // $('.job_ad_enter_instuction_btn').on('click',function(e){
+    //     e.preventDefault();
+    //     $('.custom_job_ad_popup').fadeIn(200);
+    // });
 
-    $('.popup_close').on('click',function(e){
-        e.preventDefault();
-        $('.custom_job_ad_popup').fadeOut(200);
-    });
+    // $('.popup_close').on('click',function(e){
+    //     e.preventDefault();
+    //     $('.custom_job_ad_popup').fadeOut(200);
+    // });
 
 	// Check PIB Company - Show Second Part Of Form
 	$('.btn_check_company_pib').on('click', function(e){
@@ -80,19 +80,19 @@ $(document).ready(function(){
 	// End business sector form selection
 
 
-    $('button#about_us').click(function(e) {
-        e.preventDefault();
-        var about_us = $('#about_us_text').value(),
-        $.ajax
-        ({ 
-            url: '/updateAboutUs',
-            data: about_us
-            type: 'post',
-            success: function()
-            {
-                return 1;
-            }
-        });
-    });
+    // $('button#about_us').click(function(e) {
+    //     e.preventDefault();
+    //     var about_us = $('#about_us_text').value(),
+    //     $.ajax
+    //     ({ 
+    //         url: '/updateAboutUs',
+    //         data: about_us
+    //         type: 'post',
+    //         success: function()
+    //         {
+    //             return 1;
+    //         }
+    //     });
+    // });
 });
 
