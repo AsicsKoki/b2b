@@ -301,12 +301,12 @@
 
 			  	<small style="margin-bottom: 5px;display: inline-block;">*You can tell about your organization, core activities, products and services here</small>
 				
-				<form action="" method="">
+				<form action="" method="POST">
 					<div class="edit_profile_textarea">
-				  		<textarea cols="40" rows="4"></textarea>
+				  		<textarea id="#about_us_text" cols="40" rows="4"></textarea>
 				  	</div>
 
-				  	<button class="add_more save_section_btn">Save Section</button>
+				  	<button id="about_us" class="add_more save_section_btn">Save Section</button>
 			  	</form>
 
 		  	</div>
