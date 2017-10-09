@@ -69,6 +69,8 @@ Route::get('/addNewJobStandard', 'JobController@getNewJobStandard')->name('addNe
 Route::get('/addNewJobCustom', 'JobController@getNewJobCustom')->name('addNewJobCustom');
 Route::get('/addNewJobFullCustomaddNewJobConfidental', 'JobController@getNewJobFullCustom')->name('addNewJobFullCustom');
 Route::get('/addNewJobConfidental', 'JobController@getNewJobConfidental')->name('addNewJobConfidental');
+Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
+
 
 
 

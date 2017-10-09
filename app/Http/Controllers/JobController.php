@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\Controller;
 use App\Ad as Ad;
+use App\Company as Company;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth as Auth;
+use Illuminate\Http\Request;
 
 
 class JobController extends Controller {
@@ -42,6 +46,15 @@ class JobController extends Controller {
     public function getNewJobConfidental()
     {  
         return view('company.new-job-confidental');
+    }
+
+    public function postNewJob()
+    {  
+        $ad = new Ad(Input::all());
+        $ad->approved = 0;
+        $ad->company_id = Auth::user()->id;
+        $ad->save();
+        return redirect()->route('getControlPanel');
     }
 
 

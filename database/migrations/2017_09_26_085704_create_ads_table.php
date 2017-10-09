@@ -13,20 +13,24 @@ class CreateAdsTable extends Migration {
 			$table->softDeletes();
 			$table->string('description', 100);
 			$table->string('category', 100);
+			$table->string('ad_type', 100);
+			$table->string('ref_number', 100)->nullable();
 			$table->string('job_type', 100);
-			$table->string('term', 100);
+			$table->string('term', 100)->nullable();
 			$table->string('company_id', 100);
-			$table->string('career_level', 100);
-			$table->string('students', 100);
+			$table->string('career_level', 100)->nullable();
+			$table->string('students', 100)->default('0');
+			$table->string('low_experience', 100)->default('0');
 			$table->string('country', 100);
 			$table->string('city', 100);
 			$table->string('salary_type', 100);
 			$table->string('salary_from', 100);
 			$table->string('salary_to', 100);
-			$table->string('foreign_languages', 100);
+			$table->string('foreign_languages', 100)->nullable();
 			$table->string('questionnaire_id', 100);
-			$table->string('external_url', 100);
+			$table->string('external_url', 100)->nullable();
 			$table->string('position', 100);
+			$table->integer('approved')->default('0');
 		});
 	}
 

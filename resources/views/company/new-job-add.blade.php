@@ -46,7 +46,7 @@
 				</div>
 
 				<div class="new_job_ad_packege_item">
-					<div class="new_job_ad_packege_item_title">Dimond</div>
+					<div class="new_job_ad_packege_item_title">Diamond</div>
 					<div class="new_job_ad_packege_item_price">
 						<p>200$</p>
 					</div>
