@@ -4,14 +4,6 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller {
 
-
-
-    // Only allow authenticated users
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the profile for the given user.
      *
