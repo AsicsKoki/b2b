@@ -19,11 +19,9 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('getHome');
-// Route::get('/register', 'UserController@getRegister')->name('getRegister');
-// Route::get('/login', 'UserController@getLogin')->name('getLogin');
-// Route::get('/logout', 'UserController@getLogout')->name('getLogout');
 
 // Authentication routes...
+Route::get('/userLogin', 'UserController@getUserLogin')->name('getUserLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 Route::get('/logout', 'Auth\AuthController@getLogout');
 
@@ -33,7 +31,6 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 
 
 //User(applicant) related routes
-Route::get('/userLogin', 'UserController@getUserLogin')->name('getUserLogin');
 Route::get('/profile', 'UserController@getProfile')->name('getUserProfile');
 Route::get('/profile/{uid}', 'UserController@getProfile')->name('getUserProfile');
 Route::post('/profile', 'UserController@postProfile')->name('postUserProfile');
