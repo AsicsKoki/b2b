@@ -1356,7 +1356,7 @@ p.company_profile_edit_section_view_info_desc {
     border-top: 2px solid #fff;
 }
 
-.new_job_ad_packege_item_selcet_btn a {
+.new_job_ad_packege_item_selcet_btn a { 
     display: block;
     color: #fff;
     width: 50%;
@@ -1367,4 +1367,8 @@ p.company_profile_edit_section_view_info_desc {
     border-radius: 10px;
     background: #51bf16;
     box-shadow: 0 0 10px 0 #404040;
+}
+
+.new_job_ad_packege_item_selcet_btn a:hover {
+    background: #43a212;
 }
