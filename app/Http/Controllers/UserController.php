@@ -23,7 +23,7 @@ class UserController extends Controller {
         return view('user.profile', ['user' => User::findOrFail($id)]);
     }
 
-    public function getLogin()
+    public function getUserLogin()
     {
         return view('user.login');
     }
