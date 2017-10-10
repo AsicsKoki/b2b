@@ -50,7 +50,7 @@ $(document).ready(function(){
 
     function(){
     	$('.office_out_country_section').removeClass('none');
-        if (this.checked && this.value == 'yes') {
+        if (this.checked && this.value == '1') {
             $('.office_out_country_no').removeClass('none');
             $('.location_comp_reg').addClass('none');
         } else {
