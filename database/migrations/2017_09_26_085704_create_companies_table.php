@@ -28,7 +28,8 @@ class CreateCompaniesTable extends Migration {
 			$table->string('first_name', 100);
 			$table->string('last_name', 100);
 			$table->string('position', 100);
-			$table->string('about_us', 3000);
+			$table->string('about_us', 3000)->nullable();
+			$table->string('career', 3000)->nullable();
 			$table->string('business_phone', 100);
 			$table->string('business_email', 100);
 			$table->string('newsletter', 100)->default('0');
