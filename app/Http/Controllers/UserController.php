@@ -20,4 +20,9 @@ class UserController extends Controller {
         return view('user.login');
     }
 
+    public function getUserRegister()
+    {
+        return view('user.register');
+    }
+
 }

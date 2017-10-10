@@ -22,6 +22,7 @@ Route::get('/', 'HomeController@index')->name('getHome');
 
 // Authentication routes...
 Route::get('/userLogin', 'UserController@getUserLogin')->name('getUserLogin');
+Route::get('/userRegister', 'UserController@getUserRegister')->name('getUserRegister');
 Route::post('/login', 'Auth\AuthController@postLogin');
 Route::get('/logout', 'Auth\AuthController@getLogout');
 
