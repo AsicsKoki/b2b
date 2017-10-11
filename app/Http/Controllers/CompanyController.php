@@ -120,11 +120,9 @@ class CompanyController extends Controller {
         return view('company.step-3',['id' => Input::get('id')]);
     }
 
-    public function postRegisterStep3()
+    public function postRegisterStep3(Request $request)
     {
-        $businessCard = new BusinessCard(Input::all());
-        $businessCard->company_id = Input::get('id');
-        $businessCard->save();
+        $bcard = BusinessCard::valid($request);
         return redirect()->route('getCompanyLogin');
     }
 
