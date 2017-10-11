@@ -20,7 +20,7 @@ class BussinessCard extends Migration
             $table->integer('company_id')->unsigned();
             $table->string('main_activity', 100);
             $table->string('founded_in', 100);
-            $table->string('locations', 100);
+            $table->string('locations', 100)->nullable();
             $table->integer('number_of_employees')->nullable();
             $table->string('benefits', 100)->nullable();
             $table->string('technologies', 100)->nullable();
