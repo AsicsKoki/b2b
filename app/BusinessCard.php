@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;   
+use Illuminate\Support\Facades\Input;
 
 class BusinessCard extends Model
 {
@@ -38,5 +40,27 @@ class BusinessCard extends Model
     public function company()
     {
     	return $this->hasOne('App\Company');
+    }
+
+    public static function valid(Request $request)
+    {
+        $request->validate([
+        'id'                                       => 'required',
+        'main_activity'                            => 'required',
+        'founded_in'                               => 'required',  
+        // 'number_of_employees'                      => 'required',
+        // 'locations'                                => 'required',
+        'benefits'                                 => 'required',
+        'technologies'                             => 'required',
+        // 'office_out_country'                       => 'required',
+        // 'number_of_employees_bulgaria'             => 'required',
+        // 'locations_bulgaria'                       => 'required',
+        // 'number_of_employees_worldwide'            => 'required',
+        // 'locations_worldwide'                      => 'required',
+        // 'started_at'                               => 'required',
+    ]);
+        $businessCard = new BusinessCard(Input::all());
+        $businessCard->company_id = Input::get('id');
+        $businessCard->save();
     }
 }
