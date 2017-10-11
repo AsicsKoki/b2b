@@ -19,8 +19,12 @@ class JobController extends Controller {
     public function getJobs()
     {
         //modffy to take id from session, edit view once created
-        // return view('ad.allAds', ['ads' => Ad::All()]);
-        return view('ad.allAds');
+        return view('ad.allAds', ['ads' => Ad::with('company.image')->get()]);
+    }
+
+    public function getJob()
+    {  
+        return view('ad.ad');
     }
 
     public function getNewJob()
