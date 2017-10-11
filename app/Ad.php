@@ -3,13 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Company as Company;
 
 class Ad extends Model
 {
-    public function company()
-    {
-    	return $this->belongsTo('App\Company');
-    }
 
     /**
      * The attributes that are mass assignable.
@@ -33,10 +30,16 @@ class Ad extends Model
         'salary_type',
         'salary_from',
         'salary_to',
+        'currency',
         'foreign_languages',
         'questionnaire_id',
         'external_url',
         'position',
         'approved',
     ];
+
+    public function company()
+    {
+    	return $this->belongsTo('App\Company');
+    }
 }

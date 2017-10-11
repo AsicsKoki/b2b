@@ -29,18 +29,19 @@
 
 		<div class="job_list_filter_holder">
 			<ul>
+			@foreach ($ads as $ad)
 				<li class="job_list_filter_item cf">
 
 					<div class="job_list_filter_item_left">
 
-						<small class="date">Today</small>
+						<small class="date">{{ $ad->created_at }}</small>
 						<h3 class="job_list_filter_item_title bold">
-							<a href="">Customer Support Consultant fluent in both German and English</a>
+							<a href="{{ route('getSpecificJob', ['jid' => $ad->id]) }}">{{ $ad->position }}</a>
 						</h3>
 						
 						<div class="job_list_filter_item_info">
-							<p class="location"><span class="bold">Location:</span>Belgrade</p>
-							<p class="salary"><span class="bold">Salary:</span>from 2500 to 3500 BGN (Gross)</p>	
+							<p class="location"><span class="bold">Location:</span>{{ $ad->city }}</p>
+							<p class="salary"><span class="bold">Salary:</span>from {{ $ad->salary_from }} to {{ $ad->salary_to }} {{ $ad->currency }} ({{ $ad->salary_type }})</p>	
 						</div>
 
 					</div>
@@ -49,12 +50,12 @@
 						
 						<div class="job_list_filter_item_right_section">
 							<div class="job_list_filter_item_logo">
-								<img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+								<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
 							</div>
 						</div>
 
 						<div class="job_list_filter_item_right_section">
-							<p class="job_list_filter_item_company bold">Booproweb</p>
+							<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" class="job_list_filter_item_company bold">{{ $ad->company->company_name }}</a>
 							<ul class="company_ads_list">
 								<li>
 									<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
@@ -68,86 +69,7 @@
 					</div>	
 					
 				</li>
-
-				<li class="job_list_filter_item cf">
-
-					<div class="job_list_filter_item_left">
-
-						<small class="date">Today</small>
-						<h3 class="job_list_filter_item_title bold">
-							<a href="">Customer Support Consultant fluent in both German and English</a>
-						</h3>
-						
-						<div class="job_list_filter_item_info">
-							<p class="location"><span class="bold">Location:</span>Belgrade</p>
-							<p class="salary"><span class="bold">Salary:</span>from 2500 to 3500 BGN (Gross)</p>	
-						</div>
-
-					</div>
-
-					<div class="job_list_filter_item_right">
-						
-						<div class="job_list_filter_item_right_section">
-							<div class="job_list_filter_item_logo">
-								<img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
-							</div>
-						</div>
-
-						<div class="job_list_filter_item_right_section">
-							<p class="job_list_filter_item_company bold">Booproweb</p>
-							<ul class="company_ads_list">
-								<li>
-									<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-								</li>
-							</ul>
-						</div>
-
-					</div>	
-					
-				</li>
-
-				<li class="job_list_filter_item cf">
-
-					<div class="job_list_filter_item_left">
-
-						<small class="date">Today</small>
-						<h3 class="job_list_filter_item_title bold">
-							<a href="">Customer Support Consultant fluent in both German and English</a>
-						</h3>
-						
-						<div class="job_list_filter_item_info">
-							<p class="location"><span class="bold">Location:</span>Belgrade</p>
-							<p class="salary"><span class="bold">Salary:</span>from 2500 to 3500 BGN (Gross)</p>	
-						</div>
-
-					</div>
-
-					<div class="job_list_filter_item_right">
-						
-						<div class="job_list_filter_item_right_section">
-							<div class="job_list_filter_item_logo">
-								<img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
-							</div>
-						</div>
-
-						<div class="job_list_filter_item_right_section">
-							<p class="job_list_filter_item_company bold">Booproweb</p>
-							<ul class="company_ads_list">
-								<li>
-									<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-								</li>
-							</ul>
-						</div>
-
-					</div>	
-					
-				</li>
+			@endforeach
 			</ul>
 		</div>
 
