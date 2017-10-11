@@ -11,8 +11,8 @@ class CreateAdsTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->string('description', 100);
-			$table->string('category', 100);
+			$table->string('description', 10000);
+			$table->string('category', 10000);
 			$table->string('ad_type', 100);
 			$table->string('ref_number', 100)->nullable();
 			$table->string('job_type', 100);
@@ -26,7 +26,8 @@ class CreateAdsTable extends Migration {
 			$table->string('salary_type', 100);
 			$table->string('salary_from', 100);
 			$table->string('salary_to', 100);
-			$table->string('foreign_languages', 100)->nullable();
+			$table->string('currency', 100);
+			$table->string('foreign_languages', 500)->nullable();
 			$table->string('questionnaire_id', 100);
 			$table->string('external_url', 100)->nullable();
 			$table->string('position', 100);
