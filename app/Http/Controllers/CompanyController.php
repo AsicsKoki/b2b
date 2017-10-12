@@ -136,7 +136,8 @@ class CompanyController extends Controller {
         $about_us = Input::get('about_us');
         $company = Company::find(Auth::company()->id);
         $company->about_us = $about_us;
-        return $company->save();
+        $company->save();
+        return redirect()->back();
     }
 
     public function updateCareer()

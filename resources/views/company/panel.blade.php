@@ -303,7 +303,7 @@
 				
 				<form action="" method="POST">
 					<div class="edit_profile_textarea">
-				  		<textarea id="#about_us_text" cols="40" rows="4"></textarea>
+				  		<textarea id="about_us_text" cols="40" rows="4"></textarea>
 				  	</div>
 
 				  	<button id="about_us" class="add_more save_section_btn">Save Section</button>
@@ -323,12 +323,12 @@
 			  	<small style="margin-bottom: 5px;display: inline-block;">*You can introduce your company as an employer, tell about the career development opportunities</small>
 				
 
-				<form action="" method="">
+				<form action="{{ route('updateAboutUs') }}" method="POST">
 				  	<div class="edit_profile_textarea">
-				  		<textarea cols="40" rows="4"></textarea>
+				  		<textarea id="career" cols="40" rows="4"></textarea>
 				  	</div>
 
-					<button class="add_more save_section_btn">Save Section</button>
+					<a id="career" class="add_more save_section_btn">Save Section</a>
 				</form>
 
 			</div>

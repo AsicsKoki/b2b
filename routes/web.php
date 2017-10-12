@@ -30,7 +30,6 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');
 
-
 //User(applicant) related routes
 Route::get('/profile', 'UserController@getProfile')->name('getUserProfile');
 Route::get('/profile/{uid}', 'UserController@getProfile')->name('getUserProfile');
@@ -44,8 +43,6 @@ Route::get('/cvCreator', 'UserController@getCvCreator')->name('getCvCreator');
 Route::get('/myFiles', 'UserController@getMyFiles')->name('getMyFiles');
 Route::get('/history', 'UserController@getHistory')->name('getHistory');
 Route::get('/history', 'UserController@getHistory')->name('getHistory');
-
-
 
 //Company routes
 Route::get('/company/{cid}', 'CompanyController@getProfile')->name('getCompanyProfile');
