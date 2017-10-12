@@ -17,12 +17,12 @@
                     <ul class="choose_lang_header cf">
                         <li>
                             <a href="">
-                                <img src="images/serbian-flag-graphic.png" alt="">
+                                <img src="{{ URL::to('/')}}/photos/serbian-flag-graphic.png" alt="">
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="images/british-flag-graphic.png" alt="">
+                                <img src="{{ URL::to('/')}}/photos/british-flag-graphic.png" alt="">
                             </a>
                         </li>
                     </ul>
@@ -31,7 +31,7 @@
 
             <div class="main_header_top cf">
                 <a href="#" class="logo_header_holder">
-                    <img src="images/naposaologo.png" alt="">
+                    <img src="{{ URL::to('/')}}/photos/naposaologo.png" alt="">
                 </a>
 
                 <nav class="main_nav">
