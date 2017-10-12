@@ -12,6 +12,9 @@
                         <li>
                             <a href="{{ route('getCompanyLogin') }}">Kompanije</a>
                         </li>
+                        <li>
+                            <a href="">Logout</a>
+                        </li>
                     </ul>
 
                     <ul class="choose_lang_header cf">
@@ -48,9 +51,7 @@
                          <li>
                             <a href="">My files</a>
                         </li>
-                        <li>
-                            <a href="">Logout</a>
-                        </li>
+
                     </ul>
                 </nav>
             </div>
