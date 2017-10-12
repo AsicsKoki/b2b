@@ -50,11 +50,6 @@ class CompanyController extends Controller {
         return view('company.profile', ['company' => $company, 'businessCard' => $businessCard, 'logo' => $logo['path']]);
     }
 
-    // public function postLogin()
-    // {
-    //     return '123';
-    // }
-
     public function postRegister(Request $request)
     {
 
