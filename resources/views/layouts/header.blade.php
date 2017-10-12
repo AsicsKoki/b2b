@@ -37,10 +37,19 @@
                 <nav class="main_nav">
                     <ul class="cf">
                         <li>
-                            <a href="">Karijeria</a>
+                            <a href="">My CV</a>
                         </li>
                         <li>
-                            <a href="">Kursevi</a>
+                            <a href="">History</a>
+                        </li>
+                        <li>
+                            <a href="">Favorites</a>
+                        </li>
+                         <li>
+                            <a href="">My files</a>
+                        </li>
+                        <li>
+                            <a href="">Logout</a>
                         </li>
                     </ul>
                 </nav>

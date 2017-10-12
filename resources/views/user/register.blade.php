@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<h1 class="page_title">User Log in</h1>
+<h1 class="page_title">User register</h1>
 
 <main class="main_app_container">
 	

@@ -103,10 +103,17 @@ textarea {
 .main_nav li {
     float: left;
     list-style: none;
-    margin-right: 10px;
+    border-right: 1px solid;
+    line-height: 1;
+}
+
+.main_nav li:last-of-type {
+    display: block;
+    border-right: 0;
 }
 
 .main_nav a {
+    padding: 0 10px;
     color: #000;
 }
 
@@ -1510,3 +1517,4 @@ p.company_profile_edit_section_view_info_desc {
 .single_job_desc p {
     margin-bottom: 7px;    
 }
+
