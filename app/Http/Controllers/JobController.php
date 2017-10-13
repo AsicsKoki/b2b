@@ -28,7 +28,6 @@ class JobController extends Controller {
         $ad = Ad::find($jid);
         $company = $ad->company;
         return view('ad.ad', ['ad' => $ad, 'company' => $company]);
-        // return Ad::find($jid)->with('company')->get();
     }
 
     public function getNewJob()

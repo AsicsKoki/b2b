@@ -25,6 +25,8 @@ Route::get('/userLogin', 'UserController@getUserLogin')->name('getUserLogin');
 Route::post('/userLogin', 'UserController@postUserLogin')->name('postUserLogin');
 Route::get('/userRegister', 'UserController@getUserRegister')->name('getUserRegister');
 Route::post('/userRegister', 'UserController@postUserRegister')->name('postUserRegister');
+Route::get('/logout', 'UserController@logout')->name('logout');
+
 
 // Registration routes...
 Route::get('/register', 'Auth\AuthController@getRegister');
