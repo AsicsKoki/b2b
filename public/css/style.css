@@ -33,6 +33,10 @@ body {
     *zoom: 1;
 }
 
+.app_holder {
+    min-height: 100vh;
+}
+
 .center {
     text-align: center;
 }

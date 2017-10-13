@@ -18,8 +18,19 @@
     <div class="app_holder">
         @include('layouts.header')
         @yield('content')
+
+        <!-- Stick footer to bottom -->
+        <div id="js-heightControl" style="height: 0;">&nbsp;</div>
+        <script>
+            $(function(){
+                $('#js-heightControl').css('height', $(window).height() - $('html').height() +'px');
+            });
+        </script>
+        <!--  -->
+    
+        @include('layouts.footer')
     </div>
-     @include('layouts.footer')
+     
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
