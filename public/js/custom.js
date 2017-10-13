@@ -32,14 +32,13 @@ $(document).ready(function(){
 	// Check PIB Company - Show Second Part Of Form
 	$('.btn_check_company_pib').on('click', function(e){
 		e.preventDefault();
-		$('.first_part_companies_reg').toggleClass('none');
-		$('.second_part_companies_reg').toggleClass('none');
+		$('.second_part_companies_reg').slideToggle(200);
 	});
 
 	// Check 
 	$('input:radio[name="authorized_person"]').change(
     function(){
-        if (this.checked && this.value == 'No') {
+        if (this.checked && this.value == '0') {
             $('.authorized_person_for_contact_company').removeClass('none');
         } else {
         	$('.authorized_person_for_contact_company').addClass('none');

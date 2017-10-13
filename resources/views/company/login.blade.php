@@ -24,7 +24,7 @@
 			<a href="" class="">Forgot your password?</a> 	
 		</div>
 		
-		<a href="register-terms.html" class="login_reg_form_change_option">Create account</a>
+		<a href="{{ route('getCompanyRegister') }}" class="login_reg_form_change_option">Create account</a>
 	</form>
 </div>
 </main>

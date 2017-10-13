@@ -25,8 +25,8 @@ Route::get('/userLogin', 'UserController@getUserLogin')->name('getUserLogin');
 Route::post('/userLogin', 'UserController@postUserLogin')->name('postUserLogin');
 Route::get('/userRegister', 'UserController@getUserRegister')->name('getUserRegister');
 Route::post('/userRegister', 'UserController@postUserRegister')->name('postUserRegister');
-Route::post('/login', 'Auth\AuthController@postLogin');
-Route::get('/logout', 'Auth\AuthController@getLogout');
+Route::get('/logout', 'UserController@logout')->name('logout');
+
 
 // Registration routes...
 Route::get('/register', 'Auth\AuthController@getRegister');
@@ -37,8 +37,7 @@ Route::get('/profile', 'UserController@getProfile')->name('getUserProfile');
 Route::get('/profile/{uid}', 'UserController@getProfile')->name('getUserProfile');
 Route::post('/profile', 'UserController@postProfile')->name('postUserProfile');
 Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
-Route::get('/job', 'JobController@getJob')->name('getSpecificJob');
-// Route::get('/job/{jid}', 'JobController@getJob')->name('getSpecificJob');
+Route::get('/job/{jid}', 'JobController@getJob')->name('getSpecificJob');
 Route::get('/profile/{uid}/favorites', 'UserController@getFavorites')->name('getUserFavorites');
 Route::post('/profile/{uid}/favorites/{jid}', 'UserController@postFavorite')->name('postUserFavorites');
 Route::get('/cvCreator', 'UserController@getCvCreator')->name('getCvCreator');

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    <script src="{{ asset('js/jquery.validate.js') }}"></script>
     <!-- JS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 @yield('styles')
@@ -19,15 +21,12 @@
         @include('layouts.header')
         @yield('content')
 
-        <!-- Stick footer to bottom -->
         <div id="js-heightControl" style="height: 0;">&nbsp;</div>
         <script>
             $(function(){
                 $('#js-heightControl').css('height', $(window).height() - $('html').height() +'px');
             });
         </script>
-        <!--  -->
-    
         @include('layouts.footer')
     </div>
      
