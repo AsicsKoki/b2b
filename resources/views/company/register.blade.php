@@ -13,11 +13,11 @@
 			@endif
 
 			<div class="login_register_container">
-				<form action="{{ route('postCompanyRegister') }}" method="POST" class="login_reg_form company_registration_form">
+				<form action="{{ route('postCompanyRegister') }}" method="POST" id="company_reg_form" class="login_reg_form company_registration_form">
 				<div class="first_part_companies_reg">
 
 						<div class="login_reg_form_item">
-							<p class="form_title">Country</p>
+							<p class="form_title">Country:*</p>
 							<select name="country">
 								<option value="Serbia">Serbia</option>
 								<option value="Bulgaria">Bulgaria</option>
@@ -25,22 +25,24 @@
 						</div>
 
 						<div class="login_reg_form_item">
-							<p class="form_title">Your company / organisation is:</p>
+							<p class="form_title">Your company / organisation is:*</p>
 							<div class="company_type_form_section">
-								<label for="private_company"><span>Private</span><input type="radio" name="register_type" value="0" id="private_company"></label>
+								<label for="private_company"><span>Private</span><input type="radio" name="register_type" value="0" id="private_company" checked="checked"></label>
 								<label for="government_company"><span>Government / municipal</span><input type="radio" name="register_type" value="1" id="government_company"></label>
 							</div>
 						</div>
 
 						<div class="login_reg_form_item">
-							<p class="form_title">EIK / BULSTAT</p>
-							<input type="text" id="" name="pib">
+							<p class="form_title">EIK / BULSTAT:*</p>
+							<div class="required_field">
+								<input type="text" id="" name="pib" required>
+							</div>
 						</div>
 
 						<div class="login_reg_form_item">
 							<p class="form_title">Does your company/organization have a VAT registration?</p>
 							<div class="company_type_form_section">
-								<label for="company_organization_yes"><span>Yes</span><input type="radio" name="has_vat" value="1" id="company_organization_yes"></label>
+								<label for="company_organization_yes"><span>Yes</span><input type="radio" name="has_vat" value="1" id="company_organization_yes" checked="checked"></label>
 								<label for="company_organization_no"><span>No</span><input type="radio" name="has_vat" value="0" id="company_organization_no"></label>
 							</div>
 						</div>
@@ -52,7 +54,7 @@
 					</div>
 
 					<!-- Second Part Companies Registration -->
-					<div class="second_part_companies_reg none">
+					<div class="second_part_companies_reg">
 						<div class="login_reg_form_item">
 							<p>Country: <span>Serbia</span></p>
 							<p>EIK / BULSTAT: <span>103873594</span></p>
@@ -61,18 +63,24 @@
 
 						<div class="login_reg_form_item">
 							<p class="">Please, fill in the name of the company as stated in the Trade Register, including the corresponding type of business ownership (Sole Proprietorship/ LTD/PLC, etc.):</p>
-							<p class="form_title">Company name (in Serbian):</p>
-							<input name="company_name" type="text">
-							<p class="form_title">Company name (in foreign language):</p>
-							<input name="foreign_name" type="text">
-							<p class="form_title">Company registered office:</p>
-							<input name="company_registered_office" type="text">
+							<p class="form_title" style="margin-top: 20px;">Company name (in Serbian):*</p>
+							<div class="required_field">
+								<input name="company_name" type="text" required>
+							</div>
+							<p class="form_title">Company name (in foreign language):*</p>
+							<div class="required_field">
+								<input name="foreign_name" type="text" required>
+							</div>
+							<p class="form_title">Company registered office:*</p>
+							<div class="required_field">
+								<input name="company_registered_office" type="text" required>
+							</div>
 						</div>
 
 						<div class="login_reg_form_item form_smaller_text">
 							<p class="form_title">Company type:</p>
-							<div class="company_type_form_section">
-								<label for="company_type_org_companies"><span>	Companies / Organizations</span><input type="radio" name="company_type" value="0" id="company_type_org_companies">
+							<div class="company_type_form_section" style="margin-bottom: 20px;">
+								<label for="company_type_org_companies"><span>	Companies / Organizations</span><input type="radio" name="company_type" value="0" id="company_type_org_companies" checked="checked">
 								<small>(Companies looking for employers)</small></label>
 
 								<label for="company_type_hr_consultan"><span>HR Agencies/Consultancy companies, temp agencies </span><input type="radio" name="company_type" value="1" id="company_type_hr_consultan"><small>(with fully free services for candidates)</small></label>
@@ -96,34 +104,50 @@
 							<select class="selectSectorSelected select_move_area" name="sector" size="5">
 							</select>
 
-							<p class="form_title">Company website:</p>
-							<input name="company_website" type="text">
+							<p class="form_title">Company website:*</p>
+							<div class="required_field">
+								<input name="company_website" type="text" required>
+							</div>
 
-							<p class="form_title">Company phone:</p>
-							<input name="company_phone" type="text">
+							<p class="form_title">Company phone:*</p>
+							<div class="required_field">
+								<input name="company_phone" type="text" required>
+							</div>
 
-							<p class="form_title">Address:</p>
-							<input name="company_address" type="text">
+							<p class="form_title">Address:*</p>
+							<div class="required_field">
+								<input name="company_address" type="text" required>
+							</div>
 							
 							<p class="form_title">Administrative information:</p>
 							<p>This information is required in order to verify the authenticity of the registration and IS NOT PUBLISHED on the website. Upon posting one or more job ads, an administrator of Jobs.bg will contact you by phone in order to verify the registration.</p>
 							<br>
 							<p class="form_title">Please, fill in your name, title and contact information:</p>
 
-							<p class="form_title">First Name:</p>
-							<input name="first_name" type="text">
+							<p class="form_title">First Name:*</p>
+							<div class="required_field">
+								<input name="first_name" type="text" required>
+							</div>
 
-							<p class="form_title">Last Name:</p>
-							<input name="last_name" type="text">
+							<p class="form_title">Last Name:*</p>
+							<div class="required_field">
+								<input name="last_name" type="text" required>
+							</div>
 
-							<p class="form_title">Position:</p>
-							<input name="position" type="text"> 
+							<p class="form_title">Position:*</p>
+							<div class="required_field">
+								<input name="position" type="text" required> 
+							</div>
 
-							<p class="form_title">Business phone:</p>
-							<input name="business_phone" type="text">
+							<p class="form_title">Business phone:*</p>
+							<div class="required_field">
+								<input name="business_phone" type="text" required>
+							</div>
 
-							<p class="form_title">Business email:</p>
-							<input name="business_email" type="text">
+							<p class="form_title">Business email:*</p>
+							<div class="required_field">
+								<input name="business_email" type="email" required style="width: calc(100% - 30px);">
+							</div>
 
 							<small style="margin-bottom: 10px;display: inline-block;">An email to confirm your registration request will be sent to the designated company email)</small>
 							
@@ -131,20 +155,26 @@
 
 							<p class="form_title">Please select your log-in username:</p>
 
-							<p class="form_title">Username:</p>
-							<input name="username" type="text">
+							<p class="form_title">Username:*</p>
+							<div class="required_field">
+								<input name="username" type="text" required>
+							</div>
 
-							<p class="form_title">Password:</p>
-							<input name="password" type="password" style="width: calc(100% - 30px);">
+							<p class="form_title">Password:*</p>
+							<div class="required_field">
+								<input name="password" type="password" style="width: calc(100% - 30px);" required>
+							</div>
 
-							<p class="form_title">Confirm password:</p>
-							<input name="password" type="password" style="width: calc(100% - 30px);">
+							<p class="form_title">Confirm password:*</p>
+							<div class="required_field">
+								<input name="password" type="password" style="width: calc(100% - 30px);" required>
+							</div>
 						</div>
 
 						<div class="login_reg_form_item">
 							<p class="form_title">Are you the authorized person in your company whom our administrators can contact about registration confirmation, job ads verification, financial or other issues?</p>
 
-							<label for="" style="display: inline-block; margin-right: 10px;"><span>Yes</span> <input type="radio" name="authorized_person" value="1">
+							<label for="" style="display: inline-block; margin-right: 10px;"><span>Yes</span> <input type="radio" name="authorized_person" value="1" checked="checked">
 							</label>
 
 							<label for="" style="display: inline-block;"><span>No</span> <input type="radio" name="authorized_person" class="no_authorized_checkbox" value="0"></label>
@@ -225,6 +255,10 @@
 						</div>
 					</div>
 				</form>
+
+				<script>
+					$('#company_reg_form').validate();
+				</script>
 			</div>
 		</main>
 @endsection

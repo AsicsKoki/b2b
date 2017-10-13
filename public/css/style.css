@@ -33,10 +33,6 @@ body {
     *zoom: 1;
 }
 
-.app_holder {
-    min-height: 100vh;
-}
-
 .center {
     text-align: center;
 }
@@ -51,6 +47,10 @@ body {
 
 button {
     cursor: pointer;
+}
+
+input.error, textarea.error {
+    border: 3px solid #fd2d2c;
 }
 
 a {
@@ -73,6 +73,14 @@ textarea {
     text-align: center;
     background: #efefef;
     margin-bottom: 50px;
+}
+
+.second_part_companies_reg {
+    display: none;
+}
+
+.login_register_container {
+    margin-top: 50px;
 }
 
 .main_header {
@@ -564,6 +572,20 @@ a.login_reg_form_change_option {
     border: none;
     padding: 17px;
     display: block;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.required_field {
+    position: relative;
+}
+
+label.error {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    font-size: 15px !important;
+    color: #ff0000;
 }
 
 .company_registration_form .login_reg_form_item label{
@@ -586,6 +608,7 @@ a.login_reg_form_change_option {
 }
 
 .company_registration_form .login_reg_form_item {
+    position: relative;
     margin-bottom: 15px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
@@ -663,6 +686,7 @@ a.login_reg_form_change_option {
 }
 
 .upload_profile_photo_holder {
+    margin-top: 50px;
     padding-bottom: 50px;
     border-bottom: 1px solid #ddd;
 }
@@ -672,9 +696,21 @@ a.login_reg_form_change_option {
     width: 48%;
 }
 
+.creating_comp_buisness_card_holder {
+    margin-top: 50px;
+}
+
 .upload_profile_photo {
     float: right;
     width: 48%;
+}
+
+.skip_btn_holder a {
+    background: #444;
+    color: #fff;
+    padding: 5px 35px;
+    border-radius: 5px;
+    text-transform: uppercase;
 }
 
 .btn_submit {
