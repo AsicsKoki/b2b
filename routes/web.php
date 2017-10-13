@@ -70,5 +70,10 @@ Route::get('/addNewJobConfidental', 'JobController@getNewJobConfidental')->name(
 Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
 
 
+// middleware for showing errors on companyRegister-Step-3
+Route::group(['middleware'=>'web'],function (){
+
+	Route::resource('/post', 'CompanyController');
+});
 
 

@@ -98,21 +98,6 @@ $(document).ready(function(){
     });
 
 
-   //  $(function () {
-   // var frm = $('#ajax');
-   // var about_us = $('#about_us_text').val();
-   // frm.submit(function (ev) {
-   //     $.ajax({
-   //         type: frm.attr('method'),
-   //         url: frm.attr('action'),
-   //         data: about_us,
-   //         success: function (data) {
-   //             alert('ok');
-   //         }
-   //     });
-   //     ev.preventDefault();
-   //     });
-   // });
 
 
 
