@@ -65,9 +65,9 @@
 			<label for="term" style="margin-right: 20px"><span>Part time</span> <input type="checkbox" name="term"></label>
 
 			<p class="form_title" style="margin-top: 20px;">Career level:</p>
-			<label for="career_level" style="margin-right: 20px"><span>Management</span> <input type="radio" name="career_level"></label>
-			<label for="career_level" style="margin-right: 20px"><span>Experts</span> <input type="radio" name="career_level"></label>
-			<label for="career_level" style="margin-right: 20px"><span>Administrative Staff/Workers</span> <input type="radio" name="career_level"></label>
+			<label for="career_level" style="margin-right: 20px"><span>Management</span> <input type="radio" name="career_level" value="0"></label>
+			<label for="career_level" style="margin-right: 20px"><span>Experts</span> <input type="radio" name="career_level" value="1"></label>
+			<label for="career_level" style="margin-right: 20px"><span>Administrative Staff/Workers</span> <input type="radio" value="2" name="career_level"></label>
 
 			<p class="form_title" style="margin-top: 20px;">Additional options::</p>
 			<label for="students" style="margin-right: 20px"><span>Suitable also for students</span> <input type="checkbox" name="students"></label>
