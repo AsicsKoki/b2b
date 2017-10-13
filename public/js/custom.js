@@ -79,5 +79,42 @@ $(document).ready(function(){
     });
 	// End business sector form selection
 
+
+
+
+    $('#about_us_form').submit(function(e) {
+        e.preventDefault();
+        var about_us = $('#about_us_text').val();
+        $.ajax
+        ({
+            url: '/updateAboutUs',
+            data: about_us,
+            type: 'post',
+            success: function()
+            {
+                return 1;
+            }
+        });
+    });
+
+
+   //  $(function () {
+   // var frm = $('#ajax');
+   // var about_us = $('#about_us_text').val();
+   // frm.submit(function (ev) {
+   //     $.ajax({
+   //         type: frm.attr('method'),
+   //         url: frm.attr('action'),
+   //         data: about_us,
+   //         success: function (data) {
+   //             alert('ok');
+   //         }
+   //     });
+   //     ev.preventDefault();
+   //     });
+   // });
+
+
+
 });
 

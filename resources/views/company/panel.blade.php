@@ -301,7 +301,7 @@
 
 			  	<small style="margin-bottom: 5px;display: inline-block;">*You can tell about your organization, core activities, products and services here</small>
 				
-				<form action="" method="POST">
+				<form action="" id="about_us_form">
 					<div class="edit_profile_textarea">
 				  		<textarea id="about_us_text" cols="40" rows="4"></textarea>
 				  	</div>
