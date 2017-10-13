@@ -4,18 +4,17 @@
 
 <main class="main_app_container">
 <div class="login_register_container">
-	<form action="" method="" class="login_reg_form">
+	<form action="{{ route('postUserLogin') }}" method="POST" class="login_reg_form">
 		<div class="login_reg_form_item">
-			<label for="">Username</label>
-			<input name="username" type="text"  id="">
+			<label for="">Email</label>
+			<input name="email" type="text">
 		</div>
 
 		<div class="login_reg_form_item">
 			<label for="">Password</label>
-			<input type="password" name="password" id="">
+			<input type="password" name="password">
 		</div>
-
-
+		{{ csrf_field() }}
 		<div class="login_reg_form_item login_reg_form_submit">
 			<input type="submit" value="Log in">
 		</div>
@@ -24,7 +23,7 @@
 			<a href="" class="">Forgot your password?</a> 	
 		</div>
 		
-		<a href="register-terms.html" class="login_reg_form_change_option">Create account</a>
+		<a href=" {{ route('getUserRegister') }} " class="login_reg_form_change_option">Create account</a>
 	</form>
 </div>
 </main>

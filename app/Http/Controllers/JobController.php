@@ -28,7 +28,7 @@ class JobController extends Controller {
     }
 
     public function getNewJob()
-    {  
+    {
         return view('company.new-job-add');
     }
 

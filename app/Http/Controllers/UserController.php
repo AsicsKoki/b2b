@@ -27,6 +27,11 @@ class UserController extends Controller {
         return view('user.login');
     }
 
+    public function postUserLogin()
+    {
+        return redirect()->route('getHome');
+    }
+
     public function getUserRegister()
     {
         return view('user.register');
