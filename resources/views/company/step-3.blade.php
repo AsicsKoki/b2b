@@ -6,7 +6,7 @@
 		
 <div class="creating_comp_buisness_card_holder">
 	<p style="text-align: center;">The business card provides the candidates with general information about the company.</p>
-	<form action="{{ route('getCompanyRegisterStep3') }}" method="POST" class="creating_comp_buisness_card_form">
+	<form action="{{ route('getCompanyRegisterStep3') }}" method="POST" class="creating_comp_buisness_card_form" id="comp_buisness_card">
 		<div class="creating_comp_buisness_yes_no_section">
 			<p class="form_title">Does the company have offices/facilities outside of Bulgaria?</p>
 		
@@ -23,52 +23,70 @@
 		
 		<div class="office_out_country_section none">
 			<div class="office_out_country_section_item">
-				<p class="form_title">Main activity:</p>
-				<textarea name="main_activity" id="" cols="30" rows="10" style="width: 100%" placeholder="Short description of the company’s main activity, up to 250 characters"></textarea>
+				<p class="form_title">Main activity:*</p>
+				<div class="required_field">
+					<textarea name="main_activity" id="" cols="30" rows="10" style="width: 100%" placeholder="Short description of the company’s main activity, up to 250 characters" required></textarea>
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item">
-				<p class="form_title">Founded in:</p>
-				<input name="founded_in" type="text">
+				<p class="form_title">Founded in:*</p>
+				<div class="required_field">
+					<input name="founded_in" type="text" required>
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
-				<p class="form_title">Started operations in Bulgaria in:</p>
-				<input name="started_at" type="text">
+				<p class="form_title">Started operations in Bulgaria in:*</p>
+				<div class="required_field">
+					<input name="started_at" type="text">
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
-				<p class="form_title">Number of employees in Bulgaria:</p>
-				<input name="number_of_employees_bulgaria" type="text">		
+				<p class="form_title">Number of employees in Bulgaria:*</p>
+				<div class="required_field">
+					<input name="number_of_employees_bulgaria" type="text">		
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
-				<p class="form_title">Locations in Bulgaria:</p>
-				<input name="locations_bulgaria" type="text" placeholder="Cities where the company has offices/facilities">		
+				<p class="form_title">Locations in Bulgaria:*</p>
+				<div class="required_field">
+					<input name="locations_bulgaria" type="text" placeholder="Cities where the company has offices/facilities">		
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
-				<p class="form_title">Number of employees worldwide</p>
-				<input name="number_of_employees_worldwide" type="text">		
+				<p class="form_title">Number of employees worldwide:*</p>
+				<div class="required_field">
+					<input name="number_of_employees_worldwide" type="text">		
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item office_out_country_no none">
-				<p class="form_title">Locations worldwide:</p>
-				<input type="text" name="locations_worldwide" placeholder="Countries/cities outside of Bulgaria where the company has offices/facilities">		
+				<p class="form_title">Locations worldwide:*</p>
+				<div class="required_field">
+					<input type="text" name="locations_worldwide" placeholder="Countries/cities outside of Bulgaria where the company has offices/facilities">		
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item location_comp_reg">
-				<p class="form_title">Number of employees:</p>
-				<input name="number_of_employees" type="text" placeholder="">		
+				<p class="form_title">Number of employees:*</p>
+				<div class="required_field">
+					<input name="number_of_employees" type="text" placeholder="">		
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item location_comp_reg">
-				<p class="form_title">Locations:</p>
-				<input name="locations" type="text" placeholder="">		
+				<p class="form_title">Locations:*</p>
+				<div class="required_field">
+					<input name="locations" type="text" placeholder="">		
+				</div>
 			</div>
 
 			<div class="office_out_country_section_item">
-				<p class="form_title">Benefits</p>
+				<p class="form_title">Benefits:</p>
 				<p style="margin-bottom: 15px;">The benefits offered by the company are of interest to the candidates. In case your company offers benefits, you can list them here (Sample benefits).</p>
 				<input name="benefits[1]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
 				<input name="benefits[2]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
@@ -83,7 +101,9 @@
 			<div class="office_out_country_section_item">
 				<p class="form_title">Technologies:</p>
 				<p style="margin-bottom: 15px;">If your company uses technologies that you consider are of special interest to the candidates, you can list them here.</p>
-				<input name="technologies" type="text" placeholder="Technologies">		
+				<div class="required_field">
+					<input name="technologies" type="text" placeholder="Technologies">		
+				</div>
 			</div>
 
 		</div>
@@ -95,6 +115,10 @@
 			<button class="cancel_btn">Cancle</button>
 		</div>
 	</form>
+
+	<script>
+	$('#comp_buisness_card').validate();
+	</script>
 
 	 @if(count($errors)>0)
 
