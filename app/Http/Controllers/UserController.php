@@ -17,9 +17,9 @@ class UserController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function getProfile($id)
+    public function getUserProfile()
     {
-        return view('user.profile', ['user' => User::findOrFail($id)]);
+        return view('user.profile');
     }
 
     public function getUserLogin()
@@ -33,8 +33,16 @@ class UserController extends Controller {
         return view('home');
     }
 
-    public function postUserLogin()
+    public function authenticate()
     {
+        $email = Input::get('email');
+        $password = Input::get('password');
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // Authentication passed...
+            return redirect()->route('getHome');
+        } else {
+            return redirect()->route('getHome');
+        }
         return redirect()->route('getHome');
     }
 

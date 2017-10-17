@@ -33,7 +33,7 @@ Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');
 
 //User(applicant) related routes
-Route::get('/profile', 'UserController@getProfile')->name('getUserProfile');
+Route::get('/profile', 'UserController@getUserProfile')->name('getUserProfile');
 Route::get('/profile/{uid}', 'UserController@getProfile')->name('getUserProfile');
 Route::post('/profile', 'UserController@postProfile')->name('postUserProfile');
 Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
