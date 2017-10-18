@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
     <title>Naposao</title>
     <!-- Fonts -->
     <script src="https://use.fontawesome.com/a007057742.js"></script>

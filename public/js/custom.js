@@ -78,23 +78,42 @@ $(document).ready(function(){
     });
 	// End business sector form selection
 
+    // $('#about_us').on('click', function(evt) {
+    //   evt.preventDefault();
+    //   var about_us = $('#about_us_text').val();
+    //     $.ajax
+    //     ({
+    //         url: 'updateAboutUs',
+    //         data: {
+    //             about_us: about_us,
+    //             '_token': $('meta[name="csrf-token"]').attr('content'),
+    //         }
+    //         type: 'post',
+    //         success: function()
+    //         {
+    //             return 1;
+    //         }
+    //     });
+    // });
 
 
-
-    $('#about_us_form').submit(function(e) {
-        e.preventDefault();
-        var about_us = $('#about_us_text').val();
-        $.ajax
-        ({
-            url: '/updateAboutUs',
-            data: about_us,
-            type: 'post',
-            success: function()
-            {
-                return 1;
-            }
-        });
-    });
+    // $('#about_us_form').submit(function(e) {
+    //     e.preventDefault();
+    //     var about_us = $('#about_us_text').val();
+    //     $.ajax
+    //     ({
+    //         url: 'updateAboutUs',
+    //         data: {
+    //             about_us: about_us,
+    //             '_token': $('meta[name="csrf-token"]').attr('content'),
+    //         }
+    //         type: 'post',
+    //         success: function()
+    //         {
+    //             return console.log('123');
+    //         }
+    //     });
+    // });
 
 
 

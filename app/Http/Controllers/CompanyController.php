@@ -129,7 +129,7 @@ class CompanyController extends Controller {
     public function updateAboutUs()
     {
         $about_us = Input::get('about_us');
-        $company = Company::find(Auth::company()->id);
+        $company = Company::find(Auth::user()->id);
         $company->about_us = $about_us;
         $company->save();
         return redirect()->back();
@@ -138,9 +138,10 @@ class CompanyController extends Controller {
     public function updateCareer()
     {
         $career = Input::get('career');
-        $company = Company::find(Auth::company()->id);
+        $company = Company::find(Auth::user()->id);
         $company->career = $career;
-        return $company->save();
+        $company->save();
+        return redirect()->back();
     }
 
     public function editBuisnessCard()
