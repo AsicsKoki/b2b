@@ -14,7 +14,7 @@
 					<p class="bold">{{ $company->company_name }}</p>
 					<p class="bold"><a href="{{ $company->company_website }}">{{ $company->company_website }}</a></p>
 					<p class=""><span class="bold">Location:</span> {{$company->country}}<span>, <span>{{$company->company_address}}</span></p>
-					<p><span class="bold">Phone:</span> <span>{{$company->phone}}</span></p>
+					<p><span class="bold">Phone:</span> <span>{{$company->business_phone}}</span></p>
 					<p><span class="bold">Employees:</span> <span>{{ $businessCard['number_of_employees'] }}</span></p>
 				</div>
 				<div class="company_profile_view_jobs">
