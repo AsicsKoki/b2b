@@ -1,11 +1,13 @@
 @extends('layouts.master')
 @section('content')
 <h1 class="page_title">User Log in</h1>
-
 <main class="main_app_container">
 <div class="login_register_container">
-	<form action="{{ route('authenticateUser') }}" method="POST" class="login_reg_form">
+	<form action="{{ route('postUserLogin') }}" method="POST" class="login_reg_form">
 		<div class="login_reg_form_item">
+			@if($errors->any())
+				<h4 style="text-align: center; margin-bottom: 15px;color: #ff5c5c;">Wrong email or password!</h4>
+			@endif
 			<label for="">Email</label>
 			<input name="email" type="text">
 		</div>

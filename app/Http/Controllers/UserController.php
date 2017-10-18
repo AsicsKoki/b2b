@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash as Hash;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Crypt;
+use Session;
 
 class UserController extends Controller {
 
@@ -33,17 +35,18 @@ class UserController extends Controller {
         return view('home');
     }
 
-    public function authenticate()
+    public function postUserLogin()
     {
         $email = Input::get('email');
         $password = Input::get('password');
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Authentication passed...
-            return redirect()->route('getHome');
-        } else {
+        
+        $user = User::where('email', $email)->first();
+
+        if ($user &&  Hash::check(Input::get('password'), $user->password)) {
+            Session::put('user', $user);
             return redirect()->route('getHome');
         }
-        return redirect()->route('getHome');
+        return redirect()->back()->withErrors(['error', 'Wrong email or password!']);
     }
 
     public function getUserRegister()
