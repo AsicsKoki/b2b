@@ -46,8 +46,9 @@ class CompanyController extends Controller {
     {
         $company = Company::find($id);
         $businessCard = $company->businessCard;
+        $ads = $company->ads;
         $logo = $company->image;
-        return view('company.profile', ['company' => $company, 'businessCard' => $businessCard, 'logo' => $logo['path']]);
+        return view('company.profile', ['company' => $company, 'ads' => $ads, 'businessCard' => $businessCard, 'logo' => $logo['path']]);
     }
 
     public function postRegister(Request $request)

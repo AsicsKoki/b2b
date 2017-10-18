@@ -4,7 +4,7 @@
 
 <main class="main_app_container">
 <div class="login_register_container">
-	<form action="{{ route('postUserLogin') }}" method="POST" class="login_reg_form">
+	<form action="{{ route('authenticateUser') }}" method="POST" class="login_reg_form">
 		<div class="login_reg_form_item">
 			<label for="">Email</label>
 			<input name="email" type="text">
