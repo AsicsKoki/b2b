@@ -6,15 +6,18 @@
                 <div class="main_header_reg_lang_menu_content">
                     <ul class="header_login_reg_holder cf">
                         <li><i class="fa fa-sign-in" aria-hidden="true"></i></li>
-                    <li>
-                            <a href="{{ route('getUserLogin') }}">Korisnici</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('getCompanyLogin') }}">Kompanije</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('logout') }}">Logout</a>
-                        </li>
+                        @if(Auth::check())
+                            <li>
+                                <a href="{{ route('logout') }}">Logout</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('getUserLogin') }}">Korisnici</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('getCompanyLogin') }}">Kompanije</a>
+                            </li>
+                        @endif
                     </ul>
 
                     <ul class="choose_lang_header cf">
@@ -39,7 +42,7 @@
 
                 <nav class="main_nav">
                     <ul class="cf">
-                     @if(Auth::user())
+                     @if(Auth::check())
                         <li>
                             <a href="">My CV</a>
                         </li>
@@ -60,7 +63,7 @@
             <div class="main_header_bottom cf">
                 <div class="main_header_bottom_left">
                     <p>
-                        <a href="">View all job offers:<span>36.631</span></a>
+                        <a href="{{ route('getAllJobs') }}">View all job offers:<span>36.631</span></a>
                     </p>
                 </div>
 

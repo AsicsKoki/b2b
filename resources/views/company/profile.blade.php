@@ -22,18 +22,14 @@
 						<p class="bold">All jobs by <span>Booproweb</span></p>
 					</div>
 					<ul>
+						@foreach ($ads as $ad)
 						<li class="company_profile_view_jobs_item">
-							<a href="" class="company_profile_view_jobs_item_link">
-								<p class="bold">We are looking for backend web developer</p>
-								<p class=""><span>Serbia</span>, <span>Nis</span></p>
+							<a href="{{ route('getSpecificJob', ['jid' => $ad->id]) }}" class="company_profile_view_jobs_item_link">
+								<p class="bold">{{ $ad->position }}</p>
+								<p class=""><span>{{ $ad->country }}</span>, <span>{{ $ad->city }}</span></p>
 							</a>
 						</li>
-						<li class="company_profile_view_jobs_item">
-							<a href="" class="company_profile_view_jobs_item_link">
-								<p class="bold">We are looking for backend web developer</p>
-								<p class=""><span>Serbia</span>, <span>Nis</span></p>
-							</a>
-						</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
