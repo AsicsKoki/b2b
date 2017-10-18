@@ -6,6 +6,11 @@
                 <div class="main_header_reg_lang_menu_content">
                     <ul class="header_login_reg_holder cf">
                         <li><i class="fa fa-sign-in" aria-hidden="true"></i></li>
+                        @if(Session::has('user'))
+                            <li>
+                                <a href="{{ route('logout') }}">Logout</a>
+                            </li>
+                        @endif
                         @if(Auth::check())
                             <li>
                                 <a href="{{ route('logout') }}">Logout</a>
