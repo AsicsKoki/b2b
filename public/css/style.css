@@ -1859,3 +1859,11 @@ a.edit_link {
 .confirm_btn:hover {
     background: #47a911;
 }
+
+.main_menu_user_profile_holder textarea {
+    width: 96%;
+    resize: vertical;
+    padding: 2%;
+    border: 2px solid #ddd;
+    background: #f6f6f6;
+}

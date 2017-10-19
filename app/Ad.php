@@ -44,6 +44,12 @@ class Ad extends Model
     	return $this->belongsTo('App\Company');
     }
 
+    public function categories()
+    {
+    	return $this->belongsToMany('Category');
+	}
+
+
     public static function countAll()
     {
     	return Ad::where('approved','=','1')->count();

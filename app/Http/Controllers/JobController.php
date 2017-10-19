@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Ad as Ad;
 use App\Company as Company;
+use App\Application as Application;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
@@ -64,9 +65,16 @@ class JobController extends Controller {
         return redirect()->route('getControlPanel');
     }
 
-    public function getJobApplication()
+    public function getJobApplication($jid)
     {  
-        return view('ad.application');
+        return view('ad.application', ['jid' => $jid]);
+    }
+
+    public function postJobApplication()
+    {  
+        $application = new Application(Input::all());
+        $application->save();
+        return redirect()->route('getAllJobs');
     }
 
 

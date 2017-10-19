@@ -13,6 +13,8 @@ class CreateApplicationsTable extends Migration {
 			$table->softDeletes();
 			$table->integer('user_id')->unsigned();
 			$table->integer('ad_id')->unsigned();
+			$table->text('cover_letter', 50000)->unsigned();
+			$table->integer('notiffication')->default('1');
 		});
 	}
 
