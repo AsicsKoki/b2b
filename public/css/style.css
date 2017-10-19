@@ -117,7 +117,7 @@ textarea {
     position: relative;
 }
 
-.notification_item_menu span {
+.notification_item_menu > a:first-child span {
     position: absolute;
     top: -5px;
     right: -10px;
@@ -131,9 +131,45 @@ textarea {
     color: #fff;
 }
 
+ul.sub_menu_notification {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 300px;
+    box-shadow: 0px 2px 5px 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+ul.sub_menu_notification li a {
+    display: block;
+    font-size: 12px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+ul.sub_menu_notification li a:hover {
+    background: #eee;
+}
+
+ul.sub_menu_notification li a span {
+    display: block;
+}
+
 .notification_item_menu a {
     font-size: 20px;
     color: #333;
+}
+
+span.sub_menu_notification_date {
+    color: #9e9e9e;
+    font-size: 10px;
 }
 
 .main_header_bottom {

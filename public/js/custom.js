@@ -69,6 +69,12 @@ $(document).ready(function(){
     	$('.popup_confirmation_register').fadeOut(200);
     });
 
+    // Notification Show/Hide Sub Menu
+    $('.notification_item_menu_trigger').on('click',function(e){
+        e.preventDefault();
+        $('.sub_menu_notification').fadeToggle(200);
+    });
+
 	// Business sector form selection
 	$('.selectSector').click(function() {
      return !$('.selectSector option:selected').remove().appendTo('.selectSectorSelected');
