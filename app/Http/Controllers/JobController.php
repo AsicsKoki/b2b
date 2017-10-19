@@ -64,5 +64,10 @@ class JobController extends Controller {
         return redirect()->route('getControlPanel');
     }
 
+    public function getJobApplication()
+    {  
+        return view('ad.application');
+    }
+
 
 }
