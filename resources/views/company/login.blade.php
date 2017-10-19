@@ -6,6 +6,9 @@
 <div class="login_register_container">
 	<form action="{{ route('authenticate') }}" method="POST" class="login_reg_form">
 		<div class="login_reg_form_item">
+			@if($errors->any())
+				<h4 style="text-align: center; margin-bottom: 15px;color: #ff5c5c;">Wrong email or password!</h4>
+			@endif
 			<label for="">Username</label>
 			<input name="username" type="text"  id="">
 		</div>

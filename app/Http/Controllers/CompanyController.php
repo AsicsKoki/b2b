@@ -37,7 +37,8 @@ class CompanyController extends Controller {
             // Authentication passed...
             return redirect()->route('getControlPanel');
         } else {
-            return Hash::make(Input::get('password'));
+            // Auth failed...
+            return redirect()->back()->withErrors(['error', 'Wrong username or password!']);
         }
     }
 
