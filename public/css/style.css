@@ -46,13 +46,15 @@ body {
 }
 
 button, 
-input[type="submit"] {
+input[type="submit"],
+input[type="file"] {
     cursor: pointer;
 }
 
 button,:focus 
 input[type="submit"]:focus,
 textarea:focus,
+input[type="file"]:focus,
 button,:active, 
 input[type="submit"]:active,
 textarea:active {
@@ -97,7 +99,41 @@ textarea {
 }
 
 .main_header_top {
+    position: relative;
     padding: 10px 30px;
+}
+
+.right_nav {
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+}
+
+.right_nav li {
+    list-style: none;
+}
+
+.notification_item_menu {
+    position: relative;
+}
+
+.notification_item_menu span {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 9px;
+    display: block;
+    width: 15px;
+    line-height: 15px;
+    border-radius: 50%;
+    background: #f72423;
+    text-align: center;
+    color: #fff;
+}
+
+.notification_item_menu a {
+    font-size: 20px;
+    color: #333;
 }
 
 .main_header_bottom {
@@ -1613,13 +1649,17 @@ a.edit_link {
 
 .edit_info_window textarea {
     display: block;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     width: 80%;
     margin: auto;
     height: 80px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: #fdfdfd;
     text-align: left;
+    color: #7b7b7b;
+    padding: 10px;
+    resize: none;
 }
 
 .edit_info_window button {
@@ -1662,7 +1702,7 @@ a.edit_link {
     padding: 30px 0 15px;
     padding-left: 2%;
     padding-right: 2%;
-    background: #efefef;
+    background: #f7f6f6;
     border-radius: 5px;
 }
 

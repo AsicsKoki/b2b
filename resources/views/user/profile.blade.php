@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<h1 class="page_title">User Registration</h1>
+<h1 class="page_title">Your Profile</h1>
 
 <main class="main_app_container">
 	<div class="user_profile_content cf">
@@ -17,7 +17,7 @@
 						<br>
 						<div class="edit_info_window change_image_edit_info_window">
 							<input type="file">
-							<button class="confirm_edit_btn">Choose image</button>
+							<button class="confirm_edit_btn blue_btn">Choose image</button>
 						</div>
 					</div>
 					
@@ -33,7 +33,7 @@
 					
 					<div class="edit_info_window">
 						<input type="text" placeholder="Enter your full name">
-						<button class="confirm_edit_btn">Confirm</button>
+						<button class="confirm_edit_btn blue_btn">Confirm</button>
 					</div>
 				</div>
 
@@ -47,7 +47,7 @@
 					
 					<div class="edit_info_window">
 						<input type="text" placeholder="Education">
-						<button class="confirm_edit_btn">Confirm</button>
+						<button class="confirm_edit_btn blue_btn">Confirm</button>
 					</div>
 				</div>
 
@@ -61,7 +61,7 @@
 					
 					<div class="edit_info_window">
 						<textarea name="" id="" cols="30" rows="10" width="100%" placeholder="Say something about you"></textarea>
-						<button class="confirm_edit_btn">Confirm</button>
+						<button class="confirm_edit_btn blue_btn">Confirm</button>
 					</div>
 				</div>
 			</div>
@@ -85,7 +85,7 @@
 
 				<div class="edit_info_window">
 					<input type="text" placeholder="Enter your country">
-					<button class="confirm_edit_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -98,7 +98,7 @@
 
 				<div class="edit_info_window">
 					<input type="text" placeholder="Enter your city">
-					<button class="confirm_edit_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -111,7 +111,7 @@
 
 				<div class="edit_info_window">
 					<input type="text" placeholder="Enter your region">
-					<button class="confirm_edit_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -124,7 +124,7 @@
 
 				<div class="edit_info_window">
 					<input type="text" placeholder="Enter your birth date">
-					<button class="confirm_edit_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -145,7 +145,7 @@
 						<input type="radio" value="" id="female" name="gender" style="width: auto;margin-right: 5px;">
 						<span style="font-size: 15px;">Female</span>
 					</label>
-					<button class="confirm_edit_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -158,7 +158,7 @@
 
 				<div class="edit_info_window">
 					<input type="text" placeholder="Enter your phone">
-					<button class="confirm_edit_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 

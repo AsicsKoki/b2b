@@ -62,6 +62,15 @@
                     @endif
                     </ul>
                 </nav>
+
+                <ul class="right_nav">
+                    <li class="notification_item_menu">
+                        <a href="#">
+                            <i class="fa fa-bell" aria-hidden="true"></i>
+                            <span>1</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <div class="main_header_bottom cf">
