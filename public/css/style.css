@@ -45,8 +45,18 @@ body {
     font-family: open_sans_bold;
 }
 
-button {
+button, 
+input[type="submit"] {
     cursor: pointer;
+}
+
+button,:focus 
+input[type="submit"]:focus,
+textarea:focus,
+button,:active, 
+input[type="submit"]:active,
+textarea:active {
+    outline: none;
 }
 
 input.error, textarea.error {
@@ -1558,3 +1568,218 @@ p.company_profile_edit_section_view_info_desc {
     margin-bottom: 7px;    
 }
 
+.user_profile_item {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+a.edit_link {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    color: #2b829e;
+}
+
+.user_profile_main_header {
+    text-align: center;
+}
+
+.user_profile_image_holder span {
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.user_profile_image_holder img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.edit_info_window input, .edit_info_window button {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.edit_info_window input, .edit_info_window textarea {
+    border: none;
+    padding: 0 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-right: 7px;
+    background: transparent;
+}
+
+.edit_info_window textarea {
+    display: block;
+    border: 1px solid #ddd;
+    width: 80%;
+    margin: auto;
+    height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.edit_info_window button {
+    border: none;
+    background: #2075a2;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.change_image_edit_info_window {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.user_profile_image_holder {
+    display: inline-block;
+    position: relative;
+}
+
+.change_image_edit_info_window input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    opacity: 0;
+    z-index: 10;
+}
+
+.user_profile_name {
+    position: relative;
+    display: inline-block;
+}
+
+.user_profile_main {
+    float: left;
+    width: 68%;
+    padding: 30px 0 15px;
+    padding-left: 2%;
+    padding-right: 2%;
+    background: #efefef;
+    border-radius: 5px;
+}
+
+.user_profile_sidebar {
+    float: right;
+    width: 25%;
+}
+
+.user_profile_sidebar_item {
+    position: relative;
+    padding: 0 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user_profile_sidebar .edit_link {
+    left: 0;
+    right: auto;
+}
+
+.user_profile_sidebar .edit_info_window button {
+    margin-top: 10px;
+    padding: 0;
+    width: 18%;
+    vertical-align: bottom;
+}
+
+.user_profile_sidebar .edit_info_window {
+    text-align: left;
+}
+
+.user_profile_sidebar .edit_info_window input {
+    width: 80%;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.user_profile_about_text {
+    font-size: 15px;
+    margin: auto;
+}
+
+.user_profile_about.user_profile_item {
+    width: 90%;
+    margin: auto;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.apply_for_job_text {
+    display: block;
+    width: 75%;
+    max-width: 80%;
+    height: 300px;
+    border: 2px solid #bbbaba;
+    resize: none;
+    background: #f9f9f9;
+    margin: auto;
+    padding: 20px;
+    color: #696969;
+}
+
+.btn_attach_cv {
+    display: block;
+    width: 75%;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 40px;
+    border: none;
+    background: #2075a2;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.blue_btn {
+    background: #2075a2;
+    color: #fff;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.blue_btn:hover {
+    background: #19638a;
+}
+
+.apply_for_job_submit {
+    display: block;
+    width: 200px;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 5px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.confirm_btn {
+    background: #51bf16;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.confirm_btn:hover {
+    background: #47a911;
+}
