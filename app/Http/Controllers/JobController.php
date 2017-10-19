@@ -77,7 +77,7 @@ class JobController extends Controller {
         return redirect()->route('getAllJobs');
     }
 
-    public function getJobApplication($jid)
+    public function getConversation()
     {  
         return view('ad.conversation');
     }
