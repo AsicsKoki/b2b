@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Company as Company;
+use Carbon\Carbon;
 
 class Ad extends Model
 {
@@ -41,5 +42,15 @@ class Ad extends Model
     public function company()
     {
     	return $this->belongsTo('App\Company');
+    }
+
+    public static function countAll()
+    {
+    	return Ad::where('approved','=','1')->count();
+    }
+
+    public static function countLastDay()
+    {
+    	return Ad::where('approved', '=', '1')->where('created_at', '>=', Carbon::today())->count();
     }
 }

@@ -67,13 +67,13 @@
             <div class="main_header_bottom cf">
                 <div class="main_header_bottom_left">
                     <p>
-                        <a href="{{ route('getAllJobs') }}">View all job offers:<span>36.631</span></a>
+                        <a href="{{ route('getAllJobs') }}">View all job offers:<span>{{ App\Ad::countAll() }}</span></a>
                     </p>
                 </div>
 
                 <div class="main_header_bottom_right">
                     <p>
-                        <a href="">Job offers today:<span>2.808</span></a>
+                        <a href="">Job offers today:<span>{{ App\Ad::countLastDay() }}</span></a>
                     </p>
                 </div>
             </div>
