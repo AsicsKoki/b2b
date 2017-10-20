@@ -305,7 +305,7 @@ span.sub_menu_notification_date {
 .home_search_job {
     margin-top: 50px;
     padding: 20px;
-    background: #efefef;
+    background: #f3f3f3;
 }
 
 .home_search_job_item_title {
@@ -462,27 +462,29 @@ p.job_search_option_triger {
     border-radius: 5px;
 }
 
+.home_top_employers_top_jobs {
+    margin-top: 50px;
+}
+
 .home_top_employers {
     float: left;
-    width: 48%;
-    margin-top: 50px;
-    padding-top: 50px;
+    width: 49.7%;
 }
 
 .home_top_jobs {
     float: right;
-    width: 48%;
+    width: 49.7%;
 }
 
 .home_top_employers_grid {
-    background: #efefef;
+    background: #f3f3f3;
     padding: 20px;
 }
 
 .home_top_employers_grid li {
     float: left;
     list-style: none;
-    width: 20%;
+    width: 33.3%;
 }
 
 .home_top_employers_grid li a {
@@ -490,10 +492,25 @@ p.job_search_option_triger {
     margin: 3px;
     border: 1px solid #eee;
     text-align: center;
+    background: #444;
 }
 
 .home_top_employers_grid li img {
     width: 95%;
+}
+
+.home_top_jobs_grid {
+    background: #f3f3f3;
+}
+
+.home_top_employers_top_jobs .section_title {
+    font-size: 23px;
+    font-family: open_sans_bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background: #2890d3;
+    text-align: center;
+    line-height: 2;
 }
 
 .section_title {
@@ -503,8 +520,40 @@ p.job_search_option_triger {
     color: #444;
 }
 
-.section_title span {
-    border-bottom: 2px solid #ff5c5c;
+.home_top_jobs_grid_item  {
+    display: block;
+    color: #444;
+    padding: 10px 20px;
+}
+
+.home_top_jobs_grid_item h3 {
+    color: #444444;
+    float: right;
+    width: 75%;
+    text-align: right;
+    font-size: 18px;
+}
+
+.home_top_jobs_grid_item_logo {
+    width: 20%;
+    float: left;
+    display: block;
+}
+
+.home_top_jobs_grid_item_logo img {
+    width: 100%;
+}
+
+.home_top_jobs_grid_item_header {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.home_top_jobs_grid li {
+    list-style: none;
+    border-bottom: 5px solid #fff;
 }
 
 .login_reg_form {
@@ -512,11 +561,27 @@ p.job_search_option_triger {
     margin: auto;
 }
 
+.home_top_jobs_company {
+    display: block;
+}
+
 .login_reg_form_item label {
     display: block;
     text-align: center;
     font-size: 20px;
     margin-bottom: 9px;
+}
+
+.home_top_jobs_grid_item_company a {
+    color: #444;
+}
+
+.home_top_jobs_grid_item_descript a {
+    color: #444;
+}
+
+.home_top_jobs_grid_item_descript {
+    font-size: 16px;
 }
 
 .login_reg_form_item input {

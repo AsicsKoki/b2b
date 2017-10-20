@@ -161,61 +161,110 @@
                 <!-- End Home Search Job Section -->
 
                 <!-- Home Top Employers Section -->
-                <div class="home_top_employers cf">
-                    <h3 class="section_title"><span>Top employers</span></h3>
+                <div class="home_top_employers_top_jobs cf">
 
-                    <ul class="home_top_employers_grid cf">
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/employers/test-employer.jpg" alt="">
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="home_top_employers cf">
+                        <h3 class="section_title"><span>Top employers</span></h3>
+
+                        <ul class="home_top_employers_grid cf">
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="images/employers/test-employer.jpg" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="home_top_jobs cf">
+
+                        <h3 class="section_title"><span>Top Jobs</span></h3>
+
+                        <ul class="home_top_jobs_grid cf">
+
+                            <li class="home_top_jobs_grid_item">
+                                <span class="home_top_jobs_grid_item_header cf">
+                                        <span class="home_top_jobs_grid_item_logo">
+                                            <a href="" >
+                                                <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+                                            </a>
+                                        </span>
+
+                                        <h3 class="bold home_top_jobs_grid_item_company">
+                                            <a href="">Booproweb</a>
+                                        </h3>
+                                </span>
+
+                                <p class="bold home_top_jobs_grid_item_descript">
+                                    <a href="">Indented on the first line of my textarea, replace all leading or trailing white space with an empty string.</a>
+                                </p>
+                            </li>
+
+                            <li class="home_top_jobs_grid_item">
+                                <span class="home_top_jobs_grid_item_header cf">
+                                        <span class="home_top_jobs_grid_item_logo">
+                                            <a href="" >
+                                                <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+                                            </a>
+                                        </span>
+
+                                        <h3 class="bold home_top_jobs_grid_item_company">
+                                            <a href="">Booproweb</a>
+                                        </h3>
+                                </span>
+
+                                <p class="bold home_top_jobs_grid_item_descript">
+                                    <a href="">Indented on the first line of my textarea, replace all leading or trailing white space with an empty string.</a>
+                                </p>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
                 <!-- End Top Employers Section -->
             </div>
