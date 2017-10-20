@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company as Company;
+use App\Ad as Ad;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $companies = Company::with('image')->get();
+        $ads = Ad::with('company')->get();
+        return view('home', ['companies' => $companies, 'ads' => $ads]);
     }
 }

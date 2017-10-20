@@ -167,56 +167,13 @@
                         <h3 class="section_title"><span>Top employers</span></h3>
 
                         <ul class="home_top_employers_grid cf">
+                        @foreach($companies as $company)
                             <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                <a href="{{ route('getCompanyProfile', ['cid' => $company->id]) }}">
+                                    <img src="{{ URL::to('/') . $company->image->path }}" alt="">
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
+                        @endforeach
                         </ul>
                     </div>
 
@@ -226,7 +183,7 @@
                         <h3 class="section_title"><span>Top Jobs</span></h3>
 
                         <ul class="home_top_jobs_grid cf">
-
+                        @foreach($ads as $ad)
                             <li class="home_top_jobs_grid_item">
                                 <span class="home_top_jobs_grid_item_header cf">
                                         <span class="home_top_jobs_grid_item_logo">
@@ -236,33 +193,15 @@
                                         </span>
 
                                         <h3 class="bold home_top_jobs_grid_item_company">
-                                            <a href="">Booproweb</a>
+                                            <a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}">{{ $ad->company->company_name }}</a>
                                         </h3>
                                 </span>
 
                                 <p class="bold home_top_jobs_grid_item_descript">
-                                    <a href="">Indented on the first line of my textarea, replace all leading or trailing white space with an empty string.</a>
+                                    <a href="{{ route('getSpecificJob', ['jid' => $ad->id]) }}">{{ $ad->position }}</a>
                                 </p>
                             </li>
-
-                            <li class="home_top_jobs_grid_item">
-                                <span class="home_top_jobs_grid_item_header cf">
-                                        <span class="home_top_jobs_grid_item_logo">
-                                            <a href="" >
-                                                <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
-                                            </a>
-                                        </span>
-
-                                        <h3 class="bold home_top_jobs_grid_item_company">
-                                            <a href="">Booproweb</a>
-                                        </h3>
-                                </span>
-
-                                <p class="bold home_top_jobs_grid_item_descript">
-                                    <a href="">Indented on the first line of my textarea, replace all leading or trailing white space with an empty string.</a>
-                                </p>
-                            </li>
-
+                        @endforeach
                         </ul>
                     </div>
                 </div>

@@ -74,6 +74,9 @@ class JobController extends Controller {
     {  
         $application = new Application(Input::all());
         $application->save();
+
+        $conversation = new Conversation(Input::all());
+        $conversation->save();
         return redirect()->route('getAllJobs');
     }
 
