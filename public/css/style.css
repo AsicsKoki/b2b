@@ -83,7 +83,7 @@ textarea {
     font-family: open_sans_bold;
     padding: 25px 0;
     text-align: center;
-    background: #efefef;
+    background: #f3f3f3;
     margin-bottom: 50px;
 }
 
@@ -1866,4 +1866,66 @@ a.edit_link {
     padding: 2%;
     border: 2px solid #ddd;
     background: #f6f6f6;
+}
+
+ul.applicants_for_job_list {
+    width: 80%;
+    margin: auto;
+}
+
+.applicants_for_job_list li {
+    list-style: none;
+    margin-bottom: 5px;
+    background: #f7f7f7;
+    padding: 10px 20px;
+    background: #f3f3f3;
+    position: relative;
+}
+
+.applicants_for_job_list h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.applicants_for_job_list h3 a {
+    color: #444;
+}
+
+.applicants_for_job_list h3 span {
+    margin-left: 10px;
+    color: #ff5d5c;
+}
+
+.applications_user_for_job a {
+    color: #ff5d5c;
+}
+
+span.applications_date_for_job {
+    font-size: 14px;
+    float: left;
+}
+
+span.applications_user_for_job {
+    float: right;
+    font-size: 14px;
+}
+
+.footer_applicants_for_job_item {
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.applicants_for_job_read_unread {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 16px;
+}
+
+.applicants_for_job_read_unread .read {
+    color: #57cc67;
+}
+
+.applicants_for_job_read_unread .unread {
+    color: #f33b3a;
 }
