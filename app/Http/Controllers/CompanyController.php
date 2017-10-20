@@ -134,7 +134,8 @@ class CompanyController extends Controller {
         $company = Company::find(Auth::user()->id);
         $company->about_us = $about_us;
         $company->save();
-        return redirect()->back();
+        return 1;
+
     }
 
     public function updateCareer()
@@ -143,7 +144,7 @@ class CompanyController extends Controller {
         $company = Company::find(Auth::user()->id);
         $company->career = $career;
         $company->save();
-        return redirect()->back();
+        return 1;
     }
 
     public function editBuisnessCard()
