@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<main class="main_app_container">
+<main class="main_app_container home_page">
             <div class="home_search_job_employers_section cf">
 
                 <!-- Home Job Search Section -->
@@ -169,52 +169,52 @@
                         <ul class="home_top_employers_grid cf">
                             <li>
                                 <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+                                </a>
+                            </li>
+                             <li>
+                                <a href="#">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+                                </a>
+                            </li>
+                             <li>
+                                <a href="#">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+                                </a>
+                            </li>
+                             <li>
+                                <a href="#">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="images/employers/test-employer.jpg" alt="">
+                                    <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
                                 </a>
                             </li>
                         </ul>
