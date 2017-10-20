@@ -324,7 +324,7 @@
 			  	<small style="margin-bottom: 5px;display: inline-block;">*You can introduce your company as an employer, tell about the career development opportunities</small>
 				
 
-				<form action="{{ route('updateCareer') }}" method="POST">
+				<form action="{{ route('updateCareer') }}" method="POST" id="career_form">
 				  	<div class="edit_profile_textarea">
 				  		<textarea name="career" id="career" cols="40" rows="4"></textarea>
 						{{ csrf_field() }}

@@ -121,9 +121,61 @@ $(document).ready(function(){
     //     });
     // });
 
+    // $('button#about_us').click(function(e) {
+    //         e.preventDefault();
+    //         var about_us = $('#about_us_text').value(),
+    //         $.ajax
+    //         ({
+    //             url: '/updateAboutUs',
+    //             data: about_us
+    //             type: 'post',
+    //             success: function()
+    //             {
+    //                 return 1;
+    //             }
+    //         });
+    //     });
 
+        $('#about_us_form').submit(function(e) {
+        e.preventDefault();
+        var about_us = $('#about_us_text').val();
+        $.ajax ({
+            url: '/updateAboutUs',
+            data: {
+                about_us:about_us, 
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                  },
+            type: 'post'
 
+        })
+            .done(function()
+            {
+                
+                return 1;
+            })
 
+         });
 
+        $('#career_form').submit(function(e) {
+       e.preventDefault();
+       var career = $('#career').val();
+       $.ajax ({
+           url: '/updateCareer',
+           data: {
+               career:career,
+               '_token': $('meta[name="csrf-token"]').attr('content'),
+                 },
+           type: 'post'
+
+      })
+           .done(function()
+           {
+              
+               return 1;
+           })
+
+       });
+
+        
 });
 
