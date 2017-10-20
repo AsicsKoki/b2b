@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Company as Company;
 use App\Image as Image;
 use App\BusinessCard as BusinessCard;
+use App\Application as Application;
+
 use Illuminate\Support\Facades\Hash as Hash;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
@@ -125,7 +127,8 @@ class CompanyController extends Controller {
 
     public function getControlPanel()
     {
-        return view('company.panel');
+        $applications = Application::with('ad')->with('user')->get();
+        return view('company.panel', ['applications' => $applications]);
     }
 
     public function updateAboutUs()

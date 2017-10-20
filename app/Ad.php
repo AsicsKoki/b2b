@@ -59,4 +59,9 @@ class Ad extends Model
     {
     	return Ad::where('approved', '=', '1')->where('created_at', '>=', Carbon::today())->count();
     }
+
+    public function applications()
+    {
+    	return $this->hasMany('App\Application');
+    }
 }

@@ -24,6 +24,11 @@ class Application extends Model
 
     public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\User', 'user_id');
+    }
+
+   	public function Ad()
+    {
+    	return $this->belongsTo('App\Ad', 'ad_id');
     }
 }

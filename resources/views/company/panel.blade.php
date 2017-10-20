@@ -357,22 +357,24 @@
 
 		<section class="company_profile_content" id="content5">
 
-			<h2 class="page_title">Applicants</h2>
+			<h2 class="page_title">Applications</h2>
 
 			<ul class="applicants_for_job_list">
+			@foreach($applications as $application)
 				<li class="applicants_for_job_item">
 					<h3 class="bold">
-						<a href="">Applicaton for:<span>Frontend developer for work in ofiice in Serbia, Nis</span></a>
+						<a href="{{ route('getConversation') }}">Applicaton for:<span>{{ $application->ad->position }}</span></a>
 					</h3>
 					<p class="applicants_for_job_read_unread bold">
 						<span class="read"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
 						<span class="unread"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
 					</p>
 					<div class="footer_applicants_for_job_item cf">
-						<span class="applications_date_for_job"><span class="bold">Date:</span> 2.2.1990</span>
-						<span class="applications_user_for_job"><span class="bold">Applicants:</span> <a href="">Arsenije Vladimir</a></span>
+						<span class="applications_date_for_job"><span class="bold">Date:</span> {{ $application->created_at }} </span>
+						<span class="applications_user_for_job"><span class="bold">Applicant:</span> <a href="">{{ $application->user->last_name }} {{ $application->user->first_name }}</a></span>
 					</div>
 				</li>
+			@endforeach
 			</ul>
 
 		</section>
