@@ -48,16 +48,13 @@
                     <ul class="cf">
                      @if(Session::has('user'))
                         <li>
-                            <a href="">My CV</a>
-                        </li>
-                        <li>
-                            <a href="">History</a>
+                            <a href="">Profile</a>
                         </li>
                         <li>
                             <a href="">Favorites</a>
                         </li>
-                         <li>
-                            <a href="">My files</a>
+                        <li>
+                            <a href="">History</a>
                         </li>
                     @endif
                     </ul>
@@ -96,11 +93,13 @@
             <div class="main_header_bottom cf">
                 <div class="main_header_bottom_left">
                     <p>
+                        <a href="{{ route('getAllJobs') }}">View all job offers:<span>{{ App\Ad::countAll() }}</span></a>
                     </p>
                 </div>
 
                 <div class="main_header_bottom_right">
                     <p>
+                        <a href="{{ route('getToday') }}">Job offers today:<span>{{ App\Ad::countLastDay() }}</span></a>
                     </p>
                 </div>
             </div>

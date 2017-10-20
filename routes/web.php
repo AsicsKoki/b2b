@@ -70,6 +70,7 @@ Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
 Route::get('/applyForJob/{jid}', 'JobController@getJobApplication')->name('getJobApplication');
 Route::post('/applyForJob', 'JobController@postJobApplication')->name('postJobApplication');
 Route::get('/conversation', 'JobController@getConversation')->name('getConversation');
+Route::get('/today', 'JobController@getToday')->name('getToday');
 
 
 

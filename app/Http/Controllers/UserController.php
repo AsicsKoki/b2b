@@ -40,9 +40,8 @@ class UserController extends Controller {
     {
         $email = Input::get('email');
         $password = Input::get('password');
-        
         $user = User::where('email', $email)->first();
-
+        
         if ($user &&  Hash::check(Input::get('password'), $user->password)) {
             Session::put('user', $user);
             return redirect()->route('getHome');
@@ -66,13 +65,12 @@ class UserController extends Controller {
         'confirm_password'  => 'required',
     ]);
     if (!strcmp(Input::get('password'), Input::get('confirm_password')) &&  !strcmp(Input::get('email'), Input::get('confirm_email'))) {
-            $user = new User(Input::all());
-            $user->password = Hash::make(Input::get('password'));
-            $user->save();
-            return redirect()->route('getHome');
+        $user = new User(Input::all());
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
+        return redirect()->route('getHome');
     } else {
         return Redirect::back()->withErrors(['error', 'Email or password do not match!']);
-        // return Input::all();
         }
     }
 }

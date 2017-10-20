@@ -7,7 +7,7 @@ use App\Application as Application;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 
 class JobController extends Controller {
 
@@ -80,6 +80,11 @@ class JobController extends Controller {
     public function getConversation()
     {  
         return view('ad.conversation');
+    }
+
+    public function getToday()
+    {  
+        return view('ad.allAds', ['ads' => Ad::with('company.image')->where('approved', '=', '1')->where('created_at', '>=', Carbon::today())->get()]);
     }
 
 
