@@ -16,8 +16,6 @@
 // cid - company
 
 
-Auth::routes();
-
 Route::get('/', 'HomeController@index')->name('getHome');
 
 // Authentication routes...
@@ -71,8 +69,6 @@ Route::get('/applyForJob/{jid}', 'JobController@getJobApplication')->name('getJo
 Route::post('/applyForJob', 'JobController@postJobApplication')->name('postJobApplication');
 Route::get('/conversation', 'JobController@getConversation')->name('getConversation');
 Route::get('/today', 'JobController@getToday')->name('getToday');
-
-
 
 // middleware for showing errors on companyRegister-Step-3
 Route::group(['middleware'=>'web'],function (){
