@@ -306,6 +306,7 @@ span.sub_menu_notification_date {
     margin-top: 50px;
     padding: 20px;
     background: #f3f3f3;
+    border-radius: 5px;
 }
 
 .home_search_job_item_title {
@@ -345,6 +346,7 @@ span.sub_menu_notification_date {
 
 .job_category .job_search_option_triger {
     float: right;
+    border-radius: 5px;
 }
 
 .search_location_holder input {
@@ -352,6 +354,8 @@ span.sub_menu_notification_date {
     line-height: 40px;
     font-size: 16px;
     text-indent: 15px;
+    border: none;
+    border-radius: 5px;
 }
 
 .job_search_option_triger .fa {
@@ -385,12 +389,14 @@ span.sub_menu_notification_date {
     width: auto;
     padding: 0 45px 0 15px;
     text-indent: 0;
+    border-radius: 5px;
 }
+
+
 
 p.job_search_option_triger {
     position: relative;
     width: 100%;
-    border: 1px solid #ccc;
     line-height: 42px;
     color: #757575;
     text-indent: 15px;
@@ -464,6 +470,8 @@ p.job_search_option_triger {
 
 .home_top_employers_top_jobs {
     margin-top: 50px;
+    border-top: 1px solid #ddd;
+    padding-top: 50px;
 }
 
 .home_top_employers {
@@ -479,6 +487,7 @@ p.job_search_option_triger {
 .home_top_employers_grid {
     background: #f3f3f3;
     padding: 20px;
+    border-radius: 5px;
 }
 
 .home_top_employers_grid li {
@@ -490,9 +499,11 @@ p.job_search_option_triger {
 .home_top_employers_grid li a {
     display: block;
     margin: 3px;
-    border: 1px solid #eee;
+    border: 2px solid #e2e2e2;
     text-align: center;
-    background: #444;
+    padding: 5px;
+    border-radius: 5px;
+    background: #fff;
 }
 
 .home_top_employers_grid li img {
@@ -500,17 +511,18 @@ p.job_search_option_triger {
 }
 
 .home_top_jobs_grid {
-    background: #f3f3f3;
 }
 
 .home_top_employers_top_jobs .section_title {
-    font-size: 23px;
     font-family: open_sans_bold;
     margin-bottom: 20px;
-    color: #ffffff;
-    background: #2890d3;
+    color: #505050;
+    background: #f3f3f3;
     text-align: center;
     line-height: 2;
+    border-radius: 5px;
+    border: 2px solid #ff5d5c;
+    font-size: 20px;
 }
 
 .section_title {
@@ -553,7 +565,9 @@ p.job_search_option_triger {
 
 .home_top_jobs_grid li {
     list-style: none;
-    border-bottom: 5px solid #fff;
+    margin-bottom: 5px;
+    background: #f3f3f3;
+    border-radius: 5px;
 }
 
 .login_reg_form {
