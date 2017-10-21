@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<h1 class="page_title">User Registration</h1>
+<h1 class="page_title main_page_title">User Registration</h1>
 
 <main class="main_app_container">
 	@if($errors->any())

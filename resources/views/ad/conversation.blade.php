@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="page_title">Job conversation</h1>
+<h1 class="page_title main_page_title">Job conversation</h1>
 
 <main class="main_app_container">
 	<ul class="comapny_user_coversation">

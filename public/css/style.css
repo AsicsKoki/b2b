@@ -16,6 +16,7 @@
 body {
     font-family: open_sans_regular;
     color: #444;
+    background: #f7f7f7;
 }
 
 
@@ -79,12 +80,22 @@ textarea {
     padding: 10px;
 }
 
+h1.page_title.main_page_title {
+    margin-top: 165px;
+}
+
 .page_title {
     font-family: open_sans_bold;
-    padding: 25px 0;
+    padding: 0;
     text-align: center;
-    background: #f3f3f3;
-    margin-bottom: 50px;
+    background: #f1f1f1;
+    margin-bottom: 20px;
+    color: #9c9c9c;
+    margin-top: 25px;
+    border-top: 2px solid #e6e6e6;
+    line-height: 80px;
+    border-bottom: 2px solid #e6e6e6;
+    font-size: 30px;
 }
 
 .second_part_companies_reg {
@@ -92,10 +103,19 @@ textarea {
 }
 
 .login_register_container {
-    margin-top: 50px;
 }
 
 .main_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 5px 0;
+    background: url('../photos/bg-header.jpg');
+    background-size: cover;
+    background-position: 5px -95px;
+    background-repeat: no-repeat;
+    z-index: 100;
 }
 
 .main_header_top {
@@ -173,7 +193,7 @@ span.sub_menu_notification_date {
 }
 
 .main_header_bottom {
-    background: #ff5c5c;
+    background: rgba(255, 92, 92, 0.9);
     padding: 10px 30px;
 }
 
@@ -216,7 +236,7 @@ span.sub_menu_notification_date {
 }
 
 .main_header_reg_lang_menu {
-    background: #efefef;
+    background: rgba(210, 210, 210, 0.75);
     padding: 10px;
 }
 
@@ -294,7 +314,9 @@ span.sub_menu_notification_date {
 }
 
 .main_app_container {
-    padding: 0 20px;
+    padding: 50px 20px;
+    border-radius: 5px;
+    background: #fff;
     max-width: 1160px;
     margin: auto;
     margin-bottom: 50px;
@@ -302,8 +324,13 @@ span.sub_menu_notification_date {
     font-size: 17px;
 }
 
+main.main_app_container.home_page {
+    margin-top: 200px;
+    background: #fff;
+    border-radius: 5px;
+}
+
 .home_search_job {
-    margin-top: 50px;
     padding: 20px;
     background: #f3f3f3;
     border-radius: 5px;
@@ -515,14 +542,15 @@ p.job_search_option_triger {
 
 .home_top_employers_top_jobs .section_title {
     font-family: open_sans_bold;
-    margin-bottom: 20px;
-    color: #505050;
-    background: #f3f3f3;
+    margin-bottom: 10px;
+    color: #ffffff;
+    background: #2890d3;
     text-align: center;
     line-height: 2;
-    border-radius: 5px;
-    border: 2px solid #ff5d5c;
     font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 #777;
 }
 
 .section_title {
@@ -1428,7 +1456,6 @@ p.company_profile_edit_section_view_info_desc {
 }
 
 .pagination {
-    margin: 30px 0;
     text-align: center; 
 }
 
@@ -1440,27 +1467,29 @@ p.company_profile_edit_section_view_info_desc {
     float: left;
     list-style: none;
     font-size: 16px;
+    box-shadow: 0 0 5px 0;
 }
 
 .pagination li a {
     display: block;
     padding: 0 10px;
-    color: #fff;
+    color: #8a8a8a;
 }
 
 .pagination_page {
     width: 30px;
     line-height: 30px;
-    background: #333;
+    background: #fff;
     border-radius: 50%;
     margin: 0 5px;
 }
 
 .pagination_fast_page {
-    background: #333;
+    background: #fff;
     margin: 0 5px;
     line-height: 30px;
     border-radius: 5px;
+    box-shadow: 0 0 5px 0;
 }
 
 .job_list_filter_item_logo {
@@ -1500,6 +1529,10 @@ p.company_profile_edit_section_view_info_desc {
     float: left;
 } 
 
+.job_list_filter_item_right_section a {
+    color: #333;
+}
+
 .company_ads_list li {
     list-style: none;
     float: left;
@@ -1520,9 +1553,7 @@ p.company_profile_edit_section_view_info_desc {
 
 
 .job_list_filter_holder {
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    padding: 10px 0;
+    padding: 40px 0;
 }
 
 .new_job_ad_packege_item {
@@ -2097,3 +2128,42 @@ ul.comapny_user_coversation {
     width: 80%;
     margin: auto;
 }
+
+/* Animate */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes bounceInLeft {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}
+/* End Animate */

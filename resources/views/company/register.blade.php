@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+
+<h1 class="page_title main_page_title">Company Registration</h1>
+
 <main class="main_app_container">
 			@if ($errors->any())
 			    <div class="alert alert-danger">
