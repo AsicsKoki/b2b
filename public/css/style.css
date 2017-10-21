@@ -615,7 +615,10 @@ p.job_search_option_triger {
 }
 
 .home_top_jobs_grid_item_company a {
-    color: #444;
+    color: #717171;
+    font-size: 15px;
+    margin-top: 9px;
+    display: block;
 }
 
 .home_top_jobs_grid_item_descript a {
