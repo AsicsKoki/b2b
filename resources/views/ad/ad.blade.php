@@ -1,7 +1,12 @@
 @extends('layouts.master')
 @section('content')
-<div class="single_job_content cf">
-	<div class="single_job_header">
+
+
+	<h1 class="page_title main_page_title">Job description</h1>
+
+	<main class="main_app_container cf">
+
+		<div class="single_job_header">
 		<h1 class="single_job_title bold">{{ $ad->position }}</h1>
 		<ul class="single_job_categories cf">
 			<li>
@@ -18,6 +23,7 @@
 			</li>
 		</ul>
 	</div>
+
 	<div class="single_job_sidebar">
 		<div class="single_job_sidebar_item">
 			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad->created_at }}</span></small>
@@ -63,28 +69,34 @@
 			@endif
 		</div>
 	</div>
-	<main class="main_app_container single_job_main">
+		
+		<div class="single_job_main">
 
-		<div class="single_job_main_cover">
-			<img src="http://booproweb.com/img/ilya-pavlov-87438.jpg" alt="">
+			<div class="single_job_main_cover">
+				<img src="http://booproweb.com/img/ilya-pavlov-87438.jpg" alt="">
+			</div>
+			
+
+			<div class="single_job_main_section">
+
+				<div class="single_job_main_section_first">
+				@if ($ad->students == 1)
+					<p class="single_job_students"><span class="">This job is available for students</span></p>
+				@endif
+				@if ($ad->low_experience == 1)
+					<p class="single_job_students"><span class="">This job is available for people with low experience</span></p>
+				@endif
+
+				</div>
+
+				<div class="single_job_desc">
+					<h3 class="bold">Job description</h3>
+					{{ $ad->description }}
+				</div>
+				<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad->id]) }}" class="bold">Apply</a></div>
+			</div>
 		</div>
-
-		<div class="single_job_main_section single_job_main_section_first">
-		@if ($ad->students == 1)
-			<p class="single_job_students"><span class="bold">This job is available for students</span></p>
-		@endif
-		@if ($ad->low_experience == 1)
-			<p class="single_job_students"><span class="bold">This job is available for people with low experience</span></p>
-		@endif
-
-		</div>
-
-		<div class="single_job_desc">
-			<h3 class="bold">Job description</h3>
-			{{ $ad->description }}
-		</div>
-		<div><a href="{{ route('getJobApplication', ['jid' => $ad->id, 'cid' => $company->id]) }}">Apply!</a></div>
 
 	</main>
-</div>
+
 @endsection

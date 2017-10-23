@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<h1 class="page_title">Your Profile</h1>
+<h1 class="page_title main_page_title">Your Profile</h1>
 
 <main class="main_app_container">
 	<div class="user_profile_content cf">

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+	<h1 class="page_title main_page_title">All jobs</h1>
+
 	<main class="main_app_container">
 		<div class="pagination">
 			<ul class="cf">

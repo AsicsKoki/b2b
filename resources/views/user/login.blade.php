@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<h1 class="page_title">User Log in</h1>
+<h1 class="page_title main_page_title">User Log in</h1>
 <main class="main_app_container">
 <div class="login_register_container">
 	<form action="{{ route('postUserLogin') }}" method="POST" class="login_reg_form">

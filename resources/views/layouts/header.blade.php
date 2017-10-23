@@ -39,8 +39,8 @@
                 </div>
             </div>
 
-            <div class="main_header_top cf">
-                <a href="{{ URL::to('/')}}" class="logo_header_holder">
+            <div class="main_header_top cf"> 
+                <a href="{{ URL::to('/')}}" class="logo_header_holder animated bounceInLeft">
                     <img src="{{ URL::to('/')}}/photos/naposaologo.png" alt="">
                 </a>
 

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h1 class="page_title">New job ad</h1>
+<h1 class="page_title main_page_title">New job ad</h1>
 
 <main class="main_app_container">
 	<form action="{{ route('postNewJob') }}" method="POST" class="new_job_add_choose_form">
