@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Ad as Ad;
 use App\Company as Company;
 use App\Application as Application;
+use App\Conversation as Conversation;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
@@ -57,7 +58,7 @@ class JobController extends Controller {
     }
 
     public function postNewJob()
-    {  
+    {
         $ad = new Ad(Input::all());
         $ad->approved = 0;
         $ad->company_id = Auth::user()->id;
@@ -65,9 +66,9 @@ class JobController extends Controller {
         return redirect()->route('getControlPanel');
     }
 
-    public function getJobApplication($jid)
+    public function getJobApplication($jid, $cid)
     {  
-        return view('ad.application', ['jid' => $jid]);
+        return view('ad.application', ['jid' => $jid, 'cid' => $cid]);
     }
 
     public function postJobApplication()
@@ -82,6 +83,7 @@ class JobController extends Controller {
 
     public function getConversation()
     {  
+        // $conversation = Conversation::find($)
         return view('ad.conversation');
     }
 

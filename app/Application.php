@@ -13,7 +13,8 @@ class Application extends Model
     protected $fillable = [
         'user_id',
         'ad_id',
-        'cover_letter',
+        'company_id',
+        'text',
         'notiffication'
     ];
 
