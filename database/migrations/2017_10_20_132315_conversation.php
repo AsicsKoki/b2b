@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConversations extends Migration
+class CreateMessage extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateConversations extends Migration
      */
     public function up()
     {
-        Schema::create('conversations', function(Blueprint $table) {
+        Schema::create('messages', function(Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
             $table->text('text', 50000);
-            $table->integer('user_id')->unsigned();
-            $table->integer('ad_id')->unsigned();
-            $table->integer('company_id')->unsigned();
         });
     }
 

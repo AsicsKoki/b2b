@@ -127,7 +127,7 @@ class CompanyController extends Controller {
 
     public function getControlPanel()
     {
-        $applications = Application::with('ad')->with('user')->get();
+        $applications = Application::where('company_id', Auth::user()->id)->with('ad')->with('user')->get();
         return view('company.panel', ['applications' => $applications]);
     }
 

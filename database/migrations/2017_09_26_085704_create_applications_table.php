@@ -11,9 +11,10 @@ class CreateApplicationsTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->integer('user_id')->unsigned();
-			$table->integer('ad_id')->unsigned();
-			$table->text('text', 50000)->unsigned();
+			$table->integer('user_id');
+			$table->integer('ad_id');
+			$table->integer('company_id');
+			$table->text('text', 50000);
 			$table->integer('notiffication')->default('1');
 		});
 	}

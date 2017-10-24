@@ -18,6 +18,11 @@ class Application extends Model
         'notiffication'
     ];
 
+    public function messages()
+    {
+    	return $this->hasMany('App\Message');
+    }
+
     public function company()
     {
     	return $this->belongsTo('App\Company');

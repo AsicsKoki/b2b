@@ -5,6 +5,7 @@ use App\Ad as Ad;
 use App\Company as Company;
 use App\Application as Application;
 use App\Conversation as Conversation;
+use App\Message as Message;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
@@ -76,20 +77,32 @@ class JobController extends Controller {
         $application = new Application(Input::all());
         $application->save();
 
-        $conversation = new Conversation(Input::all());
-        $conversation->save();
+        $message = New Message;
+        $message->application_id = $application->id;
+        $message->text = Input::get('text');
+        $message->save();
         return redirect()->route('getAllJobs');
     }
 
-    public function getConversation()
+    public function getConversation($aid)
     {  
-        // $conversation = Conversation::find($)
-        return view('ad.conversation');
+        $application = Application::where('id', $aid)->with('messages')->orderBy('created_at')->with('user')->with('company')->get();
+        return view('ad.conversation', ['conversation' => $application ]);
     }
 
     public function getToday()
     {  
         return view('ad.allAds', ['ads' => Ad::with('company.image')->where('approved', '=', '1')->where('created_at', '>=', Carbon::today())->get()]);
+    }
+
+    public function postSendMessage()
+    {
+        $message = New Message;
+        $message->application_id = Input::get('application_id');
+        $message->text = Input::get('text');
+        $message->user_id = Auth::user()->id;
+        $message->save();
+        return redirect()->back();
     }
 
 

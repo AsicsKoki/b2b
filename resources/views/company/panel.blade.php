@@ -363,7 +363,7 @@
 			@foreach($applications as $application)
 				<li class="applicants_for_job_item">
 					<h3 class="bold">
-						<a href="{{ route('getConversation') }}">Applicaton for:<span>{{ $application->ad->position }}</span></a>
+						<a href="{{ route('getConversation', ['aid' => $application->id]) }}">Applicaton for:<span>{{ $application->ad->position }}</span></a>
 					</h3>
 					<p class="applicants_for_job_read_unread bold">
 						<span class="read"><i class="fa fa-check-circle" aria-hidden="true"></i></span>

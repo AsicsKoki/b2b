@@ -67,8 +67,9 @@ Route::get('/addNewJobConfidental', 'JobController@getNewJobConfidental')->name(
 Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
 Route::get('/applyForJob/{jid}/{cid}', 'JobController@getJobApplication')->name('getJobApplication');
 Route::post('/applyForJob', 'JobController@postJobApplication')->name('postJobApplication');
-Route::get('/conversation', 'JobController@getConversation')->name('getConversation');
+Route::get('/conversation/{aid}', 'JobController@getConversation')->name('getConversation');
 Route::get('/today', 'JobController@getToday')->name('getToday');
+Route::post('/sendMessage', 'JobController@postSendMessage')->name('postSendMessage');
 
 // middleware for showing errors on companyRegister-Step-3
 Route::group(['middleware'=>'web'],function (){

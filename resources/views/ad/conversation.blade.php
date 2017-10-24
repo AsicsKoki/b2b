@@ -6,40 +6,23 @@
 
 <main class="main_app_container">
 	<ul class="comapny_user_coversation">
+		<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{$conversation[0]->user->first_name}} {{$conversation[0]->user->last_name}}</a></p>
+		@foreach($conversation[0]->messages as $message)
 		<li class="comapny_user_coversation_item comapny_user_coversation_applicants">
 			<div class="comapny_user_coversation_item_name">
-				<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> Vladimir Arsenijevic</a></p>
 			</div>
 			 <div class="comapny_user_coversation_item_text">
-			 	<p>This is not the same on a vanilla MySQL install where the root user is not secured by a password by default – however under MAMP it is. This is not the same on a vanilla MySQL install where the root user is not secured by a password by default – however under MAMP it is.</p>
+			 	<p>{{ $message->text }}</p>
 			 </div>
-			 <div class="time"><span>22:30h</span>, <span>2.2.2017</span></div>
+			 <div class="time"><span>{{ $message->created_at }}</span></div>
 		</li>
-
-		<li class="comapny_user_coversation_item comapny_user_coversation_user comapny_user_coversation_company">
-			<div class="comapny_user_coversation_item_name">
-				<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> Booproweb</a></p>
-			</div>
-			 <div class="comapny_user_coversation_item_text">
-			 	<p>This is not the same on a vanilla MySQL install where the root user is not secured by a password by default – however under MAMP it is. This is not the same on a vanilla MySQL install where the root user is not secured by a password by default – however under MAMP it is.</p>
-			 </div>
-			 <div class="time"><span>22:30h</span>, <span>2.2.2017</span></div>
-		</li>
-
-		<li class="comapny_user_coversation_item comapny_user_coversation_applicants">
-			<div class="comapny_user_coversation_item_name">
-				<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> Vladimir Arsenijevic</a></p>
-			</div>
-			 <div class="comapny_user_coversation_item_text">
-			 	<p>This is not the same on a vanilla MySQL install where the root user is not secured by a password by default – however under MAMP it is. This is not the same on a vanilla MySQL install where the root user is not secured by a password by default – however under MAMP it is.</p>
-			 </div>
-			 <div class="time"><span>22:30h</span>, <span>2.2.2017</span></div>
-		</li>
+		@endforeach
 	</ul>
 
-	<form action="" method="" class="comapny_user_coversation_msg">
-		<textarea name="" id="" placeholder="Your message..."></textarea>
-
+	<form action="{{ route('postSendMessage') }}" method="POST" class="comapny_user_coversation_msg">
+		<textarea name="text" placeholder="Your message..."></textarea>
+		<input type="hidden" name="application_id" value="{{ $conversation[0]->id }}">
+		{{ csrf_field() }}
 		<div class="comapny_user_coversation_send_btn">
 			<input type="submit" value="Send" class="confirm_btn">
 		</div>
