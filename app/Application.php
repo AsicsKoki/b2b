@@ -14,7 +14,6 @@ class Application extends Model
         'user_id',
         'ad_id',
         'company_id',
-        'text',
         'notiffication'
     ];
 
@@ -30,11 +29,13 @@ class Application extends Model
 
     public function user()
     {
-    	return $this->belongsTo('App\User', 'user_id');
+    	return $this->belongsTo('App\User');
     }
 
    	public function Ad()
     {
     	return $this->belongsTo('App\Ad', 'ad_id');
     }
+
+
 }
