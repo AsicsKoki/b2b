@@ -35,13 +35,16 @@ Route::get('/profile', 'UserController@getUserProfile')->name('getUserProfile');
 Route::get('/profile/{uid}', 'UserController@getProfile')->name('getUserProfile');
 Route::post('/profile', 'UserController@postProfile')->name('postUserProfile');
 Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
-Route::get('/job/{jid}', 'JobController@getJob')->name('getSpecificJob');
+Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');
 Route::get('/profile/{uid}/favorites', 'UserController@getFavorites')->name('getUserFavorites');
 Route::post('/profile/{uid}/favorites/{jid}', 'UserController@postFavorite')->name('postUserFavorites');
 Route::get('/cvCreator', 'UserController@getCvCreator')->name('getCvCreator');
 Route::get('/myFiles', 'UserController@getMyFiles')->name('getMyFiles');
 Route::get('/history', 'UserController@getHistory')->name('getHistory');
 Route::get('/history', 'UserController@getHistory')->name('getHistory');
+Route::get('/messages', 'UserController@getMessages')->name('getMessages');
+Route::get('/userConversation/{aid}', 'UserController@getUserConversation')->name('getUserConversation');
+Route::post('/postUserMessage', 'UserController@postUserMessage')->name('postUserMessage');
 
 //Company routes
 Route::get('/company/{cid}', 'CompanyController@getProfile')->name('getCompanyProfile');

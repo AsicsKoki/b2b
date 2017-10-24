@@ -20,10 +20,11 @@
 		@endforeach
 	</ul>
 
-	<form action="{{ route('postSendMessage') }}" method="POST" class="comapny_user_coversation_msg">
+	<form action="{{ route('postUserMessage') }}" method="POST" class="comapny_user_coversation_msg">
 		<textarea name="text" placeholder="Your message..."></textarea>
 		<input type="hidden" name="application_id" value="{{ $conversation[0]->id }}">
-		<input type="hidden" name="company_name" value="{{ Auth::user()->company_name }}">
+		<input type="hidden" name="first_name" value="{{ Session::get('user')->first_name }}">
+		<input type="hidden" name="last_name" value="{{ Session::get('user')->last_name }}">
 		{{ csrf_field() }}
 		<div class="comapny_user_coversation_send_btn">
 			<input type="submit" value="Send" class="confirm_btn">

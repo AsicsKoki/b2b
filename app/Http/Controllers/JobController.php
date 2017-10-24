@@ -80,6 +80,8 @@ class JobController extends Controller {
         $message = New Message;
         $message->application_id = $application->id;
         $message->text = Input::get('text');
+        $message->first_name = Input::get('first_name');
+        $message->last_name = Input::get('last_name');
         $message->save();
         return redirect()->route('getAllJobs');
     }
@@ -100,7 +102,7 @@ class JobController extends Controller {
         $message = New Message;
         $message->application_id = Input::get('application_id');
         $message->text = Input::get('text');
-        $message->user_id = Auth::user()->id;
+        $message->company_name = Input::get('company_name');
         $message->save();
         return redirect()->back();
     }

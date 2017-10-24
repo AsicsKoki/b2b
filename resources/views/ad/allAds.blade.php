@@ -38,7 +38,7 @@
 
 						<small class="date">{{ $ad->created_at }}</small>
 						<h3 class="job_list_filter_item_title bold">
-							<a href="{{ route('getSpecificJob', ['jid' => $ad->id]) }}">{{ $ad->position }}</a>
+							<a href="{{ route('getSpecificJob', ['jid' => $ad->id, 'cid' => $ad->company->id]) }}">{{ $ad->position }}</a>
 						</h3>
 						
 						<div class="job_list_filter_item_info">

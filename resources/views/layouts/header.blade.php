@@ -56,6 +56,9 @@
                         <li>
                             <a href="">History</a>
                         </li>
+                        <li>
+                            <a href="{{ route('getMessages') }}">Messages</a>
+                        </li>
                     @endif
                     </ul>
                 </nav>

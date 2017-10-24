@@ -93,7 +93,7 @@
 					<h3 class="bold">Job description</h3>
 					{{ $ad->description }}
 				</div>
-				<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad->id]) }}" class="bold">Apply</a></div>
+				<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad->id, 'cid' => $ad->company->id]) }}" class="bold">Apply</a></div>
 			</div>
 		</div>
 

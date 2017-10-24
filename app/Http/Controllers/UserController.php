@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Controller;
 use App\User as User;
+use App\Application as Application;
+use App\Message as Message;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -33,7 +35,7 @@ class UserController extends Controller {
     {
         Auth::logout();
         session()->flush();
-        return view('home');
+        return redirect('/');
     }
 
     public function postUserLogin()
@@ -72,5 +74,28 @@ class UserController extends Controller {
     } else {
         return Redirect::back()->withErrors(['error', 'Email or password do not match!']);
         }
+    }
+
+    public function getMessages()
+    {
+        $messages = Application::where('user_id', Session::get('user')->id)->with('company')->get();
+        return view('user.messages', ['applications' => $messages]);
+    }
+
+    public function postUserMessage()
+    {
+        $message = New Message;
+        $message->application_id = Input::get('application_id');
+        $message->text = Input::get('text');
+        $message->first_name = Input::get('first_name');
+        $message->last_name = Input::get('last_name');
+        $message->save();
+        return redirect()->back();
+    }
+
+    public function getUserConversation($aid)
+    {  
+         $application = Application::where('id', $aid)->with('messages')->orderBy('created_at')->with('user')->with('company')->get();
+        return view('user.conversation', ['conversation' => $application ]);
     }
 }

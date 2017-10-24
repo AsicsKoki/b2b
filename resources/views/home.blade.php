@@ -198,7 +198,7 @@
                                 </span>
 
                                 <p class="bold home_top_jobs_grid_item_descript">
-                                    <a href="{{ route('getSpecificJob', ['jid' => $ad->id]) }}">{{ $ad->position }}</a>
+                                    <a href="{{ route('getSpecificJob', ['jid' => $ad->id, 'cid' => $ad->company->id]) }}">{{ $ad->position }}</a>
                                 </p>
                             </li>
                         @endforeach

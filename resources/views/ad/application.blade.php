@@ -11,6 +11,8 @@
 		<input type="hidden" name="user_id" value="{{ Session::get('user')->id }}">
 		<input type="hidden" name="ad_id" value="{{ $jid }}">
 		<input type="hidden" name="company_id" value="{{ $cid }}">
+		<input type="hidden" name="first_name" value="{{ Session::get('user')->last_name }}">
+		<input type="hidden" name="last_name" value="{{ Session::get('user')->first_name }}">
 		<button class="btn_attach_cv blue_btn">
 			<i class="fa fa-paperclip" aria-hidden="true"></i> <span>Attach your CV</span>
 		</button>
