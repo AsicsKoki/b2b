@@ -29,4 +29,9 @@ class HomeController extends Controller
         $ads = Ad::with('company')->get();
         return view('home', ['companies' => $companies, 'ads' => $ads]);
     }
+
+    public function get404()
+    {
+        return view('404');
+    }
 }
