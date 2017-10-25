@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\User as User;
 use App\Application as Application;
 use App\Message as Message;
+use App\Ad as Ad;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -97,5 +98,12 @@ class UserController extends Controller {
     {  
          $application = Application::where('id', $aid)->with('messages')->orderBy('created_at')->with('user')->with('company')->get();
         return view('user.conversation', ['conversation' => $application ]);
+    }
+
+    public function getSearchResults()
+    {
+        $category = Input::get('category');
+        $results = Ad::where('category', 'LIKE', '%$category%')->get();
+        return $results;
     }
 }

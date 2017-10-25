@@ -17,6 +17,7 @@
 
 
 Route::get('/', 'HomeController@index')->name('getHome');
+Route::get('/404', 'HomeController@get404')->name('get404');
 
 // Authentication routes...
 Route::get('/userLogin', 'UserController@getUserLogin')->name('getUserLogin');
@@ -45,6 +46,7 @@ Route::get('/history', 'UserController@getHistory')->name('getHistory');
 Route::get('/messages', 'UserController@getMessages')->name('getMessages');
 Route::get('/userConversation/{aid}', 'UserController@getUserConversation')->name('getUserConversation');
 Route::post('/postUserMessage', 'UserController@postUserMessage')->name('postUserMessage');
+Route::post('/searchResults', 'UserController@getSearchResults')->name('getSearchResults');
 
 //Company routes
 Route::get('/company/{cid}', 'CompanyController@getProfile')->name('getCompanyProfile');
