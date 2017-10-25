@@ -510,9 +510,9 @@ p.job_search_option_triger {
 }
 
 .home_top_employers_top_jobs {
-    margin-top: 50px;
-    border-top: 1px solid #ddd;
-    padding-top: 50px;
+    margin-top: 40px;
+    border-top: 1px dotted #ddd;
+    padding-top: 40px;
 }
 
 .home_top_employers {
@@ -2226,5 +2226,47 @@ ul.comapny_user_coversation {
 }
 
 .apply_for_job_btn a {
+    color: #fff;
+}
+
+.page_not_found_msg {
+    position: relative;
+    text-align: center;
+    width: 55%;
+    margin: auto;
+    background: #ffffff;
+    padding: 20px 0;
+    border-radius: 5px;
+    margin-top: 7%;
+    box-shadow: 0 0 5px 0;
+}
+
+.page_not_found_msg h1 {
+    color: #ff5c5c;
+}
+
+.page_not_found_msg h1 span:first-child {
+    margin-right: 10px;
+    color: #444444;
+    line-height: 1;
+}
+
+.page_not_found_msg h3 {
+    margin: 10px 0 15px 0;
+}
+
+.error_back_to {
+    display: inline-block;
+    width: 120px;
+}
+
+.error_back_to img {
+    width: 100%;
+}
+
+.easter {
+    position: absolute;
+    left: 0;
+    top: 0;
     color: #fff;
 }
