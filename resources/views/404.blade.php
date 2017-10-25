@@ -28,7 +28,7 @@
             </a>
         </p>
 
-        <p class="easter">Stefika gejsha klasicni</p>
+        <p class="easter">Stefika ima najjace muske tange</p>
 	</div>
 </div>
 
