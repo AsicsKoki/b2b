@@ -7,22 +7,27 @@
 	<main class="main_app_container cf">
 
 		<div class="single_job_header">
-		<h1 class="single_job_title bold">{{ $ad->position }}</h1>
-		<ul class="single_job_categories cf">
-			<li>
-				<span class="bold">Categories:</span>
-			</li>
-			<li>
-				<a href="">IT</a>
-			</li>
-			<li>
-				<a href="">Computer Ingenier</a>
-			</li>
-			<li>
-				<a href="">Programming</a>
-			</li>
-		</ul>
-	</div>
+			<h1 class="single_job_title bold">{{ $ad->position }}</h1>
+			<ul class="single_job_categories cf">
+				<li>
+					<span class="bold">Categories:</span>
+				</li>
+				<li>
+					<a href="">IT</a>
+				</li>
+				<li>
+					<a href="">Computer Ingenier</a>
+				</li>
+				<li>
+					<a href="">Programming</a>
+				</li>
+			</ul>
+			
+			<div class="single_job_social_net">
+				<div class="fb-like" data-href="https://www.facebook.com/booproweb/" data-width="50" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+				<button class="favorite_job_icon"><i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></button>
+			</div>
+		</div>
 
 	<div class="single_job_sidebar">
 		<div class="single_job_sidebar_item">

@@ -1722,6 +1722,7 @@ p.company_profile_edit_section_view_info_desc {
 }
 
 .single_job_header {
+    position: relative;
     text-align: center;
     margin: auto;
     border-bottom: 1px solid #ddd;
@@ -1734,6 +1735,7 @@ p.company_profile_edit_section_view_info_desc {
 
 .single_job_categories {
     margin-top: 20px;
+    font-size: 14px;
 }
 
 .single_job_main_cover {
@@ -2269,4 +2271,19 @@ ul.comapny_user_coversation {
     left: 0;
     top: 0;
     color: #fff;
+}
+
+.single_job_social_net {
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+
+.favorite_job_icon {
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    color: #fdc92a;
+    line-height: 1;
+    vertical-align: middle;
 }
