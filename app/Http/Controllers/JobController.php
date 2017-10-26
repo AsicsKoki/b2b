@@ -107,5 +107,14 @@ class JobController extends Controller {
         return redirect()->back();
     }
 
+    public function getRefresh()
+    {
+        $timestamp = Input::get('timestamp');
+        $application_id = Input::get('application_id');
+        $result = Message::find($application_id)->where('created_at', '>' , $timestamp)->get();
+        return $result;
+
+    }
+
 
 }

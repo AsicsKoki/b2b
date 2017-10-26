@@ -76,6 +76,8 @@ Route::get('/conversation/{aid}', 'JobController@getConversation')->name('getCon
 Route::get('/today', 'JobController@getToday')->name('getToday');
 Route::post('/sendMessage', 'JobController@postSendMessage')->name('postSendMessage');
 
+Route::post('/updateMessages', 'JobController@getRefresh')->name('getRefresh');
+
 // middleware for showing errors on companyRegister-Step-3
 Route::group(['middleware'=>'web'],function (){
 
