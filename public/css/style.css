@@ -2286,4 +2286,11 @@ ul.comapny_user_coversation {
     color: #fdc92a;
     line-height: 1;
     vertical-align: middle;
+}   
+
+.linked_in {
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    top: 6px;
 }
