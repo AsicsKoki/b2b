@@ -31,88 +31,51 @@
 			
 		</div>
 	</form>
-	<button class="ajaxtest">posalji</button>
 </main>
 
 <script>
-// 	$(document).ready(function(){
-// console.log($('.timestamp_msg').last().text() + ' this is application id =>  ' +  $('.application_id_msg').val());
-// 	});
-	
 
-   
-
-  //   $(window).load(function(){
-  //       function checkMessage(){
-  
-  //       $.ajax({
-  //           type: 'post',
-  //           url: '/updateMessages',  
-  //           data:  {
-  //           	timestamp: $('.timestamp_msg').last().text(),
-  //           	application_id: $('.application_id_msg').val(),
-  //           	 '_token': $('meta[name="csrf-token"]').attr('content')
-  //           }     
-  //           timeout: 5000,
- 	// 	  }).done(function(data) {
-  // 		  	checkMessage()
-		// }).fail( function(err) {
-	 //        console.log(err);
-	 //    });
-  //   });
-  //   });
-
-//      $(function(){
-//     function checkMessages(){
-
-//       $.ajax({
-//             type: 'post',
-//             url: '/updateMessages',  
-//             data:  {
-//             	timestamp: $('.timestamp_msg').last().text(),
-//             	application_id: $('.application_id_msg').val(),
-//             	 '_token': $('meta[name="csrf-token"]').attr('content')
-//             },   
-//             timeout: 5000,
-//             success: function(data) {
-//                 console.log(data); // for testing only but this should call a handler for the data  
-//             },
-//             complete: function(){
-//                 $.delay(1000, function(){
-//                     checkMessages();
-//                 });
-//             }
-//         });
-
-//     }
-
-//     $(window).load(function(){
-//         checkMessages();
-//     });
-// });
 $(function(){
-    var checkMessagesTimeout;
+   
 
     function checkMessages(){
 
         $.ajax({
             type: 'post',
             url: '/updateMessages',  
+            dataType: 'json',
             data:  {
             	timestamp: $('.timestamp_msg').last().text(),
             	application_id: $('.application_id_msg').val(),
             	 '_token': $('meta[name="csrf-token"]').attr('content')
             },   
-            timeout: 5000,
             success: function(data) {
-            	// var text_message = JSON.stringify(["0"].text);
-            	console.log(text_message);
-                console.log(data); // for testing only but this should call a handler for the data  
+          	if (data[0] !== undefined ) {
+           		   var text = data[0].text;
+             	   var companyName = data[0].company_name;
+                   var timestamp_msg_created = data[0].created_at;
+        			$('.comapny_user_coversation').append(
+        				`<li class="comapny_user_coversation_item comapny_user_coversation_applicants">
+							<div class="comapny_user_coversation_item_name">
+								<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i>`
+								 + companyName + 
+								`</a></p>
+							</div>
+			 				<div class="comapny_user_coversation_item_text">
+			 				<p>`
+			 				 + text + 
+			 				 `</p>
+			 				</div>
+			 				<div class="time"><span class="timestamp_msg">`
+			 				 + timestamp_msg_created + 
+			 				 `</span></div>
+						</li>`);		
+            	}
             },
-            complete: function(){
+           complete: function(){
                 checkMessagesTimeout = setTimeout(function(){
                     checkMessages();
-                }, 5000);
+                }, 5000); 
             }
         });
 
@@ -128,4 +91,6 @@ $(function(){
 </script>
 
 
+			
+		
 @endsection
