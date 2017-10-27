@@ -29,6 +29,9 @@
 			<div class="linked_in">
 				<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
 				<script type="IN/Share"></script>
+
+				<script src="https://apis.google.com/js/platform.js" async defer></script>
+				<g:plus action="share"></g:plus>
 			</div>
 			</div>
 		</div>
