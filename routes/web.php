@@ -85,3 +85,13 @@ Route::group(['middleware'=>'web'],function (){
 });
 
 
+Route::post('/updateEducation', 'UserController@updateEducation')->name('updateEducation');
+Route::post('/updateCountry', 'UserController@updateCountry')->name('updateCountry');
+Route::post('/updateCity', 'UserController@updateCity')->name('updateCity');
+Route::post('/updateRegion', 'UserController@updateRegion')->name('updateRegion');
+Route::post('/updateBirthdate', 'UserController@updateBirthdate')->name('updateBirthdate');
+Route::post('/updateGender', 'UserController@updateGender')->name('updateGender');
+Route::post('/updatePhone', 'UserController@updatePhone')->name('updatePhone');
+Route::post('/updateDescription', 'UserController@updateDescription')->name('updateDescription');
+
+

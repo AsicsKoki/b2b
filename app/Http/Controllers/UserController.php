@@ -106,4 +106,43 @@ class UserController extends Controller {
         $results = Ad::where('category', 'LIKE', '%$category%')->get();
         return $results;
     }
+
+    public function updateEducation()
+    {
+        $data_input = Input::get('data_input');
+        $user = User::find(1);
+        $user->education = $data_input;
+        $user->save();
+        return $data_input;
+
+    }
+    public function updateCountry()
+    {
+        
+    }
+    public function updateCity()
+    {
+        
+    }
+    public function updateRegion()
+    {
+        
+    }
+    public function updateBirthdate()
+    {
+        
+    }
+    public function updateGender()
+    {
+        
+    }
+    public function updatePhone()
+    {
+        
+    }
+    public function updateDescription()
+    {
+        
+    }
+
 }
