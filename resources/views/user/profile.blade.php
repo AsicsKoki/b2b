@@ -11,11 +11,11 @@
 						<span>
 							<img src="https://scontent.fbeg5-1.fna.fbcdn.net/v/t1.0-1/p160x160/21686203_1317978501681658_3611638233223355882_n.jpg?oh=8125a6abd8ff47a68901a7907b32c738&oe=5A39DB7C" alt="">
 						</span>
-						<a href="" class="edit_link">	
+						<a class="edit_link" id="avatar">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 						<br>
-						<div class="edit_info_window change_image_edit_info_window">
+						<div class="edit_info_window change_image_edit_info_window" id="avatar_input" style="display:none">
 							<input type="file">
 							<button class="confirm_edit_btn blue_btn">Choose image</button>
 						</div>
@@ -25,7 +25,7 @@
 
 				<div class="user_profile_name_holder user_profile_item">
 					<p class="user_profile_name">
-					<span>Vladimir Arsenijevic</span>
+					<span>{{ Session::get('user')->first_name }} {{Session::get('user')->last_name}}</span>
 <!-- 						<a href="" class="edit_link">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a> -->
@@ -39,7 +39,7 @@
 
 				<div class="user_profile_name_holder user_profile_item">
 					<p class="user_profile_name">
-					<span id="education_span">ETS Nikola Tesla - Programer racunara</span>
+					<span id="education_span">{{ Session::get('user')->education }}</span>
 						<a class="edit_link" id="education">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
@@ -53,15 +53,15 @@
 	
 				</div>
 
-				<div class="user_profile_about user_profile_item" id="description_input">
+				<div class="user_profile_about user_profile_item">
 					<p class="user_profile_about_text">
-					<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
-						<a href="" class="edit_link" id="description">	
+					<span id="description_span">{{ Session::get('user')->description }}</span>
+						<a class="edit_link" id="description">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 					</p>
 					
-					<div class="edit_info_window">
+					<div class="edit_info_window" id="description_input" style="display:none">
 						<textarea name="" cols="30" rows="10" width="100%" placeholder="Say something about you"></textarea>
 						<button class="confirm_edit_btn blue_btn">Confirm</button>
 					</div>
@@ -72,7 +72,7 @@
 		<div class="user_profile_sidebar">
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Email:</p>
-				<span>arsenije018@gmail.com</span>
+				<span>{{ Session::get('user')->email }}</span>
 <!-- 				<a href="" class="edit_link">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a> -->
@@ -80,12 +80,12 @@
 
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Country:</p>
-				<span>Serbia</span>
-				<a href="" class="edit_link" id="country">	
+				<span id="country_span">{{ Session::get('user')->country }}</span>
+				<a class="edit_link" id="country">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a>
 
-				<div class="edit_info_window" id="country_input">
+				<div class="edit_info_window" id="country_input" style="display:none">
 					<input type="text" placeholder="Enter your country">
 					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
@@ -93,12 +93,12 @@
 
 			<div class="user_profile_sidebar_item">
 				<p class="bold">City:</p>
-				<span>Nis</span>
-				<a href="" class="edit_link" id="city">	
+				<span id="city_span">{{ Session::get('user')->city }}</span>
+				<a class="edit_link" id="city">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a>
 
-				<div class="edit_info_window"  id="city_input">
+				<div class="edit_info_window"  id="city_input" style="display:none">
 					<input type="text" placeholder="Enter your city">
 					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
@@ -106,12 +106,12 @@
 
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Region:</p>
-				<span>Nis</span>
-				<a href="" class="edit_link" id="region">	
+				<span id="region_span">{{ Session::get('user')->region }}</span>
+				<a class="edit_link" id="region">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a>
 
-				<div class="edit_info_window" id="region_input">
+				<div class="edit_info_window" id="region_input" style="display:none">
 					<input type="text" placeholder="Enter your region">
 					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
@@ -119,12 +119,12 @@
 
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Birth date:</p>
-				<span>02.02.1990</span>
-				<a href="" class="edit_link" id="birthdate">	
+				<span id="birthdate_span">{{ Session::get('user')->birthdate }}</span>
+				<a class="edit_link" id="birthdate">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a>
 
-				<div class="edit_info_window" id="birthdate_input">
+				<div class="edit_info_window" id="birthdate_input" style="display:none">
 					<input type="text" placeholder="Enter your birth date">
 					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
@@ -132,7 +132,7 @@
 
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Gender:</p>
-				<span>Male</span>
+				<span>{{ Session::get('user')->gender }}</span>
 <!-- 				<a href="" class="edit_link">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a> -->
@@ -153,12 +153,12 @@
 
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Phone:</p>
-				<span>063/333-555</span>
-				<a href="" class="edit_link" id="phone">	
+				<span id="phone_span">{{ Session::get('user')->phone }}</span>
+				<a class="edit_link" id="phone">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a>
 
-				<div class="edit_info_window"  id="phone_input">
+				<div class="edit_info_window"  id="phone_input" style="display:none">
 					<input type="text" placeholder="Enter your phone">
 					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
@@ -170,13 +170,28 @@
 </main>
 
 <script>
-	
+
+// avatar/ profile image   - nezavrsen
+
+	$('#avatar').click(function(){
+			$(this).css('display', 'none');
+			$('#avatar_input').slideToggle('slow');
+		});
+
+		$('#avatar_input button').click(function(e){
+			e.preventDefault();
+			$('#avatar').css('display','block');	
+		});
+
+
+// education
+
 	$('#education').click(function(){
 		$(this).css('display', 'none');
-		var span = $('#education_span').text();
+		var edu_span = $('#education_span').text();
 		$('#education_span').css('display','none');
 		$('#education_input').slideToggle('slow');
-		$('#education_input input').val(span).focus();
+		$('#education_input input').val(edu_span).focus();
 	});
 
 		//
@@ -203,6 +218,217 @@
 
 
 		});
+
+// description 		
+
+		$('#description').click(function(){
+		$(this).css('display', 'none');
+		var des_span = $('#description_span').text();
+		$('#description_span').css('display','none');
+		$('#description_input').slideToggle('slow');
+		$('#description_input input').val(des_span).focus();
+	});
+
+		//
+
+		$('#description_input button').click(function(e){
+			e.preventDefault();
+			$('#description').css('display', 'block');
+			$('#description_span').css('display','block');
+			$('#description_input').css('display','none');
+			var data_input = $('#description_input textarea').val();
+			$('#description_span').html(data_input);
+			$.ajax({
+				  method: "POST",
+				  url: "/updateDescription",
+				  data: {
+				  	data_input:data_input,
+				  	'_token': $('meta[name="csrf-token"]').attr('content')
+				  },
+				})
+		           .done(function(data)
+			           {
+			            console.log(data);
+			           })
+
+
+		});
+
+// country 
+
+	$('#country').click(function(){
+			$(this).css('display', 'none');
+			var coun_span = $('#country_span').text();
+			$('#country_span').css('display','none');
+			$('#country_input').slideToggle('slow');
+			$('#country_input input').val(coun_span).focus();
+		});
+
+			//
+
+			$('#country_input button').click(function(e){
+				e.preventDefault();
+				$('#country').css('display', 'block');
+				$('#country_span').css('display','block');
+				$('#country_input').css('display','none');
+				var data_input = $('#country_input input').val();
+				$('#country_span').html(data_input);
+				$.ajax({
+					  method: "POST",
+					  url: "/updateCountry",
+					  data: {
+					  	data_input:data_input,
+					  	'_token': $('meta[name="csrf-token"]').attr('content')
+					  },
+					})
+			           .done(function(data)
+				           {
+				            console.log(data);
+				           })
+
+
+			});
+
+// city
+
+	$('#city').click(function(){
+			$(this).css('display', 'none');
+			var city_span = $('#city_span').text();
+			$('#city_span').css('display','none');
+			$('#city_input').slideToggle('slow');
+			$('#city_input input').val(city_span).focus();
+		});
+
+			//
+
+			$('#city_input button').click(function(e){
+				e.preventDefault();
+				$('#city').css('display', 'block');
+				$('#city_span').css('display','block');
+				$('#city_input').css('display','none');
+				var data_input = $('#city_input input').val();
+				$('#city_span').html(data_input);
+				$.ajax({
+					  method: "POST",
+					  url: "/updateCity",
+					  data: {
+					  	data_input:data_input,
+					  	'_token': $('meta[name="csrf-token"]').attr('content')
+					  },
+					})
+			           .done(function(data)
+				           {
+				            console.log(data);
+				           })
+
+
+			});
+
+// region
+
+	$('#region').click(function(){
+			$(this).css('display', 'none');
+			var reg_span = $('#region_span').text();
+			$('#region_span').css('display','none');
+			$('#region_input').slideToggle('slow');
+			$('#region_input input').val(reg_span).focus();
+		});
+
+			//
+
+			$('#region_input button').click(function(e){
+				e.preventDefault();
+				$('#region').css('display', 'block');
+				$('#region_span').css('display','block');
+				$('#region_input').css('display','none');
+				var data_input = $('#region_input input').val();
+				$('#region_span').html(data_input);
+				$.ajax({
+					  method: "POST",
+					  url: "/updateRegion",
+					  data: {
+					  	data_input:data_input,
+					  	'_token': $('meta[name="csrf-token"]').attr('content')
+					  },
+					})
+			           .done(function(data)
+				           {
+				            console.log(data);
+				           })
+
+
+			});
+
+// birthdate
+
+	$('#birthdate').click(function(){
+			$(this).css('display', 'none');
+			var bir_span = $('#birthdate_span').text();
+			$('#birthdate_span').css('display','none');
+			$('#birthdate_input').slideToggle('slow');
+			$('#birthdate_input input').val(bir_span).focus();
+		});
+
+			//
+
+			$('#birthdate_input button').click(function(e){
+				e.preventDefault();
+				$('#birthdate').css('display', 'block');
+				$('#birthdate_span').css('display','block');
+				$('#birthdate_input').css('display','none');
+				var data_input = $('#birthdate_input input').val();
+				$('#birthdate_span').html(data_input);
+				$.ajax({
+					  method: "POST",
+					  url: "/updateBirthdate",
+					  data: {
+					  	data_input:data_input,
+					  	'_token': $('meta[name="csrf-token"]').attr('content')
+					  },
+					})
+			           .done(function(data)
+				           {
+				            console.log(data);
+				           })
+
+
+			});
+
+// phone
+
+	$('#phone').click(function(){
+			$(this).css('display', 'none');
+			var pho_span = $('#phone_span').text();
+			$('#phone_span').css('display','none');
+			$('#phone_input').slideToggle('slow');
+			$('#phone_input input').val(pho_span).focus();
+		});
+
+			//
+
+			$('#phone_input button').click(function(e){
+				e.preventDefault();
+				$('#phone').css('display', 'block');
+				$('#phone_span').css('display','block');
+				$('#phone_input').css('display','none');
+				var data_input = $('#phone_input input').val();
+				$('#phone_span').html(data_input);
+				$.ajax({
+					  method: "POST",
+					  url: "/updatePhone",
+					  data: {
+					  	data_input:data_input,
+					  	'_token': $('meta[name="csrf-token"]').attr('content')
+					  },
+					})
+			           .done(function(data)
+				           {
+				            console.log(data);
+				           })
+
+
+			});
+
 
 </script>
 
