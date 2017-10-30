@@ -3,11 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateAdCategoryTable extends Migration {
+class CreateAdCategoriesTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('ad_category', function(Blueprint $table) {
+		Schema::create('ad_categories', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
 			$table->softDeletes();

@@ -5,6 +5,7 @@ use App\User as User;
 use App\Application as Application;
 use App\Message as Message;
 use App\Ad as Ad;
+use App\Category as Category;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -102,8 +103,13 @@ class UserController extends Controller {
 
     public function getSearchResults()
     {
-        $category = Input::get('category');
-        $results = Ad::where('category', 'LIKE', '%$category%')->get();
+        $categories[] = Input::get('category');
+
+        $language = Input::get('language');
+
+        foreach ($categories as $category) {
+            $results = Category::where('id', $categories)->with('ads')->get();
+        }
         return $results;
     }
 }

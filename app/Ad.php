@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Company as Company;
+use App\Category as Category;
 use Carbon\Carbon;
 
 class Ad extends Model
@@ -46,7 +47,7 @@ class Ad extends Model
 
     public function categories()
     {
-    	return $this->belongsToMany('Category');
+    	return $this->belongsToMany('App\Category', 'ad_categories');
 	}
 
 
@@ -63,5 +64,10 @@ class Ad extends Model
     public function applications()
     {
     	return $this->hasMany('App\Application');
+    }
+
+    public function languages()
+    {
+        return $this->hasMany('App\Language');
     }
 }

@@ -6,13 +6,13 @@
 
                 <!-- Home Job Search Section -->
                 <div class="home_search_job">
-                    <form class="home_search_job_form cf" action="" method="">
+                    <form class="home_search_job_form cf" action="{{ route('getSearchResults') }}" method="POST">
                         
                         <!-- Home Main Job Search: location and job category -->
                         <div class="home_search_job_main cf">   
                             <div class="home_search_job_item search_location_holder">
                                 <p class="home_search_job_item_title">Choose location</p>
-                                <input type="text" id="" name="search" placeholder="Search..">
+                                <input type="text" id="" name="location" placeholder="Search..">
                             </div>
 
                             <div class="home_search_job_item job_category">
@@ -22,20 +22,12 @@
                                 <p class="job_search_option_triger">Choose categories<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
 
                                 <div class="options_checkbox">
-                                    <label for="name1">
-                                        <span>Accounting, Audit, Finance</span>
-                                        <input type="checkbox" name="name1" id="name1">
+                                @foreach( App\Category::getCategories() as $category)
+                                    <label for="category" id="category">
+                                        <span>{{ $category->name }}</span>
+                                        <input id="category" type="checkbox" name="category[]" value="{{$category->id}}">
                                     </label>
-
-                                    <label for="name2">
-                                        <span>Administrative and office</span>
-                                        <input type="checkbox" name="name2" id="name2">
-                                    </label>
-
-                                    <label for="name3">
-                                        <span>Advertising, PR</span>
-                                        <input type="checkbox" name="name3" id="name3">
-                                    </label>
+                                @endforeach
                                 </div>
 
                             </div>
@@ -49,7 +41,8 @@
                             </div>
 
                             <div class="btn_job_search_home_submit">
-                                <button>Search</button>
+                                {{ csrf_field() }}
+                                <input type="submit" value="Send" class="confirm_btn">
                             </div>
                         </div>
                         <!-- End Btn Submit Form and Filters Search -->
@@ -64,19 +57,14 @@
                                 <p class="job_search_option_triger">Choose type of work<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                                 
                                 <div class="options_checkbox">
-                                    <label for="name4">
+                                    <label for="term">
                                         <span>Permanent</span>
-                                        <input type="checkbox" name="name4" id="name4">
+                                        <input type="checkbox" name="term">
                                     </label>
 
-                                    <label for="name5">
+                                    <label for="term">
                                         <span>Temporary</span>
-                                        <input type="checkbox" name="name5" id="name5">
-                                    </label>
-
-                                    <label for="name6">
-                                        <span>Permanent</span>
-                                        <input type="checkbox" name="name6" id="name6">
+                                        <input type="checkbox" name="term">
                                     </label>
                                 </div>
                             </div>
@@ -88,19 +76,19 @@
                                 <p class="job_search_option_triger">Choose level<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                                 
                                 <div class="options_checkbox">
-                                    <label for="name7">
+                                    <label for="career_level">
                                         <span>All</span>
-                                        <input type="checkbox" name="name7" id="name7">
+                                        <input type="checkbox" name="career_level">
                                     </label>
 
                                     <label for="name8">
                                         <span>Menagment</span>
-                                        <input type="checkbox" name="name8" id="name8">
+                                        <input type="checkbox" name="career_level">
                                     </label>
 
-                                    <label for="name9">
+                                    <label for="career_level">
                                         <span>Experts</span>
-                                        <input type="checkbox" name="name9" id="name9">
+                                        <input type="checkbox" name="career_level">
                                     </label>
                                 </div>
                             </div>
@@ -114,17 +102,17 @@
                                 <div class="options_checkbox">
                                     <label for="name10">
                                         <span>All</span>
-                                        <input type="checkbox" name="name10" id="name10">
+                                        <input type="checkbox" name="company_type">
                                     </label>
 
                                     <label for="name11">
                                         <span>Companies/Organizations</span>
-                                        <input type="checkbox" name="name11" id="name11">
+                                        <input type="checkbox" name="company_type" value="0">
                                     </label>
 
                                     <label for="name12">
                                         <span>Agencies</span>
-                                        <input type="checkbox" name="name12" id="name12">
+                                        <input type="checkbox" name="company_type" value="1">
                                     </label>
                                 </div>
                             </div>
@@ -136,20 +124,12 @@
                                 <p class="job_search_option_triger">Foreign Languages..<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                                 
                                 <div class="options_checkbox">
-                                    <label for="name13">
-                                        <span>Serbian</span>
-                                        <input type="checkbox" name="name10" id="name13">
+                                @foreach(App\Language::getLanguages() as $language)
+                                    <label for="language">
+                                        <span>{{ $language->language }}</span>
+                                        <input type="checkbox" name="language" value="{{ $language->id }}">
                                     </label>
-
-                                    <label for="name14">
-                                        <span>English</span>
-                                        <input type="checkbox" name="name11" id="name14">
-                                    </label>
-
-                                    <label for="name15">
-                                        <span>Spanish</span>
-                                        <input type="checkbox" name="name12" id="name15">
-                                    </label>
+                                @endforeach
                                 </div>
                             </div>
 

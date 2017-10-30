@@ -60,10 +60,11 @@ class JobController extends Controller {
 
     public function postNewJob()
     {
+        $categories[] = Input::get('category');
         $ad = new Ad(Input::all());
         $ad->approved = 0;
         $ad->company_id = Auth::user()->id;
-        $ad->categories = Input::get('categoty');
+        $ad->categories()->createMany($categories);
         $ad->save();
 
         return redirect()->route('getControlPanel');

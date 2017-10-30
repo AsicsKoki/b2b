@@ -36,13 +36,13 @@
 			<p class="form_title">Category <small>(Choose up to 3 categories)</small>:</p>
 			<select class="selectSector select_move_area" name="" size="5">
 				@foreach( App\Category::getCategories() as $category)
-			     	<option value="{{ $category->id }}">{{ $category->name }}</option>
+			     	<option selected="selected" value="{{ $category->id }}">{{ $category->name }}</option>
 			    @endforeach
 			</select>
 
 
 			<select class="selectSectorSelected select_move_area" name="category[]" size="5">
-		     
+		     	
 			</select>
 		</div>
 
