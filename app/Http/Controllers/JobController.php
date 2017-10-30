@@ -63,7 +63,9 @@ class JobController extends Controller {
         $ad = new Ad(Input::all());
         $ad->approved = 0;
         $ad->company_id = Auth::user()->id;
+        $ad->categories = Input::get('categoty');
         $ad->save();
+
         return redirect()->route('getControlPanel');
     }
 
