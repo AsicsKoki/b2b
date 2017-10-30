@@ -112,4 +112,71 @@ class UserController extends Controller {
         }
         return $results;
     }
+
+    public function updateEducation()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->education = $data_input;
+        $user->save();
+        return 1;
+
+    }
+    public function updateCountry()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->country = $data_input;
+        $user->save();
+        return 1;    
+    }
+    public function updateCity()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->city = $data_input;
+        $user->save();
+        return 1;  
+    }
+    public function updateRegion()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->region = $data_input;
+        $user->save();
+        return 1;  
+    }
+    public function updateBirthdate()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->birthdate = $data_input;
+        $user->save();
+        return 1;  
+    }
+    // public function updateGender()
+    // {
+    //     $data_input = Input::get('data_input');
+    //     $user = User::find(1);
+    //     $user->country = $data_input;
+    //     $user->save();
+    //     return 1;  
+    // }
+    public function updatePhone()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->phone = $data_input;
+        $user->save();
+        return 1;  
+    }
+    public function updateDescription()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->description = $data_input;
+        $user->save();
+        return 1;
+    }
+
 }
