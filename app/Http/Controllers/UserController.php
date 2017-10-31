@@ -173,4 +173,24 @@ class UserController extends Controller {
         return 1;
     }
 
+    public function updateAvatar(Request $request)
+    {
+
+    // get current time and append the upload file extension to it,
+    // then put that name to $photoName variable.
+    $photoName = time().'.'.$request->data_input->getClientOriginalExtension();
+
+    /*
+        talk the select file and move it public directory and make avatars
+        folder if doesn't exsit then give it that unique name.
+    */
+    $request->data_input->move(public_path('photos'), $photoName);
+    $image = new Image;
+    $image->user_id = 1;
+    $image->path = '/photos/' . $photoName;
+    $image->save();
+    return 1;
+
+    }
+
 }

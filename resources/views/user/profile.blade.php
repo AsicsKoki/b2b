@@ -19,8 +19,12 @@
 							<input type="file">
 							<button class="confirm_edit_btn blue_btn">Choose image</button>
 						</div>
+
+
 					</div>
-					
+					<div class="edit_info_window" id="avatar_input2" style="display:none">
+						<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					</div>
 				</div>
 
 				<div class="user_profile_name_holder user_profile_item">
@@ -176,11 +180,35 @@
 	$('#avatar').click(function(){
 			$(this).css('display', 'none');
 			$('#avatar_input').slideToggle('slow');
+			$('#avatar_input2').slideToggle('slow');
 		});
 
-		$('#avatar_input button').click(function(e){
+		$('#avatar_input2').click(function(e){
 			e.preventDefault();
 			$('#avatar').css('display','block');	
+			$('#avatar_input').css('display','none');
+			$('#avatar_input2').css('display','none');
+			var data_input = $('#avatar_input input')[0].files[0];
+			console.log(data_input);
+			$.ajax({
+			  method: "POST",
+			  url: "/updateAvatar",
+			     contentType:false,
+               	 cache: false,
+             	 processData:false,
+			  data: {
+			  	'_token': $('meta[name="csrf-token"]').attr('content'),
+			  	data_input:data_input
+			  },
+			  // headers: {
+     //  				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					// },
+				})
+	           .done(function(data)
+		           {
+		            console.log(data);
+		           })
+
 		});
 
 
