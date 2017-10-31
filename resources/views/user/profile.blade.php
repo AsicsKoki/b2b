@@ -44,15 +44,15 @@
 				<div class="user_profile_name_holder user_profile_item">
 					<p class="user_profile_name">
 					<span id="education_span">{{ Session::get('user')->education }}</span>
-						<a class="edit_link" id="education">	
+						<a class="edit_link" id="education" >	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 					</p>
 					
 			
 					<div class="edit_info_window" id="education_input" style="display: none">
-						<input type="text" placeholder="Education" style="font-size: 14px">
-						<button class="confirm_edit_btn blue_btn">Confirm</button>
+						<input type="text" placeholder="Enter education" style="font-size: 14px" >
+						<button class="confirm_edit_btn blue_btn" id="education_btn">Confirm</button>
 					</div>
 	
 				</div>
@@ -67,7 +67,7 @@
 					
 					<div class="edit_info_window" id="description_input" style="display:none">
 						<textarea name="" cols="30" rows="10" width="100%" placeholder="Say something about you"></textarea>
-						<button class="confirm_edit_btn blue_btn">Confirm</button>
+						<button class="confirm_edit_btn blue_btn" id="description_btn">Confirm</button>
 					</div>
 				</div>
 			</div>
@@ -91,7 +91,7 @@
 
 				<div class="edit_info_window" id="country_input" style="display:none">
 					<input type="text" placeholder="Enter your country">
-					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn" id="country_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -104,7 +104,7 @@
 
 				<div class="edit_info_window"  id="city_input" style="display:none">
 					<input type="text" placeholder="Enter your city">
-					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn" id="city_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -117,7 +117,7 @@
 
 				<div class="edit_info_window" id="region_input" style="display:none">
 					<input type="text" placeholder="Enter your region">
-					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn" id="region_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -130,7 +130,7 @@
 
 				<div class="edit_info_window" id="birthdate_input" style="display:none">
 					<input type="text" placeholder="Enter your birth date">
-					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn" id="birthdate_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -164,7 +164,7 @@
 
 				<div class="edit_info_window"  id="phone_input" style="display:none">
 					<input type="text" placeholder="Enter your phone">
-					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+					<button class="confirm_edit_btn blue_btn" id="phone_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
 
@@ -176,7 +176,7 @@
 <script>
 
 // avatar/ profile image   - nezavrsen
-
+ 
 	$('#avatar').click(function(){
 			$(this).css('display', 'none');
 			$('#avatar_input').slideToggle('slow');
@@ -211,7 +211,81 @@
 
 		});
 
+		// $('#education_input input').focus(function(){
+		// 	$('.confirm_edit_btn').css('display','block');
+		// });
 
+		//ako su prazni da stoje otvoreno 
+		$(document).ready(function(){
+		if ($('#description_span').text() == "") {
+			$('#description_input').css('display','block');
+			$('#description').css('display','none');
+			$('#description_btn').css('display','none');
+			$('#description_input textarea').focus(function(){
+			$('#description_btn').css('display','inline-block');
+		});
+		};
+
+		if ($('#education_span').text() == "") {
+			$('#education_input').css('display','block');
+			$('#education').css('display','none');
+			$('#education_btn').css('display','none');
+			$('#education_input input').focus(function(){
+			$('#education_btn').css('display','inline-block');
+		});
+		};
+
+		if ($('#country_span').text() == "") {
+			$('#country_input').css('display','block');
+			$('#country').css('display','none');
+			$('#country_btn').css('display','none');
+			$('#country_input input').focus(function(){
+			$('#country_btn').css('display','block');
+		});
+		};
+
+		if ($('#city_span').text() == "") {
+			$('#city_input').css('display','block');
+			$('#city').css('display','none');
+			$('#city_btn').css('display','none');
+			$('#city_input input').focus(function(){
+			$('#city_btn').css('display','block');
+		});
+		};
+		if ($('#country_span').text() == "") {
+			$('#country_input').css('display','block');
+			$('#country').css('display','none');
+			$('#city_btn').css('display','none');
+			$('#city_input input').focus(function(){
+			$('#city_btn').css('display','block');
+		});
+		};
+		if ($('#region_span').text() == "") {
+			$('#region_input').css('display','block');
+			$('#region').css('display','none');
+			$('#region_btn').css('display','none');
+			$('#region_input input').focus(function(){
+			$('#region_btn').css('display','block');
+		});
+		};
+		if ($('#birthdate_span').text() == "") {
+			$('#birthdate_input').css('display','block');
+			$('#birthdate').css('display','none');
+			$('#birthdate_btn').css('display','none');
+			$('#birthdate_input input').focus(function(){
+			$('#birthdate_btn').css('display','block');
+		});
+		};
+		if ($('#phone_span').text() == "") {
+			$('#phone_input').css('display','block');
+			$('#phone').css('display','none');
+			$('#phone_btn').css('display','none');
+			$('#phone_input input').focus(function(){
+			$('#phone_btn').css('display','block');
+		});
+		};
+	});
+		
 // education
 
 	$('#education').click(function(){
