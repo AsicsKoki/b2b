@@ -34,14 +34,14 @@
 		
 		<div class="new_job_add_choose_form_item cf">
 			<p class="form_title">Category <small>(Choose up to 3 categories)</small>:</p>
-			<select class="selectSector select_move_area" name="" size="5">
+			<select class="selectSector select_move_area" size="5">
 				@foreach( App\Category::getCategories() as $category)
 			     	<option selected="selected" value="{{ $category->id }}">{{ $category->name }}</option>
 			    @endforeach
 			</select>
 
 
-			<select class="selectSectorSelected select_move_area" name="category[]" size="5">
+			<select class="selectSectorSelected select_move_area" multiple name="categories[]" size="5">
 		     	
 			</select>
 		</div>

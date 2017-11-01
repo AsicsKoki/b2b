@@ -14,7 +14,7 @@ class Category extends Model
 
     public function ads()
     {
-    	return $this->belongsToMany('App\Ad', 'ad_categories');
+    	return $this->belongsToMany('App\Ad', 'ad_categories', 'ad_id', 'category_id');
 	}
 
     public static function getCategories()

@@ -12,7 +12,6 @@ class CreateAdsTable extends Migration {
 			$table->timestamps();
 			$table->softDeletes();
 			$table->text('description');
-			$table->text('category');
 			$table->string('ad_type', 100);
 			$table->string('ref_number', 100)->nullable();
 			$table->string('job_type', 100);
