@@ -24,10 +24,24 @@ $(document).ready(function(){
     //     $('.custom_job_ad_popup').fadeIn(200);
     // });
 
-    // $('.popup_close').on('click',function(e){
-    //     e.preventDefault();
-    //     $('.custom_job_ad_popup').fadeOut(200);
-    // });
+    $('.popup_close').on('click',function(e){
+        e.preventDefault();
+        $('.popUp').fadeOut(200);
+    });
+
+    $('.popup_new_language_user_item p').click(function() {
+        $('.new_language_user_list').fadeToggle(200);
+    });
+
+    $('.user_profile_languages_holder .edit_link').on('click',function(e){
+        e.preventDefault();
+        $('.popup_new_language_user').fadeIn(200);
+    });
+
+    $('.add_new_user_job_profile_btn').on('click',function(e){
+        e.preventDefault();
+        $('.popup_new_job_user').fadeIn(200);
+    });
 
 	// Check PIB Company - Show Second Part Of Form
 	$('.btn_check_company_pib').on('click', function(e){

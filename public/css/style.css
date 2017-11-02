@@ -52,12 +52,11 @@ input[type="file"] {
     cursor: pointer;
 }
 
-button,:focus 
-input[type="submit"]:focus,
+button:focus,
+input:focus,
 textarea:focus,
-input[type="file"]:focus,
-button,:active, 
-input[type="submit"]:active,
+button:active, 
+input:active,
 textarea:active {
     outline: none;
 }
@@ -1748,11 +1747,15 @@ p.company_profile_edit_section_view_info_desc {
 }
 
 .single_job_categories a {
-    background: #3c97b5;
+    background: #bfbfbf;
     color: #fff;
-    padding: 2px 5px;
+    padding: 1px 10px;
     border-radius: 5px;
-    margin: 0 5px;
+    margin: 0 1px;
+}
+
+.single_job_categories a:hover {
+    background: #444;
 }
 
 .single_job_categories li:first-child a {
@@ -1799,7 +1802,10 @@ p.company_profile_edit_section_view_info_desc {
 
 .user_profile_item {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a.edit_link {
@@ -1819,11 +1825,16 @@ a.edit_link {
     height: 160px;
     margin: auto;
     overflow: hidden;
+    border-radius: 50%;
+    background: url(../photos/user.jpg);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #444;
 }
 
 .user_profile_image_holder img {
     width: 100%;
-    border-radius: 50%;
 }
 
 .edit_info_window input, .edit_info_window button {
@@ -1920,8 +1931,10 @@ a.edit_link {
 .user_profile_sidebar .edit_info_window button {
     margin-top: 10px;
     padding: 0;
-    width: 18%;
+    width: 15%;
     vertical-align: bottom;
+    margin-left: 2%;
+    line-height: 1.4;
 }
 
 .user_profile_sidebar .edit_info_window {
@@ -2293,4 +2306,264 @@ ul.comapny_user_coversation {
     line-height: 1;
     position: relative;
     top: 6px;
+}
+
+.user_profile_skills {
+    position: relative;
+    display: inline-block;
+}
+
+.user_skills_holder {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 15px;
+    width: 90%;
+}
+
+.user_profile_work_prev ul {
+    list-style: none;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+
+.user_profile_work_prev ul li {
+    position: relative;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    color: #444;
+}
+
+.user_profile_work_prev ul li span,
+.user_profile_work_prev ul li .fa {
+    vertical-align: middle;
+}
+
+.period_prev_work {
+    font-size: 13px;
+}
+
+.work_place_user .fa {
+    font-size: 8px;
+    margin: 0 5px;
+    color: #bfbfbf;
+}
+
+
+.user_profile_work_prev ul li .edit_link {
+    right: 20px;
+    top: 9px;
+}
+
+.add_new_user_job_profile {
+    margin-top: 10px;
+}
+
+.add_new_user_job_profile button {
+    border: none;
+    background: #4aa220;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.popup_new_job_user, .popup_new_language_user {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(51, 51, 51, 0.9);
+    z-index: 10000;
+}
+
+.popup_new_job_user_form {
+    background: #fff;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 10vh;
+    overflow-y: scroll;
+    height: 65vh;
+    padding: 50px 20px;
+    border-radius: 5px;
+}
+
+.popup_new_language_user_form {
+    background: #fff;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 10vh;
+    padding: 50px 20px;
+    border-radius: 5px;
+}
+
+.popup_new_job_user_form input {
+    width: 90%;
+    line-height: 2;
+    text-indent: 7px;
+    display: block;
+    margin: 10px auto;
+    font-size: 14px;
+}
+
+.popup_new_job_user_form_item_title {
+    font-size: 16px;
+    width: 90%;
+    margin: auto;
+}
+
+.popup_new_job_user_form_item {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    background: #f9f9f9;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px;
+}
+
+.user_from_to_period {
+    float: left;
+    padding: 0 5%;
+    width: 40%;
+    max-width: 50%;
+}
+
+.user_from_to_period_item {
+    padding-bottom: 10px;
+}
+
+.user_from_to_period .popup_new_job_user_form_item_title {
+    width: 100%;
+}
+
+.user_from_to_period_item select {
+    width: 90%;
+}
+
+.popup_new_job_user_form_item textarea {
+    height: 85px;
+    display: block;
+    width: 86%;
+    margin: auto;
+    border: 1px solid #c7c7c7;
+    resize: none;
+    margin-top: 10px;
+}
+
+input.save_btn_pop_up {
+    width: 100px;
+    line-height: 2;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    background: #4aa220;
+    color: #fff;
+    text-indent: 0;
+    font-size: 20px;
+}
+
+.user_profile_languages {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.user_profile_languages li {
+    float: left;
+    list-style: none;
+    margin-right: 4px;
+}
+
+.user_profile_languages li span:after {
+    content: ",";
+}
+
+.user_profile_languages li:last-child span:after {
+    content: "";
+}
+
+.user_profile_languages_holder {
+    text-align: left;
+}
+
+.popup_new_language_user_item p {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    line-height: 2;
+    font-size: 15px;
+    border: 2px solid #ddd;
+    text-indent: 5px;
+    text-align: left;
+    color: #7d7d7d;
+    cursor: pointer;
+}
+
+.popup_new_language_user_item p .fa{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 25px;
+    color: #afafaf;
+}
+
+.popup_new_language_user_item {
+    position: relative;
+    text-align: center;
+}
+
+.new_language_user_list {
+    display: none;
+    position: absolute;
+    top: 35px;
+    width: 80%;
+    left: 6%;
+    background: #fff;
+    box-shadow: 0 2px 5px 0 #2b2b2b;
+}
+
+.new_language_user_list li {
+    list-style: none;
+    color: #6f6f6f;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.new_language_user_list li a {
+    display: block;
+    color: #6f6f6f;
+    padding: 5px;
+}
+
+.new_language_user_list li a:hover {
+    background: #ddd;
+}
+
+.popup_new_language_user_item button {
+    width: 15%;
+    margin-left: 2%;
+}
+
+.popup_new_language_user_item button {
+    width: 5%;
+    margin-left: 2%;
+    border: none;
+    background: #4ba121;
+    line-height: 2.5;
+    vertical-align: middle;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.popup_new_language_user_form input.save_btn_pop_up  {
+    margin: auto;
+    margin-top: 20px;
+    background: #2075a2;
 }
