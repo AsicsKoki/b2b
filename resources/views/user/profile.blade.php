@@ -30,15 +30,15 @@
 				<div class="user_profile_name_holder user_profile_item">
 					<p class="user_profile_name">
 					<span>{{ Session::get('user')->first_name }} {{Session::get('user')->last_name}}</span>
-<!-- 						<a href="" class="edit_link">	
+						<a href="" class="edit_link">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</a> -->
+						</a>
 					</p>
 					
-<!-- 					<div class="edit_info_window">
+					<div class="edit_info_window">
 						<input type="text" placeholder="Enter your full name">
 						<button class="confirm_edit_btn blue_btn">Confirm</button>
-					</div> -->
+					</div>
 				</div>
 
 				<div class="user_profile_name_holder user_profile_item">
@@ -51,10 +51,8 @@
 					
 			
 					<div class="edit_info_window" id="education_input" style="display: none">
-<<<<<<< Updated upstream
 						<input type="text" placeholder="Enter education" style="font-size: 14px" >
 						<button class="confirm_edit_btn blue_btn" id="education_btn">Confirm</button>
-=======
 						<input type="text" placeholder="Education" style="font-size: 14px">
 						<button class="confirm_edit_btn blue_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
 					</div>
@@ -69,7 +67,6 @@
 						<a class="edit_link" id="user_skills">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
->>>>>>> Stashed changes
 					</div>
 
 					<div class="edit_info_window" id="user_skills" style="">
@@ -165,11 +162,10 @@
 					
 					<div class="edit_info_window" id="description_input" style="display:none">
 						<textarea name="" cols="30" rows="10" width="100%" placeholder="Say something about you"></textarea>
-<<<<<<< Updated upstream
+
 						<button class="confirm_edit_btn blue_btn" id="description_btn">Confirm</button>
-=======
+
 						<button class="confirm_edit_btn blue_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
->>>>>>> Stashed changes
 					</div>
 				</div>
 			</div>
@@ -179,9 +175,9 @@
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Email:</p>
 				<span>{{ Session::get('user')->email }}</span>
-<!-- 				<a href="" class="edit_link">	
+				<a href="" class="edit_link">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
-				</a> -->
+				</a>
 			</div>
 
 			<div class="user_profile_sidebar_item">
@@ -239,22 +235,22 @@
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Gender:</p>
 				<span>{{ Session::get('user')->gender }}</span>
-<!-- 				<a href="" class="edit_link">	
+				<a href="" class="edit_link">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
-				</a> -->
+				</a>
 
-<!-- 				<div class="edit_info_window">
+				<div class="edit_info_window">
 					<label for="male">
 						<input type="radio" value="" id="male" name="gender" style="width: auto;margin-right: 5px;">
 						<span style="font-size: 15px;">Male</span>
-					</label> -->
+					</label>
 
-<!-- 					<label for="female">
+					<label for="female">
 						<input type="radio" value="" id="female" name="gender" style="width: auto;margin-right: 5px;">
 						<span style="font-size: 15px;">Female</span>
 					</label>
 					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
-					</div> -->
+					</div>
 			</div>
 
 			<div class="user_profile_sidebar_item">
@@ -274,7 +270,6 @@
 		</div>
 	</div>
 
-	<!-- Pop up add user language -->
 	<div class="popUp popup_new_language_user">
 		<form action="" method="" class="popup_new_language_user_form">
 			<div class="popup_new_language_user_item">
@@ -296,9 +291,8 @@
 			<i class="fa fa-times" aria-hidden="true"></i>
 		</a>
 	</div>
-	<!-- End -->
 
-	<!-- Pop up add new history Job -->
+
 	<div class="popUp popup_new_job_user">
 		<form action="" method="" class="popup_new_job_user_form">
 			<div class="popup_new_job_user_form_item">
@@ -371,13 +365,12 @@
 			<i class="fa fa-times" aria-hidden="true"></i>
 		</a>
 	</div>
-	<!-- End -->
 
 </main>
 
 <script>
 
-<<<<<<< Updated upstream
+
 // avatar/ profile image   - nezavrsen
  
 	$('#avatar').click(function(){
@@ -411,7 +404,7 @@
 		           {
 		            console.log(data);
 		           })
-=======
+
 // // avatar/ profile image   - nezavrsen
 
 // 	$('#avatar').classick(function(){
@@ -423,7 +416,6 @@
 // 			e.preventDefault();
 // 			$('#avatar').css('display','block');	
 // 		});
->>>>>>> Stashed changes
 
 		});
 
