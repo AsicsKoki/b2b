@@ -51,6 +51,7 @@
 					
 			
 					<div class="edit_info_window" id="education_input" style="display: none">
+<<<<<<< Updated upstream
 						<input type="text" placeholder="Enter education" style="font-size: 14px" >
 						<button class="confirm_edit_btn blue_btn" id="education_btn">Confirm</button>
 					</div>
