@@ -9,7 +9,13 @@ use App\Category as Category;
 use App\Image as Image;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
+use App\Category as Category;
+use App\Application as Application;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Hash as Hash;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Redirect;
@@ -109,11 +115,17 @@ class UserController extends Controller {
         $categories[] = Input::get('category');
 
         $language = Input::get('language');
+        // $type_of_work = Input::get('term');
+        // $level = Input::get('career_level');
 
+
+        $results = array();
         foreach ($categories as $category) {
             $results = Category::where('id', $categories)->with('ads')->get();
         }
+                
         return $results;
+        return view('ad.searchResults', ['ads' => $results]);
     }
 
     public function updateEducation()
@@ -218,6 +230,13 @@ class UserController extends Controller {
     }
     return redirect()->back();
 
+    }
+
+    public function getHistory()
+    {
+        $history = Application::where('user_id', Session::get('user')->id)->with('ad.company')->get();
+        // return $history;
+        return view('user.history', ['ads' => $history]);
     }
 
 }
