@@ -9,17 +9,11 @@ use App\Category as Category;
 use App\Image as Image;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
-use App\Category as Category;
-use App\Application as Application;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Hash as Hash;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Crypt;
 use Session;
 
 class UserController extends Controller {
