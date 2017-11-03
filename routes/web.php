@@ -70,6 +70,7 @@ Route::post('/updateGender', 'UserController@updateGender')->name('updateGender'
 Route::post('/updatePhone', 'UserController@updatePhone')->name('updatePhone');
 Route::post('/updateDescription', 'UserController@updateDescription')->name('updateDescription');
 Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar');
+Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
 
 });
 

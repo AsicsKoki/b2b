@@ -9,18 +9,32 @@
 				<div class="user_profile_image user_profile_item">
 					<div class="user_profile_image_holder">
 						<span>
-							<img src="https://scontent.fbeg5-1.fna.fbcdn.net/v/t1.0-1/p160x160/21686203_1317978501681658_3611638233223355882_n.jpg?oh=8125a6abd8ff47a68901a7907b32c738&oe=5A39DB7C" alt="">
+							<img src="{{ URL::to('/') . $avatar }}" alt="">
 						</span>
+
+						<form action="{{ route('updateAvatar') }}" method="POST" enctype="multipart/form-data" id="upload_avt_form">
+                            {{Form::open(array('route' => 'updateAvatar','method'=>'POST', 'files'=>true))}}
+                            <div class="edit_info_window change_image_edit_info_window" id="avatar_input" style="display:none">
+                            	<p class="simulat_choose_img">Choose image</p>
+                                <input type="file" name="data_input">
+                            
+                            </div>
+                            <div class="edit_info_window" id="avatar_input2" style="display:none">
+                                {{ csrf_field() }}
+                  <button type="submit" value="upload" class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+      						</div>
+     		           </form>
+
 						<a class="edit_link" id="avatar">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 						<br>
-						<div class="edit_info_window change_image_edit_info_window" id="avatar_input" style="display:none">
+						<!-- <div class="edit_info_window change_image_edit_info_window" id="avatar_input" style="display:none">
 							<input type="file">
 							<button class="confirm_edit_btn blue_btn">Choose image</button>
 						</div>
-
-
+				
+						</div> -->
 					</div>
 					<div class="edit_info_window" id="avatar_input2" style="display:none">
 						<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
@@ -30,15 +44,9 @@
 				<div class="user_profile_name_holder user_profile_item">
 					<p class="user_profile_name">
 					<span>{{ Session::get('user')->first_name }} {{Session::get('user')->last_name}}</span>
-						<a href="" class="edit_link">	
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</a>
 					</p>
 					
-					<div class="edit_info_window">
-						<input type="text" placeholder="Enter your full name">
-						<button class="confirm_edit_btn blue_btn">Confirm</button>
-					</div>
+
 				</div>
 
 				<div class="user_profile_name_holder user_profile_item">
@@ -52,9 +60,7 @@
 			
 					<div class="edit_info_window" id="education_input" style="display: none">
 						<input type="text" placeholder="Enter education" style="font-size: 14px" >
-						<button class="confirm_edit_btn blue_btn" id="education_btn">Confirm</button>
-						<input type="text" placeholder="Education" style="font-size: 14px">
-						<button class="confirm_edit_btn blue_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
+						<button class="confirm_edit_btn blue_btn" id="education_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
 					</div>
 	
 				</div>
@@ -63,15 +69,15 @@
 				<div class="user_profile_item user_skills_holder">
 					<div class="user_profile_skills">
 						<p class="bold" style="text-align: left;">My skills:</p>
-						<span>PHP, HTML, CSS, Project menager, profesor, auto mehanicar, etc...</span>
+						<span id="skills_span">PHP, HTML, CSS, Project menager, profesor, auto mehanicar, etc...</span>
 						<a class="edit_link" id="user_skills">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 					</div>
 
-					<div class="edit_info_window" id="user_skills" style="">
+					<div class="edit_info_window" id="user_skills" style="display: none">
 						<textarea name="" cols="30" rows="10" width="80%" placeholder="Enter your skills" style="height: 50px;"></textarea>
-						<button class="confirm_edit_btn blue_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
+						<button class="confirm_edit_btn blue_btn" id="skills_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
 					</div>
 				</div>
 
@@ -163,9 +169,7 @@
 					<div class="edit_info_window" id="description_input" style="display:none">
 						<textarea name="" cols="30" rows="10" width="100%" placeholder="Say something about you"></textarea>
 
-						<button class="confirm_edit_btn blue_btn" id="description_btn">Confirm</button>
-
-						<button class="confirm_edit_btn blue_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
+						<button class="confirm_edit_btn blue_btn" id="description_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
 					</div>
 				</div>
 			</div>
@@ -175,9 +179,6 @@
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Email:</p>
 				<span>{{ Session::get('user')->email }}</span>
-				<a href="" class="edit_link">	
-					<i class="fa fa-pencil" aria-hidden="true"></i>
-				</a>
 			</div>
 
 			<div class="user_profile_sidebar_item">
@@ -235,7 +236,7 @@
 			<div class="user_profile_sidebar_item">
 				<p class="bold">Gender:</p>
 				<span>{{ Session::get('user')->gender }}</span>
-				<a href="" class="edit_link">	
+<!-- 				<a href="" class="edit_link">	
 					<i class="fa fa-pencil" aria-hidden="true"></i>
 				</a>
 
@@ -250,7 +251,7 @@
 						<span style="font-size: 15px;">Female</span>
 					</label>
 					<button class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
-					</div>
+					</div> -->
 			</div>
 
 			<div class="user_profile_sidebar_item">
@@ -265,10 +266,10 @@
 					<button class="confirm_edit_btn blue_btn" id="phone_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
 				</div>
 			</div>
-
-
+		
+			</div>
 		</div>
-	</div>
+
 
 	<div class="popUp popup_new_language_user">
 		<form action="" method="" class="popup_new_language_user_form">
@@ -354,7 +355,7 @@
 
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Description:</p>
-				<textarea name="" id="" cols="30" rows="10" "></textarea>
+				<textarea name="" id="" cols="30" rows="10"></textarea>
 			</div>
 
 			<div class="popup_new_job_user_form_item" style="background: transparent;margin: 0;padding: 0;box-shadow: none;">
@@ -370,13 +371,50 @@
 
 <script>
 
+	 $(document).click(function() {
+	
+// dugme da se pojavljuje i nestaje
+
+        $('.confirm_edit_btn').css('display','none');
+	 	$('#avatar').css('display','inline-block');
+	 	$('#avatar_input').css('display','none');
+	 	$('#avatar_input2').css('display','none');
+        });
+
+	 	$('.edit_link').click(function(e){
+	 		e.stopPropagation();
+	 	});
+ 	
+
+       $(".edit_info_window input").click(function(e) {
+       	$(this).next().css('display','block');
+            e.stopPropagation(); // if you click on the div itself it will cancel the click event.
+        });
+
+	   $('.edit_info_window textarea').click(function(e){
+       	e.stopPropagation();
+       		$(this).next().css('display','inline-block');
+       	});
+
+   		$('#education_input input').click(function(e){
+   			e.stopPropagation();
+			$(this).next().css('display','inline-block');
+		});
+
+		$('#avatar_input2 button').click(function(e){
+   			e.stopPropagation();
+		});
+
+
+
 
 // avatar/ profile image   - nezavrsen
  
 	$('#avatar').click(function(){
 			$(this).css('display', 'none');
-			$('#avatar_input').slideToggle('slow');
-			$('#avatar_input2').slideToggle('slow');
+			$('#avatar_input').css('display','block');
+			$('#avatar_input2').css('display','block');
+			$('#avatar_input2 button').css('display','inline-block');
 		});
 
 		$('#avatar_input2').click(function(e){
@@ -384,26 +422,29 @@
 			$('#avatar').css('display','block');	
 			$('#avatar_input').css('display','none');
 			$('#avatar_input2').css('display','none');
-			var data_input = $('#avatar_input input')[0].files[0];
-			console.log(data_input);
-			$.ajax({
-			  method: "POST",
-			  url: "/updateAvatar",
-			     contentType:false,
-               	 cache: false,
-             	 processData:false,
-			  data: {
-			  	'_token': $('meta[name="csrf-token"]').attr('content'),
-			  	data_input:data_input
-			  },
-			  // headers: {
-     //  				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-					// },
-				})
-	           .done(function(data)
-		           {
-		            console.log(data);
-		           })
+		});
+	// 		var data_input = $('#avatar_input input')[0].files[0];
+	// 		console.log(data_input);
+	// 		$.ajax({
+	// 		  method: "POST",
+	// 		  url: "/updateAvatar",
+	// 		     contentType:false,
+ //               	 cache: false,
+ //             	 processData:false,
+	// 		  data: {
+	// 		  	'_token': $('meta[name="csrf-token"]').attr('content'),
+	// 		  	data_input:data_input
+	// 		  },
+	// 		  // headers: {
+ //     //  				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	// 				// },
+	// 			})
+	//            .done(function(data)
+	// 	           {
+	// 	            console.log(data);
+	// 	           })
+
+
 
 // // avatar/ profile image   - nezavrsen
 
@@ -417,11 +458,8 @@
 // 			$('#avatar').css('display','block');	
 // 		});
 
-		});
+		// });   ???
 
-		// $('#education_input input').focus(function(){
-		// 	$('.confirm_edit_btn').css('display','block');
-		// });
 
 		//ako su prazni da stoje otvoreno 
 		$(document).ready(function(){
@@ -490,6 +528,14 @@
 			$('#phone_btn').css('display','none');
 			$('#phone_input input').focus(function(){
 			$('#phone_btn').css('display','block');
+		});
+		};
+		if ($('#skills_span').text() == "") {
+			$('#skills_input').css('display','block');
+			$('#user_skills').css('display','none');
+			$('#skills_btn').css('display','none');
+			$('#skills_input input').focus(function(){
+			$('#skills_btn').css('display','block');
 		});
 		};
 	});
@@ -738,6 +784,42 @@
 
 
 			});
+
+// skills
+
+	$('.edit_link#user_skills').click(function(){
+		$(this).css('display', 'none');
+		var skills_span = $('#skills_span').text();
+		$('#skills_span').css('display','none');
+		$('.edit_info_window#user_skills').slideToggle('slow');
+		$('.edit_info_window#user_skills textarea').val(skills_span).focus();
+	});
+
+		//
+
+		$('.edit_info_window#user_skills button').click(function(e){
+			e.preventDefault();
+			$('.edit_link#user_skills').css('display', 'block');
+			$('#skills_span').css('display','block');
+			$('.edit_info_window#user_skills').css('display','none');
+			var data_input = $('.edit_info_window#user_skills textarea').val();
+			$('#skills_span').html(data_input);
+			$.ajax({
+				  method: "POST",
+				  url: "/updateSkills",
+				  data: {
+				  	data_input:data_input,
+				  	'_token': $('meta[name="csrf-token"]').attr('content')
+				  },
+				})
+		           .done(function(data)
+			           {
+			            console.log(data);
+			           })
+
+
+		});
+
 
 
 </script>

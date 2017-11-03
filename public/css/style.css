@@ -2413,6 +2413,13 @@ ul.comapny_user_coversation {
     font-size: 14px;
 }
 
+.simulat_choose_img {
+    background: #2075a2;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
 .popup_new_job_user_form_item_title {
     font-size: 16px;
     width: 90%;

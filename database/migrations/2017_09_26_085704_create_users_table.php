@@ -23,7 +23,9 @@ class CreateUsersTable extends Migration {
 			$table->string('birthdate',100);
 			$table->string('gender',100);
 			$table->string('phone',100);
+			$table->string('skills',250);
 			$table->rememberToken();
+			$table->integer('image_id',10);
 
 		});
 	}

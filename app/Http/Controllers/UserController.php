@@ -6,6 +6,7 @@ use App\Application as Application;
 use App\Message as Message;
 use App\Ad as Ad;
 use App\Category as Category;
+use App\Image as Image;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -24,8 +25,10 @@ class UserController extends Controller {
      * @return Response
      */
     public function getUserProfile()
-    {
-        return view('user.profile');
+    {   
+        $user = Session::get('user');
+        $avatar = $user->image;
+        return view('user.profile', ['avatar'=>$avatar['path']]);
     }
 
     public function getUserLogin()
@@ -179,6 +182,15 @@ class UserController extends Controller {
         return 1;
     }
 
+    public function updateSkills()
+    {
+        $data_input = Input::get('data_input');
+        $user = Session::get('user');
+        $user->skills = $data_input;
+        $user->save();
+        return 1;
+    }
+
     public function updateAvatar(Request $request)
     {
 
@@ -190,12 +202,21 @@ class UserController extends Controller {
         talk the select file and move it public directory and make avatars
         folder if doesn't exsit then give it that unique name.
     */
+    $user = Session::get('user');
     $request->data_input->move(public_path('photos'), $photoName);
+    if(!$user->image)
+    {
     $image = new Image;
-    $image->user_id = 1;
+    $image->user_id = $user->id;
     $image->path = '/photos/' . $photoName;
     $image->save();
-    return 1;
+    }else{
+        $image = $user->image;
+        $image->user_id = $user->id;
+        $image->path = '/photos/' . $photoName;
+        $image->save();
+    }
+    return redirect()->back();
 
     }
 

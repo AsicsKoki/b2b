@@ -188,4 +188,17 @@
                 <!-- End Top Employers Section -->
             </div>
         </main>
+
+<script type="text/javascript">
+
+      $(document).click(function() {
+            $('.job_search_option_triger').removeClass('open').next('.options_checkbox').css('display','none');
+        });
+
+       $(".search_job_filters_holder").click(function(e) {
+            e.stopPropagation(); // if you click on the div itself it will cancel the click event.
+        });
+
+</script>
+
 @endsection
