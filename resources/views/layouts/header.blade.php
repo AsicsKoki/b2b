@@ -54,10 +54,10 @@
                             <a href="">Favorites</a>
                         </li>
                         <li>
-                            <a href="<!-- {{ route('getHistory') }} -->">History</a>
+                            <a href="{{ route('getHistory') }}">History</a>
                         </li>
                         <li>
-                            <a href="<!-- {{ route('getMessages') }} -->">Messages</a>
+                            <a href="{{ route('getMessages') }}">Messages</a>
                         </li>
                     @endif
                     </ul>

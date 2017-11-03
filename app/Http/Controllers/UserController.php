@@ -1,19 +1,19 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\User as User;
-use App\Application as Application;
-use App\Message as Message;
+use Session;
 use App\Ad as Ad;
-use App\Category as Category;
-use Illuminate\Support\Facades\Auth as Auth;
+use App\User as User;
+use App\Message as Message;
 use Illuminate\Http\Request;
+use App\Category as Category;
+use App\Application as Application;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\Hash as Hash;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Crypt;
-use Session;
 
 class UserController extends Controller {
 
@@ -104,13 +104,18 @@ class UserController extends Controller {
     public function getSearchResults()
     {
         $categories[] = Input::get('category');
-
+        // return $categories[0];
         $language = Input::get('language');
+        // $type_of_work = Input::get('term');
+        // $level = Input::get('career_level');
 
-        foreach ($categories as $category) {
-            $results = Category::where('id', $categories)->with('ads')->get();
+
+        $results = array();
+        foreach ($categories[0] as $category) {
+            $results[] = Category::where('id', $categories)->with('ads.company.image')->get();
         }
-        return $results;
+        // return $results;
+        return view('ad.searchResults', ['ads' => $results]);
     }
 
     public function updateEducation()
