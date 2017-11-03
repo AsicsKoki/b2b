@@ -114,7 +114,8 @@ class UserController extends Controller {
         foreach ($categories[0] as $category) {
             $results[] = Category::where('id', $categories)->with('ads.company.image')->get();
         }
-        // return $results;
+                
+        // return $results; 
         return view('ad.searchResults', ['ads' => $results]);
     }
 
@@ -202,6 +203,13 @@ class UserController extends Controller {
     $image->save();
     return 1;
 
+    }
+
+    public function getHistory()
+    {
+        $history = Application::where('user_id', Session::get('user')->id)->with('ad.company')->get();
+        // return $history;
+        return view('user.history', ['ads' => $history]);
     }
 
 }

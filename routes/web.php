@@ -59,6 +59,7 @@ Route::get('/history', 'UserController@getHistory')->name('getHistory');
 Route::get('/history', 'UserController@getHistory')->name('getHistory');
 Route::get('/messages', 'UserController@getMessages')->name('getMessages');
 Route::get('/userConversation/{aid}', 'UserController@getUserConversation')->name('getUserConversation');
+Route::get('/applicationHistory', 'UserController@getHistory')->name('getHistory');
 Route::post('/postUserMessage', 'UserController@postUserMessage')->name('postUserMessage');
 
 Route::post('/updateEducation', 'UserController@updateEducation')->name('updateEducation');
