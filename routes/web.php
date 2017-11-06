@@ -56,7 +56,6 @@ Route::post('/profile/{uid}/favorites/{jid}', 'UserController@postFavorite')->na
 Route::get('/cvCreator', 'UserController@getCvCreator')->name('getCvCreator');
 Route::get('/myFiles', 'UserController@getMyFiles')->name('getMyFiles');
 Route::get('/history', 'UserController@getHistory')->name('getHistory');
-Route::get('/history', 'UserController@getHistory')->name('getHistory');
 Route::get('/messages', 'UserController@getMessages')->name('getMessages');
 Route::get('/userConversation/{aid}', 'UserController@getUserConversation')->name('getUserConversation');
 Route::get('/applicationHistory', 'UserController@getHistory')->name('getHistory');
@@ -72,6 +71,11 @@ Route::post('/updatePhone', 'UserController@updatePhone')->name('updatePhone');
 Route::post('/updateDescription', 'UserController@updateDescription')->name('updateDescription');
 Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar');
 Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
+
+Route::post('/updateFavorites', 'JobController@updateFav')->name('updateFav');
+Route::post('/removeFavorites', 'JobController@removeFav')->name('removeFav');
+Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
+// Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
 
 });
 

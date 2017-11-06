@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration {
 			$table->string('skills',250);
 			$table->rememberToken();
 			$table->integer('image_id',10);
+			$table->integer('favorite_id',10);
 
 		});
 	}

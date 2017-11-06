@@ -29,7 +29,7 @@
 			</ul>
 		</div>
 
-		<div class="job_list_filter_holder">
+	<div class="job_list_filter_holder">
 			<ul>
 			@foreach ($ads as $ad)
 				<li class="job_list_filter_item cf">
@@ -54,7 +54,6 @@
 							<div class="job_list_filter_item_logo">
 								<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
 							</div>
-							<input type="hidden" name="id" value="{{$ad->id}}">
 						</div>
 
 						<div class="job_list_filter_item_right_section">
@@ -66,16 +65,10 @@
 								<li>
 									<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
 								</li>
-								@if(!App\Favorite::isFavorite($ad->id))
-								<li>
-									<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
-								</li>
-								@else
 								<li>
 									<a><i class="fa fa-star star" aria-hidden="true"></i></a>
 								</li>
 
-								@endif
 							</ul>
 						</div>
 
@@ -86,7 +79,7 @@
 			</ul>
 		</div>
 
-		<div class="pagination">
+				<div class="pagination">
 			<ul class="cf">
 				<li class="pagination_fast_page">
 					<a href=""><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
@@ -114,44 +107,44 @@
 	</main>
 
 <script type="text/javascript">
-        $('.star').click(function(){
-            var a = $(this).parent().parent().parent().parent().parent().parent().children('.job_list_filter_item_left').children('h3').children().attr('href');
-          var id = a.match(/([\d]+)/)[0];
-         console.log(id);
-         if ($(this).hasClass('fa-star-o')){
-         	 $(this).toggleClass('fa-star-o').toggleClass('fa-star');    
-         $.ajax({
-                 method: "POST",
-                 url: "/updateFavorites",
-                 data: {
-                     id:id,
-                     '_token': $('meta[name="csrf-token"]').attr('content')
-	                 },
-	             })
-                .done(function(data)
-                {
-                     console.log(data);
-                }).fail(function(err){
-                	console.log(err);
-                })
-            } else if ($(this).hasClass('fa-star')) {
-            	 	 $(this).toggleClass('fa-star').toggleClass('fa-star-o');    
-         $.ajax({
-                 method: "POST",
-                 url: "/removeFavorites",
-                 data: {
-                     id:id,
-                     '_token': $('meta[name="csrf-token"]').attr('content')
-	                 },
-	             })
-                .done(function(data)
-                {
-                     console.log(data);
-                }).fail(function(err){
-                	console.log(err);
-                })
-            }
-        });
+	$('.star').click(function(){
+		var a = $(this).parent().parent().parent().parent().parent().parent().children('.job_list_filter_item_left').children('h3').children().attr('href');
+		var id = a.match(/([\d]+)/)[0];
+		console.log(id);
+		if ($(this).hasClass('fa-star-o')){
+			$(this).toggleClass('fa-star-o').toggleClass('fa-star');    
+		$.ajax({
+				method: "POST",
+				url: "/updateFavorites",
+				data: {
+					id:id,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{
+					console.log(data);
+			}).fail(function(err){
+				console.log(err);
+			})
+		} else if ($(this).hasClass('fa-star')) {
+					$(this).toggleClass('fa-star').toggleClass('fa-star-o');    
+		$.ajax({
+				method: "POST",
+				url: "/removeFavorites",
+				data: {
+					id:id,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{
+					console.log(data);
+			}).fail(function(err){
+				console.log(err);
+			})
+		}
+	});
 
-    </script>
+</script>
 @endsection

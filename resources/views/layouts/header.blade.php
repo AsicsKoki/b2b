@@ -51,7 +51,7 @@
                             <a href="{{ route('getUserProfile') }}">Profile</a>
                         </li>
                         <li>
-                            <a href="">Favorites</a>
+                            <a href="{{ route('getUserFavorites') }}">Favorites</a>
                         </li>
                         <li>
                             <a href="{{ route('getHistory') }}">History</a>

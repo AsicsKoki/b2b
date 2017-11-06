@@ -6,10 +6,12 @@ use App\Company as Company;
 use App\Application as Application;
 use App\Conversation as Conversation;
 use App\Message as Message;
+use App\Favorite as Favorite;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Session;
 
 class JobController extends Controller {
 
@@ -21,8 +23,19 @@ class JobController extends Controller {
      */
     public function getJobs()
     {
-        //modffy to take id from session, edit view once created
+        //modffy to take id from session, edit view once created 'user_id', Session::get('user'
+
         return view('ad.allAds', ['ads' => Ad::with('company.image')->get()]);
+    }
+
+    public function getUserFavorites()
+    {
+        $ads = Ad::with('company.image')->whereHas('favorites', function ($query){
+            $query->where('user_id', Session::get('user')->id);
+        })->get();
+        // return $ads;
+        return view('user.favorites', ['ads' => $ads]);
+
     }
 
     public function getJob($jid)
@@ -116,6 +129,7 @@ class JobController extends Controller {
         return redirect()->back();
     }
 
+    // chat 
     public function getRefresh()
     {
         $timestamp = Input::get('timestamp');
@@ -123,6 +137,25 @@ class JobController extends Controller {
         $result = Message::find($application_id)->where('created_at', '>' , $timestamp)->get();
         return $result->toJson();
 
+    }
+
+        public function updateFav()
+    {
+        $user = Session::get('user');
+        $ad = $_POST['id'];
+        $favorite = new Favorite;
+        $favorite->user_id = $user->id;
+        $favorite->ad_id = $ad;
+        $favorite->save();
+        return 1;
+    }
+
+    public function removeFav()
+    {
+        $user = Session::get('user');
+        $ad = $_POST['id'];
+        $favorite = Favorite::where('user_id', $user->id)->where('ad_id',$ad)->delete();
+        // $favorite::destroy($ad);
     }
 
 

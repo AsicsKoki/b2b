@@ -31,6 +31,7 @@ class CreateAdsTable extends Migration {
 			$table->string('external_url', 100)->nullable();
 			$table->string('position', 100);
 			$table->integer('approved')->default('0');
+			$table->integer('favorite_id')->nullable();
 		});
 	}
 

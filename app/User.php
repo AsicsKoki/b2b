@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Image');
     }
+
+    public function favorite()
+    {
+        return $this->hasMany('App\Favorite','favorite_id');
+    }
 }

@@ -70,4 +70,9 @@ class Ad extends Model
     {
         return $this->hasMany('App\Language');
     }
+
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite');
+    }
 }

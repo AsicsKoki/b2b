@@ -7,6 +7,7 @@ use App\Message as Message;
 use App\Ad as Ad;
 use App\Category as Category;
 use App\Image as Image;
+use App\Favorite as Favorite;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -232,5 +233,8 @@ class UserController extends Controller {
         // return $history;
         return view('user.history', ['ads' => $history]);
     }
+
+
+
 
 }

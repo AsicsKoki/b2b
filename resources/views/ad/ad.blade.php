@@ -8,20 +8,27 @@
 
 		<div class="single_job_header">
 			<h1 class="single_job_title bold">{{ $ad->position }}</h1>
-			<ul class="single_job_categories cf">
-				<li>
-					<span class="bold">Categories:</span>
-				</li>
-				<li>
-					<a href="">IT</a>
-				</li>
-				<li>
-					<a href="">Computer Ingenier</a>
-				</li>
-				<li>
-					<a href="">Programming</a>
-				</li>
-			</ul>
+			<div class="single_job_info_holder">
+				<ul class="single_job_categories cf">
+					<li>
+						<span class="bold">Categories:</span>
+					</li>
+					<li>
+						<a href="">IT</a>
+					</li>
+					<li>
+						<a href="">Computer Ingenier</a>
+					</li>
+					<li>
+						<a href="">Programming</a>
+					</li>
+				</ul>
+				@if(!App\Favorite::isFavorite($ad->id))
+					<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
+				@else
+					<a><i class="fa fa-star star" aria-hidden="true"></i></a>
+				@endif
+			</div>
 			
 			<div class="single_job_social_net">
 				<div class="fb-like" data-href="https://www.facebook.com/booproweb/" data-width="50" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -110,5 +117,47 @@
 		</div>
 
 	</main>
+
+<script type="text/javascript">
+	$('.star').click(function(){
+		var a =  $(location).attr('href');
+		var id = a.match(/([\d]+)/)[0];		
+		console.log(id);
+		if ($(this).hasClass('fa-star-o')){
+			$(this).toggleClass('fa-star-o').toggleClass('fa-star');    
+		$.ajax({
+				method: "POST",
+				url: "/updateFavorites",
+				data: {
+					id:id,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{
+					console.log(data);
+			}).fail(function(err){
+				console.log(err);
+			})
+		} else if ($(this).hasClass('fa-star')) {
+					$(this).toggleClass('fa-star').toggleClass('fa-star-o');    
+		$.ajax({
+				method: "POST",
+				url: "/removeFavorites",
+				data: {
+					id:id,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{
+					console.log(data);
+			}).fail(function(err){
+				console.log(err);
+			})
+		}
+	});
+
+</script>
 
 @endsection
