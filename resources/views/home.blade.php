@@ -150,7 +150,7 @@
                             @foreach($companies as $company)
                             <li>
                                 <a href="{{ route('getCompanyProfile', ['cid' => $company->id]) }}">
-                                    {{-- <img src="{{ URL::to('/') . $company->image->path }}" alt=""> --}}
+                                    <img src="{{ URL::to('/') . $company->image['path'] }}" alt="">
                                 </a>
                             </li>
                             @endforeach
