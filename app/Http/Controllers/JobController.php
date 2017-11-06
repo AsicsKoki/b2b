@@ -90,8 +90,11 @@ class JobController extends Controller {
     }
 
     public function getJobApplication($jid, $cid)
-    {  
-        return view('ad.application', ['jid' => $jid, 'cid' => $cid]);
+    {
+        if(Session::get('user')){
+            return view('ad.application', ['jid' => $jid, 'cid' => $cid]);
+        }
+        return redirect()->route('getUserLogin');
     }
 
     public function postJobApplication()

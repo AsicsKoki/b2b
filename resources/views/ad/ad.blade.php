@@ -23,10 +23,12 @@
 						<a href="">Programming</a>
 					</li>
 				</ul>
-				@if(!App\Favorite::isFavorite($ad->id))
-					<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
-				@else
-					<a><i class="fa fa-star star" aria-hidden="true"></i></a>
+				@if(Session::get('user'))
+					@if(!App\Favorite::isFavorite($ad->id))
+						<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
+					@else
+						<a><i class="fa fa-star star" aria-hidden="true"></i></a>
+					@endif
 				@endif
 			</div>
 			
@@ -62,7 +64,7 @@
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Languages:</h3>
-			<p>{{ $ad->languages }}</p>
+			{{-- <p>{{ $ad->languages }}</p> --}}
 		</div>
 
 		<div class="single_job_sidebar_item">
