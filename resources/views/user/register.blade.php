@@ -18,6 +18,12 @@
 				<input type="text" name="last_name">
 			</div>
 
+			<div class="login_reg_form_item">
+				<p class="form_title">Gender:</p>
+				<label>Male<input type="radio" value="Male" name="gender"></label>
+				<label>Female<input type="radio" value="Female" name="gender"></label>
+			</div>
+
 			<div class="login_reg_form_item" style="border-bottom: 1px solid #ddd;margin-bottom: 10px;">
 				<small style="border-top: 1px solid #ddd;display: block;padding-top: 10px;margin-bottom: 10px;">Enter your current email address. At the entered address you will receive an email to verify your registration.</small>
 				<p class="form_title">Email:</p>
