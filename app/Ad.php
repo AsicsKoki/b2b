@@ -75,4 +75,9 @@ class Ad extends Model
     {
         return $this->hasMany('App\Favorite');
     }
+
+    public static function hasCategories($aid)
+    {
+        return Category::find('ad_id',$aid)->get();
+    }
 }

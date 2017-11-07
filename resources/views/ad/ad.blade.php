@@ -10,6 +10,8 @@
 			<h1 class="single_job_title bold">{{ $ad->position }}</h1>
 			<div class="single_job_info_holder">
 				<ul class="single_job_categories cf">
+			
+				  
 					<li>
 						<span class="bold">Categories:</span>
 					</li>
