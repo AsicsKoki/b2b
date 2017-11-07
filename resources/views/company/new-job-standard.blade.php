@@ -48,10 +48,10 @@
 
 		<div class="new_job_add_choose_form_item">
 			<p class="form_title">Job type:</p>
-			<label for="company_job_type" style="margin-right: 20px"><span>Permanent</span> <input type="radio" name="job_type"></label>
-			<label for="job_type" style="margin-right: 20px"><span>Temporary</span> <input type="radio" name="job_type"></label>
-			<label for="job_type" style="margin-right: 20px"><span>Internship</span> <input type="radio" name="job_type"></label>
-			<label for="job_type" style="margin-right: 20px"><span>Distance job</span> <input type="radio" name="job_type"></label>
+			<label for="company_job_type" style="margin-right: 20px"><span>Permanent</span> <input type="radio" name="job_type" value="0"></label>
+			<label for="job_type" style="margin-right: 20px"><span>Temporary</span> <input type="radio" name="job_type" value="1"></label>
+			<label for="job_type" style="margin-right: 20px"><span>Internship</span> <input type="radio" name="job_type" value="2"></label>
+			<label for="job_type" style="margin-right: 20px"><span>Distance job</span> <input type="radio" name="job_type" value="3"></label>
 
 			<p class="form_title" style="margin-top: 20px;">Term:</p>
 			<label for="term" style="margin-right: 20px"><span>Permanent</span> <input type="checkbox" name="term"></label>

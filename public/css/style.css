@@ -419,6 +419,11 @@ main.main_app_container.home_page {
     margin-right: 20px;
 }
 
+.job_list_filter_info {
+    float: left;
+    margin-right: 15px;
+}
+
 .home_search_job_item.search_job_filters_item p.job_search_option_triger {
     width: auto;
     padding: 0 45px 0 15px;
@@ -1538,12 +1543,12 @@ p.company_profile_edit_section_view_info_desc {
 
 .job_list_filter_item_left {
     float: left;
-    width: 60%;
+    width: 50%;
 }
 
 .job_list_filter_item_right {
     float: right;
-    width: 40%;
+    width: 50%;
 }
 
 .job_list_filter_item_info {
