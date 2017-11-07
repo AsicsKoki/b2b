@@ -299,13 +299,13 @@
 			{{Form::open(array('route' => 'updatePopup','method'=>'POST'))}}
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Job position:</p>
-				<input type="text" id="job_position_input">
+				<input type="text" id="job_position_input" name="position">
 			</div>
 
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Company:</p>
-				<input type="text" placeholder="Company name">
-				<input type="text" placeholder="Company website">
+				<input type="text" name="company_name" placeholder="Company name">
+				<input type="text" name="company_website" placeholder="Company website">
 			</div>
 
 			<div class="popup_new_job_user_form_item cf">
@@ -313,7 +313,7 @@
 				<div class="user_from_to_period">				
 					<p class="popup_new_job_user_form_item_title bold">From:</p>
 					<div class="user_from_to_period_item">
-						<select name="" id="job_years_from">
+						<select name="year_from" id="job_years_from">
 						<option value="">Choose year</option>
 						 <script>
 						 var year = 2017;
@@ -326,20 +326,20 @@
 					</div>
 
 					<div class="user_from_to_period_item">
-						<select name="" id="">
+						<select name="month_from" id="">
 							<option value="">Choose month</option>
-							<option value="">Januar</option>
-							<option value="">Februar</option>
-							<option value="">March</option>
-							<option value="">April</option>
-							<option value="">May</option>
-							<option value="">June</option>
-							<option value="">July</option>
-							<option value="">August</option>
-							<option value="">September</option>
-							<option value="">October</option>
-							<option value="">November</option>
-							<option value="">December</option>
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="September">September</option>
+							<option value="October">October</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
 						</select>
 					</div>
 				</div>
@@ -347,7 +347,7 @@
 				<div class="user_from_to_period">
 					<p class="popup_new_job_user_form_item_title bold">To:</p>
 					<div class="user_from_to_period_item">
-						<select name="" id="job_years_to">
+						<select name="year_to" id="job_years_to">
 						<option value="">Choose year</option>
 						 <script>
 						 var year = 2017;
@@ -359,20 +359,20 @@
 					</div>
 
 					<div class="user_from_to_period_item">
-						<select name="" id="">
+						<select name="month_to" id="">
 							<option value="">Choose month</option>
-							<option value="">Januar</option>
-							<option value="">Februar</option>
-							<option value="">March</option>
-							<option value="">April</option>
-							<option value="">May</option>
-							<option value="">June</option>
-							<option value="">July</option>
-							<option value="">August</option>
-							<option value="">September</option>
-							<option value="">October</option>
-							<option value="">November</option>
-							<option value="">December</option>
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="September">September</option>
+							<option value="October">October</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
 						</select>
 					</div>
 				</div>
@@ -381,7 +381,7 @@
 
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Description:</p>
-				<textarea name="" id="" cols="30" rows="10"></textarea>
+				<textarea name="description" id="" cols="30" rows="10"></textarea>
 			</div>
 			 {{ csrf_field() }}
 			<div class="popup_new_job_user_form_item" style="background: transparent;margin: 0;padding: 0;box-shadow: none;">

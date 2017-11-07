@@ -37,7 +37,6 @@ class Ad extends Model
         'questionnaire_id',
         'external_url',
         'position',
-        'approved',
     ];
 
     public function company()
