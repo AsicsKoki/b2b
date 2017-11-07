@@ -16,7 +16,7 @@
 					</li>
 					@foreach($ad[0]->categories as $category)
 						<li>
-							<a href="">{{ $category->name }}</a>
+							<a href="{{ route('getJobsByCategory', ['catid' => $category->id]) }}">{{ $category->name }}</a>
 						</li>
 					@endforeach
 				</ul>
@@ -66,7 +66,15 @@
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Job type:</h3>
-			<p>{{ $ad[0]->job_type }}</p>
+			@if ($ad[0]->job_type == 0)
+			    <p>Permanent</p>
+			@elseif ($ad[0]->job_type == 1)
+			    <p>Temporary</p>
+			@elseif ($ad[0]->job_type == 2)
+				<p>Internship</p>
+			@elseif ($ad[0]->job_type == 3)
+				<p>Distance job</p>	 
+			@endif
 		</div>
 
 		<div class="single_job_sidebar_item">

@@ -40,9 +40,16 @@ class JobController extends Controller {
 
     public function getJob($jid)
     {  
-
         $ad = Ad::where('id', $jid)->with('company.image')->with('categories')->get();
         return view('ad.ad', ['ad' => $ad]);
+    }
+
+    public function getJobsByCategory($catid)
+    {  
+        $ads = Ad::with('company.image')->whereHas('categories', function ($query) use ($catid){
+            $query->where('category_id', $catid);
+        })->get();
+        return view('user.favorites', ['ads' => $ads]);
     }
 
     public function getNewJob()

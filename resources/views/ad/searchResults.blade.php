@@ -49,7 +49,23 @@
 					</div>
 
 					<div class="job_list_filter_item_right">
-						
+						<ul class="job_list_filter_info">
+								@if ($ad[0]['ads'][0]['career_level'] == 0)
+								    <li>Management</li>
+								@elseif ($ad[0]['ads'][0]['career_level'] == 1)
+								    <li>Expert</li>
+								@elseif ($ad[0]['ads'][0]['career_level'] == 3)
+									<li>Administrative staff</li>
+								@else
+								 
+								@endif
+								@if ($ad[0]['ads'][0]['students'] == 1)
+									<li class="single_job_students"><span class="">Students welcome</span></li>
+								@endif
+								@if ($ad[0]['ads'][0]['low_experiance'] == 1)
+									<li class="single_job_students"><span class="">Low experience welcome</span></li>
+								@endif
+							</ul>
 						<div class="job_list_filter_item_right_section">
 							<div class="job_list_filter_item_logo">
 								<img src="{{ URL::to('/') . $ad[0]['ads'][0]['company']['image']['path']}}" alt="">

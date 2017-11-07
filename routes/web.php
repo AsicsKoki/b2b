@@ -88,6 +88,7 @@ Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
 Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');
 
 Route::post('/searchResults', 'UserController@getSearchResults')->name('getSearchResults');
+Route::get('/jobsByCategory/{catid}', 'JobController@getJobsByCategory')->name('getJobsByCategory');
 
 //Company routes
 

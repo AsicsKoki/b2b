@@ -50,6 +50,23 @@
 
 					<div class="job_list_filter_item_right">
 						
+							<ul class="job_list_filter_info">
+								@if ($ad->career_level == 0)
+								    <li>Management</li>
+								@elseif ($ad->career_level == 1)
+								    <li>Expert</li>
+								@elseif ($ad->career_level == 3)
+									<li>Administrative staff</li>
+								@else
+								 
+								@endif
+								@if ($ad->students == 1)
+									<li class="single_job_students"><span class="">Students welcome</span></li>
+								@endif
+								@if ($ad->low_experience == 1)
+									<li class="single_job_students"><span class="">Low experience welcome</span></li>
+								@endif
+							</ul>
 						<div class="job_list_filter_item_right_section">
 							<div class="job_list_filter_item_logo">
 								<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
@@ -66,15 +83,17 @@
 								<li>
 									<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
 								</li>
-								@if(!App\Favorite::isFavorite($ad->id))
-								<li>
-									<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
-								</li>
-								@else
-								<li>
-									<a><i class="fa fa-star star" aria-hidden="true"></i></a>
-								</li>
+								@if(Session::get('user'))
+									@if(!App\Favorite::isFavorite($ad->id))
+									<li>
+										<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
+									</li>
+									@else
+									<li>
+										<a><i class="fa fa-star star" aria-hidden="true"></i></a>
+									</li>
 
+									@endif
 								@endif
 							</ul>
 						</div>
