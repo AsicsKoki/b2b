@@ -7,26 +7,21 @@
 	<main class="main_app_container cf">
 
 		<div class="single_job_header">
-			<h1 class="single_job_title bold">{{ $ad->position }}</h1>
+			<h1 class="single_job_title bold">{{ $ad[0]->position }}</h1>
 			<div class="single_job_info_holder">
 				<ul class="single_job_categories cf">
-			
 				  
 					<li>
 						<span class="bold">Categories:</span>
 					</li>
-					<li>
-						<a href="">IT</a>
-					</li>
-					<li>
-						<a href="">Computer Ingenier</a>
-					</li>
-					<li>
-						<a href="">Programming</a>
-					</li>
+					@foreach($ad[0]->categories as $category)
+						<li>
+							<a href="">{{ $category->name }}</a>
+						</li>
+					@endforeach
 				</ul>
 				@if(Session::get('user'))
-					@if(!App\Favorite::isFavorite($ad->id))
+					@if(!App\Favorite::isFavorite($ad[0]->id))
 						<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
 					@else
 						<a><i class="fa fa-star star" aria-hidden="true"></i></a>
@@ -49,43 +44,43 @@
 
 	<div class="single_job_sidebar">
 		<div class="single_job_sidebar_item">
-			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad->created_at }}</span></small>
+			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad[0]->created_at }}</span></small>
 			<div class="single_job_main_logo">
 				<a href="">
-					<img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+					<img src="{{ URL::to('/') . $ad[0]->company->image->path }}" alt="">
 				</a>
 			</div>
 			<h3 class="single_job_sidebar_item_title company_name bold">Company:</h3>
-			<p>{{ $company->company_name }}</p>
+			<p>{{ $ad[0]->company->company_name }}</p>
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Job location:</h3>
-			<p><span>{{ $ad->city }}</span>, <span>{{ $ad->country }}</span></p>
+			<p><span>{{ $ad[0]->city }}</span>, <span>{{ $ad[0]->country }}</span></p>
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Languages:</h3>
-			{{-- <p>{{ $ad->languages }}</p> --}}
+			
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Job type:</h3>
-			<p>{{ $ad->job_type }}</p>
+			<p>{{ $ad[0]->job_type }}</p>
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Salary:</h3>
-			<p><span>{{ $ad->salary_type }}</span>, from <span>{{ $ad->salary_from }}{{ $ad->currency }}</span> to <span>{{ $ad->salary_from }}{{ $ad->currency }}</span></p>
+			<p><span>{{ $ad[0]->salary_type }}</span>, from <span>{{ $ad[0]->salary_from }}{{ $ad[0]->currency }}</span> to <span>{{ $ad[0]->salary_from }}{{ $ad[0]->currency }}</span></p>
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Career level:</h3>
-			@if ($ad->career_level == 0)
+			@if ($ad[0]->career_level == 0)
 			    <p>Management</p>
-			@elseif ($ad->career_level == 1)
+			@elseif ($ad[0]->career_level == 1)
 			    <p>Expert</p>
-			@elseif ($ad->career_level == 3)
+			@elseif ($ad[0]->career_level == 3)
 				<p>Administrative staff</p>
 			@else
 			 
@@ -103,10 +98,10 @@
 			<div class="single_job_main_section">
 
 				<div class="single_job_main_section_first">
-				@if ($ad->students == 1)
+				@if ($ad[0]->students == 1)
 					<p class="single_job_students"><span class="">This job is available for students</span></p>
 				@endif
-				@if ($ad->low_experience == 1)
+				@if ($ad[0]->low_experience == 1)
 					<p class="single_job_students"><span class="">This job is available for people with low experience</span></p>
 				@endif
 
@@ -114,9 +109,9 @@
 
 				<div class="single_job_desc">
 					<h3 class="bold">Job description</h3>
-					{{ $ad->description }}
+					{{ $ad[0]->description }}
 				</div>
-				<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad->id, 'cid' => $ad->company->id]) }}" class="bold">Apply</a></div>
+				<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad[0]->id, 'cid' => $ad[0]->company->id]) }}" class="bold">Apply</a></div>
 			</div>
 		</div>
 

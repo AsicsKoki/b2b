@@ -41,9 +41,8 @@ class JobController extends Controller {
     public function getJob($jid)
     {  
 
-        $ad = Ad::find($jid);
-        $company = $ad->company;
-        return view('ad.ad', ['ad' => $ad, 'company' => $company]);
+        $ad = Ad::where('id', $jid)->with('company.image')->with('categories')->get();
+        return view('ad.ad', ['ad' => $ad]);
     }
 
     public function getNewJob()
@@ -90,11 +89,8 @@ class JobController extends Controller {
     }
 
     public function getJobApplication($jid, $cid)
-    {
-        if(Session::get('user')){
-            return view('ad.application', ['jid' => $jid, 'cid' => $cid]);
-        }
-        return redirect()->route('getUserLogin');
+    {  
+        return view('ad.application', ['jid' => $jid, 'cid' => $cid]);
     }
 
     public function postJobApplication()
