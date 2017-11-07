@@ -235,6 +235,11 @@ class UserController extends Controller {
         return view('user.history', ['ads' => $history]);
     }
 
+    public function updatePopup(Request $request)
+    {
+       return Input::all();
+    }
+
 
 
 

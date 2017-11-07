@@ -279,7 +279,7 @@
 					<li><a href="">English</a></li>
 					<li><a href="">Serbian</a></li>
 					<li><a href="">Spanish</a></li>
-					<li><a href="">Maxican</a></li>
+					<li><a href="">Mexican</a></li>
 				</ul>
 				<button class="add_new_lang_btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
 			</div>
@@ -295,10 +295,11 @@
 
 
 	<div class="popUp popup_new_job_user">
-		<form action="" method="" class="popup_new_job_user_form">
+		<form action="{{ route('updatePopup') }}" method="POST" enctype="multipart/form-data" class="popup_new_job_user_form" id="new_job_form">
+			{{Form::open(array('route' => 'updatePopup','method'=>'POST'))}}
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Job position:</p>
-				<input type="text">
+				<input type="text" id="job_position_input">
 			</div>
 
 			<div class="popup_new_job_user_form_item">
@@ -312,11 +313,15 @@
 				<div class="user_from_to_period">				
 					<p class="popup_new_job_user_form_item_title bold">From:</p>
 					<div class="user_from_to_period_item">
-						<select name="" id="">
-							<option value="">Choose year</option>
-							<option value="">2017</option>
-							<option value="">2016</option>
-							<option value="">2015</option>
+						<select name="" id="job_years_from">
+						<option value="">Choose year</option>
+						 <script>
+						 var year = 2017;
+						 while(year > 1930) {
+							 $('#job_years_from').append(`<option value="`+ year +`">`+ year-- +`</option>`); 
+						
+						 }
+							</script>
 						</select>
 					</div>
 
@@ -326,6 +331,15 @@
 							<option value="">Januar</option>
 							<option value="">Februar</option>
 							<option value="">March</option>
+							<option value="">April</option>
+							<option value="">May</option>
+							<option value="">June</option>
+							<option value="">July</option>
+							<option value="">August</option>
+							<option value="">September</option>
+							<option value="">October</option>
+							<option value="">November</option>
+							<option value="">December</option>
 						</select>
 					</div>
 				</div>
@@ -333,11 +347,14 @@
 				<div class="user_from_to_period">
 					<p class="popup_new_job_user_form_item_title bold">To:</p>
 					<div class="user_from_to_period_item">
-						<select name="" id="">
-							<option value="">Choose year</option>
-							<option value="">2017</option>
-							<option value="">2016</option>
-							<option value="">2015</option>
+						<select name="" id="job_years_to">
+						<option value="">Choose year</option>
+						 <script>
+						 var year = 2017;
+						 while(year > 1930) {
+							 $('#job_years_to').append(`<option value="`+ year +`">`+ year-- +`</option>`);
+						 }
+						</script>
 						</select>
 					</div>
 
@@ -347,6 +364,15 @@
 							<option value="">Januar</option>
 							<option value="">Februar</option>
 							<option value="">March</option>
+							<option value="">April</option>
+							<option value="">May</option>
+							<option value="">June</option>
+							<option value="">July</option>
+							<option value="">August</option>
+							<option value="">September</option>
+							<option value="">October</option>
+							<option value="">November</option>
+							<option value="">December</option>
 						</select>
 					</div>
 				</div>
@@ -357,7 +383,7 @@
 				<p class="popup_new_job_user_form_item_title bold">Description:</p>
 				<textarea name="" id="" cols="30" rows="10"></textarea>
 			</div>
-
+			 {{ csrf_field() }}
 			<div class="popup_new_job_user_form_item" style="background: transparent;margin: 0;padding: 0;box-shadow: none;">
 				<input type="submit" value="Save" class="save_btn_pop_up">
 			</div>
@@ -368,7 +394,7 @@
 	</div>
 
 </main>
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
 <script>
 
 	 $(document).click(function() {
@@ -818,6 +844,10 @@
 			           })
 
 
+		});
+
+		$('#new_job_form').ajaxForm(function(data){
+				console.log(data);
 		});
 
 
