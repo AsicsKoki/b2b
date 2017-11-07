@@ -168,7 +168,7 @@
                                 <span class="home_top_jobs_grid_item_header cf">
                                         <span class="home_top_jobs_grid_item_logo">
                                             <a href="" >
-                                                <img src="http://booproweb.com/img/booproweb-logo2.png" alt="">
+                                                <img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
                                             </a>
                                         </span>
 
