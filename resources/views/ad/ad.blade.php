@@ -16,7 +16,7 @@
 					</li>
 					@foreach($ad[0]->categories as $category)
 						<li>
-							<a href="">{{ $category->name }}</a>
+							<a href="{{ route('getJobsByCategory', ['catid' => $category->id]) }}">{{ $category->name }}</a>
 						</li>
 					@endforeach
 				</ul>
