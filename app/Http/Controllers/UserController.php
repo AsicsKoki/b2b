@@ -8,6 +8,7 @@ use App\Ad as Ad;
 use App\Category as Category;
 use App\Image as Image;
 use App\Favorite as Favorite;
+use App\WorkHistory as WorkHistory;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -29,7 +30,8 @@ class UserController extends Controller {
     {   
         $user = Session::get('user');
         $avatar = $user->image;
-        return view('user.profile', ['avatar'=>$avatar['path']]);
+        $workHistory = $user->workHistory;
+        return view('user.profile', ['workHistory' => $workHistory,'avatar' => $avatar['path']]);
     }
 
     public function getUserLogin()
@@ -237,7 +239,17 @@ class UserController extends Controller {
 
     public function updatePopup(Request $request)
     {
-       return Input::all();
+       $workHistory = new WorkHistory;
+       $workHistory->position = $request->position;
+       $workHistory->company_name = $request->company_name;
+       $workHistory->year_from = $request->year_from;
+       $workHistory->year_to = $request->year_to;
+       $workHistory->month_from = $request->month_from;
+       $workHistory->month_to = $request->month_to;
+       $workHistory->description = $request->description;
+       $workHistory->user_id = Session::get('user')->id;
+       $workHistory->save(); 
+       return $workHistory;
     }
 
 

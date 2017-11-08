@@ -96,61 +96,26 @@
 				</div>
 
 				<div class="user_profile_item user_profile_work_prev">
-		
-						<ul>
+					<ul>
+						@foreach($workHistory as $workHistory)
 							<li class="bold">
 
-								<span class="user_work_position">Frontend developer</span> 
+								<span class="user_work_position">{{ $workHistory->position }}</span> 
 								
 								<span class="work_place_user">
 									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span>Booproweb</span>
+									<span>{{ $workHistory->company_name }}</span>
 									<i class="fa fa-circle" aria-hidden="true"></i>
 								</span>
 	
-								<span class="period_prev_work">2014 - 2017</span>
+								<span class="period_prev_work">{{ $workHistory->year_from }} - {{ $workHistory->year_to }}</span>
 
 								<a href="#" class="edit_link" id="user_skills">	
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 								</a>
 			
 							</li>
-
-							<li class="bold">
-
-								<span class="user_work_position">Frontend developer</span> 
-								
-								<span class="work_place_user">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span>Booproweb</span>
-									<i class="fa fa-circle" aria-hidden="true"></i>
-								</span>
-	
-								<span class="period_prev_work">2014 - 2017</span>
-
-								<a href="#" class="edit_link" id="user_skills">	
-									<i class="fa fa-pencil" aria-hidden="true"></i>
-								</a>
-			
-							</li>
-
-							<li class="bold">
-
-								<span class="user_work_position">Frontend developer</span> 
-								
-								<span class="work_place_user">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span>Booproweb</span>
-									<i class="fa fa-circle" aria-hidden="true"></i>
-								</span>
-	
-								<span class="period_prev_work">2014 - 2017</span>
-
-								<a href="#" class="edit_link" id="user_skills">	
-									<i class="fa fa-pencil" aria-hidden="true"></i>
-								</a>
-			
-							</li>
+						@endforeach
 						</ul>
 						
 						<div class="add_new_user_job_profile">

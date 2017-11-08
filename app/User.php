@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Favorite','favorite_id');
     }
+
+    public function workHistory()
+    {
+        return $this->hasMany('App\WorkHistory');
+    }
 }
