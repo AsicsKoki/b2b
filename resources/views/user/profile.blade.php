@@ -812,7 +812,27 @@
 		});
 
 		$('#new_job_form').ajaxForm(function(data){
-				console.log(data);
+				var position = data.position;
+				var company = data.company_name;
+				var from = data.year_from;
+				var to = data.year_to;
+				$('.user_profile_work_prev ul').append(`<li class="bold">
+
+								<span class="user_work_position">`+ position + `</span> 
+								
+								<span class="work_place_user">
+									<i class="fa fa-circle" aria-hidden="true"></i>
+									<span>` + company + `</span>
+									<i class="fa fa-circle" aria-hidden="true"></i>
+								</span>
+	
+								<span class="period_prev_work">`+ from + ' - ' + to +`</span>
+
+								<a href="#" class="edit_link" id="user_skills">	
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+			
+							</li>`)
 		});
 
 
