@@ -82,7 +82,7 @@ Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorit
 });
 
 
-Route::get('/user/{uid}', 'UserController@getProfile')->name('getUserProfile');
+Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
 
 Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
 Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');
