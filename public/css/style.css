@@ -2579,3 +2579,58 @@ input.save_btn_pop_up {
     margin-top: 20px;
     background: #2075a2;
 }
+
+.users_list_item_link {
+    display: block;
+}
+
+.users_list_item {
+    list-style: none;
+    float: left;
+    width: 23%;
+    margin: 1%;
+    box-shadow: 0 0 5px 0;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 5px;
+    background: #f7f7f7; 
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.users_list_item:hover {
+    background: #dcdcdc;
+}
+
+.users_list_item_bottom {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    margin: 15px;
+    padding: 10px 0;
+}
+.users_list_item_img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.users_list_item_img img {
+    width: 100%;
+}
+
+p.users_list_item_name {
+    color: #444;
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.users_list_item_name_place {
+    font-size: 15px;
+    color: #444;
+}
