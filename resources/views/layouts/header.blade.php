@@ -60,6 +60,20 @@
                             <a href="{{ route('getMessages') }}">Messages</a>
                         </li>
                     @endif
+                    @if(Auth::check())
+                        <li>
+                            <a href="{{ route('getControlPanel') }}">Control Panel</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('addNewJob') }}">New Job</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getCompanyProfile', ['cid' => Auth::user()->id]) }}">Profile</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('applications', ['cid' => Auth::user()->id]) }}">Profile</a>
+                        </li>
+                    @endif
                     </ul>
                 </nav>
 
