@@ -46,6 +46,11 @@ class UserController extends Controller {
         return view('user.login');
     }
 
+    public function getAdminLogin()
+    {
+        return view('admin.login');
+    }
+
     public function getUsers()
     {
         return view('user.users');
@@ -63,6 +68,19 @@ class UserController extends Controller {
         $email = Input::get('email');
         $password = Input::get('password');
         $user = User::where('email', $email)->first();
+        
+        if ($user &&  Hash::check(Input::get('password'), $user->password)) {
+            Session::put('user', $user);
+            return redirect()->route('getHome');
+        }
+        return redirect()->back()->withErrors(['error', 'Wrong email or password!']);
+    }
+
+    public function postAdminLogin()
+    {
+        $email = Input::get('email');
+        $password = Input::get('password');
+        $user = User::where('email', $email)->where('is_admin',1)->first();
         
         if ($user &&  Hash::check(Input::get('password'), $user->password)) {
             Session::put('user', $user);
