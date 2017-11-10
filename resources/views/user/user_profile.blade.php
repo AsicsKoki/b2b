@@ -61,10 +61,12 @@
 	
 								<span class="period_prev_work">{{ $workHistory->year_from }} - {{ $workHistory->year_to }}</span>
 
+								<p class="user_profile_desc"> {{ $workHistory->description }} </p>
+
 								<a href="#" class="edit_link" id="user_skills">	
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 								</a>
-			
+
 							</li>
 						@endforeach
 						</ul>

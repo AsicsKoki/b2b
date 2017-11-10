@@ -153,6 +153,7 @@ $(document).ready(function(){
         $('#about_us_form').submit(function(e) {
         e.preventDefault();
         var about_us = $('#about_us_text').val();
+        $('#about_us_text').html(about_us);
         $.ajax ({
             url: '/updateAboutUs',
             data: {
@@ -173,6 +174,7 @@ $(document).ready(function(){
         $('#career_form').submit(function(e) {
        e.preventDefault();
        var career = $('#career').val();
+       $('#career').html(career);
        $.ajax ({
            url: '/updateCareer',
            data: {

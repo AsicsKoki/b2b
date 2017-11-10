@@ -492,9 +492,9 @@
 		if ($('#country_span').text() == "") {
 			$('#country_input').css('display','block');
 			$('#country').css('display','none');
-			$('#city_btn').css('display','none');
-			$('#city_input input').focus(function(){
-			$('#city_btn').css('display','block');
+			$('#country_btn').css('display','none');
+			$('#country_input input').focus(function(){
+			$('#countrybtn').css('display','block');
 		});
 		};
 		if ($('#region_span').text() == "") {
@@ -834,6 +834,9 @@
 			
 							</li>`)
 		});
+
+
+		
 
 
 

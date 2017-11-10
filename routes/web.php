@@ -85,7 +85,7 @@ Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorit
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
 Route::get('/users', 'UserController@getUsers')->name('getUsers');
 
-Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
+Route::get('/jobs', 'JobController@getJupdateCoverobs')->name('getAllJobs');
 Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');
 
 Route::post('/searchResults', 'UserController@getSearchResults')->name('getSearchResults');
@@ -100,6 +100,7 @@ Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getContr
 Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('editBusinessCard');
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
+Route::post('/updateCover', 'CompanyController@updateCover')->name('updateCover');
 Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCompany');
 
 

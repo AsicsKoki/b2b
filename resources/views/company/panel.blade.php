@@ -272,11 +272,14 @@
 					<div class="add_cover_btn_input">
 						<input type="file" id="" name="">
 					</div>
-
+                    {{Form::open(array('route' => '/updateCover','method'=>'POST', 'files'=>true))}}
+					  {{ csrf_field() }}
 					<div class="add_cover_btn">
-						<a href="#" class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Add cover</a>
+						<input type="file" name="company_logo">
+						<!-- <a href="#" class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Add cover</a> -->
+						<input type="submit" value="Add Cover" class="btn_submit">
 					</div>
-
+					{{Form::close()}}
 					<div class="add_cover_btn add_cover_btn_upload_cancle cf none">
 						<a href="#" class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Upload cover</a>
 						<a href="#" class="cancle_btn"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancle</a>
@@ -303,7 +306,7 @@
 				
 				<form action="{{ route('updateAboutUs') }}" method="POST" id="about_us_form">
 					<div class="edit_profile_textarea">
-				  		<textarea name="about_us" id="about_us_text" cols="40" rows="4"></textarea>
+				  		<textarea name="about_us" id="about_us_text" cols="40" rows="4">{{ $company->about_us }}</textarea>
 						{{ csrf_field() }}
 				  	</div>
 
@@ -326,7 +329,7 @@
 
 				<form action="{{ route('updateCareer') }}" method="POST" id="career_form">
 				  	<div class="edit_profile_textarea">
-				  		<textarea name="career" id="career" cols="40" rows="4"></textarea>
+				  		<textarea name="career" id="career" cols="40" rows="4">{{ $company->career }}</textarea>
 						{{ csrf_field() }}
 				  	</div>
 
