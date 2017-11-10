@@ -100,7 +100,8 @@ Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getContr
 Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('editBusinessCard');
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
-Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCompany');
+Route::get('/editCompany/{cid}', 'CompanyController@getEditCompany')->name('getEditCompany');
+Route::post('/editCompany/{cid}', 'CompanyController@postEditCompany')->name('postEditCompany');
 
 
 Route::get('/addNewJob', 'JobController@getNewJob')->name('addNewJob');

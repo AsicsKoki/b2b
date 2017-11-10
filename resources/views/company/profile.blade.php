@@ -2,16 +2,14 @@
 @section('content')
 	<h1 class="page_title main_page_title">Company Profile</h1>
 	<div class="main_app_container">
-
-		<a href="" class="btn_edit_profile">Edit Profile <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-
+		@if(Auth::user()->id === $company->id)
+			<a href="{{ route('getEditCompany', ['cid' => Auth::user()->id]) }}" class="btn_edit_profile">Edit Profile <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+		@endif
 		<div class="company_profile_view_holder cf">	
-
 			<div class="company_profile_view_side cf">
 				<div class="company_profile_view_side_logo">
 					<img src="{{ URL::to('/') . $logo }}" alt="">
 				</div>
-
 				<div class="company_profile_view_side_info">
 					<div class="company_profile_view_jobs_title">
 						<p class="bold" style="background: transparent; padding: 0;">Company info</p>
@@ -19,7 +17,7 @@
 					<p class="bold">{{ $company->company_name }}</p>
 					<p class="bold"><a href="{{ $company->company_website }}" style="color: #ff5d5c;">{{ $company->company_website }}</a></p>
 					<p class=""><span class="bold">Location:</span> {{$company->country}}<span>, <span>{{$company->company_address}}</span></p>
-					<p><span class="bold">Phone:</span> <span>{{$company->business_phone}}</span></p>
+					<p><span class="bold">Phone:</span> <span>{{$company->company_phone}}</span></p>
 					<p><span class="bold">Employees:</span> <span>{{ $businessCard['number_of_employees'] }}</span></p>
 				</div>
 				<div class="company_profile_view_jobs">
