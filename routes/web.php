@@ -73,6 +73,8 @@ Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar'
 Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
 
 Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');
+Route::get('/getPopUpData', 'UserController@getPopUpData')->name('getPopUpData');
+
 
 Route::post('/updateFavorites', 'JobController@updateFav')->name('updateFav');
 Route::post('/removeFavorites', 'JobController@removeFav')->name('removeFav');
