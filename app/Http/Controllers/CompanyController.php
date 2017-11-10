@@ -131,6 +131,11 @@ class CompanyController extends Controller {
         return view('company.panel', ['applications' => $applications]);
     }
 
+    public function getEditCompany()
+    {
+        return view('company.edit');
+    }
+
     public function updateAboutUs()
     {
         $about_us = Input::get('about_us');

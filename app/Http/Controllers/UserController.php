@@ -21,7 +21,7 @@ use Session;
 class UserController extends Controller {
 
     /**
-     * Show the profile for the given user.
+     * Show the profile for the logged in user.
      *
      * @param  int  $id
      * @return Response
@@ -34,9 +34,21 @@ class UserController extends Controller {
         return view('user.profile', ['workHistory' => $workHistory,'avatar' => $avatar['path']]);
     }
 
+    //show profile for requested user
+    public function getProfile($uid)
+    {   
+        $user = User::where('id', $uid)->with('image')->with('workHistory')->get();
+        return view('user.user_profile', ['user' => $user]);
+    }
+
     public function getUserLogin()
     {
         return view('user.login');
+    }
+
+    public function getUsers()
+    {
+        return view('user.users');
     }
 
     public function logout()

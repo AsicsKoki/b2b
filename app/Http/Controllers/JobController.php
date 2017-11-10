@@ -100,6 +100,12 @@ class JobController extends Controller {
         return view('ad.application', ['jid' => $jid, 'cid' => $cid]);
     }
 
+    public function getApplications()
+    {
+        $applications = Application::where('company_id', Auth::user()->id)->with('ad')->with('user')->get();
+        return view('company.applications', ['applications' => $applications]);
+    }
+
     public function postJobApplication()
     {  
         $application = new Application(Input::all());

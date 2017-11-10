@@ -84,7 +84,8 @@ Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorit
 });
 
 
-// Route::get('/profile/{uid}', 'UserController@getProfile')->name('getUserProfile');
+Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
+Route::get('/users', 'UserController@getUsers')->name('getUsers');
 
 Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
 Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');
@@ -101,6 +102,8 @@ Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getContr
 Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('editBusinessCard');
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
+Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCompany');
+
 
 Route::get('/addNewJob', 'JobController@getNewJob')->name('addNewJob');
 Route::get('/addNewJobStandard', 'JobController@getNewJobStandard')->name('addNewJobStandard');
@@ -111,6 +114,8 @@ Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
 
 Route::get('/conversation/{aid}', 'JobController@getConversation')->name('getConversation');
 });
+
+Route::get('/applications', 'JobController@getApplications')->name('getApplications');
 
 Route::get('/company/{cid}', 'CompanyController@getProfile')->name('getCompanyProfile');
 

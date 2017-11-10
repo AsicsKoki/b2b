@@ -6,11 +6,14 @@
 
 <main class="main_app_container">
 	<ul class="comapny_user_coversation">
-		<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{$conversation[0]->user->first_name}} {{$conversation[0]->user->last_name}}</a></p>
 		@foreach($conversation[0]->messages as $message)
 		<li class="comapny_user_coversation_item comapny_user_coversation_applicants">
 			<div class="comapny_user_coversation_item_name">
-				<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{$message->last_name}} {{ $message->first_name }} {{ $message->company_name }}</a></p>
+				@if(is_null($message->company_name))
+				<p><a href="{{ route('getUserProfile', ['uid' => $conversation[0]->user_id]) }}"><i class="fa fa-user-circle" aria-hidden="true"></i> {{$message->last_name}} {{ $message->first_name }}</a></p>
+				@else
+				<p><a href="{{ route('getCompanyProfile', ['cid' => Auth::user()->id])}}"><i class="fa fa-user-circle" aria-hidden="true"></i>{{ $message->company_name }}</a></p>
+				@endif
 			</div>
 			 <div class="comapny_user_coversation_item_text">
 			 	<p>{{ $message->text }}</p>
