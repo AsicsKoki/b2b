@@ -110,7 +110,7 @@
 	
 								<span class="period_prev_work">{{ $workHistory->year_from }} - {{ $workHistory->year_to }}</span>
 
-								<a href="#" class="edit_link" id="user_skills">	
+								<a href="#" class="edit_link" data-id="{{ $workHistory->id }}" id="user_skills_history">	
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 								</a>
 			
@@ -269,8 +269,8 @@
 
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Company:</p>
-				<input type="text" name="company_name" placeholder="Company name">
-				<input type="text" name="company_website" placeholder="Company website">
+				<input type="text" name="company_name" placeholder="Company name" id="user_job_company_name">
+				<input type="text" name="company_website" placeholder="Company website" id="user_job_company_website">
 			</div>
 
 			<div class="popup_new_job_user_form_item cf">
@@ -291,7 +291,7 @@
 					</div>
 
 					<div class="user_from_to_period_item">
-						<select name="month_from" id="">
+						<select name="month_from" id="month_from">
 							<option value="">Choose month</option>
 							<option value="January">January</option>
 							<option value="February">February</option>
@@ -324,7 +324,7 @@
 					</div>
 
 					<div class="user_from_to_period_item">
-						<select name="month_to" id="">
+						<select name="month_to" id="month_to">
 							<option value="">Choose month</option>
 							<option value="January">January</option>
 							<option value="February">February</option>
@@ -346,7 +346,7 @@
 
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Description:</p>
-				<textarea name="description" id="" cols="30" rows="10"></textarea>
+				<textarea name="description" id="user_job_description" cols="30" rows="10"></textarea>
 			</div>
 			 {{ csrf_field() }}
 			<div class="popup_new_job_user_form_item" style="background: transparent;margin: 0;padding: 0;box-shadow: none;">
@@ -377,12 +377,12 @@
 	 	});
  	
 
-       $(".edit_info_window input").click(function(e) {
-       	$(this).next().css('display','block');
+       $(".edit_info_window input").focus(function(e) {
+       	$(this).next().css('display','inline');
             e.stopPropagation(); // if you click on the div itself it will cancel the click event.
         });
 
-	   $('.edit_info_window textarea').click(function(e){
+	   $('.edit_info_window textarea').focus(function(e){
        	e.stopPropagation();
        		$(this).next().css('display','inline-block');
        	});
@@ -396,7 +396,9 @@
    			e.stopPropagation();
 		});
 
-
+		$('.user_profile_sidebar').click(function(e){
+			e.stopPropagation();
+		})
 
 
 // avatar/ profile image   - nezavrsen
@@ -476,58 +478,44 @@
 			$('#country_input').css('display','block');
 			$('#country').css('display','none');
 			$('#country_btn').css('display','none');
-			$('#country_input input').focus(function(){
-			$('#country_btn').css('display','block');
-		});
+		
 		};
 
 		if ($('#city_span').text() == "") {
 			$('#city_input').css('display','block');
 			$('#city').css('display','none');
 			$('#city_btn').css('display','none');
-			$('#city_input input').focus(function(){
-			$('#city_btn').css('display','block');
-		});
+			
 		};
 		if ($('#country_span').text() == "") {
 			$('#country_input').css('display','block');
 			$('#country').css('display','none');
-			$('#country_btn').css('display','none');
-			$('#country_input input').focus(function(){
-			$('#countrybtn').css('display','block');
-		});
+			$('#city_btn').css('display','none');
+			
 		};
 		if ($('#region_span').text() == "") {
 			$('#region_input').css('display','block');
 			$('#region').css('display','none');
 			$('#region_btn').css('display','none');
-			$('#region_input input').focus(function(){
-			$('#region_btn').css('display','block');
-		});
+			
 		};
 		if ($('#birthdate_span').text() == "") {
 			$('#birthdate_input').css('display','block');
 			$('#birthdate').css('display','none');
 			$('#birthdate_btn').css('display','none');
-			$('#birthdate_input input').focus(function(){
-			$('#birthdate_btn').css('display','block');
-		});
+			
 		};
 		if ($('#phone_span').text() == "") {
 			$('#phone_input').css('display','block');
 			$('#phone').css('display','none');
 			$('#phone_btn').css('display','none');
-			$('#phone_input input').focus(function(){
-			$('#phone_btn').css('display','block');
-		});
+			
 		};
 		if ($('#skills_span').text() == "") {
 			$('#skills_input').css('display','block');
 			$('#user_skills').css('display','none');
 			$('#skills_btn').css('display','none');
-			$('#skills_input input').focus(function(){
-			$('#skills_btn').css('display','block');
-		});
+			
 		};
 	});
 		
@@ -836,10 +824,39 @@
 		});
 
 
-		
+		$('.user_profile_item ul li #user_skills_history').click(function(e){
+			// $('#user_skills').css('display','block');
+			e.preventDefault();
+			e.stopPropagation();
+			console.log('im clicked');
+			var whid = $(this).attr('data-id');
+			$.ajax({
+				method: "GET",
+				url: "/getPopUpData",
+				data: { whid: whid}
+				})
+				.done(function(data){
+					$('.popup_new_job_user').fadeIn(200);
+					var cName = data[0].company_name;
+					var desc = data[0].description;
+					var mFrom = data[0].month_from;
+					var mTo = data[0].month_to;
+					var pos = data[0].position;
+					var yFrom = data[0].year_from;
+					var yTo = data[0].year_to;
+					$('#job_position_input').val(pos);
+					$('#user_job_company_name').val(cName);
+					// $('.popup_new_job_user_form_item input:last-of-type').val(cName); company website
+					$('#job_years_from').val(yFrom);
+					$('#job_years_to').val(yTo);
+					$('#month_from').val(mFrom);
+					$('#month_to').val(mTo);
+					$('#user_job_description').val(desc);
+				})
+		});
 
-
-
+        
+  
 </script>
 
 @endsection

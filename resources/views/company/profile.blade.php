@@ -2,7 +2,11 @@
 @section('content')
 	<h1 class="page_title main_page_title">Company Profile</h1>
 	<div class="main_app_container">
-		<div class="company_profile_view_holder cf">
+
+		<a href="" class="btn_edit_profile">Edit Profile <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+		<div class="company_profile_view_holder cf">	
+
 			<div class="company_profile_view_side cf">
 				<div class="company_profile_view_side_logo">
 					<img src="{{ URL::to('/') . $logo }}" alt="">

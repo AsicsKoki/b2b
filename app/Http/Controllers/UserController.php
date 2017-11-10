@@ -264,6 +264,12 @@ class UserController extends Controller {
        return $workHistory;
     }
 
+    public function getPopUpData(Request $request)
+    {
+        $data = WorkHistory::where('id', $request->whid)->get();
+        return $data;
+    }
+
 
 
 
