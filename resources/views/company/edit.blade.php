@@ -56,16 +56,29 @@
 								<input name="number_of_employees" type="text" required>
 							</div>
 						</div>
+						<div class="company_profile_edit_item">
+			
+							<div class="small_subtitle">
+						   		<h3>About The Company</h3>
+						   	</div>
 
-						<div class="login_reg_form_item">
+						  	<p class="bold">BooProWeb</p>
 
-							<div style="text-align: center;">
-								<img src="images/employers/test-employer.jpg" alt="">
-							</div>
+						  	<small style="margin-bottom: 5px;display: inline-block;">*You can tell about your organization, core activities, products and services here</small>
+								<div class="edit_profile_textarea">
+							  		<textarea name="about_us" id="about_us_text" cols="40" rows="4"></textarea>
+							  	</div>
+							<div class="small_subtitle">
+						   		<h3>Career at the Company</h3>
+						   	</div>
 
-							<p class="form_title">Enter key:</p>
-							<input type="text">
-						</div>
+						  	<p class="company_questionnaire_title"></p>
+
+						  	<small style="margin-bottom: 5px;display: inline-block;">*You can introduce your company as an employer, tell about the career development opportunities</small>
+						 		<div class="edit_profile_textarea">
+				  					<textarea name="career" id="career" cols="40" rows="4"></textarea>
+			  				</div>
+					  	</div>
 						 {{ csrf_field() }}
 						<div class="login_reg_form_item login_reg_form_submit">
 							<input type="submit" value="Update">

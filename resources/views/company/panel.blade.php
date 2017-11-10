@@ -325,10 +325,7 @@
 				
 
 				<form action="{{ route('updateCareer') }}" method="POST" id="career_form">
-				  	<div class="edit_profile_textarea">
-				  		<textarea name="career" id="career" cols="40" rows="4"></textarea>
-						{{ csrf_field() }}
-				  	</div>
+				  	
 
 					<button id="career" class="add_more save_section_btn">Save Section</button>
 				</form>
