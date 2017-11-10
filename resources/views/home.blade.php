@@ -189,7 +189,7 @@
             </div>
         </main>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
       $(document).click(function() {
 
@@ -197,6 +197,6 @@
             e.stopPropagation(); // if you click on the div itself it will cancel the click event.
         });
 
-</script>
+</script> -->
 
 @endsection
