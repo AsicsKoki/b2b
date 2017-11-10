@@ -152,32 +152,35 @@ $(document).ready(function() {
     $('#about_us_form').submit(function(e) {
         e.preventDefault();
         var about_us = $('#about_us_text').val();
-        $.ajax({
-                url: '/updateAboutUs',
-                data: {
-                    about_us: about_us,
-                    '_token': $('meta[name="csrf-token"]').attr('content'),
-                },
-                type: 'post'
+        $('#about_us_text').html(about_us);
+        $.ajax ({
+            url: '/updateAboutUs',
+            data: {
+                about_us:about_us, 
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                  },
+            type: 'post'
 
-            })
-            .done(function() {
-
+        })
+            .done(function()
+            {
+                
                 return 1;
             })
 
     });
 
-    $('#career_form').submit(function(e) {
-        e.preventDefault();
-        var career = $('#career').val();
-        $.ajax({
-                url: '/updateCareer',
-                data: {
-                    career: career,
-                    '_token': $('meta[name="csrf-token"]').attr('content'),
-                },
-                type: 'post'
+        $('#career_form').submit(function(e) {
+       e.preventDefault();
+       var career = $('#career').val();
+       $('#career').html(career);
+       $.ajax ({
+           url: '/updateCareer',
+           data: {
+               career:career,
+               '_token': $('meta[name="csrf-token"]').attr('content'),
+                 },
+           type: 'post'
 
             })
             .done(function() {
