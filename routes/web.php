@@ -95,7 +95,7 @@ Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorit
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
 Route::get('/users', 'UserController@getUsers')->name('getUsers');
 
-Route::get('/jobs', 'JobController@getJupdateCoverobs')->name('getAllJobs');
+Route::get('/jobs', 'JobController@getJobs')->name('getAllJobs');
 Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');
 
 Route::post('/searchResults', 'UserController@getSearchResults')->name('getSearchResults');
@@ -110,8 +110,8 @@ Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getContr
 Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('editBusinessCard');
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
-Route::post('/updateCover', 'CompanyController@updateCover')->name('updateCover');
-Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCompany');
+Route::get('/editCompany/{cid}', 'CompanyController@getEditCompany')->name('getEditCompany');
+Route::post('/editCompany/{cid}', 'CompanyController@postEditCompany')->name('postEditCompany');
 
 
 Route::get('/addNewJob', 'JobController@getNewJob')->name('addNewJob');
@@ -120,6 +120,8 @@ Route::get('/addNewJobCustom', 'JobController@getNewJobCustom')->name('addNewJob
 Route::get('/addNewJobFullCustomaddNewJobConfidental', 'JobController@getNewJobFullCustom')->name('addNewJobFullCustom');
 Route::get('/addNewJobConfidental', 'JobController@getNewJobConfidental')->name('addNewJobConfidental');
 Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
+Route::get('/myAds', 'JobController@getAllJobs')->name('getAllJobs');
+
 
 Route::get('/conversation/{aid}', 'JobController@getConversation')->name('getConversation');
 });

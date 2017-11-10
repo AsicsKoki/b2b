@@ -191,6 +191,7 @@
 
 <!-- <script type="text/javascript">
 
+      $(document).click(function() {
 
        $(".search_job_filters_holder").click(function(e) {
             e.stopPropagation(); // if you click on the div itself it will cancel the click event.

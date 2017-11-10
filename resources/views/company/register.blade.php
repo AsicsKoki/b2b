@@ -92,16 +92,9 @@
 
 							<p class="form_title">Business sector:</p>
 							<select class="selectSector select_move_area" size="5">
-							     <option value="3">Rose Tremain</option>
-							     <option value="4">Jonathan Coe</option>           
-							     <option value="5">Cecilia Ahern</option>
-							     <option value="6">Marinel Serban</option>
-							     <option value="7">Emanuela Cherchez</option>
-							     <option value="8">Peter Buckley</option>
-							     <option value="9">Clark Duncan</option>
-							     <option value="10">Carlos-Ruiz Zafon</option>
-							     <option value="11">Catalin Paduraru</option>
-							     <option value="12">Dan-Silviu Boerescu</option>
+    							@foreach( App\Category::getCategories() as $category)
+									<option value="{{$category->id}}">{{ $category->name }}</option>
+                                @endforeach
 							</select>
 
 							<select class="selectSectorSelected select_move_area" name="sector" size="5">

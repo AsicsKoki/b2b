@@ -73,6 +73,9 @@
                         <li>
                             <a href="{{ route('getApplications') }}">Applications</a>
                         </li>
+                        <li>
+                            <a href="{{ route('getAllJobs') }}">My Ads</a>
+                        </li>
                     @endif
                     </ul>
                 </nav>
