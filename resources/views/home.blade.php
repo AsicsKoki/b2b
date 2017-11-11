@@ -11,8 +11,8 @@
                         <!-- Home Main Job Search: location and job category -->
                         <div class="home_search_job_main cf">   
                             <div class="home_search_job_item search_location_holder">
-                                <p class="home_search_job_item_title">Choose location</p>
-                                <input type="text" id="" name="location" placeholder="Search..">
+                                <p class="home_search_job_item_title">Search position</p>
+                                <input type="text" id="" name="term" placeholder="Search...">
                             </div>
 
                             <div class="home_search_job_item job_category">
