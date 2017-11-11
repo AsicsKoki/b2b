@@ -114,6 +114,43 @@ class CompanyController extends Controller {
 
     }
 
+    public function postEditCompany(Request $request)
+    {
+    $company=Company::find($request->cid);
+    $businessCard = $company->businessCard;
+
+    $company->country = $request->country;
+    $company->company_name  = $request->company_name;
+    $company->company_website = $request->company_website;
+    $company->company_address = $request->company_address;
+    $company->company_phone = $request->company_phone;
+    $company->about_us = $request->about_us;
+    $company->career = $request->career;
+    $businessCard->number_of_employees = $request->number_of_employees;
+
+    // $company->sector = $request->sector; 
+    $company->save();
+    $businessCard->save();
+
+    $photoName = time().'.'.$request->company_cover->getClientOriginalExtension();
+    $request->company_cover->move(public_path('photos'), $photoName);
+    if(!$company->image->is_cover === 1)
+    {
+        $image = new Image;
+        $image->company_id = $request->cid;
+        $image->path = '/photos/' . $photoName;
+        $image->is_cover = 1;
+        $image->save();
+    }else{
+        $image = $company->image;
+        $image->company_id = $request->cid;
+        $image->path = '/photos/' . $photoName;
+        $image->save();
+    }
+
+    return redirect()->back();
+    }
+
     public function getRegisterStep3()
     {
         return view('company.step-3',['id' => Input::get('id')]);

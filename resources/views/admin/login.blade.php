@@ -25,7 +25,7 @@
 			<a href="" class="">Forgot your password?</a> 	
 		</div>
 		
-		<a href=" {{ route('getAdminRegister') }} " class="login_reg_form_change_option">Create account</a>
+		<a href=" {{ route('getAdminLogin') }} " class="login_reg_form_change_option">Create account</a>
 	</form>
 </div>
 </main>

@@ -6,7 +6,7 @@
 
 <main class="main_app_container">
 		<div class="login_register_container">
-				<form action="{{ route('postEditCompany', ['cid' => Auth::user()->id]) }}" method="POST" id="company_reg_form" class="login_reg_form company_registration_form">
+				<form action="{{ route('postEditCompany', ['cid' => Auth::user()->id]) }}" method="POST" id="company_reg_form" class="login_reg_form company_registration_form" enctype="multipart/form-data">
 
 					<div class="login_reg_form_item">
 						<p class="form_title">Country:*</p>
@@ -34,7 +34,7 @@
                                 @endforeach
 							</select>
 
-							<select class="selectSectorSelected select_move_area" name="sector" size="5">
+							<select class="selectSectorSelected select_move_area" name="sector[]" size="5">
 							</select>
 
 							<p class="form_title">Company website:*</p>
@@ -79,11 +79,17 @@
 				  					<textarea name="career" id="career" cols="40" rows="4"></textarea>
 			  				</div>
 					  	</div>
+						{{Form::open(array('route' => 'postEditCompany','method'=>'POST', 'files'=>true))}}
+						<div class="add_cover_btn">
+							<input type="file" name="company_cover">
+							<a class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Add cover</a>
+						</div>
 						 {{ csrf_field() }}
 						<div class="login_reg_form_item login_reg_form_submit">
 							<input type="submit" value="Update">
 						</div>
 					</div>
+					{{Form::close()}}
 				</form>
 
 				<script>
