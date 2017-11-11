@@ -62,9 +62,6 @@
                     @endif
                     @if(Auth::check())
                         <li>
-                            <a href="{{ route('getControlPanel') }}">Control Panel</a>
-                        </li>
-                        <li>
                             <a href="{{ route('addNewJob') }}">New Job</a>
                         </li>
                         <li>
