@@ -141,19 +141,16 @@ class UserController extends Controller {
     public function getSearchResults()
     {
         $categories[] = Input::get('category');
-
-        $language = Input::get('language');
-        // $type_of_work = Input::get('term');
-        // $level = Input::get('career_level');
-
-
-        $results = array();
-        foreach ($categories as $category) {
-            $results = Category::where('id', $categories)->with('ads')->get();
+        if (Input::get('term')) {
+            $results = Ad::where('position', 'LIKE', '%'. Input::get('term') .'%')->with('company.image')->with('categories')->get();
+            return view('ad.allAds', ['ads' => $results]);
+        } else {
+            $results = array();
+            foreach ($categories as $category) {
+                $results = Category::where('id', $categories)->with('ads')->get();
+            }
+            return view('ad.searchResults', ['ads' => $results]);    
         }
-                
-        return $results;
-        return view('ad.searchResults', ['ads' => $results]);
     }
 
     public function updateEducation()
