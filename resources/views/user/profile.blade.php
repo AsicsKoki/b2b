@@ -490,7 +490,7 @@
 		if ($('#country_span').text() == "") {
 			$('#country_input').css('display','block');
 			$('#country').css('display','none');
-			$('#city_btn').css('display','none');
+			$('#country_btn').css('display','none');
 			
 		};
 		if ($('#region_span').text() == "") {
@@ -517,6 +517,10 @@
 			$('#skills_btn').css('display','none');
 			
 		};
+
+		$('#upload_avt_form').click(function(e){
+			e.stopPropagation();
+		})
 	});
 		
 // education
@@ -561,7 +565,7 @@
 		var des_span = $('#description_span').text();
 		$('#description_span').css('display','none');
 		$('#description_input').slideToggle('slow');
-		$('#description_input input').val(des_span).focus();
+		$('#description_input textarea').val(des_span).focus();
 	});
 
 		//
@@ -572,6 +576,7 @@
 			$('#description_span').css('display','block');
 			$('#description_input').css('display','none');
 			var data_input = $('#description_input textarea').val();
+			$('#description_input').html(data_input);
 			$('#description_span').html(data_input);
 			$.ajax({
 				  method: "POST",
