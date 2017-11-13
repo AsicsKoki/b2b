@@ -109,7 +109,9 @@
 								</span>
 	
 								<span class="period_prev_work">{{ $workHistory->year_from }} - {{ $workHistory->year_to }}</span>
-
+								<a class="delete_link" data-id="{{ $workHistory->id }}"> 
+									<i class="fa fa-minus-circle" aria-hidden="true"></i>
+								</a>
 								<a href="#" class="edit_link" data-id="{{ $workHistory->id }}" id="user_skills_history">	
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 								</a>
@@ -779,6 +781,28 @@
 		$('.edit_info_window#user_skills textarea').val(skills_span).focus();
 	});
 
+	$('.delete_link').click(function(e){
+		e.preventDefault();
+		var whid = $(this).attr('data-id');
+		 $(this).parent().remove();
+		$.ajax({
+				method: "POST",
+				url: "/removeHistory",
+				data: {
+					whid:whid,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{		
+					console.log(data);
+			
+			}).fail(function(err){
+				console.log(err);
+			})
+
+	});
+
 		//
 
 		$('.edit_info_window#user_skills button').click(function(e){
@@ -820,7 +844,9 @@
 								</span>
 	
 								<span class="period_prev_work">`+ from + ' - ' + to +`</span>
-
+								<a class="delete_link"> 
+									<i class="fa fa-minus-circle" aria-hidden="true"></i>
+								</a>
 								<a href="#" class="edit_link" id="user_skills">	
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 								</a>
@@ -859,7 +885,7 @@
 					$('#user_job_description').val(desc);
 				})
 		});
-
+		
         
   
 </script>

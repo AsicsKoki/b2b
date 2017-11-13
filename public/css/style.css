@@ -2675,3 +2675,9 @@ p.users_list_item_name {
 .btn_edit_profile:hover {
     background: #19638a;
 }
+.delete_link {
+    position: absolute;
+    right: 40px;
+    top: 9px;
+    cursor: pointer;
+}

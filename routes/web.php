@@ -86,6 +86,7 @@ Route::post('/updateFavorites', 'JobController@updateFav')->name('updateFav');
 Route::post('/removeFavorites', 'JobController@removeFav')->name('removeFav');
 Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
 // Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
+Route::post('/removeHistory', 'UserController@removeHistory')->name('removeHistory');
 
 });
 

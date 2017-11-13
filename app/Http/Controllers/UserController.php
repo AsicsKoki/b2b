@@ -285,6 +285,15 @@ class UserController extends Controller {
         return $data;
     }
 
+    public function removeHistory()
+    {
+        $workHistory = WorkHistory::find($_POST['whid']);
+        $workHistory->delete();
+        return redirect()->back();
+    }
+
+
+
 
 
 

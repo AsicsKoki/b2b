@@ -228,4 +228,8 @@ $(document).ready(function () {
         e.stopPropagation();
     })
 
+    $('.save_btn_pop_up').click(function () {
+        $('.popup_new_job_user').css('display', 'none');
+    })
+
 });
