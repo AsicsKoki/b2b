@@ -29,8 +29,12 @@
 			</ul>
 		</div>
 
+
 	<div class="job_list_filter_holder">
 			<ul>
+			@if(!$ads->first())
+				You have no favorites yet.
+			@endif
 			@foreach ($ads as $ad)
 				<li class="job_list_filter_item cf">
 

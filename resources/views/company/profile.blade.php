@@ -2,7 +2,7 @@
 @section('content')
 	<h1 class="page_title main_page_title">Company Profile</h1>
 	<div class="main_app_container">
-		@if(Auth::user()->id === $company->id)
+		@if(Auth::check() && Auth::user()->id === $company->id)
 			<a href="{{ route('getEditCompany', ['cid' => Auth::user()->id]) }}" class="btn_edit_profile">Edit Profile <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 		@endif
 		<div class="company_profile_view_holder cf">	

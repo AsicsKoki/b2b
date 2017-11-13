@@ -6,6 +6,9 @@
 	<h2 class="page_title">Applications</h2>
 
 	<ul class="applicants_for_job_list">
+	@if(!$applications->first())
+		You have not yet applied for a job.
+	@endif
 	@foreach($applications as $application)
 		<li class="applicants_for_job_item">
 			<h3 class="bold">

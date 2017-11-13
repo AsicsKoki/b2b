@@ -167,7 +167,7 @@
                             <li class="home_top_jobs_grid_item">
                                 <span class="home_top_jobs_grid_item_header cf">
                                         <span class="home_top_jobs_grid_item_logo">
-                                            <a href="" >
+                                            <a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" >
                                                 <img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
                                             </a>
                                         </span>

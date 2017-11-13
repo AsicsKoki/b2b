@@ -33,7 +33,6 @@ class JobController extends Controller {
         $ads = Ad::with('company.image')->whereHas('favorites', function ($query){
             $query->where('user_id', Session::get('user')->id);
         })->get();
-        // return $ads;
         return view('user.favorites', ['ads' => $ads]);
 
     }
@@ -123,7 +122,7 @@ class JobController extends Controller {
         $message->first_name = Input::get('first_name');
         $message->last_name = Input::get('last_name');
         $message->save();
-        return redirect()->route('getAllJobs');
+        return redirect()->route('getJobs');
     }
 
     public function getConversation($aid)

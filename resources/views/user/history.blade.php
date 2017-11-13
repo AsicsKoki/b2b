@@ -31,6 +31,9 @@
 
 		<div class="job_list_filter_holder">
 			<ul>
+			@if(!$ads->first())
+				No history to show!
+			@endif
 			@foreach ($ads as $ad)
 				<li class="job_list_filter_item cf">
 
