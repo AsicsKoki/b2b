@@ -119,7 +119,11 @@
 					<h3 class="bold">Job description</h3>
 					{{ $ad[0]->description }}
 				</div>
-				<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad[0]->id, 'cid' => $ad[0]->company->id]) }}" class="bold">Apply</a></div>
+				@if(Session::get('user') !== null)
+					<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad[0]->id, 'cid' => $ad[0]->company->id]) }}" class="bold">Apply</a></div>
+				@else
+					<div class="apply_for_job_btn"><a href="{{ route('getUserLogin') }}" class="bold">Apply</a></div>
+				@endif
 			</div>
 		</div>
 
