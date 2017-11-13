@@ -52,12 +52,12 @@ class Ad extends Model
 
     public static function countAll()
     {
-    	return Ad::where('approved','=','1')->count();
+    	return Ad::where('approved','=','0')->count();
     }
 
     public static function countLastDay()
     {
-    	return Ad::where('approved', '=', '1')->where('created_at', '>=', Carbon::today())->count();
+    	return Ad::where('approved', '=', '0')->where('created_at', '>=', Carbon::today())->count();
     }
 
     public function applications()

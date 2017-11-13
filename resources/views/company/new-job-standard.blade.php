@@ -116,7 +116,7 @@
 			</select>
 		</div>	
 
-		<div class="new_job_add_choose_form_item">
+{{-- 		<div class="new_job_add_choose_form_item">
 
 			<p class="form_title">Questionnaire:</p>
 			
@@ -127,7 +127,7 @@
 				<option value="3">Broj 3</option>
 			</select>
 
-		</div>
+		</div> --}}
 
 		<div class="new_job_add_choose_form_item">
 

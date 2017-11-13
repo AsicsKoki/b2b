@@ -150,7 +150,7 @@
 
 				</div>	
 
-				<div class="new_job_add_choose_form_item">
+{{-- 				<div class="new_job_add_choose_form_item">
 
 					<p class="form_title">Questionnaire:</p>
 					
@@ -161,17 +161,11 @@
 						<option value="">xxx</option>
 					</select>
 
-				</div>
+				</div> --}}
 
 				<div class="new_job_add_choose_form_item">
-
-					<p class="form_title">Questionnaire:</p>
-					
-					<label for=""><input type="checkbox"> Link/button in the job offer to an external application website (optional)</label>
-
 					<div class="new_job_add_choose_form_submit_btn">
 						<input type="submit" value="Publish">
-						<button class="cancel_btn">Cancle</button>	
 					</div>
 				</div>	
 </form>

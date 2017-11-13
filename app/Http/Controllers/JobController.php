@@ -127,7 +127,7 @@ class JobController extends Controller {
 
     public function getConversation($aid)
     {  
-        $application = Application::where('id', $aid)->with('messages')->orderBy('created_at')->with('user')->with('company')->get();
+        $application = Application::where('id', $aid)->orderBy('application.created_at','DESC')->with('messages')->orderBy('created_at')->with('user')->with('company')->get();
         return view('ad.conversation', ['conversation' => $application ]);
     }
 

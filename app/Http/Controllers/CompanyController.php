@@ -37,7 +37,7 @@ class CompanyController extends Controller {
         $password = Input::get('password');
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
             // Authentication passed...
-            return redirect()->route('getControlPanel');
+            return redirect()->route('getHome');
         } else {
             // Auth failed...
             return redirect()->back()->withErrors(['error', 'Wrong username or password!']);
