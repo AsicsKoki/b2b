@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
     // $('.job_search_option_triger').on('click', function() {
@@ -233,3 +235,4 @@ $(document).ready(function () {
     })
 
 });
+
