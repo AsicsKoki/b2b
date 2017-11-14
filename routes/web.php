@@ -48,8 +48,11 @@ Route::get('/404', 'HomeController@get404')->name('get404');
 // admin routes
 Route::get('/adminLogin', 'AdminController@getAdminLogin')->name('getAdminLogin');
 Route::post('/adminLogin', 'AdminController@postAdminLogin')->name('postAdminLogin');
-// Route::get('/adminRegister', 'UserController@getAdminRegister')->name('getAdminRegister');
-// Route::post('/adminRegister', 'UserController@postAdminRegister')->name('postAdminRegister');
+Route::get('/adminPanel', 'AdminController@getAdminPanel')->name('getAdminPanel');
+Route::get('/admin/ads', 'AdminController@getAdminAds')->name('getAdminAds');
+Route::get('/admin/companies', 'AdminController@getAdminCompanies')->name('getAdminCompanies');
+Route::get('/admin/users', 'AdminController@getAdminUsers')->name('getAdminUsers');
+Route::get('/admin/reports', 'AdminController@getReports')->name('getReports');
 
 
 //User(applicant) related routes

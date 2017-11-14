@@ -29,11 +29,36 @@ class AdminController extends Controller {
         if ($user->is_admin === 1) {
             if ($user &&  Hash::check(Input::get('password'), $user->password)) {
                 Session::put('user', $user);
-                return redirect()->route('getHome');
+                return redirect()->route('getAdminPanel');
             }
             return redirect()->back()->withErrors(['error', 'Wrong email or password!']);
         }
         return redirect()->back()->withErrors(['error', 'You are not an admin!']);
+    }
+
+    public function getAdminPanel()
+    {
+        return view('admin.panel');
+    }
+
+    public function getAdminAds()
+    {
+        return view('admin.panel');
+    }
+
+    public function getAdminCompanies()
+    {
+        return view('admin.panel');
+    }
+
+    public function getAdminUsers()
+    {
+        return view('admin.panel');
+    }
+
+    public function getReports()
+    {
+        return view('admin.panel');
     }
 
 }
