@@ -51,7 +51,8 @@ class CompanyController extends Controller {
         $businessCard = $company->businessCard;
         $ads = $company->ads;
         $logo = $company->image;
-        return view('company.profile', ['company' => $company, 'ads' => $ads, 'businessCard' => $businessCard, 'logo' => $logo['path']]);
+        $cover = $company->image->where('is_cover',1)->get();
+        return view('company.profile', ['company' => $company, 'ads' => $ads, 'businessCard' => $businessCard, 'logo' => $logo['path'],'cover' => $cover[0]['path']]);
     }
 
     public function postRegister(Request $request)
@@ -116,37 +117,39 @@ class CompanyController extends Controller {
 
     public function postEditCompany(Request $request)
     {
-    $company=Company::find($request->cid);
-    $businessCard = $company->businessCard;
+        $company=Company::find($request->cid);
+        $businessCard = $company->businessCard;
 
-    $company->country = $request->country;
-    $company->company_name  = $request->company_name;
-    $company->company_website = $request->company_website;
-    $company->company_address = $request->company_address;
-    $company->company_phone = $request->company_phone;
-    $company->about_us = $request->about_us;
-    $company->career = $request->career;
-    $businessCard->number_of_employees = $request->number_of_employees;
+        $company->country = $request->country;
+        $company->company_name  = $request->company_name;
+        $company->company_website = $request->company_website;
+        $company->company_address = $request->company_address;
+        $company->company_phone = $request->company_phone;
+        $company->about_us = $request->about_us;
+        $company->career = $request->career;
+        $businessCard->number_of_employees = $request->number_of_employees;
 
-    // $company->sector = $request->sector; 
-    $company->save();
-    $businessCard->save();
+        $company->sector = implode(',' , $request->sectors); 
 
-    $photoName = time().'.'.$request->company_cover->getClientOriginalExtension();
-    $request->company_cover->move(public_path('photos'), $photoName);
-    if(!$company->image->is_cover === 1)
-    {
-        $image = new Image;
-        $image->company_id = $request->cid;
-        $image->path = '/photos/' . $photoName;
-        $image->is_cover = 1;
-        $image->save();
-    }else{
-        $image = $company->image;
-        $image->company_id = $request->cid;
-        $image->path = '/photos/' . $photoName;
-        $image->save();
-    }
+        $company->save();
+        $businessCard->save();
+
+        $photoName = time().'.'.$request->company_cover->getClientOriginalExtension();
+        $request->company_cover->move(public_path('photos'), $photoName);
+        if(!$company->image->is_cover === 1)
+        {
+            $image = new Image;
+            $image->company_id = $request->cid;
+            $image->path = '/photos/' . $photoName;
+            $image->is_cover = 1;
+            $image->save();
+        }else{
+            $image = $company->image;
+            $image->company_id = $request->cid;
+            $image->path = '/photos/' . $photoName;
+            $image->is_cover = 1;
+            $image->save();
+        }
 
     return redirect()->back();
     }
@@ -171,7 +174,9 @@ class CompanyController extends Controller {
 
     public function getEditCompany()
     {
-        return view('company.edit');
+        $company = Company::find(Auth::user()->id);
+        $businessCard = $company->businessCard;
+        return view('company.edit', ['company' => $company , 'businesscard' => $businessCard]);
     }
 
     public function updateAboutUs()
@@ -198,6 +203,13 @@ class CompanyController extends Controller {
         $businessCard = BusinessCard::find(Auth::company()->id);
         $businessCard->career = $career;
         return $businessCard->save();
+    }
+
+    public static function getCover(Request $requst)
+    {
+        $company = Company::find(Auth::user()->id);
+        $cover = $company->image->where('is_cover',1)->get();
+        return $cover;
     }
 
 }

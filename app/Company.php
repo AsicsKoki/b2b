@@ -58,6 +58,10 @@ class Company extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $sector = [
+        'sector' => 'array',
+    ];
+
     public function image()
     {
     	return $this->hasOne('App\Image');
@@ -71,5 +75,11 @@ class Company extends Authenticatable
     public function ads()
     {
     	return $this->hasMany('App\Ad');
+    }
+
+    public static function getSectors(Request $request)
+    {
+        $sector = Company::where('id',$request->id)->get();
+    	return $sector->sector;
     }
 }
