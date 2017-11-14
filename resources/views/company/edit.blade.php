@@ -72,8 +72,6 @@
 						   		<h3>Career at the Company</h3>
 						   	</div>
 
-						  	<p class="company_questionnaire_title"></p>
-
 						  	<small style="margin-bottom: 5px;display: inline-block;">*You can introduce your company as an employer, tell about the career development opportunities</small>
 						 		<div class="edit_profile_textarea">
 				  					<textarea name="career" id="career" cols="40" rows="4"></textarea>

@@ -69,23 +69,28 @@
 									<li class="single_job_students"><span class="">Low experience welcome</span></li>
 								@endif
 							</ul>
-						<div class="job_list_filter_item_right_section">
-							<div class="job_list_filter_item_logo">
-								<img src="{{ URL::to('/') . $ad['ads'][0]['company']['image']['path']}}" alt="">
-							</div>
-						</div>
 
-						<div class="job_list_filter_item_right_section">
-							<a href="{{ route('getCompanyProfile', ['cid' => $ad['ads'][0]['company']['id']]) }}" class="job_list_filter_item_company bold">{{ $ad['ads'][0]['company']['company_name'] }}</a>
-							<ul class="company_ads_list">
-								<li>
-									<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-								</li>
-							</ul>
-						</div>
+							<div class="job_container_push_right cf">
+
+								<div class="job_container_push_right_item">
+									<div class="job_list_filter_item_logo">
+										<img src="{{ URL::to('/') . $ad['ads'][0]['company']['image']['path']}}" alt="">
+									</div>
+								</div>
+
+								<div class="job_container_push_right_item">
+									<a href="{{ route('getCompanyProfile', ['cid' => $ad['ads'][0]['company']['id']]) }}" class="job_list_filter_item_company bold">{{ $ad['ads'][0]['company']['company_name'] }}</a>
+									<ul class="company_ads_list">
+										<li>
+											<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
+										</li>
+										<li>
+											<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
+										</li>
+									</ul>
+								</div>
+								
+							</div>
 
 					</div>	
 					

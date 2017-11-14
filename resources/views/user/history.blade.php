@@ -13,7 +13,7 @@
 				</li>
 				<li class="pagination_page">
 					<a href="">1</a>
-				</li>
+				</li>   
 				<li class="pagination_page">
 					<a href="">2</a>
 				</li>
@@ -54,40 +54,49 @@
 					<div class="job_list_filter_item_right">
 						
 						<div class="job_list_filter_item_right_section">
+
 							<ul class="job_list_filter_info">
-									@if ($ad->ad->career_level == 0)
-									    <li>Management</li>
-									@elseif ($ad->ad->career_level == 1)
-									    <li>Expert</li>
-									@elseif ($ad->ad->career_level == 3)
-										<li>Administrative staff</li>
-									@else
-									 
-									@endif
-									@if ($ad->ad->students == 1)
-										<li class="single_job_students"><span class="">Students welcome</span></li>
-									@endif
-									@if ($ad->ad->low_experience == 1)
-										<li class="single_job_students"><span class="">Low experience welcome</span></li>
-									@endif
-								</ul>
-							<div class="job_list_filter_item_logo">
-								<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
+								@if ($ad->ad->career_level == 0)
+								    <li>Management</li>
+								@elseif ($ad->ad->career_level == 1)
+								    <li>Expert</li>
+								@elseif ($ad->ad->career_level == 3)
+									<li>Administrative staff</li>
+								@else
+								 
+								@endif
+								@if ($ad->ad->students == 1)
+									<li class="single_job_students"><span class="">Students welcome</span></li>
+								@endif
+								@if ($ad->ad->low_experience == 1)
+									<li class="single_job_students"><span class="">Low experience welcome</span></li>
+								@endif
+							</ul>
+
+							<div class="job_container_push_right">
+
+								<div class="job_container_push_right_item">
+									<div class="job_list_filter_item_logo">
+										<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
+									</div>
+								</div>
+								
+								<div class="job_container_push_right_item">
+									<div class="job_list_filter_item_right_section">
+										<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" class="job_list_filter_item_company bold">{{ $ad->company->company_name }}</a>
+										<ul class="company_ads_list">
+											<li>
+												<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
+											</li>
+											<li>
+												<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
 							</div>
 						</div>
-
-						<div class="job_list_filter_item_right_section">
-							<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" class="job_list_filter_item_company bold">{{ $ad->company->company_name }}</a>
-							<ul class="company_ads_list">
-								<li>
-									<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-								</li>
-							</ul>
-						</div>
-
 					</div>	
 					
 				</li>

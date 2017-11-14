@@ -50,6 +50,7 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,400i,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
 </body>
 </html>
