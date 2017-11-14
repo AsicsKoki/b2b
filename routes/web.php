@@ -46,8 +46,8 @@ Route::get('/', 'HomeController@index')->name('getHome');
 Route::get('/404', 'HomeController@get404')->name('get404');
 
 // admin routes
-Route::get('/adminLogin', 'UserController@getAdminLogin')->name('getAdminLogin');
-Route::post('/adminLogin', 'UserController@postAdminLogin')->name('postAdminLogin');
+Route::get('/adminLogin', 'AdminController@getAdminLogin')->name('getAdminLogin');
+Route::post('/adminLogin', 'AdminController@postAdminLogin')->name('postAdminLogin');
 // Route::get('/adminRegister', 'UserController@getAdminRegister')->name('getAdminRegister');
 // Route::post('/adminRegister', 'UserController@postAdminRegister')->name('postAdminRegister');
 

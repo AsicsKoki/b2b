@@ -46,11 +46,6 @@ class UserController extends Controller {
         return view('user.login');
     }
 
-    public function getAdminLogin()
-    {
-        return view('admin.login');
-    }
-
     public function getUsers()
     {
         return view('user.users');
