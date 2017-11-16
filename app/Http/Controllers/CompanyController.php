@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Company as Company;
 use App\Image as Image;
+use App\Cover as Cover;
 use App\BusinessCard as BusinessCard;
 use App\Application as Application;
 
@@ -51,8 +52,8 @@ class CompanyController extends Controller {
         $businessCard = $company->businessCard;
         $ads = $company->ads;
         $logo = $company->image;
-        $cover = $company->image->where('is_cover',1)->get();
-        return view('company.profile', ['company' => $company, 'ads' => $ads, 'businessCard' => $businessCard, 'logo' => $logo['path'],'cover' => $cover[0]['path']]);
+        $cover = $company->cover;
+        return view('company.profile', ['company' => $company, 'ads' => $ads, 'businessCard' => $businessCard, 'logo' => $logo['path'],'cover' => $cover['path']]);
     }
 
     public function postRegister(Request $request)
@@ -136,19 +137,17 @@ class CompanyController extends Controller {
 
         $photoName = time().'.'.$request->company_cover->getClientOriginalExtension();
         $request->company_cover->move(public_path('photos'), $photoName);
-        if(!$company->image->is_cover === 1)
+        if(!$company->cover)
         {
-            $image = new Image;
-            $image->company_id = $request->cid;
-            $image->path = '/photos/' . $photoName;
-            $image->is_cover = 1;
-            $image->save();
+            $cover = new Cover;
+            $cover->company_id = $request->cid;
+            $cover->path = '/photos/' . $photoName;
+            $cover->save();
         }else{
-            $image = $company->image;
-            $image->company_id = $request->cid;
-            $image->path = '/photos/' . $photoName;
-            $image->is_cover = 1;
-            $image->save();
+            $cover = $company->cover;
+            $cover->company_id = $request->cid;
+            $cover->path = '/photos/' . $photoName;
+            $cover->save();
         }
 
     return redirect()->back();
@@ -205,11 +204,45 @@ class CompanyController extends Controller {
         return $businessCard->save();
     }
 
-    public static function getCover(Request $requst)
+    public function updateLogo(Request $request)
     {
+        $photoName = time().'.'.$request->company_logo->getClientOriginalExtension();
         $company = Company::find(Auth::user()->id);
-        $cover = $company->image->where('is_cover',1)->get();
-        return $cover;
+        $request->company_logo->move(public_path('photos'), $photoName);
+        if(!$company->image)
+        {
+        $image = new Image;
+        $image->company_id = $company->id;
+        $image->path = '/photos/' . $photoName;
+        $image->save();
+        }else{
+            $image = $company->image;
+            $image->company_id = $company->id;
+            $image->path = '/photos/' . $photoName;
+            $image->save();
+        }
+        return redirect()->back();
+
+    }
+
+    public function updateCover(Request $request)
+    {
+        $photoName = time().'.'.$request->company_cover->getClientOriginalExtension();
+        $company = Company::find(Auth::user()->id);
+        $request->company_cover->move(public_path('photos'), $photoName);
+        if(!$company->cover)
+        {
+        $cover = new Cover;
+        $cover->company_id = $company->id;
+        $cover->path = '/photos/' . $photoName;
+        $cover->save();
+        }else{
+            $cover = $company->cover;
+            $cover->company_id = $company->id;
+            $cover->path = '/photos/' . $photoName;
+            $cover->save();
+        }
+        return redirect()->back();
     }
 
 }

@@ -82,4 +82,9 @@ class Company extends Authenticatable
         $sector = Company::where('id',$request->id)->get();
     	return $sector->sector;
     }
+
+    public function cover()
+    {
+        return $this->hasOne('App\Cover');
+    }
 }

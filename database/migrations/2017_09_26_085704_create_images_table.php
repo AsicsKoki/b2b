@@ -13,7 +13,6 @@ class CreateImagesTable extends Migration {
 			$table->integer('user_id')->unsigned()->nullable();
 			$table->integer('company_id')->unsigned()->nullable();
 			$table->string('path', 250);
-			$table->integer('is_cover', 10);
 		});
 	}
 

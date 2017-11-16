@@ -1436,10 +1436,15 @@ p.company_profile_edit_section_view_info_desc {
     margin-bottom: 10px;
 }
 
-.company_profile_view_side_logo {}
+.company_profile_logo_holder {
+    width:235px;
+    height:225px;
 
-.company_profile_view_side_logo img {
+}
+
+.company_profile_logo_holder img {
     width: 100%;
+    height:100%;
 }
 
 .company_profile_view_main_title {
@@ -1450,6 +1455,12 @@ p.company_profile_edit_section_view_info_desc {
     width: 100%;
     font-size: 0;
     border: 2px solid #fff;
+    height:250px;
+}
+
+.company_profile_view_cover img{
+    width: 100%;
+    height:100%;
 }
 
 .company_profile_view_main_item {
@@ -2687,4 +2698,31 @@ canvas {
   top: 0;
   left: 0;
   z-index: -50;
+}
+
+/* .update_logo_holder{
+    position:relative;
+} */
+
+.update_logo_holder input[type="file"]{
+    position: absolute;
+    top: 600px;
+    left: 372px;
+    opacity: 0;
+    z-index: 10;
+}
+#company_logo_submit {
+    display: none;
+}
+
+.company_profile_view_main input[type="file"]{
+    position: relative;
+    left: -138px;
+    width: 125px;
+    opacity: 0;
+    z-index:10;
+}
+
+#company_cover_submit {
+    display: none;
 }

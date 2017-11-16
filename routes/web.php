@@ -113,6 +113,7 @@ Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('edi
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
 Route::post('/updateCover', 'CompanyController@updateCover')->name('updateCover');
+Route::post('/updateCompanyLogo', 'CompanyController@updateLogo')->name('updateCompanyLogo');
 Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCompany');
 Route::post('/postEditCompany', 'CompanyController@postEditCompany')->name('postEditCompany');
 Route::get('/myAds', 'JobController@getAllJobs')->name('getAllJobs');

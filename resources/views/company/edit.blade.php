@@ -80,17 +80,11 @@
 				  					<textarea name="career" id="career" cols="40" rows="4">{{$company->career}}</textarea>
 			  				</div>
 					  	</div>
-						{{Form::open(array('route' => 'postEditCompany','method'=>'POST', 'files'=>true))}}
-						<div class="add_cover_btn">
-							<input type="file" name="company_cover">
-							<a class=""><i class="fa fa-plus-square" aria-hidden="true"></i> Add cover</a>
-						</div>
-						 {{ csrf_field() }}
+
 						<div class="login_reg_form_item login_reg_form_submit">
 							<input type="submit" value="Update">
 						</div>
 					</div>
-					{{Form::close()}}
 				</form>
 
 				<script>
