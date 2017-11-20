@@ -46,7 +46,7 @@
 		<div class="single_job_sidebar_item">
 			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad[0]->created_at }}</span></small>
 			<div class="single_job_main_logo">
-				<a href="">
+				<a href="{{ route('getCompanyProfile', ['cid' => $ad[0]->company->id]) }}">
 					<img src="{{ URL::to('/') . $ad[0]->company->image->path }}" alt="">
 				</a>
 			</div>
