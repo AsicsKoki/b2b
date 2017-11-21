@@ -25,14 +25,14 @@ class JobController extends Controller {
     {
         //modffy to take id from session, edit view once created 'user_id', Session::get('user'
 
-        return view('ad.allAds', ['ads' => Ad::with('company.image')->get()]);
+        return view('ad.allAds', ['ads' => Ad::with('company.image')->simplePaginate(10)]);
     }
 
     public function getUserFavorites()
     {
         $ads = Ad::with('company.image')->whereHas('favorites', function ($query){
             $query->where('user_id', Session::get('user')->id);
-        })->get();
+        })->simplePaginate(10);
         return view('user.favorites', ['ads' => $ads]);
 
     }
@@ -46,14 +46,14 @@ class JobController extends Controller {
     public function getAllJobs()
     {
 
-        return view('ad.allAds', ['ads' => Ad::where('company_id', Auth::user()->id)->with('company.image')->get()]);
+        return view('ad.allAds', ['ads' => Ad::where('company_id', Auth::user()->id)->with('company.image')->simplePaginate(10)]);
     }
 
     public function getJobsByCategory($catid)
     {  
         $ads = Ad::with('company.image')->whereHas('categories', function ($query) use ($catid){
             $query->where('category_id', $catid);
-        })->get();
+        })->simplePaginate(10);
         return view('user.favorites', ['ads' => $ads]);
     }
 
@@ -133,7 +133,7 @@ class JobController extends Controller {
 
     public function getToday()
     {  
-        return view('ad.allAds', ['ads' => Ad::with('company.image')->where('approved', '=', '1')->where('created_at', '>=', Carbon::today())->get()]);
+        return view('ad.allAds', ['ads' => Ad::with('company.image')->where('approved', '=', '1')->where('created_at', '>=', Carbon::today())->simplePaginate(10)]);
     }
 
     public function postSendMessage()

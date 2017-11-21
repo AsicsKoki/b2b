@@ -254,7 +254,7 @@ class UserController extends Controller {
 
     public function getHistory()
     {
-        $history = Application::where('user_id', Session::get('user')->id)->with('ad.company')->get();
+        $history = Application::where('user_id', Session::get('user')->id)->with('ad.company')->simplePaginate(10);
         // return $history;
         return view('user.history', ['ads' => $history]);
     }
