@@ -5,11 +5,10 @@
 	<main class="main_app_container">
 		
 
-
-	<div class="job_list_filter_holder">
+		<div class="job_list_filter_holder">
 			<ul>
 			@if(!$ads->first())
-				You have no favorites yet.
+				No results found!
 			@endif
 			@foreach ($ads as $ad)
 				<li class="job_list_filter_item cf">
@@ -30,8 +29,6 @@
 
 					<div class="job_list_filter_item_right">
 						
-						<div class="job_list_filter_item_right_section">
-
 							<ul class="job_list_filter_info">
 								@if ($ad->career_level == 0)
 								    <li>Management</li>
@@ -51,12 +48,13 @@
 							</ul>
 
 							<div class="job_container_push_right cf">
+
 								<div class="job_container_push_right_item">
 									<div class="job_list_filter_item_logo">
 										<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
 									</div>
+									<input type="hidden" name="id" value="{{$ad->id}}">
 								</div>
-
 
 								<div class="job_container_push_right_item">
 									<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" class="job_list_filter_item_company bold">{{ $ad->company->company_name }}</a>
@@ -67,67 +65,60 @@
 										<li>
 											<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
 										</li>
-										<li>
-											<a><i class="fa fa-star star" aria-hidden="true"></i></a>
-										</li>
+										@if(Session::get('user'))
+											@if(!App\Favorite::isFavorite($ad->id))
+											<li>
+												<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
+											</li>
+											@else
+											<li>
+												<a><i class="fa fa-star star" aria-hidden="true"></i></a>
+											</li>
+
+											@endif
+										@endif
 									</ul>
 								</div>
+								@if($ad->approved == 0)
+									<button type="button" data-status="1" class="btn btn-success set-active">Activate</button>
+								@else
+									<button type="button" data-status="0" class="btn btn-danger set-active">Deactivate</button>
+								@endif
+								<button type="button" class="btn btn-danger delete">Delete</button>
 
 							</div>
 
-						</div>	
-					</div>
+					</div>	
+					
 				</li>
 			@endforeach
 			</ul>
 		</div>
+
 		<div class="pagination">
 
         {!! $ads->links() !!}
 
         </div>
-				
 	</main>
+	<script type="text/javascript">
+	$('.set-active').click(function(){
+		var status = $(this).attr('data-status');
+	    $.ajax({
+       		type: "POST",
+        	url: "/updateAdStatus",
+        	async: true,
+        	data: {
+            	status: status 
+        	},
+        success: function (msg) {
+            alert('Success');
+            if (msg != 'success') {
+                alert('Fail');
+            }
+        }
+    });
+	})
 
-<script type="text/javascript">
-	$('.star').click(function(){
-		var a = $(this).parent().parent().parent().parent().parent().parent().children('.job_list_filter_item_left').children('h3').children().attr('href');
-		var id = a.match(/([\d]+)/)[0];
-		console.log(id);
-		if ($(this).hasClass('fa-star-o')){
-			$(this).toggleClass('fa-star-o').toggleClass('fa-star');    
-		$.ajax({
-				method: "POST",
-				url: "/updateFavorites",
-				data: {
-					id:id,
-					'_token': $('meta[name="csrf-token"]').attr('content')
-					},
-				})
-			.done(function(data)
-			{
-					console.log(data);
-			}).fail(function(err){
-				console.log(err);
-			})
-		} else if ($(this).hasClass('fa-star')) {
-					$(this).toggleClass('fa-star').toggleClass('fa-star-o');    
-		$.ajax({
-				method: "POST",
-				url: "/removeFavorites",
-				data: {
-					id:id,
-					'_token': $('meta[name="csrf-token"]').attr('content')
-					},
-				})
-			.done(function(data)
-			{
-					console.log(data);
-			}).fail(function(err){
-				console.log(err);
-			})
-		}
-	});
-
-</script>
+    </script>
 @endsection

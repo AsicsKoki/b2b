@@ -23,8 +23,6 @@ class JobController extends Controller {
      */
     public function getJobs()
     {
-        //modffy to take id from session, edit view once created 'user_id', Session::get('user'
-
         return view('ad.allAds', ['ads' => Ad::with('company.image')->simplePaginate(10)]);
     }
 
@@ -172,7 +170,6 @@ class JobController extends Controller {
         $user = Session::get('user');
         $ad = $_POST['id'];
         $favorite = Favorite::where('user_id', $user->id)->where('ad_id',$ad)->delete();
-        // $favorite::destroy($ad);
     }
 
 

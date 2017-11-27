@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $companies = Company::with('image')->get();
-        $ads = Ad::with('company')->get();
+        $companies = Company::with('image')->limit(12)->get();
+        $ads = Ad::with('company')->limit(5)->get();
         return view('home', ['companies' => $companies, 'ads' => $ads]);
     }
 

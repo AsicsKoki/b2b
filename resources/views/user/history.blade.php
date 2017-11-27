@@ -81,7 +81,7 @@
 
 		<div class="pagination">
 
-        {!! $ads->render() !!}
+        {!! $ads->links() !!}
 
         </div>
 	</main>
