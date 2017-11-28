@@ -69,7 +69,7 @@
 				<div class="user_profile_item user_skills_holder">
 					<div class="user_profile_skills">
 						<p class="bold" style="text-align: left;">My skills:</p>
-						<span id="skills_span">PHP, HTML, CSS, Project menager, profesor, auto mehanicar, etc...</span>
+						<span id="skills_span">{{ Session::get('user')->skills }}</span>
 						<a class="edit_link" id="user_skills">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>

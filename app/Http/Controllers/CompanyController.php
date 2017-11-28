@@ -205,8 +205,14 @@ class CompanyController extends Controller {
         }else{
             $image = $company->image;
             $image->company_id = $company->id;
+            $oldimage = public_path($company->image->path);
             $image->path = '/photos/' . $photoName;
             $image->save();
+
+            if(file_exists($oldimage))
+            {
+                unlink($oldimage);
+            }
         }
         return redirect()->back();
 
@@ -226,8 +232,14 @@ class CompanyController extends Controller {
         }else{
             $cover = $company->cover;
             $cover->company_id = $company->id;
+            $oldcover = public_path($company->image->path);
             $cover->path = '/photos/' . $photoName;
             $cover->save();
+
+            if(file_exists($oldcover))
+            {
+                unlink($oldcover);
+            }
         }
         return redirect()->back();
     }

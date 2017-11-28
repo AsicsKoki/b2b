@@ -31,13 +31,18 @@
 							<p class="form_title">Business sector:</p>
 							<select class="selectSector select_move_area" size="5" >
 							@foreach( App\Category::getCategories() as $category)
-					
-								<option value="{{$category->id}}">{{ $category->name }}</option>
-                                @endforeach
+								@if (!in_array($category->id, App\Category::getCategoriesByCompany()))
+									<option value="{{$category->id}}">{{ $category->name }}</option>
+								@endif
+                            @endforeach
 							</select>
-
+						
 							<select multiple name="sectors[]" class="selectSectorSelected select_move_area" size="5">
-
+							@foreach( App\Category::getCategories() as $category)
+								@if (in_array($category->id, App\Category::getCategoriesByCompany()))
+								<option value="{{$category->id}}">{{ $category->name }}</option>
+								@endif
+							@endforeach
 							</select>
 
 							<p class="form_title">Company website:*</p>
@@ -80,7 +85,7 @@
 				  					<textarea name="career" id="career" cols="40" rows="4">{{$company->career}}</textarea>
 			  				</div>
 					  	</div>
-
+						{{ csrf_field() }}
 						<div class="login_reg_form_item login_reg_form_submit">
 							<input type="submit" value="Update">
 						</div>

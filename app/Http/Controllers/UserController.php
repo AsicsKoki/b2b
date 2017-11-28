@@ -246,8 +246,15 @@ class UserController extends Controller {
     }else{
         $image = $user->image;
         $image->user_id = $user->id;
+        $oldimage = public_path($user->image->path);
         $image->path = '/photos/' . $photoName;
         $image->save();
+
+        
+        if(file_exists($oldimage))
+        {
+            unlink($oldimage);
+        }
     }
     return redirect()->back();
 
