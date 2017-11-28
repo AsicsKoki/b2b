@@ -3,31 +3,6 @@
 	<h1 class="page_title main_page_title">All jobs</h1>
 
 	<main class="main_app_container">
-		<div class="pagination">
-			<ul class="cf">
-				<li class="pagination_fast_page">
-					<a href=""><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-				</li>
-				<li class="pagination_fast_page">
-					<a href=""><i class="fa fa-angle-left" aria-hidden="true" style="margin-right: 10px;"></i>Previus</a>
-				</li>
-				<li class="pagination_page">
-					<a href="">1</a>
-				</li>   
-				<li class="pagination_page">
-					<a href="">2</a>
-				</li>
-				<li class="pagination_page">
-					<a href="">3</a>
-				</li>
-				<li class="pagination_fast_page">
-					<a href="">Next<i class="fa fa-angle-right" aria-hidden="true" style="margin-left: 10px;"></i></a>
-				</li>
-				<li class="pagination_fast_page">
-					<a href=""><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-				</li>
-			</ul>
-		</div>
 
 		<div class="job_list_filter_holder">
 			<ul>
@@ -105,29 +80,9 @@
 		</div>
 
 		<div class="pagination">
-			<ul class="cf">
-				<li class="pagination_fast_page">
-					<a href=""><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-				</li>
-				<li class="pagination_fast_page">
-					<a href=""><i class="fa fa-angle-left" aria-hidden="true" style="margin-right: 10px;"></i>Previus</a>
-				</li>
-				<li class="pagination_page">
-					<a href="">1</a>
-				</li>
-				<li class="pagination_page">
-					<a href="">2</a>
-				</li>
-				<li class="pagination_page">
-					<a href="">3</a>
-				</li>
-				<li class="pagination_fast_page">
-					<a href="">Next<i class="fa fa-angle-right" aria-hidden="true" style="margin-left: 10px;"></i></a>
-				</li>
-				<li class="pagination_fast_page">
-					<a href=""><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-				</li>
-			</ul>
-		</div>
+
+        {!! $ads->links() !!}
+
+        </div>
 	</main>
 @endsection

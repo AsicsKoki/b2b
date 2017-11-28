@@ -137,12 +137,12 @@ class UserController extends Controller {
     {
         $categories[] = Input::get('category');
         if (Input::get('term')) {
-            $results = Ad::where('position', 'LIKE', '%'. Input::get('term') .'%')->with('company.image')->with('categories')->get();
+            $results = Ad::where('position', 'LIKE', '%'. Input::get('term') .'%')->with('company.image')->with('categories')->simplePaginate(10);
             return view('ad.allAds', ['ads' => $results]);
         } else {
             $results = array();
             foreach ($categories as $category) {
-                $results = Category::where('id', $categories)->with('ads')->get();
+                $results = Category::where('id', $categories)->with('ads')->simplePaginate(10);
             }
             return view('ad.searchResults', ['ads' => $results]);    
         }
@@ -254,7 +254,7 @@ class UserController extends Controller {
 
     public function getHistory()
     {
-        $history = Application::where('user_id', Session::get('user')->id)->with('ad.company')->get();
+        $history = Application::where('user_id', Session::get('user')->id)->with('ad.company')->simplePaginate(10);
         // return $history;
         return view('user.history', ['ads' => $history]);
     }

@@ -43,23 +43,12 @@
 
 			<div class="login_reg_form_item">
 				<label for="terms_and_conditions">
-					<input type="checkbox" id="terms_and_conditions" name="terms_and_conditions" style="display: inline-block;width: auto;margin-right: 5px;"> 
+					<input required type="checkbox" id="terms_and_conditions" name="terms_and_conditions" style="display: inline-block;width: auto;margin-right: 5px;"> 
 					<span style="font-size: 15px;" class="bold">I agree with the <a href="#">terms and conditions</a></span>
 				</label>
 			</div>
 
-			<div class="login_reg_form_item">
-				<p class="form_title">Key:</p>
-				<div class="key_holder">
-					
-				</div>
-			</div>
-
-			<div class="login_reg_form_item">
-				<p class="form_title">Enter key:</p>
-				<input type="text" name="">
-				<small style="margin-bottom: 5px;">Copy the letters/numbers from the blue field. Use lowercase letters.</small>
-			</div>
+			<div class="g-recaptcha " data-sitekey="6Lf-7zkUAAAAAMG-uwcu-4ezYwYzyqyLUdDUJaYl"></div>
 			{{ csrf_field() }}
 			<div class="login_reg_form_item login_reg_form_submit" style="margin-top: 20px;">
 				<input type="submit" value="Create account">

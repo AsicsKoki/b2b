@@ -38,12 +38,14 @@ class AdminController extends Controller {
 
     public function getAdminPanel()
     {
+
         return view('admin.panel');
     }
 
     public function getAdminAds()
     {
-        return view('admin.panel');
+        $ads = Ad::with('company.image')->simplePaginate(10);
+        return view('admin.allAds', ['ads' => $ads]);
     }
 
     public function getAdminCompanies()
@@ -59,6 +61,15 @@ class AdminController extends Controller {
     public function getReports()
     {
         return view('admin.panel');
+    }
+
+    public function updateAdStatus()
+    {
+        $approved = Input::get('status');
+        $user = Session::get('user');
+        $user->city = $data_input;
+        $user->save();
+        return 1;  
     }
 
 }

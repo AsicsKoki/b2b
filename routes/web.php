@@ -46,8 +46,8 @@ Route::get('/', 'HomeController@index')->name('getHome');
 Route::get('/404', 'HomeController@get404')->name('get404');
 
 // admin routes
-Route::get('/adminLogin', 'AdminController@getAdminLogin')->name('getAdminLogin');
-Route::post('/adminLogin', 'AdminController@postAdminLogin')->name('postAdminLogin');
+Route::get('/admin', 'AdminController@getAdminLogin')->name('getAdminLogin');
+Route::post('/admin', 'AdminController@postAdminLogin')->name('postAdminLogin');
 Route::get('/adminPanel', 'AdminController@getAdminPanel')->name('getAdminPanel');
 Route::get('/admin/ads', 'AdminController@getAdminAds')->name('getAdminAds');
 Route::get('/admin/companies', 'AdminController@getAdminCompanies')->name('getAdminCompanies');
@@ -80,6 +80,7 @@ Route::post('/updatePhone', 'UserController@updatePhone')->name('updatePhone');
 Route::post('/updateDescription', 'UserController@updateDescription')->name('updateDescription');
 Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar');
 Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
+Route::post('/updateAdStatus', 'AdminController@updateAdStatus')->name('updateAdStatus');
 
 Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');
 Route::get('/getPopUpData', 'UserController@getPopUpData')->name('getPopUpData');

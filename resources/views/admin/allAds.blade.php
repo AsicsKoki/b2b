@@ -79,6 +79,12 @@
 										@endif
 									</ul>
 								</div>
+								@if($ad->approved == 0)
+									<button type="button" data-status="1" class="btn btn-success set-active">Activate</button>
+								@else
+									<button type="button" data-status="0" class="btn btn-danger set-active">Deactivate</button>
+								@endif
+								<button type="button" class="btn btn-danger delete">Delete</button>
 
 							</div>
 
@@ -91,50 +97,28 @@
 
 		<div class="pagination">
 
-        {!! $ads->render() !!}
+        {!! $ads->links() !!}
 
         </div>
 	</main>
-
-<script type="text/javascript">
-        $('.star').click(function(){
-            var a = $(this).parent().parent().parent().parent().parent().parent().children('.job_list_filter_item_left').children('h3').children().attr('href');
-          var id = a.match(/([\d]+)/)[0];	
-         console.log(id);
-         if ($(this).hasClass('fa-star-o')){
-         	 $(this).toggleClass('fa-star-o').toggleClass('fa-star');    
-         $.ajax({
-                 method: "POST",
-                 url: "/updateFavorites",
-                 data: {
-                     id:id,
-                     '_token': $('meta[name="csrf-token"]').attr('content')
-	                 },
-	             })
-                .done(function(data)
-                {
-                     console.log(data);
-                }).fail(function(err){
-                	console.log(err);
-                })
-            } else if ($(this).hasClass('fa-star')) {
-            	 	 $(this).toggleClass('fa-star').toggleClass('fa-star-o');    
-         $.ajax({
-                 method: "POST",
-                 url: "/removeFavorites",
-                 data: {
-                     id:id,
-                     '_token': $('meta[name="csrf-token"]').attr('content')
-	                 },
-	             })
-                .done(function(data)
-                {
-                     console.log(data);
-                }).fail(function(err){
-                	console.log(err);
-                })
+	<script type="text/javascript">
+	$('.set-active').click(function(){
+		var status = $(this).attr('data-status');
+	    $.ajax({
+       		type: "POST",
+        	url: "/updateAdStatus",
+        	async: true,
+        	data: {
+            	status: status 
+        	},
+        success: function (msg) {
+            alert('Success');
+            if (msg != 'success') {
+                alert('Fail');
             }
-        });
+        }
+    });
+	})
 
     </script>
 @endsection
