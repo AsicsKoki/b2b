@@ -62,6 +62,9 @@
 										<li>
 											<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
 										</li>
+										<li>
+											<a><i class="fa fa-star star" aria-hidden="true"></i></a>
+										</li>
 									</ul>
 								</div>
 								
@@ -77,4 +80,45 @@
        		 {!! $ads->links() !!}
         </div>
 	</main>
+<script type="text/javascript">
+	$('.star').click(function(){
+		var a = $(this).parent().parent().parent().parent().parent().parent().parent().children('.job_list_filter_item_left').children('h3').children().attr('href');
+		var id = a.match(/([\d]+)/)[0];
+		console.log(id);
+		if ($(this).hasClass('fa-star-o')){
+			$(this).toggleClass('fa-star-o').toggleClass('fa-star');    
+		$.ajax({
+				method: "POST",
+				url: "/updateFavorites",
+				data: {
+					id:id,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{
+					console.log(data);
+			}).fail(function(err){
+				console.log(err);
+			})
+		} else if ($(this).hasClass('fa-star')) {
+					$(this).toggleClass('fa-star').toggleClass('fa-star-o');    
+		$.ajax({
+				method: "POST",
+				url: "/removeFavorites",
+				data: {
+					id:id,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{
+					console.log(data);
+			}).fail(function(err){
+				console.log(err);
+			})
+		}
+	});
+
+</script>
 @endsection

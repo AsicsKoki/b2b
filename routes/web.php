@@ -94,7 +94,6 @@ Route::post('/removeHistory', 'UserController@removeHistory')->name('removeHisto
 
 });
 
-
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
 Route::get('/users', 'UserController@getUsers')->name('getUsers');
 

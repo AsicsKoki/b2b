@@ -91,7 +91,7 @@
 
 <script type="text/javascript">
 	$('.star').click(function(){
-		var a = $(this).parent().parent().parent().parent().parent().parent().children('.job_list_filter_item_left').children('h3').children().attr('href');
+		var a = $(this).parent().parent().parent().parent().parent().parent().parent().parent().children('.job_list_filter_item_left').children('h3').children().attr('href');
 		var id = a.match(/([\d]+)/)[0];
 		console.log(id);
 		if ($(this).hasClass('fa-star-o')){
