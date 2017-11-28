@@ -2717,10 +2717,11 @@ canvas {
 
 .company_profile_view_main input[type="file"]{
     position: relative;
-    left: -138px;
+    left: 0px;
     width: 125px;
     opacity: 0;
-    z-index:10;
+    z-index: 10;
+    top: -25px;
 }
 
 #company_cover_submit {
