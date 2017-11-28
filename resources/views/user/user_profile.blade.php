@@ -9,7 +9,9 @@
 				<div class="user_profile_image user_profile_item">
 					<div class="user_profile_image_holder">
 						<span>
+						@if(isset($user[0]->image->path))
 							<img src="{{ URL::to('/') . $user[0]->image->path }}" alt="">
+						@endif
 						</span>
 					</div>
 				</div>

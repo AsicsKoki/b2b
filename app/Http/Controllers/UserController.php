@@ -48,7 +48,8 @@ class UserController extends Controller {
 
     public function getUsers()
     {
-        return view('user.users');
+        $users = User::with('image')->get();
+        return view('user.users' , ['users' => $users]);
     }
 
     public function logout()
@@ -286,6 +287,7 @@ class UserController extends Controller {
         $workHistory->delete();
         return redirect()->back();
     }
+
 
 
 
