@@ -20,4 +20,9 @@ protected $fillable = [
     {
     	return $this->belongsTo('App\Application', 'application_id');
     }
+
+    public function file()
+    {
+        return $this->hasOne('App\File', 'file_id');
+    }
 }

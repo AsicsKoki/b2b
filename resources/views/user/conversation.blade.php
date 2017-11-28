@@ -25,6 +25,7 @@
 		<input class="application_id_msg" type="hidden" name="application_id" value="{{ $conversation[0]->id }}">
 		<input  class="msg_first_name" type="hidden" name="first_name" value="{{ Session::get('user')->first_name }}">
 		<input class="msg_last_name" type="hidden" name="last_name" value="{{ Session::get('user')->last_name }}">
+		<input type="file" name="upload" accept="application/pdf" />
 		{{ csrf_field() }}
 		<div class="comapny_user_coversation_send_btn">
 			<input type="submit" value="Send" class="confirm_btn">
