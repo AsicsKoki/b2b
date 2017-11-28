@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Ad as Ad;
+use Illuminate\Support\Facades\Auth as Auth;
 
 class Category extends Model
 {
@@ -20,6 +21,12 @@ class Category extends Model
     public static function getCategories()
     {
     	return Category::all();
+    }
+
+    public static function getCategoriesByCompany()
+    {
+        $categories = Company::where('id', Auth::user()->id)->pluck('sector');
+        return array_map('intval', explode(',', $categories[0]));
     }
 
     

@@ -119,6 +119,7 @@ Route::post('/postEditCompany', 'CompanyController@postEditCompany')->name('post
 Route::get('/myAds', 'JobController@getAllJobs')->name('getAllJobs');
 
 
+
 Route::get('/addNewJob', 'JobController@getNewJob')->name('addNewJob');
 Route::get('/addNewJobStandard', 'JobController@getNewJobStandard')->name('addNewJobStandard');
 Route::get('/addNewJobCustom', 'JobController@getNewJobCustom')->name('addNewJobCustom');

@@ -130,27 +130,14 @@ class CompanyController extends Controller {
         $company->career = $request->career;
         $businessCard->number_of_employees = $request->number_of_employees;
 
+        
         $company->sector = implode(',' , $request->sectors); 
 
         $company->save();
         $businessCard->save();
 
-        $photoName = time().'.'.$request->company_cover->getClientOriginalExtension();
-        $request->company_cover->move(public_path('photos'), $photoName);
-        if(!$company->cover)
-        {
-            $cover = new Cover;
-            $cover->company_id = $request->cid;
-            $cover->path = '/photos/' . $photoName;
-            $cover->save();
-        }else{
-            $cover = $company->cover;
-            $cover->company_id = $request->cid;
-            $cover->path = '/photos/' . $photoName;
-            $cover->save();
-        }
 
-    return redirect()->back();
+        return redirect()->back();
     }
 
     public function getRegisterStep3()
