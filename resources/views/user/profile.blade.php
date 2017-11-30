@@ -49,8 +49,25 @@
 
 				</div>
 
+				<div class="user_profile_about user_profile_item">
+					<p class="user_profile_about_text">
+					<span id="description_span">{{ Session::get('user')->description }}</span>
+						<a class="edit_link" id="description">	
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+					</p>
+					
+					<div class="edit_info_window" id="description_input" style="display:none">
+						<textarea name="" cols="30" rows="10" width="100%" placeholder="Say something about you"></textarea>
+
+						<button class="confirm_edit_btn blue_btn" id="description_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
+					</div>
+				</div>
+
 				<div class="user_profile_name_holder user_profile_item">
+					<p class="bold">Education:</p>
 					<p class="user_profile_name">
+					<!-- <p class="bold">Education:</p> -->
 					<span id="education_span">{{ Session::get('user')->education }}</span>
 						<a class="edit_link" id="education" >	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
@@ -125,7 +142,7 @@
 						</div>
 				</div>
 
-				<div class="user_profile_about user_profile_item">
+				<!-- <div class="user_profile_about user_profile_item">
 					<p class="user_profile_about_text">
 					<span id="description_span">{{ Session::get('user')->description }}</span>
 						<a class="edit_link" id="description">	
@@ -138,7 +155,7 @@
 
 						<button class="confirm_edit_btn blue_btn" id="description_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
