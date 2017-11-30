@@ -7,6 +7,7 @@ use App\Application as Application;
 use App\Conversation as Conversation;
 use App\Message as Message;
 use App\Favorite as Favorite;
+use App\File as File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
@@ -109,17 +110,35 @@ class JobController extends Controller {
         return view('company.applications', ['applications' => $applications]);
     }
 
-    public function postJobApplication()
+    public function postJobApplication(Request $request)
     {  
         $application = new Application(Input::all());
         $application->save();
+
+        // get current time and append the upload file extension to it,
+        // then put that name to $fileName variable.
+        $file = $request->file('file_input');
+        $fileName = time().'.'.$file->getClientOriginalExtension();
+
+        /*
+            talk the select file_input and move it public directory
+        */
+        $user = Session::get('user');
+        $file->move(public_path('files'), $fileName);
 
         $message = New Message;
         $message->application_id = $application->id;
         $message->text = Input::get('text');
         $message->first_name = Input::get('first_name');
         $message->last_name = Input::get('last_name');
+        $message->file_id = 
         $message->save();
+
+        $file = New File;
+        $file->message_id = $message->id;
+        $file->application_id = $application->id;
+        $file->path = '/files/' . $fileName;
+        $file->save();
         return redirect()->route('getJobs');
     }
 
