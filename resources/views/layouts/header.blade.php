@@ -54,7 +54,7 @@
                             <a href="{{ route('getUserFavorites') }}">Favorites</a>
                         </li>
                         <li>
-                            <a href="{{ route('getHistory') }}">History</a>
+                            <a href="{{ route('getHistory') }}">Application History</a>
                         </li>
                         <li>
                             <a href="{{ route('getMessages') }}">Messages</a>
