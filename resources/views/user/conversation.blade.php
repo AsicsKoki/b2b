@@ -6,8 +6,8 @@
 
 <main class="main_app_container">
 	<ul class="comapny_user_coversation">
-		<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{$conversation[0]->user->first_name}} {{$conversation[0]->user->last_name}}</a></p>
-		@foreach($conversation[0]->messages as $message)
+		<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{$conversation->user->first_name}} {{$conversation->user->last_name}}</a></p>
+		@foreach($conversation->messages as $message)
 		<li class="comapny_user_coversation_item comapny_user_coversation_applicants">
 			<div class="comapny_user_coversation_item_name">
 				<p><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{$message->last_name}} {{ $message->first_name }} {{ $message->company_name }}</a></p>
@@ -22,7 +22,7 @@
 
 	<form action="{{ route('postUserMessage') }}" method="POST" class="comapny_user_coversation_msg">
 		<textarea name="text" placeholder="Your message..."></textarea>
-		<input class="application_id_msg" type="hidden" name="application_id" value="{{ $conversation[0]->id }}">
+		<input class="application_id_msg" type="hidden" name="application_id" value="{{ $conversation->id }}">
 		<input  class="msg_first_name" type="hidden" name="first_name" value="{{ Session::get('user')->first_name }}">
 		<input class="msg_last_name" type="hidden" name="last_name" value="{{ Session::get('user')->last_name }}">
 		<input type="file" name="file" accept="application/pdf" />

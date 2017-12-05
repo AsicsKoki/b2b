@@ -123,8 +123,8 @@ class JobController extends Controller {
         /*
             talk the select file_input and move it public directory
         */
-        $user = Session::get('user');
         $file->move(public_path('files'), $fileName);
+        $user = Session::get('user');
 
         $message = New Message;
         $message->application_id = $application->id;
@@ -144,7 +144,9 @@ class JobController extends Controller {
 
     public function getConversation($aid)
     {  
-        $application = Application::where('id', $aid)->orderBy('application.created_at','DESC')->with('messages')->orderBy('created_at')->with('user')->with('company')->get();
+        $application = Application::where('id', $aid)->with('messages')->orderBy('created_at')->with('user')->with('company')->first();
+        $application->notification = 0;
+        $application->update();
         return view('ad.conversation', ['conversation' => $application ]);
     }
 
@@ -160,6 +162,10 @@ class JobController extends Controller {
         $message->text = Input::get('text');
         $message->company_name = Input::get('company_name');
         $message->save();
+
+        $application = Application::where('id', Input::get('application_id'))->first();
+        $application->notification = 1;
+        $application->update();
         return redirect()->back();
     }
 

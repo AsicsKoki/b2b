@@ -9,8 +9,11 @@
 						<a href="{{ route('getConversation', ['aid' => $application->id]) }}">Applicaton for:<span>{{ $application->ad->position }}</span></a>
 					</h3>
 					<p class="applicants_for_job_read_unread bold">
-						<span class="read"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
-						<span class="unread"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
+						@if($application->notiffication === 1)
+							<span class="unread"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
+						@else
+							<span class="read"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+						@endif
 					</p>
 					<div class="footer_applicants_for_job_item cf">
 						<span class="applications_date_for_job"><span class="bold">Date:</span> {{ $application->created_at }} </span>

@@ -73,9 +73,6 @@
                         <li>
                             <a href="{{ route('getAllJobs') }}">My Ads</a>
                         </li>
-                        <li>
-                            <a href="{{ route('getUsers') }}">View All candidates</a>
-                        </li>
                     @endif
                     </ul>
                 </nav>
