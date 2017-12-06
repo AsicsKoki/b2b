@@ -140,6 +140,15 @@ class UserController extends Controller {
     public function getSearchResults()
     {
         $categories[] = Input::get('category');
+        // return $categories;
+        if (empty($categories[0]) && empty(Input::get('term'))) {
+            $results = Ad::with('company.image')->simplePaginate(10);
+            return view('ad.allAds', ['ads' => $results]);
+        }
+        if ($categories === null && empty(Input::get('term'))) {
+            $results = Ad::all()->simplePaginate(10);
+            return view('ad.allAds', ['ads' => $results]);
+        }
         if (Input::get('term')) {
             $results = Ad::where('position', 'LIKE', '%'. Input::get('term') .'%')->with('company.image')->with('categories')->simplePaginate(10);
             return view('ad.allAds', ['ads' => $results]);
