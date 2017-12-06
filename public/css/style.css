@@ -553,7 +553,7 @@ p.job_search_option_triger {
     font-family: 'Barlow Semi Condensed', sans-serif;
     margin-bottom: 10px;
     color: #ffffff;
-    background: rgba(119, 198, 78, 0.95)    ;
+    background: rgba(119, 198, 78, 0.95);
     text-align: center;
     line-height: 2;
     font-size: 20px;
@@ -757,8 +757,7 @@ a.login_reg_form_change_option {
     margin-bottom: 10px;
 }
 
-.terms_register_content_item p span {
-}
+.terms_register_content_item p span {}
 
 .register_terms_confirmation button {
     background: #4aa220;
@@ -1381,8 +1380,7 @@ button.add_more.save_section_btn {
 }
 
 .big_subtitle,
-.small_subtitle {
-}
+.small_subtitle {}
 
 .company_profile_edit_section_view_info {
     margin: 30px 40px 0 40px;
@@ -1437,14 +1435,13 @@ p.company_profile_edit_section_view_info_desc {
 }
 
 .company_profile_logo_holder {
-    width:235px;
-    height:225px;
-
+    width: 235px;
+    height: 225px;
 }
 
 .company_profile_logo_holder img {
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .company_profile_view_main_title {
@@ -1455,12 +1452,12 @@ p.company_profile_edit_section_view_info_desc {
     width: 100%;
     font-size: 0;
     border: 2px solid #fff;
-    height:250px;
+    height: 250px;
 }
 
-.company_profile_view_cover img{
+.company_profile_view_cover img {
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .company_profile_view_main_item {
@@ -1605,7 +1602,6 @@ p.company_profile_edit_section_view_info_desc {
 .job_list_filter_item_title a {
     color: #ff5d5c;
 }
-
 
 .job_list_filter_holder {
     padding: 40px 0;
@@ -2627,7 +2623,7 @@ input.save_btn_pop_up {
     text-align: center;
     padding: 15px 0;
     border-radius: 5px;
-    background: #f7f7f7; 
+    background: #f7f7f7;
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
     -ms-transition: all .2s ease;
@@ -2645,6 +2641,7 @@ input.save_btn_pop_up {
     margin: 15px;
     padding: 10px 0;
 }
+
 .users_list_item_img {
     width: 150px;
     height: 150px;
@@ -2678,6 +2675,7 @@ p.users_list_item_name {
 .btn_edit_profile:hover {
     background: #19638a;
 }
+
 .delete_link {
     position: absolute;
     right: 40px;
@@ -2686,36 +2684,37 @@ p.users_list_item_name {
 }
 
 canvas {
-  display: block;
+    display: block;
 }
 
-
-#particles-js  {
-  width: 100%;
-  height: 100vh;
-  background: #f7f7f7;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -50;
+#particles-js {
+    width: 100%;
+    height: 100vh;
+    background: #f7f7f7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -50;
 }
+
 
 /* .update_logo_holder{
     position:relative;
 } */
 
-.update_logo_holder input[type="file"]{
+.update_logo_holder input[type="file"] {
     position: absolute;
     top: 600px;
     left: 372px;
     opacity: 0;
     z-index: 10;
 }
+
 #company_logo_submit {
     display: none;
 }
 
-.company_profile_view_main input[type="file"]{
+.company_profile_view_main input[type="file"] {
     position: relative;
     left: 0px;
     width: 125px;
@@ -2726,4 +2725,12 @@ canvas {
 
 #company_cover_submit {
     display: none;
+}
+
+.languages_multipleSelect_holder {
+    display: none;
+}
+
+.languages_multipleSelect {
+    width: 200px;
 }

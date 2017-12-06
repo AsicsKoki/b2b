@@ -101,7 +101,7 @@
 				<div class="user_profile_item user_profile_languages_holder">
 					<p class="bold" style="text-align: left;font-size: 15px;position: relative;display: inline-block;">
 					<span>Languages:</span>
-					<a href="#" class="edit_link" id="">	
+					<a href="#" class="edit_link" id="languages_multiSelect">	
 						<i class="fa fa-pencil" aria-hidden="true"></i>
 					</a>
 					</p>
@@ -109,7 +109,16 @@
 						<li><span>English</span></li>
 						<li><span>Serbian</span></li>
 					</ul>
-					
+					<div class="languages_multipleSelect_holder">
+						<select class="languages_multipleSelect" name="states[]"  multiple="multiple">
+							<option value="English">English</option>
+							<option value="Serbian">Serbian</option>
+							<option value="Bulgarian">Bulgarian</option>
+							<option value="Slovenian">Slovenian</option>
+							<option value="Macedonian">Macedonian</option>
+						</select>
+							<button class="blue_btn languages_submit">Save</button>
+					</div>
 				</div>
 
 				<div class="user_profile_item user_profile_work_prev">
@@ -255,27 +264,20 @@
 		</div>
 
 
-	<div class="popUp popup_new_language_user">
+	<!-- <div class="popUp popup_new_language_user">
 		<form action="" method="" class="popup_new_language_user_form">
-			<div class="popup_new_language_user_item">
-				<p>Choose language <i class="fa fa-angle-down" aria-hidden="true"></i></p>
-				<ul class="new_language_user_list">
-					<li><a href="">English</a></li>
-					<li><a href="">Serbian</a></li>
-					<li><a href="">Spanish</a></li>
-					<li><a href="">Mexican</a></li>
-				</ul>
-				<button class="add_new_lang_btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
-			</div>
+		<select class="languages_multipleSelect" name="state">
+			<option value="English">English</option>
+			<option value="Serbian">Serbian</option>
+		</select>
 			<div class="popup_new_job_user_form_item" style="background: transparent;margin: 0;padding: 0;box-shadow: none;">
 				<input type="submit" value="Save" class="save_btn_pop_up">
-			</div>
+			</div>	
 		</form>
-
 		<a href="#" class="popup_close">
 			<i class="fa fa-times" aria-hidden="true"></i>
 		</a>
-	</div>
+	</div> -->
 
 
 	<div class="popUp popup_new_job_user">
@@ -536,6 +538,7 @@
 			$('#skills_btn').css('display','none');
 			
 		};
+
 
 		$('#upload_avt_form').click(function(e){
 			e.stopPropagation();
@@ -903,8 +906,35 @@
 				})
 		});
 		
-        
-  
+       $('#languages_multiSelect').click(function(e){
+		   e.preventDefault();
+			$('.languages_multipleSelect_holder').css('display','block');
+	   }); 
+	   
+	   $('.languages_submit').click(function(e){
+		e.preventDefault();
+		var languages = [], language;
+			$('.select2-selection__choice').each(function(){
+				language = $(this).text().substring(1);
+				languages.push(language);
+				return languages;
+			});
+		console.log(languages);
+		$.ajax({
+				method: "POST",
+				url: "/updateLangauge",
+				data: {
+					languages:languages,
+					'_token': $('meta[name="csrf-token"]').attr('content')
+					},
+				})
+			.done(function(data)
+			{		
+					console.log(data);
+			}).fail(function(err){
+				console.log(err);
+			})
+	   });
 </script>
 
 @endsection
