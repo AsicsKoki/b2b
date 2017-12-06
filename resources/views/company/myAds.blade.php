@@ -71,7 +71,8 @@
 										</li>
 									</ul>
 								</div>
-
+								<span><a href="" class="applicants">{{ App\Company::countApplicants($ad->id) }}</a> people have applied for your job.
+								</span>
 							</div>
 
 					</div>	

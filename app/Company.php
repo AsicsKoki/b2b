@@ -87,4 +87,9 @@ class Company extends Authenticatable
     {
         return $this->hasOne('App\Cover');
     }
+
+    public static function countApplicants($aid){
+        $applications = Application::with('ad')->where('ad_id', $aid)->get();
+        return $applications->count();
+    }
 }
