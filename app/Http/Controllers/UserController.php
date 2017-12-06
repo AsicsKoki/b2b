@@ -145,10 +145,6 @@ class UserController extends Controller {
             $results = Ad::with('company.image')->simplePaginate(10);
             return view('ad.allAds', ['ads' => $results]);
         }
-        if ($categories === null && empty(Input::get('term'))) {
-            $results = Ad::all()->simplePaginate(10);
-            return view('ad.allAds', ['ads' => $results]);
-        }
         if (Input::get('term')) {
             $results = Ad::where('position', 'LIKE', '%'. Input::get('term') .'%')->with('company.image')->with('categories')->simplePaginate(10);
             return view('ad.allAds', ['ads' => $results]);

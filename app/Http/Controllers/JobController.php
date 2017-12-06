@@ -45,7 +45,7 @@ class JobController extends Controller {
     public function getAllJobs()
     {
 
-        return view('ad.allAds', ['ads' => Ad::where('company_id', Auth::user()->id)->with('company.image')->simplePaginate(10)]);
+        return view('company.myAds', ['ads' => Ad::where('company_id', Auth::user()->id)->with('company.image')->simplePaginate(10)]);
     }
 
     public function getJobsByCategory($catid)
