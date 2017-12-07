@@ -106,6 +106,10 @@
 					</a>
 					</p>
 					<ul class="user_profile_languages cf">
+					@foreach($languages as $language)
+							<li class="bold"><span>{{ $language }}</span></li>
+
+					@endforeach
 						<li><span>English</span></li>
 						<li><span>Serbian</span></li>
 					</ul>

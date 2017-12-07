@@ -31,7 +31,9 @@ class UserController extends Controller {
         $user = Session::get('user');
         $avatar = $user->image;
         $workHistory = $user->workHistory;
-        return view('user.profile', ['workHistory' => $workHistory,'avatar' => $avatar['path']]);
+        $languages = $user->languages;
+
+        return view('user.profile', ['languages' => $languages, 'workHistory' => $workHistory,'avatar' => $avatar['path']]);
     }
 
     //show profile for requested user
@@ -303,6 +305,14 @@ class UserController extends Controller {
         return redirect()->back();
     }
 
+    public function updateLanguages()
+    {
+        $user = Session::get('user');
+        $languages = implode(',' , $request->languages); 
+        $user->languages()->attach($languages);
+        $user->save();
+
+    }
 
 
 

@@ -21,4 +21,9 @@ protected $fillable = [
     {
         return Language::all();
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
