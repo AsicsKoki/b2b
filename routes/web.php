@@ -118,14 +118,13 @@ Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCom
 Route::post('/postEditCompany', 'CompanyController@postEditCompany')->name('postEditCompany');
 Route::get('/myAds', 'JobController@getAllJobs')->name('getAllJobs');
 
-
-
 Route::get('/addNewJob', 'JobController@getNewJob')->name('addNewJob');
 Route::get('/addNewJobStandard', 'JobController@getNewJobStandard')->name('addNewJobStandard');
 Route::get('/addNewJobCustom', 'JobController@getNewJobCustom')->name('addNewJobCustom');
 Route::get('/addNewJobFullCustomaddNewJobConfidental', 'JobController@getNewJobFullCustom')->name('addNewJobFullCustom');
 Route::get('/addNewJobConfidental', 'JobController@getNewJobConfidental')->name('addNewJobConfidental');
 Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
+Route::get('/getApplicants/{aid}', 'JobController@getApplicants')->name('getApplicants');
 
 Route::get('/conversation/{aid}', 'JobController@getConversation')->name('getConversation');
 });

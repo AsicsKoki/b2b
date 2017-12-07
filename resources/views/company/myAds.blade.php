@@ -71,7 +71,7 @@
 										</li>
 									</ul>
 								</div>
-								<span><a href="" class="applicants">{{ App\Company::countApplicants($ad->id) }}</a> people have applied for your job.
+								<span><a href="{{ route('getApplicants', ['aid' => $ad->id]) }}" data-id={{ $ad->id}} class="applicants">{{ App\Company::countApplicants($ad->id) }}</a> people have applied for your job.
 								</span>
 							</div>
 
@@ -90,6 +90,15 @@
 	</main>
 
 <script type="text/javascript">
-   
+	$('.applicants').click(function(e){
+		e.preventDefault();
+		var element = $(this);
+		var url = element.attr('href');
+		console.log(url);
+   		$.get(url, { '_token': $('meta[name="csrf-token"]').attr('content') }).done(function(data) {
+   			console.log(data);
+	    	$('.job_list_filter_item_right').html(data);
+		});	
+	})
 </script>
 @endsection
