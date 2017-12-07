@@ -48,4 +48,9 @@ class User extends Authenticatable
         return $this->hasMany('App\WorkHistory');
     }
 
+    public function languages()
+    {
+        return $this->hasMany('App\Language');
+    }
+
 }

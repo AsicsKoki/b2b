@@ -81,6 +81,8 @@ Route::post('/updateDescription', 'UserController@updateDescription')->name('upd
 Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar');
 Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
 Route::post('/updateAdStatus', 'AdminController@updateAdStatus')->name('updateAdStatus');
+Route::post('/updateLanguages', 'UserController@updateLanguages')->name('updateLanguages');
+
 
 Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');
 Route::get('/getPopUpData', 'UserController@getPopUpData')->name('getPopUpData');
