@@ -63,6 +63,12 @@ class AdminController extends Controller {
         return view('admin.panel');
     }
 
+    public function reportAd($aid)
+    {
+        return 123;
+        return view('admin.panel');
+    }
+
     public function updateAdStatus()
     {
         $approved = Input::get('status');

@@ -27,6 +27,19 @@
 						<a><i class="fa fa-star star" aria-hidden="true"></i></a>
 					@endif
 				@endif
+				@if(Auth::check())
+                <li>
+			        <a class="report">
+	          			<span class="glyphicon glyphicon-trash"></span>
+	   				</a>
+                </li>
+                @elseif(Session::has('user'))
+                <li>
+			        <a class="report" href="#">
+	          			<span class="glyphicon glyphicon-trash"></span>
+	   				</a>
+                </li>
+                @endif
 			</div>
 			
 			<div class="single_job_social_net">
@@ -101,7 +114,24 @@
 			<div class="single_job_main_cover">
 				<img src="http://booproweb.com/img/ilya-pavlov-87438.jpg" alt="">
 			</div>
-			
+<div class="modal fade reportModal" role="dialog">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Report ad</h4>
+			</div>
+			<form action="{{ route('reportAd', ['aid' => $ad[0]->id]) }}" method="POST" enctype="multipart/form-data">
+				<div class="modal-body">
+					<p>This is a small modal.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="btn" class="btn btn-default" data-dismiss="modal">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
 			<div class="single_job_main_section">
 
@@ -130,6 +160,9 @@
 	</main>
 
 <script type="text/javascript">
+	$('.report').click(function(){
+		$('.reportModal');
+	})
 	$('.star').click(function(){
 		var a =  $(location).attr('href');
 		var id = a.match(/([\d]+)/)[0];		
