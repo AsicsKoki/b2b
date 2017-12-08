@@ -62,7 +62,7 @@ class AdminController extends Controller {
 
     public function getReports()
     {
-        return view('admin.panel');
+        return view('admin.reports');
     }
 
     public function reportAd($aid)
