@@ -50,7 +50,9 @@ class AdminController extends Controller {
 
     public function getAdminCompanies()
     {
-        return view('admin.panel');
+        $companies = Company::with('image')->simplePaginate(10);
+        // return $companies;
+        return view('admin.allCompanies', ['companies' => $companies]);
     }
 
     public function getAdminUsers()
