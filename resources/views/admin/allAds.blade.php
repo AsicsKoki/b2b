@@ -84,7 +84,7 @@
 								@else
 									<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active">Deactivate</button>
 								@endif
-								<button type="button" class="btn btn-danger delete">Delete</button>
+								<button type="button" class="btn btn-danger delete" data-aid="{{ $ad->id }}>Delete</button>
 
 							</div>
 
@@ -120,6 +120,22 @@
         	async: true,
         	data: {
             	status: status,
+            	'_token': $('meta[name="csrf-token"]').attr('content')
+        	},
+        success: function (msg) {
+        	console.log('success');
+        }
+    });
+	})
+	//Obrisati element posle brisanja iz baze
+	$('.delete').click(function(){
+		var aid = $(this).attr('data-aid');
+		var url = "/deleteAd/"+aid;
+	    $.ajax({
+       		type: "POST",
+        	url: url,
+        	async: true,
+        	data: {
             	'_token': $('meta[name="csrf-token"]').attr('content')
         	},
         success: function (msg) {

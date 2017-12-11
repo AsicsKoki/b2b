@@ -71,6 +71,13 @@ class AdminController extends Controller {
         return view('admin.panel');
     }
 
+    public function deleteAd($aid)
+    {
+        $ad = Ad::where('id', $aid)->first();
+        $ad->delete();
+        return 1;
+    }
+
     public function updateAdStatus($aid)
     {
         $status = Input::get('status');
