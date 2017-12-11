@@ -15,7 +15,7 @@
 
 					<div class="job_list_filter_item_left">
 
-						<small class="date">{{ $ad->created_at }}</small>
+						<small class="date">Id: <h4>{{ $ad->id }} </h4> Created at: {{ $ad->created_at }}</small>
 						<h3 class="job_list_filter_item_title bold">
 							<a href="{{ route('getSpecificJob', ['jid' => $ad->id, 'cid' => $ad->company->id]) }}">{{ $ad->position }}</a>
 						</h3>
@@ -84,7 +84,8 @@
 								@else
 									<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active">Deactivate</button>
 								@endif
-								<button type="button" class="btn btn-danger delete" data-aid="{{ $ad->id }}>Delete</button>
+								<button type="button" class="btn btn-danger delete" data-aid="{{ $ad->id }}">Delete</button>
+								<button type="button" class="btn btn edit" data-aid="{{ $ad->id }}">Edit</button>
 
 							</div>
 
