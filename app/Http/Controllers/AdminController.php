@@ -71,12 +71,12 @@ class AdminController extends Controller {
         return view('admin.panel');
     }
 
-    public function updateAdStatus()
+    public function updateAdStatus($aid)
     {
-        $approved = Input::get('status');
-        $user = Session::get('user');
-        $user->city = $data_input;
-        $user->save();
+        $status = Input::get('status');
+        $ad = Ad::where('id', $aid)->first();
+        $ad->approved = $status;
+        $ad->save();
         return 1;  
     }
 

@@ -80,8 +80,8 @@ Route::post('/updatePhone', 'UserController@updatePhone')->name('updatePhone');
 Route::post('/updateDescription', 'UserController@updateDescription')->name('updateDescription');
 Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar');
 Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
-Route::post('/updateAdStatus', 'AdminController@updateAdStatus')->name('updateAdStatus');
 Route::post('/updateLanguages', 'UserController@updateLanguages')->name('updateLanguages');
+Route::post('/updateAdStatus/{aid}', 'AdminController@updateAdStatus')->name('updateAdStatus');
 
 
 Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');

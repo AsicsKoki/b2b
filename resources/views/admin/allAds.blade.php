@@ -80,9 +80,9 @@
 									</ul>
 								</div>
 								@if($ad->approved == 0)
-									<button type="button" data-status="1" class="btn btn-success set-active">Activate</button>
+									<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active">Activate</button>
 								@else
-									<button type="button" data-status="0" class="btn btn-danger set-active">Deactivate</button>
+									<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active">Deactivate</button>
 								@endif
 								<button type="button" class="btn btn-danger delete">Delete</button>
 
@@ -104,18 +104,26 @@
 	<script type="text/javascript">
 	$('.set-active').click(function(){
 		var status = $(this).attr('data-status');
+		var aid = $(this).attr('data-aid');
+		var url = "/updateAdStatus/"+aid;
+		if ($(this).attr('data-status') === '1') {
+			$(this).removeClass('btn-danger').addClass('btn-success').text('Activate');
+			$(this).attr('data-status', '0');
+		} else {
+			$(this).removeClass('btn-success').addClass('btn-danger').text('Deactivate');
+			$(this).attr('data-status', '1');
+		}
+
 	    $.ajax({
        		type: "POST",
-        	url: "/updateAdStatus",
+        	url: url,
         	async: true,
         	data: {
-            	status: status 
+            	status: status,
+            	'_token': $('meta[name="csrf-token"]').attr('content')
         	},
         success: function (msg) {
-            alert('Success');
-            if (msg != 'success') {
-                alert('Fail');
-            }
+        	console.log('success');
         }
     });
 	})
