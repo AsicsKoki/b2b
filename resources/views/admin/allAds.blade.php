@@ -102,30 +102,30 @@
         </div>
 	</main>
 	<script type="text/javascript">
-	$('.set-active').click(function(){
-		var status = $(this).attr('data-status');
-		var aid = $(this).attr('data-aid');
-		var url = "/updateAdStatus/"+aid;
-		if ($(this).attr('data-status') === '1') {
-			$(this).removeClass('btn-danger').addClass('btn-success').text('Activate');
-			$(this).attr('data-status', '0');
-		} else {
-			$(this).removeClass('btn-success').addClass('btn-danger').text('Deactivate');
-			$(this).attr('data-status', '1');
-		}
+		$('.set-active').click(function(){
+			var status = $(this).attr('data-status');
+			var aid = $(this).attr('data-aid');
+			var url = "/updateAdStatus/"+aid;
+			if ($(this).attr('data-status') === '1') {
+				$(this).removeClass('btn-danger').addClass('btn-success').text('Activate');
+				$(this).attr('data-status', '0');
+			} else {
+				$(this).removeClass('btn-success').addClass('btn-danger').text('Deactivate');
+				$(this).attr('data-status', '1');
+			}
 
-	    $.ajax({
-       		type: "POST",
-        	url: url,
-        	async: true,
-        	data: {
-            	status: status,
-            	'_token': $('meta[name="csrf-token"]').attr('content')
-        	},
-        success: function (msg) {
-        	console.log('success');
-        }
-    });
+		    $.ajax({
+	       		type: "POST",
+	        	url: url,
+	        	async: true,
+	        	data: {
+	            	status: status,
+	            	'_token': $('meta[name="csrf-token"]').attr('content')
+	        	},
+	        success: function (msg) {
+	        	console.log('success');
+	        }
+	    });
 	})
 	//Obrisati element posle brisanja iz baze
 	$('.delete').click(function(){
@@ -140,8 +140,8 @@
         	},
         success: function (msg) {
         	console.log('success');
-        }
-    });
+        	}
+    	});
 	})
 
     </script>
