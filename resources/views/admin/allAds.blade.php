@@ -85,8 +85,7 @@
 									<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active">Deactivate</button>
 								@endif
 								<button type="button" class="btn btn-danger delete" data-aid="{{ $ad->id }}">Delete</button>
-								<button type="button" class="btn btn edit" data-aid="{{ $ad->id }}">Edit</button>
-
+								<a href="{{ route('adminEditAd', ['aid' => $ad->id]) }}"><button type="button" class="btn btn edit" data-aid="{{ $ad->id }}">Edit</button></a>
 							</div>
 
 					</div>	

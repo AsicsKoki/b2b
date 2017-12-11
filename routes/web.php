@@ -83,6 +83,7 @@ Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills'
 Route::post('/updateLanguages', 'UserController@updateLanguages')->name('updateLanguages');
 Route::post('/updateAdStatus/{aid}', 'AdminController@updateAdStatus')->name('updateAdStatus');
 Route::post('/deleteAd/{aid}', 'AdminController@deleteAd')->name('deleteAd');
+Route::get('/admin/editAd/{aid}', 'AdminController@adminEditAd')->name('adminEditAd');
 
 
 Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');
