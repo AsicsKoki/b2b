@@ -129,21 +129,23 @@
 	    });
 	})
 	//Obrisati element posle brisanja iz baze
-	$('.delete').click(function(){
-		var aid = $(this).attr('data-aid');
-		var url = "/deleteAd/"+aid;
-	    $.ajax({
-       		type: "POST",
-        	url: url,
-        	async: true,
-        	data: {
-            	'_token': $('meta[name="csrf-token"]').attr('content')
-        	},
-        success: function (msg) {
-        	console.log('success');
-        	}
-    	});
-	})
+	$('.delete').click(function(e){
+        var aid = $(this).attr('data-aid');
+        var url = "/deleteAd/"+aid;
+        $(e.target).parent().closest("li").remove();
+        $.ajax({
+            type: "POST",
+            url: url,
+            async: true,
+            data: {
+
+               '_token': $('meta[name="csrf-token"]').attr('content')
+           },
+       success: function (msg) {
+           console.log('success');
+           }
+       });
+    })
 
     </script>
 @endsection
