@@ -59,6 +59,11 @@
                         <li>
                             <a href="{{ route('getMessages') }}">Messages</a>
                         </li>
+                        @if(Session::get('user')->is_admin === 1)
+                            <li>
+                                <a href="{{ route('getAdminPanel') }}">Admin Panel</a>
+                            </li>
+                        @endif
                     @endif
                     @if(Auth::check())
                         <li>

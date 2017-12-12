@@ -93,4 +93,13 @@ class AdminController extends Controller {
         return 1;  
     }
 
+    public function blockCompany($cid)
+    {
+        $status = Input::get('status');
+        $ad = Company::where('id', $aid)->first();
+        $ad->blocked = $status;
+        $ad->save();
+        return 1;  
+    }
+
 }

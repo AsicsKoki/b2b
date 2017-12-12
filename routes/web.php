@@ -89,7 +89,7 @@ Route::group(['middleware'=>'usersession'],function (){
 
 });
 
-Route::group(['middleware'=>'usersession'],function (){
+Route::group(['middleware'=>'isadmin'],function (){
 	// admin routes
 	Route::get('/admin', 'AdminController@getAdminLogin')->name('getAdminLogin');
 	Route::post('/admin', 'AdminController@postAdminLogin')->name('postAdminLogin');
@@ -98,6 +98,10 @@ Route::group(['middleware'=>'usersession'],function (){
 	Route::get('/admin/companies', 'AdminController@getAdminCompanies')->name('getAdminCompanies');
 	Route::get('/admin/users', 'AdminController@getAdminUsers')->name('getAdminUsers');
 	Route::get('/admin/reports', 'AdminController@getReports')->name('getReports');
+	Route::get('/admin/editCompany/{cid}', 'AdminController@getEditCompany')->name('getEditCompanyAdmin');
+	Route::get('/admin/blockCompany/{cid}', 'AdminController@blockCompany')->name('blockCompany');
+	Route::get('/admin/deleteCompany/{cid}', 'AdminController@deleteCompany')->name('deleteCompany');
+
 });
 
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
