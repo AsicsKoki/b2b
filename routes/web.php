@@ -91,7 +91,6 @@ Route::group(['middleware'=>'usersession'],function (){
 
 Route::group(['middleware'=>'usersession'],function (){
 	// admin routes
-});
 	Route::get('/admin', 'AdminController@getAdminLogin')->name('getAdminLogin');
 	Route::post('/admin', 'AdminController@postAdminLogin')->name('postAdminLogin');
 	Route::get('/adminPanel', 'AdminController@getAdminPanel')->name('getAdminPanel');
@@ -99,6 +98,7 @@ Route::group(['middleware'=>'usersession'],function (){
 	Route::get('/admin/companies', 'AdminController@getAdminCompanies')->name('getAdminCompanies');
 	Route::get('/admin/users', 'AdminController@getAdminUsers')->name('getAdminUsers');
 	Route::get('/admin/reports', 'AdminController@getReports')->name('getReports');
+});
 
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
 Route::get('/users', 'UserController@getUsers')->name('getUsers');
