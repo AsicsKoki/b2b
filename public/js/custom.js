@@ -28,6 +28,11 @@ $(document).ready(function() {
         $('.popUp').fadeOut(200);
     });
 
+    $('.list_of_reports_item_holder').on('click', function(e) {
+        e.preventDefault();
+        $('.reports_popup_holder').fadeIn(200);
+    });
+
     $('.popup_new_language_user_item p').click(function() {
         $('.new_language_user_list').fadeToggle(200);
     });
