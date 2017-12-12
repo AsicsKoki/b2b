@@ -7,21 +7,22 @@
 	<main class="main_app_container cf">
 
 		<div class="single_job_header">
-			<h1 class="single_job_title bold">{{ $ad[0]->position }}</h1>
+		<span>Views: {{ $ad->page_visits }}</span>
+			<h1 class="single_job_title bold">{{ $ad->position }}</h1>
 			<div class="single_job_info_holder">
 				<ul class="single_job_categories cf">
 				  
 					<li>
 						<span class="bold">Categories:</span>
 					</li>
-					@foreach($ad[0]->categories as $category)
+					@foreach($ad->categories as $category)
 						<li>
 							<a href="{{ route('getJobsByCategory', ['catid' => $category->id]) }}">{{ $category->name }}</a>
 						</li>
 					@endforeach
 				</ul>
 				@if(Session::get('user'))
-					@if(!App\Favorite::isFavorite($ad[0]->id))
+					@if(!App\Favorite::isFavorite($ad->id))
 						<a><i class="fa fa-star-o star" aria-hidden="true"></i></a>
 					@else
 						<a><i class="fa fa-star star" aria-hidden="true"></i></a>
@@ -57,19 +58,19 @@
 
 	<div class="single_job_sidebar">
 		<div class="single_job_sidebar_item">
-			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad[0]->created_at }}</span></small>
+			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad->created_at }}</span></small>
 			<div class="single_job_main_logo">
-				<a href="{{ route('getCompanyProfile', ['cid' => $ad[0]->company->id]) }}">
-					<img src="{{ URL::to('/') . $ad[0]->company->image->path }}" alt="">
+				<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}">
+					<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
 				</a>
 			</div>
 			<h3 class="single_job_sidebar_item_title company_name bold">Company:</h3>
-			<p>{{ $ad[0]->company->company_name }}</p>
+			<p>{{ $ad->company->company_name }}</p>
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Job location:</h3>
-			<p><span>{{ $ad[0]->city }}</span>, <span>{{ $ad[0]->country }}</span></p>
+			<p><span>{{ $ad->city }}</span>, <span>{{ $ad->country }}</span></p>
 		</div>
 
 		<div class="single_job_sidebar_item">
@@ -79,29 +80,29 @@
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Job type:</h3>
-			@if ($ad[0]->job_type == 0)
+			@if ($ad->job_type == 0)
 			    <p>Permanent</p>
-			@elseif ($ad[0]->job_type == 1)
+			@elseif ($ad->job_type == 1)
 			    <p>Temporary</p>
-			@elseif ($ad[0]->job_type == 2)
+			@elseif ($ad->job_type == 2)
 				<p>Internship</p>
-			@elseif ($ad[0]->job_type == 3)
+			@elseif ($ad->job_type == 3)
 				<p>Distance job</p>	 
 			@endif
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Salary:</h3>
-			<p><span>{{ $ad[0]->salary_type }}</span>, from <span>{{ $ad[0]->salary_from }}{{ $ad[0]->currency }}</span> to <span>{{ $ad[0]->salary_from }}{{ $ad[0]->currency }}</span></p>
+			<p><span>{{ $ad->salary_type }}</span>, from <span>{{ $ad->salary_from }}{{ $ad->currency }}</span> to <span>{{ $ad->salary_from }}{{ $ad->currency }}</span></p>
 		</div>
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Career level:</h3>
-			@if ($ad[0]->career_level == 0)
+			@if ($ad->career_level == 0)
 			    <p>Management</p>
-			@elseif ($ad[0]->career_level == 1)
+			@elseif ($ad->career_level == 1)
 			    <p>Expert</p>
-			@elseif ($ad[0]->career_level == 3)
+			@elseif ($ad->career_level == 3)
 				<p>Administrative staff</p>
 			@else
 			 
@@ -111,7 +112,7 @@
 		
 		<div class="single_job_main">
 
-			<div class="single_job_main_cover">
+			<div class="single_job_main_cover"> 
 				<img src="http://booproweb.com/img/ilya-pavlov-87438.jpg" alt="">
 			</div>
 <div class="modal fade reportModal" role="dialog">
@@ -121,7 +122,7 @@
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
 			<h4 class="modal-title">Report ad</h4>
 			</div>
-			<form action="{{ route('reportAd', ['aid' => $ad[0]->id]) }}" method="POST" enctype="multipart/form-data">
+			<form action="{{ route('reportAd', ['aid' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
 				<div class="modal-body">
 					<p>This is a small modal.</p>
 				</div>
@@ -136,10 +137,10 @@
 			<div class="single_job_main_section">
 
 				<div class="single_job_main_section_first">
-				@if ($ad[0]->students == 1)
+				@if ($ad->students == 1)
 					<p class="single_job_students"><span class="">This job is available for students</span></p>
 				@endif
-				@if ($ad[0]->low_experience == 1)
+				@if ($ad->low_experience == 1)
 					<p class="single_job_students"><span class="">This job is available for people with low experience</span></p>
 				@endif
 
@@ -147,10 +148,10 @@
 
 				<div class="single_job_desc">
 					<h3 class="bold">Job description</h3>
-					{{ $ad[0]->description }}
+					{{ $ad->description }}
 				</div>
 				@if(Session::get('user') !== null)
-					<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad[0]->id, 'cid' => $ad[0]->company->id]) }}" class="bold">Apply</a></div>
+					<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad->id, 'cid' => $ad->company->id]) }}" class="bold">Apply</a></div>
 				@else
 					<div class="apply_for_job_btn"><a href="{{ route('getUserLogin') }}" class="bold">Apply</a></div>
 				@endif

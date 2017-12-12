@@ -45,7 +45,6 @@ class CompanyController extends Controller {
         }
     }
 
-
     public function getProfile($id)
     {
         $company = Company::find($id);

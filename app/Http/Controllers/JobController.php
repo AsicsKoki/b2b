@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 
+
 class JobController extends Controller {
 
     /**
@@ -38,7 +39,9 @@ class JobController extends Controller {
 
     public function getJob($jid)
     {  
-        $ad = Ad::where('id', $jid)->with('company.image')->with('categories')->get();
+        $ad = Ad::where('id', $jid)->with('company.image')->with('categories')->first();
+        $ad->page_visits = $ad->page_visits + 1;
+        $ad->save();
         return view('ad.ad', ['ad' => $ad]);
     }
 

@@ -73,6 +73,12 @@
                         <li>
                             <a href="{{ route('getAllJobs') }}">My Ads</a>
                         </li>
+                        <li>
+                            <a href="">Invoices</a>
+                        </li>
+                        <li class="pull-right">
+                            <a href="">Credits: 120</a>
+                        </li>
                     @endif
                     </ul>
                 </nav>
