@@ -30,7 +30,7 @@
 				@endif
 				@if(Auth::check())
                 <li>
-			        <a class="report">
+			        <a class="report" data-js="open">
 	          			<span class="glyphicon glyphicon-trash"></span>
 	   				</a>
                 </li>
@@ -115,25 +115,33 @@
 			<div class="single_job_main_cover"> 
 				<img src="http://booproweb.com/img/ilya-pavlov-87438.jpg" alt="">
 			</div>
-<div class="modal fade reportModal" role="dialog">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">Report ad</h4>
-			</div>
-			<form action="{{ route('reportAd', ['aid' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
-				<div class="modal-body">
-					<p>This is a small modal.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="btn" class="btn btn-default" data-dismiss="modal">Submit</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
 
+		<div class="popup">
+			<div class="row text-center">
+				<h2>Are you sure you want to delete</h2> 
+			</div>
+			<div class="modal fade reportModal" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Report ad</h4>
+					</div>
+					<form action="{{ route('reportAd', ['aid' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
+						<div class="modal-body">
+							<p>This is a small modal.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="btn" class="btn btn-default" data-dismiss="modal">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+			<button class="close_popup btn btn-danger center-block" name="close">
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</button>
+		</div>
 			<div class="single_job_main_section">
 
 				<div class="single_job_main_section_first">
