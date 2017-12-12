@@ -36,7 +36,7 @@
                 </li>
                 @elseif(Session::has('user'))
                 <li>
-			        <a class="report" href="#">
+			        <a class="report" href="#" data-js="open">
 	          			<span class="glyphicon glyphicon-trash"></span>
 	   				</a>
                 </li>
@@ -111,37 +111,31 @@
 	</div>
 		
 		<div class="single_job_main">
-
 			<div class="single_job_main_cover"> 
 				<img src="http://booproweb.com/img/ilya-pavlov-87438.jpg" alt="">
 			</div>
-
-		<div class="popup">
-			<div class="row text-center">
-				<h2>Are you sure you want to delete</h2> 
-			</div>
-			<div class="modal fade reportModal" role="dialog">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Report ad</h4>
-					</div>
+			<div class="popup">
+				<button class="close_popup btn btn-danger center-block" name="close">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+				<div class="row text-center">
+					<h2>Report Ad</h2> 
+				</div>
 					<form action="{{ route('reportAd', ['aid' => $ad->id]) }}" method="POST" enctype="multipart/form-data">
 						<div class="modal-body">
-							<p>This is a small modal.</p>
+						{{ csrf_field() }}
+
+							<ul>
+								<li><input type="radio" name="text" value="Ad is misleading or incomplete">Ad is misleading or incomplete</li>
+								<li><input type="radio" name="text" value="Ad is insulting or inappropriate">Ad is insulting or inappropriate</li>
+								<li><input type="radio" name="text" value="Ad is a scam">Ad is a scam</li>
+							</ul>
 						</div>
 						<div class="modal-footer">
 							<button type="btn" class="btn btn-default" data-dismiss="modal">Submit</button>
 						</div>
 					</form>
-				</div>
 			</div>
-		</div>
-			<button class="close_popup btn btn-danger center-block" name="close">
-				<i class="fa fa-times" aria-hidden="true"></i>
-			</button>
-		</div>
 			<div class="single_job_main_section">
 
 				<div class="single_job_main_section_first">

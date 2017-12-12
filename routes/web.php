@@ -106,7 +106,7 @@ Route::group(['middleware'=>'isadmin'],function (){
 
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
 Route::get('/users', 'UserController@getUsers')->name('getUsers');
-Route::post('/reportAd', 'AdminController@reportAd')->name('reportAd');
+Route::post('/reportAd/{aid}', 'AdminController@reportAd')->name('reportAd');
 
 Route::get('/jobs', 'JobController@getJobs')->name('getJobs');
 Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');

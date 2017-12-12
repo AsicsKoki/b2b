@@ -3,6 +3,8 @@
 use App\Http\Controllers\Controller;
 use App\Ad as Ad;
 use App\User as User;
+use App\Report as Report;
+
 use App\Company as Company;
 use App\Application as Application;
 use App\Conversation as Conversation;
@@ -67,8 +69,11 @@ class AdminController extends Controller {
 
     public function reportAd($aid)
     {
-        return 123;
-        return view('admin.panel');
+        $report = new Report;
+        $report->text = Input::get('text');
+        $report->ad_id = $aid;
+        $report->save();
+        return redirect()->back();
     }
 
     public function adminEditAd($aid)
