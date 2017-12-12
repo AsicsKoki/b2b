@@ -39,7 +39,8 @@ body {
     font-weight: bold;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     text-decoration: none;
 }
 
@@ -2784,14 +2785,16 @@ a.list_of_companies_item_companie_name {
     margin-left: 15px;
 }
 
-.list_of_companies_item_person_name {
-}
+.list_of_companies_item_person_name {}
 
-a.list_of_companies_item_person_name, a.list_of_companies_item_companie_name, .list_of_companies_item_btn, .list_of_companies_item_companies_phone {
+a.list_of_companies_item_person_name,
+a.list_of_companies_item_companie_name,
+.list_of_companies_item_btn,
+.list_of_companies_item_companies_phone {
     vertical-align: middle;
     display: flex;
     align-items: center;
-     height: 100px;
+    height: 100px;
     padding: 0 15px;
     border-right: 1px solid #e0e0e0;
     width: 18%;
@@ -2812,7 +2815,8 @@ a.list_of_companies_details.list_of_companies_item_btn {
     border-right: none;
 }
 
-.list_of_companies_item_btn .fa, .list_of_companies_item_btn span {
+.list_of_companies_item_btn .fa,
+.list_of_companies_item_btn span {
     margin-left: 5px;
     vertical-align: middle;
 }
@@ -2858,7 +2862,7 @@ a.list_of_companies_details.list_of_companies_item_btn {
 
 .list_of_reports_name {
     display: inline-block;
-   text-align: left; 
+    text-align: left;
     vertical-align: middle;
 }
 
@@ -2920,4 +2924,50 @@ a.list_of_companies_details.list_of_companies_item_btn {
     border-radius: 3px;
     margin: auto;
     margin-top: 10px;
+}
+
+
+/* popup styles 
+======================== */
+
+.popup {
+    background: rgba(100, 100, 100, 0.6);
+    position: fixed;
+    display: none;
+    z-index: 5000;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.popup>div {
+    border-radius: 10px;
+    position: fixed;
+    background: #fff;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.1);
+    /* padding: 30px 15px; */
+    /* Width of popup can be changed */
+    width: 100%;
+    /* max-width: 600px; */
+    z-index: 5001;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    background: #fff;
+}
+
+.popup .col-lg-2 {
+    display: inline-block;
+}
+
+.popup .wrapper {
+    position: relative;
+    max-width: 1000px;
+    padding: 30px;
+}
+
+.popup button {
+    margin: 10px auto;
 }
