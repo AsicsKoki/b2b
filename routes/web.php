@@ -45,58 +45,60 @@ Route::get('/logout', 'UserController@logout')->name('logout');
 Route::get('/', 'HomeController@index')->name('getHome');
 Route::get('/404', 'HomeController@get404')->name('get404');
 
-// admin routes
-Route::get('/admin', 'AdminController@getAdminLogin')->name('getAdminLogin');
-Route::post('/admin', 'AdminController@postAdminLogin')->name('postAdminLogin');
-Route::get('/adminPanel', 'AdminController@getAdminPanel')->name('getAdminPanel');
-Route::get('/admin/ads', 'AdminController@getAdminAds')->name('getAdminAds');
-Route::get('/admin/companies', 'AdminController@getAdminCompanies')->name('getAdminCompanies');
-Route::get('/admin/users', 'AdminController@getAdminUsers')->name('getAdminUsers');
-Route::get('/admin/reports', 'AdminController@getReports')->name('getReports');
 
 
 //User(applicant) related routes
 Route::group(['middleware'=>'usersession'],function (){
+	Route::get('/profile', 'UserController@getUserProfile')->name('getUserProfile');
+	Route::post('/profile', 'UserController@postProfile')->name('postUserProfile');
+	Route::get('/profile/{uid}/favorites', 'UserController@getFavorites')->name('getUserFavorites');
+	Route::post('/profile/{uid}/favorites/{jid}', 'UserController@postFavorite')->name('postUserFavorites');
+	Route::get('/cvCreator', 'UserController@getCvCreator')->name('getCvCreator');
+	Route::get('/myFiles', 'UserController@getMyFiles')->name('getMyFiles');
+	Route::get('/history', 'UserController@getHistory')->name('getHistory');
+	Route::get('/messages', 'UserController@getMessages')->name('getMessages');
+	Route::get('/userConversation/{aid}', 'UserController@getUserConversation')->name('getUserConversation');
+	Route::get('/applicationHistory', 'UserController@getHistory')->name('getHistory');
+	Route::post('/postUserMessage', 'UserController@postUserMessage')->name('postUserMessage');
 
-Route::get('/profile', 'UserController@getUserProfile')->name('getUserProfile');
-Route::post('/profile', 'UserController@postProfile')->name('postUserProfile');
-Route::get('/profile/{uid}/favorites', 'UserController@getFavorites')->name('getUserFavorites');
-Route::post('/profile/{uid}/favorites/{jid}', 'UserController@postFavorite')->name('postUserFavorites');
-Route::get('/cvCreator', 'UserController@getCvCreator')->name('getCvCreator');
-Route::get('/myFiles', 'UserController@getMyFiles')->name('getMyFiles');
-Route::get('/history', 'UserController@getHistory')->name('getHistory');
-Route::get('/messages', 'UserController@getMessages')->name('getMessages');
-Route::get('/userConversation/{aid}', 'UserController@getUserConversation')->name('getUserConversation');
-Route::get('/applicationHistory', 'UserController@getHistory')->name('getHistory');
-Route::post('/postUserMessage', 'UserController@postUserMessage')->name('postUserMessage');
-
-Route::post('/updateEducation', 'UserController@updateEducation')->name('updateEducation');
-Route::post('/updateCountry', 'UserController@updateCountry')->name('updateCountry');
-Route::post('/updateCity', 'UserController@updateCity')->name('updateCity');
-Route::post('/updateRegion', 'UserController@updateRegion')->name('updateRegion');
-Route::post('/updateBirthdate', 'UserController@updateBirthdate')->name('updateBirthdate');
-Route::post('/updateGender', 'UserController@updateGender')->name('updateGender');
-Route::post('/updatePhone', 'UserController@updatePhone')->name('updatePhone');
-Route::post('/updateDescription', 'UserController@updateDescription')->name('updateDescription');
-Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar');
-Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
-Route::post('/updateLanguages', 'UserController@updateLanguages')->name('updateLanguages');
-Route::post('/updateAdStatus/{aid}', 'AdminController@updateAdStatus')->name('updateAdStatus');
-Route::post('/deleteAd/{aid}', 'AdminController@deleteAd')->name('deleteAd');
-Route::get('/admin/editAd/{aid}', 'AdminController@adminEditAd')->name('adminEditAd');
-
-
-Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');
-Route::get('/getPopUpData', 'UserController@getPopUpData')->name('getPopUpData');
+	Route::post('/updateEducation', 'UserController@updateEducation')->name('updateEducation');
+	Route::post('/updateCountry', 'UserController@updateCountry')->name('updateCountry');
+	Route::post('/updateCity', 'UserController@updateCity')->name('updateCity');
+	Route::post('/updateRegion', 'UserController@updateRegion')->name('updateRegion');
+	Route::post('/updateBirthdate', 'UserController@updateBirthdate')->name('updateBirthdate');
+	Route::post('/updateGender', 'UserController@updateGender')->name('updateGender');
+	Route::post('/updatePhone', 'UserController@updatePhone')->name('updatePhone');
+	Route::post('/updateDescription', 'UserController@updateDescription')->name('updateDescription');
+	Route::post('/updateAvatar', 'UserController@updateAvatar')->name('updateAvatar');
+	Route::post('/updateSkills', 'UserController@updateSkills')->name('updateSkills');
+	Route::post('/updateLanguages', 'UserController@updateLanguages')->name('updateLanguages');
+	Route::post('/updateAdStatus/{aid}', 'AdminController@updateAdStatus')->name('updateAdStatus');
+	Route::post('/deleteAd/{aid}', 'AdminController@deleteAd')->name('deleteAd');
+	Route::get('/admin/editAd/{aid}', 'AdminController@adminEditAd')->name('adminEditAd');
 
 
-Route::post('/updateFavorites', 'JobController@updateFav')->name('updateFav');
-Route::post('/removeFavorites', 'JobController@removeFav')->name('removeFav');
-Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
-// Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
-Route::post('/removeHistory', 'UserController@removeHistory')->name('removeHistory');
+	Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');
+	Route::get('/getPopUpData', 'UserController@getPopUpData')->name('getPopUpData');
+
+
+	Route::post('/updateFavorites', 'JobController@updateFav')->name('updateFav');
+	Route::post('/removeFavorites', 'JobController@removeFav')->name('removeFav');
+	Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
+	// Route::get('/favorites', 'JobController@getUserFavorites')->name('getUserFavorites');
+	Route::post('/removeHistory', 'UserController@removeHistory')->name('removeHistory');
 
 });
+
+Route::group(['middleware'=>'usersession'],function (){
+	// admin routes
+});
+	Route::get('/admin', 'AdminController@getAdminLogin')->name('getAdminLogin');
+	Route::post('/admin', 'AdminController@postAdminLogin')->name('postAdminLogin');
+	Route::get('/adminPanel', 'AdminController@getAdminPanel')->name('getAdminPanel');
+	Route::get('/admin/ads', 'AdminController@getAdminAds')->name('getAdminAds');
+	Route::get('/admin/companies', 'AdminController@getAdminCompanies')->name('getAdminCompanies');
+	Route::get('/admin/users', 'AdminController@getAdminUsers')->name('getAdminUsers');
+	Route::get('/admin/reports', 'AdminController@getReports')->name('getReports');
 
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');
 Route::get('/users', 'UserController@getUsers')->name('getUsers');
