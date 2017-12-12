@@ -39,6 +39,10 @@ body {
     font-weight: bold;
 }
 
+a:hover, a:focus {
+    text-decoration: none;
+}
+
 button,
 input[type="submit"],
 input[type="file"] {
@@ -1325,8 +1329,13 @@ span.new_job_add_desc {
     position: fixed;
     right: 50px;
     top: 20px;
-    font-size: 45px;
-    color: #cc3232;
+    font-size: 35px;
+    color: #fd6464;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.popup_close:hover {
+    color: #fd6464;
 }
 
 button.add_more.save_section_btn {
@@ -2733,4 +2742,182 @@ canvas {
 
 .languages_multipleSelect {
     width: 200px;
+}
+
+.list_of_companies_item {
+    background: #fff;
+    padding: 5px 15px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    line-height: 1;
+    list-style: none;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.list_of_companies_item a:hover {
+    text-decoration: none;
+    color: #444;
+    background: #e8e8e8;
+}
+
+.list_of_companies_item_logo {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+a.list_of_companies_item_logo:hover {
+    background: #fff;
+}
+
+.list_of_companies_item_logo img {
+    width: 100%;
+}
+
+a.list_of_companies_item_companie_name {
+    border-left: 1px solid #e0e0e0;
+    margin-left: 15px;
+}
+
+.list_of_companies_item_person_name {
+}
+
+a.list_of_companies_item_person_name, a.list_of_companies_item_companie_name, .list_of_companies_item_btn, .list_of_companies_item_companies_phone {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+     height: 100px;
+    padding: 0 15px;
+    border-right: 1px solid #e0e0e0;
+    width: 18%;
+    justify-content: center;
+    color: #444;
+}
+
+.list_of_companies_item_companies_phone {
+    width: 250px;
+    margin: 0;
+}
+
+.list_of_companies_item_companies_phone .fa {
+    margin-right: 5px;
+}
+
+a.list_of_companies_details.list_of_companies_item_btn {
+    border-right: none;
+}
+
+.list_of_companies_item_btn .fa, .list_of_companies_item_btn span {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.list_of_companies_delete {
+    color: #e24444;
+}
+
+.list_of_companies_modify {
+    color: #378bc4;
+}
+
+.list_of_companies_details {
+    color: #929292;
+}
+
+.list_of_reports_item {
+    list-style: none;
+    padding: 5px 10px;
+    background: #fff;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.list_of_reports_item_holder {
+    display: block;
+    color: #444;
+    line-height: 1.5;
+}
+
+.list_of_reports_item_holder:hover {
+    color: #444;
+}
+
+.list_of_reports_item:hover {
+    background: #eee;
+}
+
+.list_of_reports_name {
+    display: inline-block;
+   text-align: left; 
+    vertical-align: middle;
+}
+
+.list_of_reports_date {
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 15px;
+    float: right;
+    line-height: 2;
+}
+
+.reports_popup_holder {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(60, 60, 60, 0.5);
+}
+
+.reports_popup_content {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 3px;
+    margin-top: 10%;
+    box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+.reports_popup_content .popup_close {
+    position: absolute;
+    line-height: 1;
+    top: 5px;
+    right: 10px;
+}
+
+.reports_popup_topic {
+    color: #f34b4b;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.reports_popup_bnt a {
+    line-height: 1;
+    background: #35a5da;
+    padding: 10px 25px;
+    color: #fff;
+    display: block;
+    width: 150px;
+    text-align: center;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 10px;
 }

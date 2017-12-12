@@ -67,64 +67,64 @@
        particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 63,
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 721.5354273894853
       }
     },
     "color": {
-      "value": "#eb2222"
+      "value": "#2081bf"
     },
     "shape": {
-      "type": "circle",
+      "type": "polygon",
       "stroke": {
         "width": 0,
         "color": "#000000"
       },
       "polygon": {
-        "nb_sides": 7
+        "nb_sides": 4
       },
       "image": {
-        "src": "img/github.svg",
+        "src": "http://localhost:8888/naposao/public/photos/naposaologo.png",
         "width": 100,
         "height": 100
       }
     },
     "opacity": {
-      "value": 0.4489553770423464,
+      "value": 0.5,
       "random": false,
       "anim": {
         "enable": false,
-        "speed": 0.9744926547616141,
-        "opacity_min": 0.11369080972218831,
-        "sync": true
+        "speed": 0.48724632738080703,
+        "opacity_min": 0.06496617698410762,
+        "sync": false
       }
     },
     "size": {
       "value": 2,
-      "random": true,
+      "random": false,
       "anim": {
         "enable": false,
-        "speed": 65.77825419640895,
-        "size_min": 0.8120772123013452,
+        "speed": 40,
+        "size_min": 0.1,
         "sync": false
       }
     },
     "line_linked": {
       "enable": true,
-      "distance": 150,
-      "color": "#ffffff",
+      "distance": 80.17060304327615,
+      "color": "#2258d9",
       "opacity": 0.4,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 6,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
+      "speed": 3.206824121731046,
+      "direction": "bottom-right",
+      "random": true,
+      "straight": true,
+      "out_mode": "bounce",
       "bounce": false,
       "attract": {
         "enable": false,
@@ -138,7 +138,7 @@
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "bubble"
       },
       "onclick": {
         "enable": true,
@@ -154,10 +154,10 @@
         }
       },
       "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
+        "distance": 323.67632367632365,
+        "size": 11.988011988011989,
+        "duration": 1.4385614385614387,
+        "opacity": 1,
         "speed": 3
       },
       "repulse": {
