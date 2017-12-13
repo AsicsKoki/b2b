@@ -21,7 +21,7 @@
 	</ul>
 
 	<form action="{{ route('postUserMessage') }}" method="POST" class="comapny_user_coversation_msg">
-		<textarea name="text" placeholder="Your message..."></textarea>
+		<textarea required name="text" placeholder="Your message..."></textarea>
 		<input class="application_id_msg" type="hidden" name="application_id" value="{{ $conversation->id }}">
 		<input  class="msg_first_name" type="hidden" name="first_name" value="{{ Session::get('user')->first_name }}">
 		<input class="msg_last_name" type="hidden" name="last_name" value="{{ Session::get('user')->last_name }}">

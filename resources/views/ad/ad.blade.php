@@ -29,17 +29,17 @@
 					@endif
 				@endif
 				@if(Auth::check())
-                <li>
+
 			        <a class="report" data-js="open">
-	          			<span class="glyphicon glyphicon-trash"></span>
+	          			<i class="fa fa-flag" aria-hidden="true"></i><span>Report</span>
 	   				</a>
-                </li>
+
                 @elseif(Session::has('user'))
-                <li>
+
 			        <a class="report" href="#" data-js="open">
-	          			<span class="glyphicon glyphicon-trash"></span>
+	          			<i class="fa fa-flag" aria-hidden="true"></i><span>Report</span>
 	   				</a>
-                </li>
+
                 @endif
 			</div>
 			
@@ -61,9 +61,7 @@
 			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad->created_at }}</span></small>
 			<div class="single_job_main_logo">
 				<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}">
-				@if($ad->company->image)
 					<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
-				@endif
 				</a>
 			</div>
 			<h3 class="single_job_sidebar_item_title company_name bold">Company:</h3>
@@ -116,10 +114,10 @@
 			<div class="single_job_main_cover"> 
 				<img src="http://booproweb.com/img/ilya-pavlov-87438.jpg" alt="">
 			</div>
-			<div class="popup">
-				<button class="close_popup btn btn-danger center-block" name="close">
+			<div class="popup popUp report_popup">
+				<a href="#" class="popup_close" name="close">
 					<i class="fa fa-times" aria-hidden="true"></i>
-				</button>
+				</a>
 				<div class="row text-center">
 					<h2>Report Ad</h2> 
 				</div>

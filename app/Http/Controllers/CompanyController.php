@@ -130,7 +130,7 @@ class CompanyController extends Controller {
         $businessCard->number_of_employees = $request->number_of_employees;
 
         
-        $company->sector = implode(',' , $request->sectors); 
+        $company->sector = serialize($request->sectors);
 
         $company->save();
         $businessCard->save();
