@@ -42,7 +42,7 @@
 						@foreach ($ads as $ad)
 						<li class="company_profile_view_jobs_item">
 							<a href="{{ route('getSpecificJob', ['jid' => $ad->id, 'cid' => $company->id]) }}" class="company_profile_view_jobs_item_link">
-								<p class="bold">{{ $ad->position }}</p>
+								<p class="">{{ $ad->position }}</p>
 								<p class=""><span>{{ $ad->country }}</span>, <span>{{ $ad->city }}</span></p>
 							</a>
 						</li>
