@@ -87,7 +87,7 @@
 					<div class="user_profile_skills">
 						<p class="bold" style="text-align: left;">My skills:</p>
 						<span id="skills_span">{{ Session::get('user')->skills }}</span>
-						<a class="edit_link" id="user_skills">	
+						<a class="edit_link" id="user_skills" style="display: block">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 					</div>
@@ -538,9 +538,7 @@
 		};
 		if ($('#skills_span').text() == "") {
 			$('#skills_input').css('display','block');
-			$('#user_skills').css('display','none');
 			$('#skills_btn').css('display','none');
-			
 		};
 
 
