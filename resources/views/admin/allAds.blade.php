@@ -22,7 +22,9 @@
 						<div class="job_container_push_right cf">
 							<div class="job_container_push_right_item">
 								<div class="job_list_filter_item_logo">
+								@if($ad->company->image)
 									<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
+								@endif
 								</div>
 								<input type="hidden" name="id" value="{{$ad->id}}">
 							</div>

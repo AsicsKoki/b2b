@@ -150,7 +150,9 @@
                             @foreach($companies as $company)
                             <li>
                                 <a href="{{ route('getCompanyProfile', ['cid' => $company->id]) }}">
+                                @if($company->image)
                                     <img src="{{ URL::to('/') . $company->image['path'] }}" alt="">
+                                @endif
                                 </a>
                             </li>
                             @endforeach
@@ -168,7 +170,9 @@
                                 <span class="home_top_jobs_grid_item_header cf">
                                         <span class="home_top_jobs_grid_item_logo">
                                             <a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" >
+                                            @if($ad->company->image)
                                                 <img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
+                                            @endif
                                             </a>
                                         </span>
 

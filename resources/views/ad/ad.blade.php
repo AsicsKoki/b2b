@@ -61,7 +61,9 @@
 			<small class="single_job_published_date" style="display: block;"><span class="bold">Published:</span> <span>{{ $ad->created_at }}</span></small>
 			<div class="single_job_main_logo">
 				<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}">
+				@if($ad->company->image)
 					<img src="{{ URL::to('/') . $ad->company->image->path }}" alt="">
+				@endif
 				</a>
 			</div>
 			<h3 class="single_job_sidebar_item_title company_name bold">Company:</h3>
