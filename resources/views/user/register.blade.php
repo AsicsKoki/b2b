@@ -57,14 +57,4 @@
 	</div>
 
 </main>
-
-<!-- Popup Check Email Display None -->
-<div class="pop_up_success_registration">
-	<div class="pop_up_success_registration_content">
-		<h3 class="bold">Welcome to Naposao.rs</h3>
-		<p>To continue, please check your email and confirm your registration by clicking on the link in the confirmation email.</p>
-
-		<button>Continue</button>
-	</div>
-</div>
 @endsection

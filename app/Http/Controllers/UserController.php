@@ -107,6 +107,7 @@ class UserController extends Controller {
         $user = new User(Input::all());
         $user->password = Hash::make(Input::get('password'));
         $user->save();
+        \Session::flash('msg', 'Registered!' );
         return redirect()->route('getHome');
     } else {
         return Redirect::back()->withErrors(['error', 'Email or password do not match!']);
