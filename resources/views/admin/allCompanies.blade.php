@@ -4,12 +4,13 @@
 	<h1 class="page_title main_page_title">List of companies</h1>
 
 	<main class="main_app_container">
-		<ul class="nav nav-tabs">
-			<li role="presentation"><a href="{{ route('getAdminAds') }}">Ads</a></li>
-			<li role="presentation"><a href="{{ route('getAdminCompanies') }}">Companies</a></li>
-			<li role="presentation"><a href="{{ route('getAdminUsers') }}">Users</a></li>
-			<li role="presentation"><a href="{{ route('getReports') }}">Reports</a></li>
-		</ul>
+	    <ul class="nav nav-tabs">
+	        <li role="presentation"><a href="{{ route('getAdminAds') }}">Ads</a></li>
+	        <li role="presentation"><a href="{{ route('getAdminCompanies') }}">Companies</a></li>
+	        <li role="presentation"><a href="{{ route('getAdminUsers') }}">Users</a></li>
+        	<li role="presentation"><a href="{{ route('getReports') }}">Reports - Ads</a></li>
+        	<li role="presentation"><a href="{{ route('getReportsCompanies') }}">Reports - Companies</a></li>
+	    </ul>
 		<ul class="list_of_companies">
 		@foreach($companies as $company)
 			<li class="list_of_companies_item cf">

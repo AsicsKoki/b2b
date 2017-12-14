@@ -97,7 +97,8 @@ Route::group(['middleware'=>'isadmin'],function (){
 	Route::get('/admin/ads', 'AdminController@getAdminAds')->name('getAdminAds');
 	Route::get('/admin/companies', 'AdminController@getAdminCompanies')->name('getAdminCompanies');
 	Route::get('/admin/users', 'AdminController@getAdminUsers')->name('getAdminUsers');
-	Route::get('/admin/reports', 'AdminController@getReports')->name('getReports');
+	Route::get('/admin/reports/ads', 'AdminController@getReports')->name('getReports');
+	Route::get('/admin/reports/companies', 'AdminController@getReportsCompanies')->name('getReportsCompanies');
 	Route::get('/admin/editCompany/{cid}', 'AdminController@getEditCompany')->name('getEditCompanyAdmin');
 	Route::get('/admin/blockCompany/{cid}', 'AdminController@blockCompany')->name('blockCompany');
 	Route::get('/admin/deleteCompany/{cid}', 'AdminController@deleteCompany')->name('deleteCompany');
@@ -109,7 +110,7 @@ Route::get('/users', 'UserController@getUsers')->name('getUsers');
 Route::post('/reportAd/{aid}', 'AdminController@reportAd')->name('reportAd');
 
 Route::get('/jobs', 'JobController@getJobs')->name('getJobs');
-Route::get('/job/{jid}/{cid}', 'JobController@getJob')->name('getSpecificJob');
+Route::get('/job/{jid}', 'JobController@getJob')->name('getSpecificJob');
 
 Route::post('/searchResults', 'UserController@getSearchResults')->name('getSearchResults');
 Route::get('/jobsByCategory/{catid}', 'JobController@getJobsByCategory')->name('getJobsByCategory');

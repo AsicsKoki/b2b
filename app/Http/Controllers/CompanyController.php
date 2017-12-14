@@ -129,7 +129,7 @@ class CompanyController extends Controller {
         $company->career = $request->career;
         $businessCard->number_of_employees = $request->number_of_employees;
 
-        
+        //implode da se regulise
         $company->sector = serialize($request->sectors);
 
         $company->save();

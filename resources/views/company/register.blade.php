@@ -102,12 +102,12 @@
 
 							<p class="form_title">Company website:*</p>
 							<div class="required_field">
-								<input name="company_website" type="text" required>
+								<input name="company_website" type="url" required>
 							</div>
 
 							<p class="form_title">Company phone:*</p>
 							<div class="required_field">
-								<input name="company_phone" type="text" required>
+								<input name="company_phone" type="number" required>
 							</div>
 
 							<p class="form_title">Address:*</p>
@@ -137,7 +137,7 @@
 
 							<p class="form_title">Business phone:*</p>
 							<div class="required_field">
-								<input name="business_phone" type="text" required>
+								<input name="business_phone" type="number" required>
 							</div>
 
 							<p class="form_title">Business email:*</p>
@@ -194,7 +194,7 @@
 								<input name="administrative_contact_position" type="text">
 
 								<p class="form_title">Business phone:</p>
-								<input name="administrative_contact_business_phone" type="text">
+								<input name="administrative_contact_business_phone" type="number">
 
 								<p class="form_title">Business email:</p>
 								<input name="administrative_contact_business_email" type="email" style="width: calc(100% - 30px)";>	
@@ -218,7 +218,7 @@
 							<input name="manager_position" type="text">
 
 							<p class="form_title">Business phone:</p>
-							<input name="manager_phone" type="text">
+							<input name="manager_phone" type="number">
 
 							<p class="form_title">Business email:</p>
 							<input name="manager_email" type="email" style="width: calc(100% - 30px)">

@@ -46,7 +46,7 @@
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Number of employees in Bulgaria:*</p>
 				<div class="required_field">
-					<input name="number_of_employees_bulgaria" type="text">		
+					<input name="number_of_employees_bulgaria" type="number">		
 				</div>
 			</div>
 
@@ -60,7 +60,7 @@
 			<div class="office_out_country_section_item office_out_country_no none">
 				<p class="form_title">Number of employees worldwide:*</p>
 				<div class="required_field">
-					<input name="number_of_employees_worldwide" type="text">		
+					<input name="number_of_employees_worldwide" type="number">		
 				</div>
 			</div>
 
@@ -74,7 +74,7 @@
 			<div class="office_out_country_section_item location_comp_reg">
 				<p class="form_title">Number of employees:*</p>
 				<div class="required_field">
-					<input name="number_of_employees" type="text" placeholder="">		
+					<input name="number_of_employees" type="number" placeholder="">		
 				</div>
 			</div>
 
@@ -83,19 +83,6 @@
 				<div class="required_field">
 					<input name="locations" type="text" placeholder="">		
 				</div>
-			</div>
-
-			<div class="office_out_country_section_item">
-				<p class="form_title">Benefits:</p>
-				<p style="margin-bottom: 15px;">The benefits offered by the company are of interest to the candidates. In case your company offers benefits, you can list them here (Sample benefits).</p>
-				<input name="benefits[1]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
-				<input name="benefits[2]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">	
-				<input name="benefits[3]" type="text" placeholder="Enter benefits" style="margin-bottom: 15px;">		
-
-				<button class="add_more" style="">
-					<i class="fa fa-plus-square" aria-hidden="true"></i>
-					<span>Add more benefits</span>
-				</button>
 			</div>
 
 			<div class="office_out_country_section_item">
@@ -111,7 +98,7 @@
 		<div class="office_out_country_section_item" style="text-align: center;">
 			<input type="hidden" name="id" value="{{$id}}">
 			{{ csrf_field() }}
-			<input type="submit" value="Upload" class="btn_submit">
+			<input type="submit" value="Save" class="btn_submit">
 			<button class="cancel_btn">Cancle</button>
 		</div>
 	</form>

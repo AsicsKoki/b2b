@@ -75,7 +75,7 @@
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Languages:</h3>
-			
+			<p><span>{{ $ad->foreign_languages }}</span></p>
 		</div>
 
 		<div class="single_job_sidebar_item">
@@ -107,6 +107,16 @@
 			@else
 			 
 			@endif
+		</div>
+
+		<div class="single_job_sidebar_item">
+			<h3 class="single_job_sidebar_item_title bold">External link:</h3>
+			<p><span><a href="{{ $ad->external_url }}">{{ $ad->external_url }}</a></span></p>
+		</div>
+
+		<div class="single_job_sidebar_item">
+			<h3 class="single_job_sidebar_item_title bold">Salary:</h3>
+			<p><span>From: {{$ad->salary_from}} To: {{$ad->salary_from}} {{$ad->currency}} - {{$ad->salary_type}}</span></p>
 		</div>
 	</div>
 		

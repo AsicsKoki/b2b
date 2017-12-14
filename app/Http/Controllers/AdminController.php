@@ -64,7 +64,16 @@ class AdminController extends Controller {
 
     public function getReports()
     {
-        return view('admin.reports');
+        $reports = Report::with('ad')->get();
+        // return $reports;
+        return view('admin.reports', ['reports' => $reports]);
+    }
+
+    public function getReportsCompanies()
+    {
+        $reports = Report::with('company')->get();
+        return $reports;
+        return view('admin.reports', ['reports' => $reports]);
     }
 
     public function reportAd($aid)

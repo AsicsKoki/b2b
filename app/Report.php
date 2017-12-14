@@ -14,5 +14,10 @@ class Report extends Model
     {
         return $this->belongsTo('App\Company');
     }
+
+    public function ad()
+    {
+        return $this->belongsTo('App\Ad');
+    }
     
 }

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1 class="page_title main_page_title">Reports - Ads</h1>
+	<h1 class="page_title main_page_title">Reports - Companies</h1>
 
 	<main class="main_app_container">
 	    <ul class="nav nav-tabs">
@@ -15,10 +15,10 @@
 			@foreach($reports as $report)
 				<li class="list_of_reports_item">
 					<a href="" class="list_of_reports_item_holder cf">
-						<span class="list_of_reports_name">{{ $report->ad->position }}</a></span>
+						<span class="list_of_reports_name">{{ $report->company->company_name }}</a></span>
 						<span class="list_of_reports_name"><h4>{{ $report->text }}</h4></span>
 						<span class="list_of_reports_date">{{ $report->created_at }}</span>
-						<span class="list_of_reports_name"><a href="{{ route('getSpecificJob', ['jid' => $report->ad->id]) }}">Details</a></span>
+						<span class="list_of_reports_name"><a href="{{ route('getCompanyProfile', ['cid' => $report->company->id]) }}">Details</a></span>
 					</a>
 				</li>
 			@endforeach
