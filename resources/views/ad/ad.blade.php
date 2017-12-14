@@ -75,7 +75,6 @@
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Languages:</h3>
-			
 		</div>
 
 		<div class="single_job_sidebar_item">
@@ -93,7 +92,7 @@
 
 		<div class="single_job_sidebar_item">
 			<h3 class="single_job_sidebar_item_title bold">Salary:</h3>
-			<p><span>{{ $ad->salary_type }}</span>, from <span>{{ $ad->salary_from }}{{ $ad->currency }}</span> to <span>{{ $ad->salary_from }}{{ $ad->currency }}</span></p>
+			<p><span>{{ $ad->salary_type }}</span>, from <span>{{ $ad->salary_from }}{{ $ad->currency }}</span> to <span>{{ $ad->salary_to }}{{ $ad->currency }}</span></p>
 		</div>
 
 		<div class="single_job_sidebar_item">

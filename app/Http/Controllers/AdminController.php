@@ -78,8 +78,43 @@ class AdminController extends Controller {
 
     public function adminEditAd($aid)
     {
-        return 123;
-        return view('admin.panel');
+        $ad = Ad::where('id', $aid)->with('company.image')->with('categories')->first();
+        return view('admin.editAd',['ad' => $ad]);
+    }
+
+    public function postAdminEditAd(Request $request)
+    {
+        $categories = Input::get('categories');
+
+        $ad=Ad::where('id', $request->aid)->with('company.image')->with('categories')->first();
+        $ad->position=$request->position;
+        $ad->description=$request->description;
+        $ad->job_type=$request->job_type;
+        $ad->career_level=$request->career_level;
+        $ad->students=$request->students;
+        $ad->low_experience=$request->low_experience;
+        $ad->country=$request->country;
+        $ad->city=$request->city;
+        $ad->salary_type=$request->salary_type;
+        $ad->salary_from=$request->salary_from;
+        $ad->salary_to=$request->salary_to;
+        $ad->currency=$request->currency;
+        // languages?
+        $ad->external_url=$request->external_url;
+
+
+        //fale kategorije
+        if($categories)
+        foreach ($categories as $category) {
+        \DB::table('ad_categories')->insert([
+            'ad_id'        => $ad->id,
+            'category_id'  => $category
+        ]);
+        }
+
+        $ad->save();
+
+        return redirect()->back();
     }
 
     public function deleteAd($aid)
