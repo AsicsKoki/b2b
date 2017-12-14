@@ -83,6 +83,9 @@ class CompanyController extends Controller {
         'business_phone'                           => 'required',
         'business_email'                           => 'required',
     ]);
+    if(User::where('username', '=', Input::get('username'))->count() > 0) {
+        return Redirect::back()->withErrors(['error', 'User with this username already exists!']);
+    }
     $company = new Company(Input::all());
     $company->password = Hash::make(Input::get('password'));
     $company->save();
