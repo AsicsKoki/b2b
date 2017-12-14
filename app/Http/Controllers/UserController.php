@@ -103,6 +103,9 @@ class UserController extends Controller {
         'password'          => 'required',
         'confirm_password'  => 'required',
     ]);
+    if(User::where('email', '=', Input::get('email'))->count() > 0) {
+        return Redirect::back()->withErrors(['error', 'User with this email already exists in the database!']);
+    }
     if (!strcmp(Input::get('password'), Input::get('confirm_password')) &&  !strcmp(Input::get('email'), Input::get('confirm_email'))) {
         $user = new User(Input::all());
         $user->password = Hash::make(Input::get('password'));
