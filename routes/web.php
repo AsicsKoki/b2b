@@ -75,6 +75,7 @@ Route::group(['middleware'=>'usersession'],function (){
 	Route::post('/updateAdStatus/{aid}', 'AdminController@updateAdStatus')->name('updateAdStatus');
 	Route::post('/deleteAd/{aid}', 'AdminController@deleteAd')->name('deleteAd');
 	Route::get('/admin/editAd/{aid}', 'AdminController@adminEditAd')->name('adminEditAd');
+	Route::post('/admin/editAd/', 'AdminController@postAdminEditAd')->name('postAdminEditAd');
 
 
 	Route::post('/updatePopup', 'UserController@updatePopup')->name('updatePopup');
