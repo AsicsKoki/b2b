@@ -81,7 +81,55 @@
                         <li>
                             <a href="">Invoices</a>
                         </li>
-                        <li class="pull-right">
+                        <li>
+                            <a href="">Credits: 120</a>
+                        </li>
+                    @endif
+                    </ul>
+                </nav>
+                
+                <a href="#" class="mob_menu_icon">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+
+                <nav class="main_nav_mob">
+                    <ul class="cf">
+                     @if(Session::has('user'))
+                        <li>
+                            <a href="{{ route('getUserProfile') }}">Profile</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getUserFavorites') }}">Favorites</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getHistory') }}">Application History</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getMessages') }}">Messages</a>
+                        </li>
+                        @if(Session::get('user')->is_admin === 1)
+                            <li>
+                                <a href="{{ route('getAdminPanel') }}">Admin Panel</a>
+                            </li>
+                        @endif
+                    @endif
+                    @if(Auth::check())
+                        <li>
+                            <a href="{{ route('addNewJob') }}">New Job</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getCompanyProfile', ['cid' => Auth::user()->id]) }}">Profile</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getApplications') }}">Applications</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('getAllJobs') }}">My Ads</a>
+                        </li>
+                        <li>
+                            <a href="">Invoices</a>
+                        </li>
+                        <li>
                             <a href="">Credits: 120</a>
                         </li>
                     @endif
