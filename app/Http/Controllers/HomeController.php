@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company as Company;
 use App\Ad as Ad;
+use Session;
+use Illuminate\Mail\Mailer;
+use Mail;
+use App\Mail\Template as Template;
 
 class HomeController extends Controller
 {
@@ -33,5 +37,12 @@ class HomeController extends Controller
     public function get404()
     {
         return view('404');
+    }
+
+    public function sendMail()
+    {
+        $user = Session::get('user');
+        Mail::to('cpt.koki@gmail.com')->send(new Template($user,'Welcome to naposao.rs payment gateway!'));
+        return redirect()->back();
     }
 }

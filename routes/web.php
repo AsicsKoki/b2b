@@ -155,6 +155,9 @@ Route::post('/sendMessage', 'JobController@postSendMessage')->name('postSendMess
 
 Route::post('/updateMessages', 'JobController@getRefresh')->name('getRefresh');
 
+Route::get('/sendMail', 'HomeController@sendMail')->name('sendMail');
+
+
 // middleware for showing errors on companyRegister-Step-3
 // Route::group(['middleware'=>'web'],function (){
 
