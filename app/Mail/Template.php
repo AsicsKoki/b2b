@@ -32,6 +32,6 @@ class Template extends Mailable
      */
     public function build()
     {
-        return $this->from('nemanjasredojevicneca@gmail.com')->subject($this->subject)->view('emails.template');
+        return $this->from('nemanjasredojevicneca@gmail.com')->subject($this->subject)->view('emails.confirmation');
     }
 }

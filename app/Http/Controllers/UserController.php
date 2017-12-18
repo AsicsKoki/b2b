@@ -95,6 +95,28 @@ class UserController extends Controller {
         return view('user.register');
     }
 
+    public function RandomString()
+       {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for($i = 0; $i < $charactersLength ; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    public function confirmUser($token)
+    {
+       $user = User::where('token', $token)->first();
+       if ($user) {
+            $user->active = 1;
+            $user->save();
+            return redirect::route('getHome')->with('success','Account has been validated! Please login in.');
+       }
+       return view('user.register')->withErrors(['error', 'Tokens do not match!']);
+   }
+
     public function postUserRegister(Request $request)
     {
     $request->validate([
@@ -112,8 +134,11 @@ class UserController extends Controller {
     if (!strcmp(Input::get('password'), Input::get('confirm_password')) &&  !strcmp(Input::get('email'), Input::get('confirm_email'))) {
         $user = new User(Input::all());
         $user->password = Hash::make(Input::get('password'));
+        $user->active = 0;
+        $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
-        \Session::flash('msg', 'Registered!' );
+        Mail::to($user->email)->send(new Template($user,'Welcome to naposao.rs,  $user->first_name $user->last_name. Please verify your account!'));
+        \Session::flash('msg', 'Registered! Please check your email!' );
         return redirect()->route('getHome');
     } else {
         return Redirect::back()->withErrors(['error', 'Email or password do not match!']);
