@@ -131,6 +131,44 @@ h1.page_title.main_page_title {
     z-index: 100;
 }
 
+.form_reset_password {
+    max-width: 500px;
+    margin: 40px auto;
+    margin-top: 0;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.form_reset_password input {
+    display: block;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.form_reset_password input[type="password"], .form_reset_password input[type="email"] {
+    line-height: 2;
+    text-indent: 5px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+}
+
+.form_reset_password input[type="submit"] {
+    display: block;
+    width: 90%;
+    margin: auto;
+    font-size: 20px;
+    background: #77c64e;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    line-height: 40px;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
 .main_header_top {
     position: relative;
     padding: 10px 30px;
