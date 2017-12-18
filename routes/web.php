@@ -22,10 +22,6 @@ Route::get('/userLogin', 'UserController@getUserLogin')->name('getUserLogin');
 Route::post('/userLogin', 'UserController@postUserLogin')->name('postUserLogin');
 Route::get('/userRegister', 'UserController@getUserRegister')->name('getUserRegister');
 Route::post('/userRegister', 'UserController@postUserRegister')->name('postUserRegister');
-Route::get('/confirmUser/{token}', 'UserController@confirmUser')->name('confirmUser');
-Route::get('/resetPassword/{token}', 'UserController@getResetUserPassword')->name('getResetUserPassword');
-Route::post('/resetPassword', 'UserController@postResetUserPassword')->name('postResetUserPassword');
-Route::get('/getResetPasswordEmail', 'UserController@getResetPasswordEmail')->name('getResetPasswordEmail');
 
 // Registration routes...
 Route::get('/register', 'Auth\AuthController@getRegister');
@@ -42,6 +38,10 @@ Route::post('/companyRegister-Step-3', 'CompanyController@postRegisterStep3')->n
 
 
 });
+Route::get('/confirmUser/{token}', 'UserController@confirmUser')->name('confirmUser');
+Route::get('/resetPassword/{token}', 'UserController@getResetUserPassword')->name('getResetUserPassword');
+Route::get('/resetPassword', 'UserController@getResetPasswordEmail')->name('getResetPasswordEmail');
+Route::get('/resetPasswordForm', 'UserController@getResetPassword')->name('getResetPassword');
 
 Route::get('/logout', 'UserController@logout')->name('logout');
 
