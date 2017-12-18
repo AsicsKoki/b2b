@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Hash as Hash;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Redirect;
 use Session;
+use Mail as Mail;
 
 class UserController extends Controller {
 
@@ -147,7 +148,7 @@ class UserController extends Controller {
         $user->active = 0;
         $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
-        Mail::to($user->email)->send(new Template($user,'Welcome to naposao.rs,  $user->first_name $user->last_name. Please verify your account!'));
+        Mail::to($user->email)->send(new Confirm($user,'Welcome to naposao.rs,  $user->first_name $user->last_name. Please verify your account!'));
         \Session::flash('msg', 'Registered! Please check your email!' );
         return redirect()->route('getHome');
     } else {
