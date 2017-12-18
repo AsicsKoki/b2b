@@ -95,6 +95,16 @@ class UserController extends Controller {
         return view('user.register');
     }
 
+    public function getResetPasswordEmail()
+    {
+        return view('user.resetPasswordEmailForm');
+    }
+
+    public function getResetPassword()
+    {
+        return view('user.resetPasswordForm');
+    }
+
     public function RandomString()
        {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
