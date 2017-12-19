@@ -134,6 +134,7 @@ Route::post('/updateCompanyLogo', 'CompanyController@updateLogo')->name('updateC
 Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCompany');
 Route::post('/postEditCompany', 'CompanyController@postEditCompany')->name('postEditCompany');
 Route::get('/myAds', 'JobController@getAllJobs')->name('getAllJobs');
+Route::get('/payment', 'CompanyController@getPayment')->name('getPayment');
 
 Route::get('/addNewJob', 'JobController@getNewJob')->name('addNewJob');
 Route::get('/addNewJobStandard', 'JobController@getNewJobStandard')->name('addNewJobStandard');
@@ -160,6 +161,8 @@ Route::post('/sendMessage', 'JobController@postSendMessage')->name('postSendMess
 Route::post('/updateMessages', 'JobController@getRefresh')->name('getRefresh');
 
 Route::get('/sendMail', 'HomeController@sendMail')->name('sendMail');
+
+route::post('/submitPayment', 'HomeController@submitPayment')->name('submitPayment')->middleware('auth');
 
 
 // middleware for showing errors on companyRegister-Step-3

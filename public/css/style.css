@@ -17,16 +17,14 @@ body {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus
-input:-webkit-autofill, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
 textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  background: #fff !important;
+    background: #fff !important;
 }
 
 .cf:before,
@@ -147,7 +145,8 @@ h1.page_title.main_page_title {
     margin: 20px auto;
 }
 
-.form_reset_password input[type="password"], .form_reset_password input[type="email"] {
+.form_reset_password input[type="password"],
+.form_reset_password input[type="email"] {
     line-height: 2;
     text-indent: 5px;
     border-radius: 3px;
@@ -358,11 +357,13 @@ span.sub_menu_notification_date {
     float: left;
 }
 
-.main_header_bottom_left a, .main_header_bottom_right a {
+.main_header_bottom_left a,
+.main_header_bottom_right a {
     color: #444;
 }
 
-.main_header_bottom_left a span, .main_header_bottom_right a span {
+.main_header_bottom_left a span,
+.main_header_bottom_right a span {
     margin-left: 5px;
     color: #2be222;
 }
@@ -926,7 +927,7 @@ label.error {
     margin-right: 20px;
 }
 
-.g-recaptcha  {
+.g-recaptcha {
     width: 305px;
     margin: auto;
 }
@@ -1561,9 +1562,7 @@ p.company_profile_edit_section_view_info_desc {
     padding: 10px;
 }
 
-.company_profile_view_side_info p {
-    
-}
+.company_profile_view_side_info p {}
 
 .company_profile_logo_holder {
     width: 200px;
@@ -3096,7 +3095,8 @@ a.list_of_companies_details.list_of_companies_item_btn {
     box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
 }
 
-.reports_popup_content .popup_close, .popup.popUp .popup_close {
+.reports_popup_content .popup_close,
+.popup.popUp .popup_close {
     position: absolute;
     line-height: 1;
     top: 5px;
@@ -3211,7 +3211,8 @@ button.pop_up_registration_success_btn {
     margin: 10px auto;
 }
 
-.main_nav_mob, .mob_menu_icon {
+.main_nav_mob,
+.mob_menu_icon {
     display: none;
 }
 
@@ -3250,6 +3251,49 @@ a.mob_menu_icon {
     top: 25px;
 }
 
+
+/* payment blade styles */
+
+.money_slider_container .col-sm-12 {
+    margin: 10px;
+}
+
+.money-slider {
+    margin: 10px;
+}
+
+.number-1,
+.number-2 {
+    font-size: 20px;
+    color: green;
+    padding: 10px;
+}
+
+.ui-slider .ui-slider-handle {
+    width: 2em;
+    left: -.6em;
+    text-decoration: none;
+    text-align: center;
+    background: green;
+}
+
+.h4:nth-of-type(2) {
+    margin-top: -30px;
+}
+
+#bonus {
+    color: green;
+}
+
+.payment_method {
+    padding: 5px;
+}
+
+.payment_method:hover {
+    transform: scale(1.1);
+    transform-origin: center left;
+}
+
 @media all and (max-width: 950px) {
     .main_nav {
         display: none;
@@ -3257,9 +3301,7 @@ a.mob_menu_icon {
     .main_nav_mob {
         display: block;
     }
-
     .mob_menu_icon {
         display: block;
     }
-
 }
