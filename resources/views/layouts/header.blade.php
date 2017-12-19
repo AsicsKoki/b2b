@@ -82,7 +82,7 @@
                             <a href="">Invoices</a>
                         </li>
                         <li>
-                            <a href="">Credits: 120</a>
+                            <a href="{{ route('getPayment') }}">Credits: 120</a>
                         </li>
                     @endif
                     </ul>

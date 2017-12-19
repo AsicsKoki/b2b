@@ -269,4 +269,55 @@ function popupOpenClose(popup) {
         }
         $(popup).hide();
     });
+
 };
+/* payment blade sliders */
+$(function() {
+    $(".money-slider").slider({
+        range: "min",
+        animate: "fast",
+        value: 0,
+        min: 0,
+        max: 10000,
+        step: 1,
+        slide: function(event, ui) {
+            $(".number-1").html(ui.value + ' RSD');
+            $('#total_amount_btn').html(ui.value + ' RSD');
+            if (ui.value > 100 && ui.value < 500) {
+                $(".number-2").html(ui.value / 10 + ' RSD');
+                $('#bonus').text('10%');
+                $(".money-slider").slider("option", "step", 5);
+            } else if (ui.value > 200 && ui.value < 500) {
+                $(".slider-1").slider("option", "step", 10);
+            } else if (ui.value > 500 && ui.value < 1000) {
+                $(".number-2").html(Math.round(ui.value / 6.666) + ' RSD');
+                $('#bonus').text('15%');
+                $(".money-slider").slider("option", "step", 50);
+            } else if (ui.value > 1000 && ui.value < 2000) {
+                $(".number-2").html(Math.round(ui.value / 5) + ' RSD');
+                $('#bonus').text('20%');
+                $(".money-slider").slider("option", "step", 50);
+            } else if (ui.value > 2000 && ui.value < 3000) {
+                $(".number-2").html(Math.round(ui.value / 4) + ' RSD');
+                $('#bonus').text('25%');
+                $(".money-slider").slider("option", "step", 100);
+            } else if (ui.value > 3000 && ui.value < 4000) {
+                $(".number-2").html(Math.round(ui.value / 100 * 30) + ' RSD');
+                $('#bonus').text('30%');
+                $(".money-slider").slider("option", "step", 100);
+            } else if (ui.value > 4000 && ui.value < 5000) {
+                $(".number-2").html(Math.round(ui.value / 100 * 40) + ' RSD');
+                $('#bonus').text('40%');
+                $(".money-slider").slider("option", "step", 100);
+            } else if (ui.value > 5000 && ui.value <= 10000) {
+                $(".number-2").html(Math.round(ui.value / 2) + ' RSD');
+                $('#bonus').text('50%');
+                $(".money-slider").slider("option", "step", 100);
+            } else {
+                $(".number-2").html('0');
+                $('#bonus').text('0%');
+                $(".money-slider").slider("option", "step", 1);
+            }
+        }
+    });
+});
