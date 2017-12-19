@@ -52,7 +52,7 @@ class HomeController extends Controller
         // Get the token from the JS script
         $token = Input::get('stripeToken');
         // user info
-        $amount = Input::get('hidden_donation');
+        $amount = Input::get('hidden_ammount');
         $name = Input::get('name');
         $lastName = Input::get('lastName');
         $email = Input::get('email');
@@ -87,7 +87,7 @@ class HomeController extends Controller
             // $user->invoices()->attach($invoice);
             // $user->save();
             
-            Mail::to($user->email)->send(new EmailConfirmation($user,"Thank you for your donation, $user->first_name $user->last_name!")); 
+           // Mail::to($user->email)->send(new EmailConfirmation($user,"Thank you for your donation, $user->first_name $user->last_name!")); 
 
             return $charge;
            // return redirect::route('subscribe');

@@ -161,7 +161,7 @@ Route::post('/updateMessages', 'JobController@getRefresh')->name('getRefresh');
 
 Route::get('/sendMail', 'HomeController@sendMail')->name('sendMail');
 
-route::post('/submitPayment', 'HomeController@submitPayment')->name('submitPayment')->middleware('auth');
+route::post('/submitPayment', 'HomeController@submitPayment')->name('submitPayment');
 
 
 // middleware for showing errors on companyRegister-Step-3
