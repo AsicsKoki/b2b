@@ -102,6 +102,13 @@ class UserController extends Controller {
         return view('user.resetPasswordEmailForm');
     }
 
+    public function sendResetPasswordEmail()
+    {
+        Mail::to($user->email)->send(new Confirm($user,'Welcome to naposao.rs,  $user->first_name $user->last_name. Please verify your account!'));
+        \Session::flash('msg', 'Registered! Please check your email!' );
+        return redirect()->route('getHome')->with('message' => 'An email has been sent to your account, please follow instructions to reset your password');
+    }
+
     public function getResetPassword()
     {
         return view('user.resetPasswordForm');
@@ -151,7 +158,7 @@ class UserController extends Controller {
         $user->save();
         Mail::to($user->email)->send(new Confirm($user,'Welcome to naposao.rs,  $user->first_name $user->last_name. Please verify your account!'));
         \Session::flash('msg', 'Registered! Please check your email!' );
-        return redirect()->route('getHome');
+        return redirect()->route('getHome')->with('message', 'Email has been sent to your account, click the link in the email to confirm your account.');
     } else {
         return Redirect::back()->with('error', 'Email or password do not match!');
         }

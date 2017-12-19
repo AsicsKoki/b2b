@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+@if(session('message'))
+    <h4 style="text-align: center; margin-bottom: 15px;color: #ff5c5c;">{{ session('message') }}</h4>
+@endif
 <main class="main_app_container home_page">
     <div class="home_search_job_employers_section cf">
 
