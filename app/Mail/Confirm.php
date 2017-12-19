@@ -11,14 +11,18 @@ class Confirm extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $subject = '';
+    public $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    
+    public function __construct(User $user,$subject)
     {
-        //
+        $this->user = $user;
+        $this->subject = $subject;
     }
 
     /**
@@ -28,6 +32,6 @@ class Confirm extends Mailable
      */
     public function build()
     {
-        return $this->view('view.confirm');
+        return $this->from('nemanjasredojevicneca@gmail.com')->subject($this->subject)->view('emails.confirmation');
     }
 }

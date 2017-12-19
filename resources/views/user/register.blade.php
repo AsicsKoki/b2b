@@ -3,10 +3,10 @@
 <h1 class="page_title main_page_title">User Registration</h1>
 
 <main class="main_app_container">
-	@if($errors->any())
-		<h4>{{$errors->error}}</h4>
-	@endif
 	<div class="login_register_container">
+		@if(session('error'))
+			<h4>{{ session('error') }}</h4>
+		@endif
 		<form action="{{ route('postUserRegister') }}" method="POST" class="login_reg_form">
 			<div class="login_reg_form_item">
 				<p class="form_title">First Name:</p>

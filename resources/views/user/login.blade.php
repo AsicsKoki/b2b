@@ -22,7 +22,7 @@
 		</div>
 		
 		<div class="forgot_pass_link">
-			<a href="" class="">Forgot your password?</a> 	
+			<a href="{{ route('getResetPasswordEmail') }}" class="">Forgot your password?</a> 	
 		</div>
 		
 		<a href=" {{ route('getUserRegister') }} " class="login_reg_form_change_option">Create account</a>

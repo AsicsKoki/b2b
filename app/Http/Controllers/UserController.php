@@ -18,6 +18,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use Mail as Mail;
+use App\Mail\Confirm as Confirm;
 
 class UserController extends Controller {
 
@@ -69,13 +70,13 @@ class UserController extends Controller {
         $user = User::where('email', $email)->first();
         
         if ($user->active === 0) {
-            return redirect()->back()->withErrors(['error', 'Please confirm your account!']);
+            return redirect()->back()->with('error', 'Please confirm your account!');
         }
         if ($user &&  Hash::check(Input::get('password'), $user->password)) {
             Session::put('user', $user);
             return redirect()->route('getHome');
         }
-        return redirect()->back()->withErrors(['error', 'Wrong email or password!']);
+        return redirect()->back()->with('error', 'Wrong email or password!');
     }
 
     public function postAdminLogin()
@@ -140,7 +141,7 @@ class UserController extends Controller {
         'confirm_password'  => 'required',
     ]);
     if(User::where('email', '=', Input::get('email'))->count() > 0) {
-        return Redirect::back()->withErrors(['error', 'User with this email already exists!']);
+        return Redirect::back()->with('error', 'User with this email already exists!');
     }
     if (!strcmp(Input::get('password'), Input::get('confirm_password')) &&  !strcmp(Input::get('email'), Input::get('confirm_email'))) {
         $user = new User(Input::all());
@@ -152,7 +153,7 @@ class UserController extends Controller {
         \Session::flash('msg', 'Registered! Please check your email!' );
         return redirect()->route('getHome');
     } else {
-        return Redirect::back()->withErrors(['error', 'Email or password do not match!']);
+        return Redirect::back()->with('error', 'Email or password do not match!');
         }
     }
 
