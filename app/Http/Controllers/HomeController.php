@@ -9,6 +9,7 @@ use Session;
 use Illuminate\Mail\Mailer;
 use Mail;
 use App\Mail\Template as Template;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -65,7 +66,7 @@ class HomeController extends Controller
 
         $charge = \Stripe\Charge::create(array(
             "amount" => $amount*100,
-            "currency" => "eur",
+            "currency" => "RSD",
             "source" => $token, // obtained with Stripe.js
             'metadata' => array("name" => $name, "last_name" => $lastName)
         ));
