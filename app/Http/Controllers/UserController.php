@@ -113,9 +113,9 @@ class UserController extends Controller {
         return redirect()->route('getHome')->with('message', 'An email has been sent to your account, please follow instructions to reset your password');
     }
 
-    public function getResetPassword()
+    public function getResetPassword($token)
     {
-        return view('user.resetPasswordForm');
+        return view('user.resetPasswordForm', ['token', $token]);
     }
 
     public function setNewPassword($token)
