@@ -18,7 +18,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use Mail as Mail;
-use App\Mail\Confirm as Confirm;
+use App\Mail\Confirm;
+use App\Mail\ResetPassword;
 
 class UserController extends Controller {
 
@@ -104,17 +105,26 @@ class UserController extends Controller {
 
     public function sendResetPasswordEmail()
     {
-        $user = User::where('email', Input::get('email'));
+        $user = User::where('email', Input::get('email'))->first();
         $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
-        Mail::to($user->email)->send(new Confirm($user,'Welcome to naposao.rs,  $user->first_name $user->last_name. Please verify your account!'));
+        Mail::to($user->email)->send(new ResetPassword($user,'Welcome to naposao.rs,  $user->first_name $user->last_name. Please verify your account!'));
         \Session::flash('msg', 'Registered! Please check your email!' );
-        return redirect()->route('getHome')->with('message' => 'An email has been sent to your account, please follow instructions to reset your password');
+        return redirect()->route('getHome')->with('message', 'An email has been sent to your account, please follow instructions to reset your password');
     }
 
     public function getResetPassword()
     {
         return view('user.resetPasswordForm');
+    }
+
+    public function setNewPassword($token)
+    {
+        $user = User::where('token', $token)->first();
+        if (!strcmp(Input::get('password'), Input::get('confirm_password')){
+            $user->password = Hash::make(Input::get('password'));
+        }
+        return redirect()->route('getHome')->with('message', 'An email has been sent to your account, please follow instructions to reset your password');
     }
 
     public function RandomString()
