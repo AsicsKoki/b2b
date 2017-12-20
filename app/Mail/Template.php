@@ -19,7 +19,7 @@ class Template extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user,$subject)
+    public function __construct($user, $subject)
     {
         $this->user = $user;
         $this->subject = $subject;

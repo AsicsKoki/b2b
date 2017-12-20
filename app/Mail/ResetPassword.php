@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\User as User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -16,9 +17,10 @@ class ResetPassword extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user, $subject)
     {
-        //
+        $this->user = $user;
+        $this->subject = $subject;
     }
 
     /**
@@ -28,6 +30,6 @@ class ResetPassword extends Mailable
      */
     public function build()
     {
-        return $this->view('view.resetPassword');
+        return $this->from('nemanjasredojevicneca@gmail.com')->subject($this->subject)->view('emails.resetPassword', ['user' => $this->user]);
     }
 }
