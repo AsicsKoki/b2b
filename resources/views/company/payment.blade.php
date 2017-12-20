@@ -42,7 +42,7 @@
     
 <div class="container money_slider_container">
   <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6 center-block text-center">
 <h3>Prepay and get discounts:</h3>
   <div class="row">
     <div class="col-sm-12">
@@ -63,7 +63,7 @@
     </div>
   </div>
   </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 center-block text-center">
       <h3>Payment method:</h3>
       <div class="radio payment_method">
        <label for="stripe_payment"><input type="radio" name="stripe_payment" id="stripe_payment">Stripe</label>
@@ -137,7 +137,7 @@
                             <div id="card-errors"></div>
                     </div>
                 <div class="col-md-12">
-                    <label class="text-center">Total amount to pay: <span class="sub_amount"></span></label>
+                    <label class="text-center">Total amount to pay: <span class="sub_amount">0 RSD</span></label>
                     <input type="hidden" value="" name="hidden_ammount" id="hidden_ammount">
                     <input type="submit" class="btn btn-primary center-block"></input>
                 </div>
@@ -147,23 +147,7 @@
             </form>
 </div>
 </main>
-
-
 <script>
-      $(document).ready(function() {
-          $('#payment_btn').click(function() {
-              var amm =  $('#ammount').val();
-              $('#payment-form').css('display', 'block');
-              $('.sub_amount').text(amm + 'RSD');
-              $('#hidden_ammount').val(amm);
-          });
-      
-      });
 </script>
  <script src="{{ asset('js/charge.js') }}"></script>
-
-
-
-
-
 @endsection

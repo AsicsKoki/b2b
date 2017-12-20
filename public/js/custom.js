@@ -241,6 +241,10 @@ $(document).ready(function() {
     $("[data-js=open]").on("click", function() {
         popupOpenClose($(".popup"));
     });
+
+    $('#payment_btn').click(function() {
+        $('#payment-form').css('display', 'block');
+    });
 });
 
 function popupOpenClose(popup) {
@@ -271,63 +275,63 @@ function popupOpenClose(popup) {
     });
 
 };
+
+
 /* payment blade sliders */
+
 $(function() {
+    $('#custom_ammount_btn').click(function() {
+        var cena = $('#custom_ammount').val();
+        $('.number-1').html(cena + ' RSD');
+    });
     $(".money-slider").slider({
         range: "min",
         animate: "fast",
         value: 0,
         min: 0,
         max: 10000,
-        step: 1,
+        step: 5,
         slide: function(event, ui) {
-            $(".number-1").html(ui.value + ' RSD');
-            $('#total_amount_btn').html(ui.value-$('#bonus_amm').val() + ' RSD');
-            //$('#ammount').val(ui.value-parseInt($('#bonus_amm').val()));
-            $('#ammount').val(ui.value - $('#bonus_amm').val()); // nesto promasuje racunanje
-            if (ui.value > 100 && ui.value < 500) {
+            if (ui.value >= 100 && ui.value < 500) {
                 $(".number-2").html(ui.value / 10 + ' RSD');
                 $('#bonus').text('10%');
-                $('#bonus_amm').val(Math.round(ui.value/10));
                 $(".money-slider").slider("option", "step", 5);
-            } else if (ui.value > 200 && ui.value < 500) {
-                $(".slider-1").slider("option", "step", 10);
-            } else if (ui.value > 500 && ui.value < 1000) {
-                $(".number-2").html(Math.round(ui.value / 6.666) + ' RSD');
+            } else if (ui.value >= 500 && ui.value < 1000) {
+                $(".number-2").html(ui.value / 100 * 15 + ' RSD');
                 $('#bonus').text('15%');
-                $('#bonus_amm').val(Math.round(ui.value / 6.666));
                 $(".money-slider").slider("option", "step", 50);
-            } else if (ui.value > 1000 && ui.value < 2000) {
-                $(".number-2").html(Math.round(ui.value / 5) + ' RSD');
+            } else if (ui.value >= 1000 && ui.value < 2000) {
+                $(".number-2").html(ui.value / 5 + ' RSD');
                 $('#bonus').text('20%');
-                $('#bonus_amm').val(Math.round(ui.value / 5));
                 $(".money-slider").slider("option", "step", 50);
-            } else if (ui.value > 2000 && ui.value < 3000) {
-                $(".number-2").html(Math.round(ui.value / 4) + ' RSD');
+            } else if (ui.value >= 2000 && ui.value < 3000) {
+                $(".number-2").html(ui.value / 4 + ' RSD');
                 $('#bonus').text('25%');
-                $('#bonus_amm').val(Math.round(ui.value / 4));
                 $(".money-slider").slider("option", "step", 100);
-            } else if (ui.value > 3000 && ui.value < 4000) {
-                $(".number-2").html(Math.round(ui.value / 100 * 30) + ' RSD');
+            } else if (ui.value >= 3000 && ui.value < 4000) {
+                $(".number-2").html(ui.value / 100 * 30 + ' RSD');
                 $('#bonus').text('30%');
-                $('#bonus_amm').val(Math.round(ui.value / 100 * 30));
                 $(".money-slider").slider("option", "step", 100);
-            } else if (ui.value > 4000 && ui.value < 5000) {
-                $(".number-2").html(Math.round(ui.value / 100 * 40) + ' RSD');
+            } else if (ui.value >= 4000 && ui.value < 5000) {
+                $(".number-2").html(ui.value / 100 * 40 + ' RSD');
                 $('#bonus').text('40%');
-                $('#bonus_amm').val(Math.round(ui.value / 100 * 40));
                 $(".money-slider").slider("option", "step", 100);
-            } else if (ui.value > 5000 && ui.value <= 10000) {
-                $(".number-2").html(Math.round(ui.value / 2) + ' RSD');
+            } else if (ui.value >= 5000 && ui.value <= 10000) {
+                $(".number-2").html(ui.value / 2 + ' RSD');
                 $('#bonus').text('50%');
-                $('#bonus_amm').val(Math.round(ui.value / 2));
                 $(".money-slider").slider("option", "step", 100);
             } else {
                 $(".number-2").html('0');
                 $('#bonus').text('0%');
-                $('#bonus_amm').val('0');
                 $(".money-slider").slider("option", "step", 1);
             }
+            var bonus = $('.number-2').text().replace(' RSD', '');
+            $(".number-1").html(ui.value + ' RSD');
+            var cenaUValuti = ui.value - bonus + ' RSD';
+            var cena = ui.value - bonus;
+            $('#total_amount_btn').html(cenaUValuti);
+            $('.sub_amount').html(cenaUValuti);
+            $('#hidden_ammount').val(cena);
         }
     });
 });
