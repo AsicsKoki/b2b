@@ -115,16 +115,17 @@ class UserController extends Controller {
 
     public function getResetPassword($token)
     {
-        return view('user.resetPasswordForm', ['token', $token]);
+        return view('user.resetPasswordForm', ['token' => $token]);
     }
 
     public function setNewPassword($token)
     {
         $user = User::where('token', $token)->first();
-        if (!strcmp(Input::get('password'), Input::get('confirm_password')){
+        if (!strcmp(Input::get('password'), Input::get('repeat_password'))){
             $user->password = Hash::make(Input::get('password'));
+            $user->save();
         }
-        return redirect()->route('getHome')->with('message', 'An email has been sent to your account, please follow instructions to reset your password');
+        return redirect()->route('getHome')->with('message', 'Your password has been changed. Please log in.');
     }
 
     public function RandomString()

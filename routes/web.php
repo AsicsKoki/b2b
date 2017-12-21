@@ -41,7 +41,7 @@ Route::post('/companyRegister-Step-3', 'CompanyController@postRegisterStep3')->n
 Route::get('/resetPassword', 'UserController@getResetPasswordEmail')->name('getResetPasswordEmail');
 Route::post('/resetPasswordEmail', 'UserController@sendResetPasswordEmail')->name('sendResetPasswordEmail');
 Route::get('/resetPassword/{token}', 'UserController@getResetPassword')->name('getResetPassword');
-Route::post('/setNewPassword', 'UserController@setNewPassword')->name('setNewPassword');
+Route::post('/setNewPassword/{token}', 'UserController@setNewPassword')->name('setNewPassword');
 Route::get('/confirmUser/{token}', 'UserController@confirmUser')->name('confirmUser');
 
 Route::get('/logout', 'UserController@logout')->name('logout');

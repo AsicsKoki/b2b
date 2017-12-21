@@ -19,7 +19,7 @@ class Confirm extends Mailable
      * @return void
      */
     
-    public function __construct(User $user,$subject)
+    public function __construct($user,$subject)
     {
         $this->user = $user;
         $this->subject = $subject;
@@ -32,6 +32,6 @@ class Confirm extends Mailable
      */
     public function build()
     {
-        return $this->from('nemanjasredojevicneca@gmail.com')->subject($this->subject)->view('emails.confirmation');
+        return $this->from('nemanjasredojevicneca@gmail.com')->subject($this->subject)->view('emails.confirm', ['user' => $this->user]);
     }
 }

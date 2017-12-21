@@ -42,7 +42,7 @@
                                         <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #000000; font-size: 20px; line-height: 28px;">
                                             {{ $user->first_name }} {{ $user->last_name }} , you have requested a password reset.<br><br>
                                             Please follow this link to reset your password:
-                                            {{ route('getResetUserPassword', ['token' => $user->token]) }}
+                                        {{ route('getResetPassword', ['token' => $user->token]) }}
                                     </span>
                                     </font>
 
@@ -55,7 +55,7 @@
                                             <td align="center" valign="top">
                                                 <a href="#" target="_blank" style="display: block; border: 1px solid #6070E9; border-radius: 4px; padding: 19px 27px; font-family: 'Source Sans Pro', Arial, Verdana, Tahoma, Geneva, sans-serif; color: #ffffff; font-size: 26px; line-height: 30px; text-decoration: none; white-space: nowrap; font-weight: 600;">
                                                     <font face="'Source Sans Pro', sans-serif" color="#ffffff" style="font-size: 26px; line-height: 30px; text-decoration: none; white-space: nowrap; font-weight: 600;">
-                                                        <span style="font-family: 'Source Sans Pro', Arial, Verdana, Tahoma, Geneva, sans-serif; color: #ffffff; font-size: 26px; line-height: 30px; text-decoration: none; white-space: nowrap; font-weight: 600;">Confirm Email</span>
+                                                        <span style="font-family: 'Source Sans Pro', Arial, Verdana, Tahoma, Geneva, sans-serif; color: #ffffff; font-size: 26px; line-height: 30px; text-decoration: none; white-space: nowrap; font-weight: 600;"> </span>
                                                     </font>
 
                                                 </a>
