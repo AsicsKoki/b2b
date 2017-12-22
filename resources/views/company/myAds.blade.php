@@ -1,5 +1,13 @@
 @extends('layouts.master')
 @section('content')
+<style>
+	.close_aplicants::before {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		color: #d22;
+	}
+</style>
 	<h1 class="page_title main_page_title">All jobs</h1>
 
 	<main class="main_app_container">
@@ -75,6 +83,7 @@
 									</ul>
 								</div>
 								<span><a href="{{ route('getApplicants', ['aid' => $ad->id]) }}" data-id={{ $ad->id}} class="applicants">{{ App\Company::countApplicants($ad->id) }}</a> people have applied for your job.
+									<i style="display:none;position:relative;bottom: 25px;left: 25px;" class="fa fa-minus-square-o fa-3x close_aplicants" aria-hidden="true"></i>
 								</span>
 							</div>
 					</div>	
@@ -95,14 +104,21 @@
 	
 $('.applicants').each(function(){
 	var executed = false;
+	$('.close_aplicants').click(function(){
+	$('.list-group').remove();
+	$('.close_aplicants').css('display','none');
+	return executed = false;
+	});
 	$(this).click(function(e){
 		e.preventDefault();
 		var element = $(this);
 		var url = element.attr('href');
+	
 		element.attr('disabled',true);
 		if(!executed) {
    		return $.get(url, { '_token': $('meta[name="csrf-token"]').attr('content') }).done(function(data) {	 
-				element.prepend(data); // treba se popraviti ispisavnje u html
+				element.prepend(data); 
+				element.next().css('display','inline');
 				return executed = true;
 		   });
 		};	
