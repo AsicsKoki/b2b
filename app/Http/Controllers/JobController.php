@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Controller;
 use App\Ad as Ad;
+use App\User as User;
+use Mail as Mail;
 use App\Company as Company;
 use App\Application as Application;
 use App\Conversation as Conversation;
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
+use App\Mail\NewAd;
 
 
 class JobController extends Controller {
@@ -25,7 +28,7 @@ class JobController extends Controller {
      */
     public function getJobs()
     {
-        return view('ad.allAds', ['ads' => Ad::with('company.image')->simplePaginate(10)]);
+        return view('ad.allAds', ['ads' => Ad::with('company.image')->where('approved', 1)->simplePaginate(10)]);
     }
 
     public function getUserFavorites()
@@ -61,7 +64,7 @@ class JobController extends Controller {
     {  
         $ads = Ad::with('company.image')->whereHas('categories', function ($query) use ($catid){
             $query->where('category_id', $catid);
-        })->simplePaginate(10);
+        })->where('approved', 1)->simplePaginate(10);
         return view('user.favorites', ['ads' => $ads]);
     }
 
@@ -104,7 +107,10 @@ class JobController extends Controller {
                 'category_id'  => $category
             ]);
         }
-
+        $admins = User::where('is_admin', 1)->get();
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new NewAd($ad,'A new ad has been posted for your approval.'));
+        }
         return redirect()->route('getControlPanel');
     }
 

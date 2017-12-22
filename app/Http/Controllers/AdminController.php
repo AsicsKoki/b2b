@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Ad as Ad;
 use App\User as User;
 use App\Report as Report;
-
+use Mail as Mail;
 use App\Company as Company;
 use App\Application as Application;
 use App\Conversation as Conversation;

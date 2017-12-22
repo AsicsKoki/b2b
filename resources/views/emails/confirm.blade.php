@@ -42,7 +42,7 @@
                                         <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #000000; font-size: 20px; line-height: 28px;">
                                             {{ $user->first_name }} {{ $user->last_name }} , welcome to Naposao.rs.<br><br>
                                             Please confirm your registration on Naposao.rs
-                                            {{ route('confirmUser', ['token' => $user->token]) }}
+                                            <a href="{{ route('confirmUser', ['token' => $user->token]) }}"> Confirm account </a>
                                     </span>
                                     </font>
 
