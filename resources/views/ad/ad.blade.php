@@ -41,6 +41,17 @@
 	   				</a>
 
                 @endif
+                @if(Session::get('user')->is_admin === 1)
+                	<a href="{{ route('getEditCompanyAdmin', ['aid' => $ad->id]) }}" class="btn">Edit Company</a>
+                	<a href="{{ route('deleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
+					@if($ad->approved == 0)
+						<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active">Activate</button>
+					@else
+						<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active">Deactivate</button>
+					@endif
+                @else
+
+                @endif
 			</div>
 			
 			<div class="single_job_social_net">
@@ -210,7 +221,52 @@
 			})
 		}
 	});
+	$(document).ready(function(){
+		$('.set-active').click(function(){
+					var status = $(this).attr('data-status');
+					var aid = $(this).attr('data-aid');
+					var url = "/updateAdStatus/"+aid;
 
+					if ($(this).attr('data-status') === '1') {
+						$(this).removeClass('btn-danger').addClass('btn-success').text('Activate');
+						$(this).attr('data-status', '0');
+					} else {
+						$(this).removeClass('btn-success').addClass('btn-danger').text('Deactivate');
+						$(this).attr('data-status', '1');
+					}
+
+				    $.ajax({
+			       		type: "POST",
+			        	url: url,
+			        	async: true,
+			        	data: {
+			            	status: status,
+			            	'_token': $('meta[name="csrf-token"]').attr('content')
+			        	},
+			        success: function (msg) {
+			        	console.log('success');
+			        }
+			    });
+			})
+			//Obrisati element posle brisanja iz baze
+			$('.delete').click(function(e){
+		        var aid = $(this).attr('data-aid');
+		        var url = "/deleteAd/"+aid;
+		        $(e.target).parent().closest("li").remove();
+		        $.ajax({
+		            type: "POST",
+		            url: url,
+		            async: true,
+		            data: {
+
+		               '_token': $('meta[name="csrf-token"]').attr('content')
+		           },
+		       success: function (msg) {
+		           console.log('success');
+		           }
+		       });
+		    })
+	});
 </script>
 
 @endsection

@@ -105,9 +105,8 @@ Route::group(['middleware'=>'isadmin'],function (){
 	Route::get('/admin/reports/ads', 'AdminController@getReports')->name('getReports');
 	Route::get('/admin/reports/companies', 'AdminController@getReportsCompanies')->name('getReportsCompanies');
 	Route::get('/admin/editCompany/{cid}', 'AdminController@getEditCompany')->name('getEditCompanyAdmin');
-	Route::get('/admin/blockCompany/{cid}', 'AdminController@blockCompany')->name('blockCompany');
 	Route::get('/admin/deleteCompany/{cid}', 'AdminController@deleteCompany')->name('deleteCompany');
-
+	Route::post('/updateCompanyStatus/{cid}', 'AdminController@updateCompanyStatus')->name('updateCompanyStatus');
 });
 
 Route::get('/user/{uid}', 'UserController@getProfile')->name('getProfile');

@@ -142,11 +142,11 @@ class AdminController extends Controller {
         return 1;  
     }
 
-    public function blockCompany($cid)
+    public function updateCompanyStatus($cid)
     {
         $status = Input::get('status');
-        $ad = Company::where('id', $aid)->first();
-        $ad->blocked = $status;
+        $ad = Company::where('id', $cid)->first();
+        $ad->active = $status;
         $ad->save();
         return 1;  
     }
