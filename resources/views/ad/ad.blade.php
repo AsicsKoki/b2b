@@ -40,17 +40,19 @@
 	   				</a>
 
                 @endif
-                @if(Session::get('user')->is_admin === 1)
-                	<a href="{{ route('getEditCompanyAdmin', ['aid' => $ad->id]) }}" class="btn">Edit Company</a>
-                	<a href="{{ route('deleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
-					@if($ad->approved == 0)
-						<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active_btn">Activate</button>
-					@else
-						<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active_btn">Deactivate</button>
-					@endif
-                @else
+				@if(Session::get('user'))
+	                @if(Session::get('user')->is_admin === 1)
+	                	<a href="{{ route('getEditCompanyAdmin', ['aid' => $ad->id]) }}" class="btn">Edit Company</a>
+	                	<a href="{{ route('deleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
+						@if($ad->approved == 0)
+							<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active_btn">Activate</button>
+						@else
+							<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active_btn">Deactivate</button>
+						@endif
+	                @else
 
-                @endif
+	                @endif
+	            @endif
 			</div>
 			
 			<div class="single_job_social_net">
