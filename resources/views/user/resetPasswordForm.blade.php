@@ -5,10 +5,10 @@
 <main class="main_app_container">
 	<form action="{{ route('setNewPassword', ['token' => $token]) }}" method="POST" class="form_reset_password">
 		<div class="form_reset_password_item">
-			<input type="password" placeholder="Enter new password">
+			<input type="password" name="password" placeholder="Enter new password">
 		</div>
 		<div class="form_reset_password_item">
-			<input type="repeat_password" placeholder="Confirm new password">
+			<input type="password" name="repeat_password" placeholder="Confirm new password">
 		</div>
 		{{ csrf_field() }}
 
