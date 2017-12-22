@@ -6,16 +6,18 @@
 		@if(Auth::check() && Auth::user()->id === $company->id)
 			<a href="{{ route('getEditCompany', ['cid' => Auth::user()->id]) }}" class="btn_edit_profile">Edit Profile <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 		@endif
-        @if(Session::get('user')->is_admin === 1)
-        	<a href="{{ route('getEditCompanyAdmin', ['cid' => $company->id]) }}" class="btn">Edit Company</a>
-        	<a href="{{ route('deleteCompany', ['cid' => $company->id]) }}" class="btn">Delete Company</a>
-			@if($company->active === 0)
-				<button type="button" data-status="1" data-aid="{{ $company->id }}" class="btn btn-success set-active">Activate</button>
-			@else
-				<button type="button" data-status="0" data-aid="{{ $company->id }}" class="btn btn-danger set-active">Deactivate</button>
-			@endif
-        @else
+		@if(Session::get('user'))
+	        @if(Session::get('user')->is_admin === 1)
+	        	<a href="{{ route('getEditCompanyAdmin', ['cid' => $company->id]) }}" class="btn">Edit Company</a>
+	        	<a href="{{ route('deleteCompany', ['cid' => $company->id]) }}" class="btn">Delete Company</a>
+				@if($company->active === 0)
+					<button type="button" data-status="1" data-aid="{{ $company->id }}" class="btn btn-success set-active">Activate</button>
+				@else
+					<button type="button" data-status="0" data-aid="{{ $company->id }}" class="btn btn-danger set-active">Deactivate</button>
+				@endif
+	        @else
 
+	        @endif
         @endif
 		<div class="company_profile_view_holder cf">	
 			<div class="company_profile_view_side cf">
