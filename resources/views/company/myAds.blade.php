@@ -60,6 +60,7 @@
 
 								<div class="job_container_push_right_item">
 									<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" class="job_list_filter_item_company bold">{{ $ad->company->company_name }}</a>
+										
 									<ul class="company_ads_list">
 										<li>
 											<a href="" class="btn">Activate</a>
@@ -76,9 +77,8 @@
 								<span><a href="{{ route('getApplicants', ['aid' => $ad->id]) }}" data-id={{ $ad->id}} class="applicants">{{ App\Company::countApplicants($ad->id) }}</a> people have applied for your job.
 								</span>
 							</div>
-
 					</div>	
-					
+				
 				</li>
 			@endforeach
 			</ul>
@@ -92,15 +92,23 @@
 	</main>
 
 <script type="text/javascript">
-	$('.applicants').click(function(e){
+	
+$('.applicants').each(function(){
+	var executed = false;
+	$(this).click(function(e){
 		e.preventDefault();
 		var element = $(this);
 		var url = element.attr('href');
-		console.log(url);
-   		$.get(url, { '_token': $('meta[name="csrf-token"]').attr('content') }).done(function(data) {
-   			console.log(data);
-	    	$('.job_list_filter_item_right').html(data);
-		});	
-	})
+		element.attr('disabled',true);
+		if(!executed) {
+   		return $.get(url, { '_token': $('meta[name="csrf-token"]').attr('content') }).done(function(data) {	 
+				element.prepend(data); // treba se popraviti ispisavnje u html
+				return executed = true;
+		   });
+		};	
+	});
+});
+
+
 </script>
 @endsection
