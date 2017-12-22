@@ -44,9 +44,9 @@
                 	<a href="{{ route('getEditCompanyAdmin', ['aid' => $ad->id]) }}" class="btn">Edit Company</a>
                 	<a href="{{ route('deleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
 					@if($ad->approved == 0)
-						<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active">Activate</button>
+						<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active_btn">Activate</button>
 					@else
-						<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active">Deactivate</button>
+						<button type="button" data-status="0" data-aid="{{ $ad->id }}" class="btn btn-danger set-active_btn">Deactivate</button>
 					@endif
                 @else
 
@@ -220,21 +220,8 @@
 			})
 		}
 	});
-	$(document).ready(function(){
-		$('.set-active').click(function(){
-					var status = $(this).attr('data-status');
-					var aid = $(this).attr('data-aid');
-					var url = "/updateAdStatus/"+aid;
-
-					if ($(this).attr('data-status') === '1') {
-						$(this).removeClass('btn-danger').addClass('btn-success').text('Activate');
-						$(this).attr('data-status', '0');
-					} else {
-						$(this).removeClass('btn-success').addClass('btn-danger').text('Deactivate');
-						$(this).attr('data-status', '1');
-					}
-
-				    $.ajax({
+	function setActiveAjax() {
+		$.ajax({
 			       		type: "POST",
 			        	url: url,
 			        	async: true,
@@ -246,6 +233,23 @@
 			        	console.log('success');
 			        }
 			    });
+	}
+	$(document).ready(function(){
+		$('.set-active_btn').click(function(e){
+			e.stopPropagation();
+					var status = $(this).attr('data-status');
+					var aid = $(this).attr('data-aid');
+					var url = "/updateAdStatus/"+aid;
+
+					if (status === '1' && $(this).hasClass('btn-danger') === true) {
+						$(this).removeClass('btn-danger').addClass('btn-success').text('Activate');
+						$(this).attr('data-status', '0');
+					} else {
+						$(this).removeClass('btn-success').addClass('btn-danger').text('Deactivate');
+						$(this).attr('data-status', '1');
+					};
+					setActiveAjax();
+				  
 			})
 			//Obrisati element posle brisanja iz baze
 			$('.delete').click(function(e){
