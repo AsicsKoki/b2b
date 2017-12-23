@@ -31,7 +31,8 @@ class UserController extends Controller {
      */
     public function getUserProfile()
     {   
-        $user = Session::get('user');
+        $uid = Session::get('user')->id;
+        $user = User::where('id', $uid)->with('image')->with('workHistory')->first();
         $avatar = $user->image;
         $workHistory = $user->workHistory;
         $languages = $user->languages;
