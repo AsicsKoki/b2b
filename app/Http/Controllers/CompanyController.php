@@ -120,6 +120,9 @@ class CompanyController extends Controller {
 
     public function postEditCompany(Request $request)
     {
+        // $categories = Company::where('id', Auth::user()->id)->pluck('sector');
+        // return array_map('intval', explode(',', $categories[0]));
+
         $company=Company::find($request->cid);
         $businessCard = $company->businessCard;
 
@@ -133,7 +136,10 @@ class CompanyController extends Controller {
         $businessCard->number_of_employees = $request->number_of_employees;
 
         //implode da se regulise
-        $company->sector = serialize($request->sectors);
+        //$company->sector = serialize($request->sectors);
+        if(isset($request->sectors))
+        $company->sector = implode(',', $request->sectors);
+        else $company->sector=0;
 
         $company->save();
         $businessCard->save();
