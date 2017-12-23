@@ -42,8 +42,8 @@
                 @endif
 				@if(Session::get('user'))
 	                @if(Session::get('user')->is_admin)
-	                	<a href="{{ route('getEditCompanyAdmin', ['aid' => $ad->id]) }}" class="btn">Edit Company</a>
-	                	<a href="{{ route('deleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
+	                	<a href="{{ route('adminEditAd', ['aid' => $ad->id]) }}" class="btn">Edit Ad</a>
+	                	<a href="{{ route('getDeleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
 						@if($ad->approved == 0)
 							<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active_btn">Activate</button>
 						@else

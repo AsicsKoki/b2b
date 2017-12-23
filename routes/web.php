@@ -78,6 +78,7 @@ Route::group(['middleware'=>'usersession'],function (){
 	Route::post('/updateLanguages', 'UserController@updateLanguages')->name('updateLanguages');
 	Route::post('/updateAdStatus/{aid}', 'AdminController@updateAdStatus')->name('updateAdStatus');
 	Route::post('/deleteAd/{aid}', 'AdminController@deleteAd')->name('deleteAd');
+	Route::get('/deleteAd/{aid}', 'AdminController@deleteAd')->name('getDeleteAd');
 	Route::get('/admin/editAd/{aid}', 'AdminController@adminEditAd')->name('adminEditAd');
 	Route::post('/admin/editAd/', 'AdminController@postAdminEditAd')->name('postAdminEditAd');
 

@@ -123,13 +123,17 @@ class AdminController extends Controller {
 
         $ad->save();
 
-        return redirect()->back();
+        return redirect()->route('getSpecificJob', ['aid' => $ad->id]);
     }
 
-    public function deleteAd($aid)
+    public function deleteAd($aid, $request)
     {
+        return 123;
         $ad = Ad::where('id', $aid)->first();
         $ad->delete();
+        if($request->ajax()){
+            return redirect()->route('getAdminAds');
+        }
         return 1;
     }
 
