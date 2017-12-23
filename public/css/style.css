@@ -2912,10 +2912,11 @@ canvas {
 
 .update_logo_holder input[type="file"] {
     position: absolute;
-    top: 600px;
-    left: 372px;
+    top: 558px;
+    left: 404px;
     opacity: 0;
     z-index: 10;
+    width: 125px;
 }
 
 #company_logo_submit {

@@ -234,7 +234,7 @@ class CompanyController extends Controller {
         }else{
             $cover = $company->cover;
             $cover->company_id = $company->id;
-            $oldcover = public_path($company->image->path);
+            $oldcover = public_path($company->cover->path);
             $cover->path = '/photos/' . $photoName;
             $cover->save();
 
