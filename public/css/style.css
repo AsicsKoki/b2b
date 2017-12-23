@@ -3289,6 +3289,18 @@ a.mob_menu_icon {
     padding: 5px;
 }
 
+.list-group {
+    margin-top: 167px;
+}
+
+a.list-group-item,
+button.list-group-item {
+    color: #555;
+    height: 51px;
+    text-align: center;
+    line-height: 51px;
+}
+
 @media all and (max-width: 950px) {
     .main_nav {
         display: none;
