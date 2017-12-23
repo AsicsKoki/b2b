@@ -95,10 +95,10 @@ $(document).ready(function() {
 
     // Business sector form selection
     $('.selectSector').click(function() {
-        return !$('.selectSector option:selected').remove().appendTo('.selectSectorSelected');
+        return !$('.selectSector option:selected').prop('selected',true).remove().appendTo('.selectSectorSelected');
     });
     $('.selectSectorSelected').click(function() {
-        return !$('.selectSectorSelected option:selected').remove().appendTo('.selectSector');
+        return !$('.selectSectorSelected option:selected').prop('selected','').remove().appendTo('.selectSector');
     });
     // End business sector form selection
 

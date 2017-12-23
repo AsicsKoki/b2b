@@ -40,7 +40,7 @@
 							<select multiple name="sectors[]" class="selectSectorSelected select_move_area" size="5">
 							@foreach( App\Category::getCategories() as $category)
 								@if (in_array($category->id, App\Category::getCategoriesByCompany()))
-								<option value="{{$category->id}}">{{ $category->name }}</option>
+								<option value="{{$category->id}}" selected>{{ $category->name }}</option>
 								@endif
 							@endforeach
 							</select>

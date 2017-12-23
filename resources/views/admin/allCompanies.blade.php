@@ -29,9 +29,9 @@
 				<a href="{{ route('getCompanyProfile', ['cid' => $company->id]) }}" class="list_of_companies_details list_of_companies_item_btn"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><span>Details</span></a>
 
 				@if($company->blocked === 0)
-					<a href="{{ route('blockCompany', ['cid' => $company->id]) }}" class="list_of_companies_details list_of_companies_item_btn block"><i class="fa fa-ellipsis-v" aria-hidden="true" data-status="1"></i><span>Block</span></a>
+					<a href="{{ route('updateCompanyStatus', ['cid' => $company->id]) }}" class="list_of_companies_details list_of_companies_item_btn block"><i class="fa fa-ellipsis-v" aria-hidden="true" data-status="1"></i><span>Block</span></a>
 				@else
-					<a href="{{ route('blockCompany', ['cid' => $company->id]) }}" class="list_of_companies_details list_of_companies_item_btn block"><i class="fa fa-ellipsis-v" aria-hidden="true" data-status="0"></i><span>Unblock</span></a>
+					<a href="{{ route('updateCompanyStatus', ['cid' => $company->id]) }}" class="list_of_companies_details list_of_companies_item_btn block"><i class="fa fa-ellipsis-v" aria-hidden="true" data-status="0"></i><span>Unblock</span></a>
 				@endif
 
 				<a href="{{ route('deleteCompany', ['cid' => $company->id]) }}" class="list_of_companies_delete list_of_companies_item_btn"><i class="fa fa-trash-o" aria-hidden="true"></i><span>Delete</span></a>

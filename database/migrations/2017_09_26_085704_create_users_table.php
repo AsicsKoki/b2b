@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration {
 			$table->string('gender',100);
 			$table->string('phone',100);
 			$table->string('skills',250);
+			$table->string('language',250);
 			$table->rememberToken();
 			$table->integer('image_id',10);
 			$table->integer('work_history_id',10);

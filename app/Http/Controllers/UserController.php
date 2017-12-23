@@ -71,7 +71,7 @@ class UserController extends Controller {
         $password = Input::get('password');
         $user = User::where('email', $email)->first();
         
-        if ($user->active === 0) {
+        if ($user->active == 0) {
             return redirect()->back()->with('error', 'Please confirm your account!');
         }
         if ($user &&  Hash::check(Input::get('password'), $user->password)) {
@@ -109,7 +109,7 @@ class UserController extends Controller {
         $user = User::where('email', Input::get('email'))->first();
         $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
-        Mail::to($user->email)->send(new ResetPassword($user,'Welcome to naposao.rs, Please verify your account!'));
+        Mail::to($user->email)->send(new ResetPassword($user,'naposao.rs, password reset confirmation!'));
         \Session::flash('msg', 'Registered! Please check your email!' );
         return redirect()->route('getHome')->with('message', 'An email has been sent to your account, please follow instructions to reset your password');
     }
@@ -374,8 +374,9 @@ class UserController extends Controller {
     public function updateLanguages()
     {
         $user = Session::get('user');
-        $languages = implode(',' , $request->languages); 
-        $user->languages()->attach($languages);
+        $languages = implode(',' , Input::get('languages')); 
+     //   $user->languages()->attach($languages); // ovo ne radi trenutno
+        $user->language = $languages;
         $user->save();
 
     }

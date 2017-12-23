@@ -106,12 +106,12 @@
 					</a>
 					</p>
 					<ul class="user_profile_languages cf">
-					@foreach($languages as $language)
-							<li class="bold"><span>{{ $language }}</span></li>
+					@foreach(Session::get('user')->languages as $language)
+							<li class="bold"><span>{{ language }}</span></li>
 
 					@endforeach
-						<li><span>English</span></li>
-						<li><span>Serbian</span></li>
+						<li><span id="language_span">{{ Session::get('user')->language }}</span></li>
+
 					</ul>
 					<div class="languages_multipleSelect_holder">
 						<select class="languages_multipleSelect" name="states[]"  multiple="multiple">
@@ -915,16 +915,21 @@
 	   
 	   $('.languages_submit').click(function(e){
 		e.preventDefault();
+		$('.languages_multipleSelect_holder').css('display','none');
 		var languages = [], language;
 			$('.select2-selection__choice').each(function(){
 				language = $(this).text().substring(1);
 				languages.push(language);
 				return languages;
 			});
+		var languagecomma = languages + ',';
+		var langstring = languagecomma.substr(0,languagecomma.length -1 );
+		$('#language_span').html(langstring);
+	
 		console.log(languages);
 		$.ajax({
 				method: "POST",
-				url: "/updateLangauge",
+				url: "/updateLanguages",
 				data: {
 					languages:languages,
 					'_token': $('meta[name="csrf-token"]').attr('content')
