@@ -23,9 +23,9 @@ class Category extends Model
     	return Category::all();
     }
 
-    public static function getCategoriesByCompany()
+    public static function getCategoriesByCompany($cid)
     {
-        $categories = Company::where('id', Auth::user()->id)->pluck('sector');
+        $categories = Company::where('id', $cid)->pluck('sector');
         return array_map('intval', explode(',', $categories[0]));
     }
 

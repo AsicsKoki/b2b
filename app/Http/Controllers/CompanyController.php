@@ -52,7 +52,7 @@ class CompanyController extends Controller {
         $ads = $company->ads;
         $logo = $company->image;
         $cover = $company->cover;
-        return view('company.profile', ['company' => $company, 'ads' => $ads, 'businessCard' => $businessCard, 'logo' => $logo['path'],'cover' => $cover['path']]);
+        return view('company.profile', ['company' => $company, 'ads' => $ads, 'businessCard' => $businessCard, 'logo' => $logo['path'],'cover' => $cover['path'] , 'cid' => $id ]);
     }
 
     public function postRegister(Request $request)
@@ -166,11 +166,11 @@ class CompanyController extends Controller {
         return view('company.panel', ['applications' => $applications, 'company' => $company]);
     }
 
-    public function getEditCompany()
+    public function getEditCompany($cid)
     {
         $company = Company::find(Auth::user()->id);
         $businessCard = $company->businessCard;
-        return view('company.edit', ['company' => $company , 'businesscard' => $businessCard]);
+        return view('company.edit', ['company' => $company , 'businesscard' => $businessCard , 'cid' => $cid]);
     }
 
     public function updateAboutUs()
@@ -202,7 +202,7 @@ class CompanyController extends Controller {
     public function updateLogo(Request $request)
     {
         $photoName = time().'.'.$request->company_logo->getClientOriginalExtension();
-        $company = Company::find(Auth::user()->id);
+        $company = Company::find($request->cid);
         $request->company_logo->move(public_path('photos'), $photoName);
         if(!$company->image)
         {
@@ -229,7 +229,7 @@ class CompanyController extends Controller {
     public function updateCover(Request $request)
     {
         $photoName = time().'.'.$request->company_cover->getClientOriginalExtension();
-        $company = Company::find(Auth::user()->id);
+        $company = Company::find($request->cid);
         $request->company_cover->move(public_path('photos'), $photoName);
         if(!$company->cover)
         {
