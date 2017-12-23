@@ -7,7 +7,7 @@
 			<a href="{{ route('getEditCompany', ['cid' => Auth::user()->id]) }}" class="btn_edit_profile">Edit Profile <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 		@endif
 		@if(Session::get('user'))
-	        @if(Session::get('user')->is_admin === 1)
+	        @if(Session::get('user')->is_admin)
 	        	<a href="{{ route('getEditCompanyAdmin', ['cid' => $company->id]) }}" class="btn">Edit Company</a>
 	        	<a href="{{ route('deleteCompany', ['cid' => $company->id]) }}" class="btn">Delete Company</a>
 				@if($company->active === 0)

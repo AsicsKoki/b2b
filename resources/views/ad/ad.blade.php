@@ -41,7 +41,7 @@
 
                 @endif
 				@if(Session::get('user'))
-	                @if(Session::get('user')->is_admin === 1)
+	                @if(Session::get('user')->is_admin)
 	                	<a href="{{ route('getEditCompanyAdmin', ['aid' => $ad->id]) }}" class="btn">Edit Company</a>
 	                	<a href="{{ route('deleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
 						@if($ad->approved == 0)
