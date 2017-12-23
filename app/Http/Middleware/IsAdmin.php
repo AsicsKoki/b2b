@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Session;
 
 class IsAdmin
 {
@@ -16,7 +17,7 @@ class IsAdmin
     public function handle($request, Closure $next)
     {
         if (!$request->session()->exists('user')) {
-            if (Session::get('user')->is_admin === 1) {
+            if (Session::get('user') && Session::get('user')->is_admin === 1) {
                 return redirect('/adminPanel');
             }
         }
