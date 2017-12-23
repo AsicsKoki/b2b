@@ -126,12 +126,12 @@ class AdminController extends Controller {
         return redirect()->route('getSpecificJob', ['aid' => $ad->id]);
     }
 
-    public function deleteAd($aid, $request)
+    public function deleteAd($aid, Request $request)
     {
-        return 123;
+        // return 123;
         $ad = Ad::where('id', $aid)->first();
         $ad->delete();
-        if($request->ajax()){
+        if(!$request->ajax()){
             return redirect()->route('getAdminAds');
         }
         return 1;
