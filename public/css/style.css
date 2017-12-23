@@ -1453,6 +1453,9 @@ span.new_job_add_desc {
     font-size: 35px;
     color: #fd6464;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 88%;
+    left: 91%;
 }
 
 .popup_close:hover {
@@ -1833,7 +1836,7 @@ p.company_profile_edit_section_view_info_desc {
 }
 
 .pop_up_success_registration {
-    display: none;
+    display: block;
     position: fixed;
     background: rgba(255, 255, 255, 0.9);
     top: 0;
@@ -2627,9 +2630,8 @@ ul.comapny_user_coversation {
     background: #fff;
     max-width: 600px;
     margin: auto;
-    margin-top: 5vh;
-    overflow-y: scroll;
-    height: 75vh;
+    margin-top: 3vh;
+    height: 92vh;
     padding: 50px 20px;
     border-radius: 5px;
 }
