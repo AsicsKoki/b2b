@@ -71,7 +71,7 @@ class UserController extends Controller {
         $password = Input::get('password');
         $user = User::where('email', $email)->first();
         
-        if ($user->active === 0) {
+        if ($user->active == 0) {
             return redirect()->back()->with('error', 'Please confirm your account!');
         }
         if ($user &&  Hash::check(Input::get('password'), $user->password)) {
