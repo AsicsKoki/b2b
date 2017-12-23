@@ -44,6 +44,7 @@ $(document).ready(function() {
 
     $('.add_new_user_job_profile_btn').on('click', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         $('.popup_new_job_user').fadeIn(200);
     });
 
@@ -95,10 +96,10 @@ $(document).ready(function() {
 
     // Business sector form selection
     $('.selectSector').click(function() {
-        return !$('.selectSector option:selected').prop('selected',true).remove().appendTo('.selectSectorSelected');
+        return !$('.selectSector option:selected').prop('selected', true).remove().appendTo('.selectSectorSelected');
     });
     $('.selectSectorSelected').click(function() {
-        return !$('.selectSectorSelected option:selected').prop('selected','').remove().appendTo('.selectSector');
+        return !$('.selectSectorSelected option:selected').prop('selected', '').remove().appendTo('.selectSector');
     });
     // End business sector form selection
 
@@ -215,6 +216,7 @@ $(document).ready(function() {
     $(window).click(function() {
         $('.options_checkbox').css('display', 'none');
         $('.job_search_option_triger').removeClass('open');
+        $('.popup_new_job_user').fadeOut(200);
     });
     $('.options_checkbox').click(function(e) {
         e.stopPropagation();
@@ -236,6 +238,9 @@ $(document).ready(function() {
     $('.save_btn_pop_up').click(function() {
         $('.popup_new_job_user').css('display', 'none');
     })
+    $('.popup_new_job_user').click(function(e) {
+        e.stopPropagation();
+    })
     $('.languages_multipleSelect').select2();
 
     $("[data-js=open]").on("click", function() {
@@ -248,6 +253,7 @@ $(document).ready(function() {
     $('.pop_up_registration_success_btn').click(function() {
         $('.pop_up_registration_success').css('display', 'none');
     });
+
 });
 
 function popupOpenClose(popup) {
