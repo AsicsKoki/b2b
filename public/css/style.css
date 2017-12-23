@@ -1833,7 +1833,7 @@ p.company_profile_edit_section_view_info_desc {
 }
 
 .pop_up_success_registration {
-    display: none;
+    display: block;
     position: fixed;
     background: rgba(255, 255, 255, 0.9);
     top: 0;

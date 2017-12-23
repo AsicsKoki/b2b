@@ -245,6 +245,9 @@ $(document).ready(function() {
     $('#payment_btn').click(function() {
         $('#payment-form').css('display', 'block');
     });
+    $('.pop_up_registration_success_btn').click(function() {
+        $('.pop_up_registration_success').css('display', 'none');
+    });
 });
 
 function popupOpenClose(popup) {
