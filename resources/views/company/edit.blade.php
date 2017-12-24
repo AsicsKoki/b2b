@@ -6,8 +6,8 @@
 
 <main class="main_app_container">
 		<div class="login_register_container">
-				<form action="{{ route('postEditCompany', ['cid' => Auth::user()->id]) }}" method="POST" id="company_reg_form" class="login_reg_form company_registration_form" enctype="multipart/form-data">
-
+				<form action="{{ route('postEditCompanyAdmin') }}" method="POST" id="company_reg_form" class="login_reg_form company_registration_form" enctype="multipart/form-data">
+					<input type="hidden" value="{{ $cid }}" name="cid">
 					<div class="login_reg_form_item">
 						<p class="form_title">Country:*</p>
 						<select name="country">
@@ -31,7 +31,7 @@
 							<p class="form_title">Business sector:</p>
 							<select class="selectSector select_move_area" size="5" >
 							@foreach( App\Category::getCategories() as $category)
-								@if (!in_array($category->id, App\Category::getCategoriesByCompany()))
+								@if (!in_array($category->id, App\Category::getCategoriesByCompany($cid)))
 									<option value="{{$category->id}}">{{ $category->name }}</option>
 								@endif
                             @endforeach
@@ -39,8 +39,8 @@
 						
 							<select multiple name="sectors[]" class="selectSectorSelected select_move_area" size="5">
 							@foreach( App\Category::getCategories() as $category)
-								@if (in_array($category->id, App\Category::getCategoriesByCompany()))
-								<option value="{{$category->id}}">{{ $category->name }}</option>
+								@if (in_array($category->id, App\Category::getCategoriesByCompany($cid)))
+								<option value="{{$category->id}}" selected>{{ $category->name }}</option>
 								@endif
 							@endforeach
 							</select>

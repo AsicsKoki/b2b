@@ -139,7 +139,7 @@
                 <div class="col-md-12">
                     <label class="text-center">Total amount to pay: <span class="sub_amount">0 RSD</span></label>
                     <input type="hidden" value="" name="hidden_ammount" id="hidden_ammount">
-                    <input type="submit" class="btn btn-primary center-block"></input>
+                    <input type="submit" class="btn btn-primary center-block" value="Submit payment"></input>
                 </div>
                 <div class="col-md-12">
                     <!-- <input type="submit" class="btn btn-primary center-block"></input> -->

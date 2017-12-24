@@ -155,4 +155,52 @@ class AdminController extends Controller {
         return 1;  
     }
 
+    public function getEditCompanyAdmin($cid)
+    {
+        $company = Company::find($cid);
+        //return $company;
+        $businessCard = $company->businessCard;
+        return view('company.edit', ['company' => $company , 'businesscard' => $businessCard , 'cid' => $cid ]);
+    }
+
+    public function postEditCompanyAdmin(Request $request)
+    {
+        // $categories = Company::where('id', Auth::user()->id)->pluck('sector');
+        // return array_map('intval', explode(',', $categories[0]));
+
+        $company=Company::find($request->cid);
+        $businessCard = $company->businessCard;
+
+        $company->country = $request->country;
+        $company->company_name  = $request->company_name;
+        $company->company_website = $request->company_website;
+        $company->company_address = $request->company_address;
+        $company->company_phone = $request->company_phone;
+        $company->about_us = $request->about_us;
+        $company->career = $request->career;
+        $businessCard->number_of_employees = $request->number_of_employees;
+
+        //implode da se regulise
+        //$company->sector = serialize($request->sectors);
+        if(isset($request->sectors))
+        $company->sector = implode(',', $request->sectors);
+        else $company->sector=0;
+
+        $company->save();
+        $businessCard->save();
+
+
+        return redirect()->back();
+    }
+
+    public function deleteCompany($cid,Request $request)
+    {
+        $company = Company::where('id', $cid)->first();
+        $company->delete();
+        if(!$request->ajax()){
+            return redirect()->route('getAdminCompanies');
+        }
+        return 1;
+    }
+
 }

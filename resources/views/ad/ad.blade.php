@@ -170,9 +170,10 @@
 					<h3 class="bold">Job description</h3>
 					{{ $ad->description }}
 				</div>
-				@if(Session::get('user') !== null)
+
+				@if(Session::get('user') !== null && !Auth::check() )
 					<div class="apply_for_job_btn"><a href="{{ route('getJobApplication', ['jid' => $ad->id, 'cid' => $ad->company->id]) }}" class="bold">Apply</a></div>
-				@else
+				@elseif(!Auth::check())
 					<div class="apply_for_job_btn"><a href="{{ route('getUserLogin') }}" class="bold">Apply</a></div>
 				@endif
 			</div>

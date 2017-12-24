@@ -37,12 +37,6 @@
 							<div class="job_container_push_right_item">
 								<a href="{{ route('getCompanyProfile', ['cid' => $ad->company->id]) }}" class="job_list_filter_item_company bold">{{ $ad->company->company_name }}</a>
 								<ul class="company_ads_list">
-									<li>
-										<a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-									</li>
 								</ul>
 							</div>
 							@if($ad->approved == 0)

@@ -25,7 +25,7 @@ Route::post('/userRegister', 'UserController@postUserRegister')->name('postUserR
 
 // Registration routes...
 Route::get('/register', 'Auth\AuthController@getRegister');
-Route::post('/register', 'Auth\AuthController@postRegister');
+Route::post('/register', 'Auth\AuthController@postRegister'); 
 
 Route::get('/companyLogin', 'CompanyController@getLogin')->name('getCompanyLogin');
 Route::post('/companyLogin', 'CompanyController@authenticate')->name('authenticate');
@@ -78,7 +78,7 @@ Route::group(['middleware'=>'usersession'],function (){
 	Route::post('/updateLanguages', 'UserController@updateLanguages')->name('updateLanguages');
 	Route::post('/updateAdStatus/{aid}', 'AdminController@updateAdStatus')->name('updateAdStatus');
 	Route::post('/deleteAd/{aid}', 'AdminController@deleteAd')->name('deleteAd');
-	Route::get('/deleteAd/{aid}', 'AdminController@deleteAd')->name('getDeleteAd');
+	//Route::get('/deleteAd/{aid}', 'AdminController@deleteAd')->name('getDeleteAd');
 	Route::get('/admin/editAd/{aid}', 'AdminController@adminEditAd')->name('adminEditAd');
 	Route::post('/admin/editAd/', 'AdminController@postAdminEditAd')->name('postAdminEditAd');
 
@@ -105,7 +105,8 @@ Route::group(['middleware'=>'isadmin'],function (){
 	Route::get('/admin/users', 'AdminController@getAdminUsers')->name('getAdminUsers');
 	Route::get('/admin/reports/ads', 'AdminController@getReports')->name('getReports');
 	Route::get('/admin/reports/companies', 'AdminController@getReportsCompanies')->name('getReportsCompanies');
-	Route::get('/admin/editCompany/{cid}', 'AdminController@getEditCompany')->name('getEditCompanyAdmin');
+	Route::get('/admin/editCompany/{cid}', 'AdminController@getEditCompanyAdmin')->name('getEditCompanyAdmin');
+	Route::post('/admin/postEditCompany/', 'AdminController@postEditCompanyAdmin')->name('postEditCompanyAdmin');
 	Route::get('/admin/deleteCompany/{cid}', 'AdminController@deleteCompany')->name('deleteCompany');
 	Route::post('/updateCompanyStatus/{cid}', 'AdminController@updateCompanyStatus')->name('updateCompanyStatus');
 });
@@ -129,9 +130,9 @@ Route::get('/controlPanel', 'CompanyController@getControlPanel')->name('getContr
 Route::get('/editBusinessCard', 'CompanyController@editBusinessCard')->name('editBusinessCard');
 Route::post('/updateAboutUs', 'CompanyController@updateAboutUs')->name('updateAboutUs');
 Route::post('/updateCareer', 'CompanyController@updateCareer')->name('updateCareer');
-Route::post('/updateCover', 'CompanyController@updateCover')->name('updateCover');
-Route::post('/updateCompanyLogo', 'CompanyController@updateLogo')->name('updateCompanyLogo');
-Route::get('/editCompany', 'CompanyController@getEditCompany')->name('getEditCompany');
+// Route::post('/updateCover', 'CompanyController@updateCover')->name('updateCover');
+// Route::post('/updateCompanyLogo', 'CompanyController@updateLogo')->name('updateCompanyLogo');
+Route::get('/editCompany/{cid}', 'CompanyController@getEditCompany')->name('getEditCompany');
 Route::post('/postEditCompany', 'CompanyController@postEditCompany')->name('postEditCompany');
 Route::get('/myAds', 'JobController@getAllJobs')->name('getAllJobs');
 Route::get('/payment', 'CompanyController@getPayment')->name('getPayment');
@@ -146,6 +147,10 @@ Route::get('/getApplicants/{aid}', 'JobController@getApplicants')->name('getAppl
 
 Route::get('/conversation/{aid}', 'JobController@getConversation')->name('getConversation');
 });
+
+// Morao sam da ih izbacim zbog admina
+Route::post('/updateCover', 'CompanyController@updateCover')->name('updateCover');
+Route::post('/updateCompanyLogo', 'CompanyController@updateLogo')->name('updateCompanyLogo');
 
 Route::get('/applications', 'JobController@getApplications')->name('getApplications');
 

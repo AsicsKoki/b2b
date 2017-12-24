@@ -106,12 +106,12 @@
 					</a>
 					</p>
 					<ul class="user_profile_languages cf">
-					@foreach($languages as $language)
-							<li class="bold"><span>{{ $language }}</span></li>
+					@foreach(Session::get('user')->languages as $language)
+							<li class="bold"><span>{{ language }}</span></li>
 
 					@endforeach
-						<li><span>English</span></li>
-						<li><span>Serbian</span></li>
+						<li><span id="language_span">{{ Session::get('user')->language }}</span></li>
+
 					</ul>
 					<div class="languages_multipleSelect_holder">
 						<select class="languages_multipleSelect" name="states[]"  multiple="multiple">
@@ -289,12 +289,12 @@
 			{{Form::open(array('route' => 'updatePopup','method'=>'POST'))}}
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Job position:</p>
-				<input type="text" id="job_position_input" name="position">
+				<input type="text" id="job_position_input" name="position" required>
 			</div>
 
 			<div class="popup_new_job_user_form_item">
 				<p class="popup_new_job_user_form_item_title bold">Company:</p>
-				<input type="text" name="company_name" placeholder="Company name" id="user_job_company_name">
+				<input type="text" name="company_name" placeholder="Company name" id="user_job_company_name" required>
 				<input type="text" name="company_website" placeholder="Company website" id="user_job_company_website">
 			</div>
 
@@ -303,7 +303,7 @@
 				<div class="user_from_to_period">				
 					<p class="popup_new_job_user_form_item_title bold">From:</p>
 					<div class="user_from_to_period_item">
-						<select name="year_from" id="job_years_from">
+						<select name="year_from" id="job_years_from" required>
 						<option value="">Choose year</option>
 						 <script>
 						 var year = 2017;
@@ -316,7 +316,7 @@
 					</div>
 
 					<div class="user_from_to_period_item">
-						<select name="month_from" id="month_from">
+						<select name="month_from" id="month_from" required>
 							<option value="">Choose month</option>
 							<option value="January">January</option>
 							<option value="February">February</option>
@@ -337,7 +337,7 @@
 				<div class="user_from_to_period">
 					<p class="popup_new_job_user_form_item_title bold">To:</p>
 					<div class="user_from_to_period_item">
-						<select name="year_to" id="job_years_to">
+						<select name="year_to" id="job_years_to" required>
 						<option value="">Choose year</option>
 						 <script>
 						 var year = 2017;
@@ -349,7 +349,7 @@
 					</div>
 
 					<div class="user_from_to_period_item">
-						<select name="month_to" id="month_to">
+						<select name="month_to" id="month_to" required>
 							<option value="">Choose month</option>
 							<option value="January">January</option>
 							<option value="February">February</option>
@@ -915,16 +915,21 @@
 	   
 	   $('.languages_submit').click(function(e){
 		e.preventDefault();
+		$('.languages_multipleSelect_holder').css('display','none');
 		var languages = [], language;
 			$('.select2-selection__choice').each(function(){
 				language = $(this).text().substring(1);
 				languages.push(language);
 				return languages;
 			});
+		var languagecomma = languages + ',';
+		var langstring = languagecomma.substr(0,languagecomma.length -1 );
+		$('#language_span').html(langstring);
+	
 		console.log(languages);
 		$.ajax({
 				method: "POST",
-				url: "/updateLangauge",
+				url: "/updateLanguages",
 				data: {
 					languages:languages,
 					'_token': $('meta[name="csrf-token"]').attr('content')

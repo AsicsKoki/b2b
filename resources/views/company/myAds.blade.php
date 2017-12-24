@@ -113,7 +113,6 @@ $('.applicants').each(function(){
 		e.preventDefault();
 		var element = $(this);
 		var url = element.attr('href');
-	
 		element.attr('disabled',true);
 		if(!executed) {
    		return $.get(url, { '_token': $('meta[name="csrf-token"]').attr('content') }).done(function(data) {	 
@@ -124,7 +123,5 @@ $('.applicants').each(function(){
 		};	
 	});
 });
-
-
 </script>
 @endsection

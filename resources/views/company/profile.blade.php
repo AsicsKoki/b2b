@@ -25,8 +25,9 @@
 					<div class="company_profile_logo_holder">
 						<img src="{{ URL::to('/') . $logo }}" alt="">
 					</div>
-					@if(Auth::check() && Auth::user()->id === $company->id)
+					@if((Auth::check() && Auth::user()->id === $company->id) || (Session::get('user')->is_admin))
 					{{Form::open(array('route' => 'updateCompanyLogo','method'=>'POST', 'files'=>true))}}
+					<input type="hidden" value="{{ $cid }}" name="cid">
 					<div class="update_logo_holder">
 						<a class="btn_edit_profile">Update Logo <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 						<input type="file" name="company_logo" id="company_logo">
@@ -73,8 +74,9 @@
 				</div>
 
 				<div>
-					@if(Auth::check() && Auth::user()->id === $company->id)
+					@if((Auth::check() && Auth::user()->id === $company->id) || (Session::get('user')->is_admin))
 						{{Form::open(array('route' => 'updateCover','method'=>'POST', 'files'=>true))}}
+						<input type="hidden" value="{{ $cid }}" name="cid">
 							<a class="btn_edit_profile">Update Cover <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							<input type="file" name="company_cover" id="company_cover">
 							{{ csrf_field() }}
