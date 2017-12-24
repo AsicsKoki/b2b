@@ -55,9 +55,9 @@
 
                     <div class="home_search_job_item search_job_filters_item">
 
-                        <p class="home_search_job_item_title">Country</p>
+                        <p class="home_search_job_item_title">Type</p>
 
-                        <p class="job_search_option_triger">Choose type of work<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
+                        <p class="job_search_option_triger">Type<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                         
                         <div class="options_checkbox">
                             <label for="term">
@@ -74,9 +74,9 @@
 
                     <div class="home_search_job_item search_job_filters_item">
 
-                        <p class="home_search_job_item_title">City</p>
+                        <p class="home_search_job_item_title">Level</p>
 
-                        <p class="job_search_option_triger">Choose level<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
+                        <p class="job_search_option_triger">Level<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                         
                         <div class="options_checkbox">
                             <label for="career_level">
@@ -98,7 +98,7 @@
 
                     <div class="home_search_job_item search_job_filters_item">
 
-                        <p class="home_search_job_item_title">Seniority</p>
+                        <p class="home_search_job_item_title">From</p>
 
                         <p class="job_search_option_triger">From..<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                         
