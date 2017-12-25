@@ -55,19 +55,29 @@
 
                     <div class="home_search_job_item search_job_filters_item">
 
-                        <p class="home_search_job_item_title">Type</p>
+                        <p class="home_search_job_item_title">Job Type</p>
 
                         <p class="job_search_option_triger">Type<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                         
                         <div class="options_checkbox">
-                            <label for="term">
+                            <label for="job_type">
                                 <span>Permanent</span>
-                                <input type="checkbox" name="term">
+                                <input type="checkbox" value="0" name="job_type">
                             </label>
 
-                            <label for="term">
+                            <label for="job_type">
                                 <span>Temporary</span>
-                                <input type="checkbox" name="term">
+                                <input type="checkbox" value="1" name="job_type">
+                            </label>
+
+                            <label for="job_type">
+                                <span>Temporary</span>
+                                <input type="checkbox" value="2" name="job_type">
+                            </label>
+
+                            <label for="job_type">
+                                <span>Temporary</span>
+                                <input type="checkbox" value="3" name="job_type">
                             </label>
                         </div>
                     </div>
@@ -86,12 +96,12 @@
 
                             <label for="name8">
                                 <span>Menagment</span>
-                                <input type="checkbox" name="career_level">
+                                <input type="checkbox" value="0" name="career_level">
                             </label>
 
                             <label for="career_level">
                                 <span>Experts</span>
-                                <input type="checkbox" name="career_level">
+                                <input type="checkbox" value="1" name="career_level">
                             </label>
                         </div>
                     </div>

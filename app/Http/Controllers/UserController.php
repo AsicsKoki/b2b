@@ -205,24 +205,30 @@ class UserController extends Controller {
         return view('user.conversation', ['conversation' => $application ]);
     }
 
-    public function getSearchResults()
+    public function getSearchResults(Request $request)
     {
-        $categories[] = Input::get('category');
-        // return $categories;
-        if (empty($categories[0]) && empty(Input::get('term'))) {
-            $results = Ad::with('company.image')->simplePaginate(10);
-            return view('ad.allAds', ['ads' => $results]);
-        }
-        elseif (Input::get('term')) {
-            $results = Ad::where('position', 'LIKE', '%'. Input::get('term') .'%')->with('company.image')->with('categories')->simplePaginate(10);
-            return view('ad.allAds', ['ads' => $results]);
-        } else {
-            $results = array();
-            foreach ($categories as $category) {
-                $results = Category::where('id', $categories)->with('ads')->simplePaginate(10);
-            }
-            return view('ad.searchResults', ['ads' => $results]);    
-        }
+        //categories
+        //job_type
+        //term
+        //level
+        //company_type
+        //foreign_languages
+
+        $ads = Ad::when($request->term, function ($query) use ($request) {
+            return $query->where('position', 'LIKE', '%'. Input::get('term') .'%');
+        })
+        ->when($request->job_type, function ($query) use ($request) {
+            return $query->where('job_type', $request->job_type);
+        })
+        ->when($request->career_level, function ($query) use ($request) {
+            return $query->where('career_level', $request->career_level);
+        })
+        ->when($request->company_type, function ($query) use ($request) {
+            return $query->where('company_type', $request->company_type);
+        })
+        ->where('approved', 1)->with('company.image')->with('categories')->simplePaginate(10);
+
+        return view('ad.allAds', ['ads' => $ads]);
     }
 
     public function updateEducation()
