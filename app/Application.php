@@ -37,5 +37,8 @@ class Application extends Model
     	return $this->belongsTo('App\Ad', 'ad_id');
     }
 
-
+    public function file()
+    {
+        return $this->hasMany('App\File');
+    }
 }

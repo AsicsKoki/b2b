@@ -193,7 +193,7 @@ class UserController extends Controller {
         $message->first_name = Input::get('first_name');
         $message->last_name = Input::get('last_name');
         $message->save();
-        
+
         return redirect()->back();
     }
 
