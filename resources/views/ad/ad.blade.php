@@ -180,7 +180,6 @@
 				@endif
 			</div>
 		</div>
-
 	</main>
 
 <script type="text/javascript">
@@ -225,19 +224,19 @@
 			})
 		}
 	});
-	function setActiveAjax() {
+function setActiveAjax(url, status) {
 		$.ajax({
-			       		type: "POST",
-			        	url: url,
-			        	async: true,
-			        	data: {
-			            	status: status,
-			            	'_token': $('meta[name="csrf-token"]').attr('content')
-			        	},
-			        success: function (msg) {
-			        	console.log('success');
-			        }
-			    });
+       		type: "POST",
+        	url: url,
+        	async: true,
+        	data: {
+            	status: status,
+            	'_token': $('meta[name="csrf-token"]').attr('content')
+        	},
+        success: function (msg) {
+        	console.log('success');
+        }
+    });
 	}
 	$(document).ready(function(){
 		$('.set-active_btn').click(function(e){
@@ -246,14 +245,14 @@
 					var aid = $(this).attr('data-aid');
 					var url = "/updateAdStatus/"+aid;
 
-					if (status === '1' && $(this).hasClass('btn-danger') === true) {
+					if ($(this).hasClass('btn-danger') === true) {
 						$(this).removeClass('btn-danger').addClass('btn-success').text('Activate');
-						$(this).attr('data-status', '0');
+						$(this).attr('data-status', '1');
 					} else {
 						$(this).removeClass('btn-success').addClass('btn-danger').text('Deactivate');
-						$(this).attr('data-status', '1');
+						$(this).attr('data-status', '0');
 					};
-					setActiveAjax();
+					setActiveAjax(url, status);
 				  
 			})
 			//Obrisati element posle brisanja iz baze
