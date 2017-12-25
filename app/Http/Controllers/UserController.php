@@ -218,16 +218,19 @@ class UserController extends Controller {
         $ads = Ad::when($request->term, function ($query) use ($request) {
             return $query->where('position', 'LIKE', '%'. Input::get('term') .'%');
         })
+        // ->when($request->category, function ($query) use ($request) {
+        //         return $query->whereIn('categories', $request->category);
+        // })
         ->when($request->job_type, function ($query) use ($request) {
-            return $query->where('job_type', $request->job_type);
+                return $query->whereIn('job_type', $request->job_type);
         })
         ->when($request->career_level, function ($query) use ($request) {
-            return $query->where('career_level', $request->career_level);
+                return $query->whereIn('career_level', $request->career_level);
         })
         ->when($request->company_type, function ($query) use ($request) {
-            return $query->where('company_type', $request->company_type);
+                return $query->whereIn('company_type', $request->company_type);
         })
-        ->where('approved', 1)->with('company.image')->with('categories')->simplePaginate(10);
+        ->where('approved', 1)->with('company.image')->simplePaginate(10);
 
         return view('ad.allAds', ['ads' => $ads]);
     }
