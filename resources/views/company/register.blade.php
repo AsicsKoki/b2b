@@ -59,12 +59,6 @@
 					<!-- Second Part Companies Registration -->
 					<div class="second_part_companies_reg">
 						<div class="login_reg_form_item">
-							<p>Country: <span>Serbia</span></p>
-							<p>EIK / BULSTAT: <span>103873594</span></p>
-							<p>Vat number: <span>BG103873594</span></p>
-						</div>
-
-						<div class="login_reg_form_item">
 							<p class="">Please, fill in the name of the company as stated in the Trade Register, including the corresponding type of business ownership (Sole Proprietorship/ LTD/PLC, etc.):</p>
 							<p class="form_title" style="margin-top: 20px;">Company name (in Serbian):*</p>
 							<div class="required_field">

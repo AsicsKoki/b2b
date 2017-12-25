@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Company as Company;
+use App\User as User;
 use App\Image as Image;
 use App\Cover as Cover;
 use App\BusinessCard as BusinessCard;
@@ -83,7 +84,7 @@ class CompanyController extends Controller {
         'business_phone'                           => 'required',
         'business_email'                           => 'required',
     ]);
-    if(User::where('username', '=', Input::get('username'))->count() > 0) {
+    if(Company::where('username', '=', Input::get('username'))->count() > 0) {
         return Redirect::back()->withErrors(['error', 'User with this username already exists!']);
     }
     $company = new Company(Input::all());
