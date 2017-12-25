@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-@if(session('message'))
+<main class="main_app_container home_page">
+@if(Session::has('message'))
     <h4 style="text-align: center; margin-bottom: 15px;color: #ff5c5c;">{{ session('message') }}</h4>
 @endif
-<main class="main_app_container home_page">
     <div class="home_search_job_employers_section cf">
 
         <!-- Home Job Search Section -->
@@ -71,12 +71,12 @@
                             </label>
 
                             <label for="job_type">
-                                <span>Temporary</span>
+                                <span>Internship</span>
                                 <input type="checkbox" value="2" name="job_type">
                             </label>
 
                             <label for="job_type">
-                                <span>Temporary</span>
+                                <span>Distance Job</span>
                                 <input type="checkbox" value="3" name="job_type">
                             </label>
                         </div>
@@ -205,7 +205,7 @@
         <!-- End Top Employers Section -->
     </div>
 </main>
-@if(Session::has('msg'))
+@if(Session::has('msg_registered'))
 <div class="popUp pop_up_registration_success">
     <div class="pop_up_registration_success_content">
         <p>Your registration is complete!</p>

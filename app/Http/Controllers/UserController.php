@@ -62,6 +62,7 @@ class UserController extends Controller {
     {
         Auth::logout();
         session()->flush();
+        Session::flash('message', "You have been logged out.");
         return redirect('/');
     }
 
@@ -110,7 +111,6 @@ class UserController extends Controller {
         $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
         Mail::to($user->email)->send(new ResetPassword($user,'naposao.rs, password reset confirmation!'));
-        \Session::flash('msg', 'Registered! Please check your email!' );
         return redirect()->route('getHome')->with('message', 'An email has been sent to your account, please follow instructions to reset your password');
     }
 
@@ -172,7 +172,7 @@ class UserController extends Controller {
         $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
         Mail::to($user->email)->send(new Confirm($user,'Welcome to naposao.rs. Please verify your account!'));
-        \Session::flash('msg', 'Registered! Please check your email!' );
+        \Session::flash('msg_registered', 'Registered! Please check your email!' );
         return redirect()->route('getHome')->with('message', 'Email has been sent to your account, click the link in the email to confirm your account.');
     } else {
         return Redirect::back()->with('error', 'Email or password do not match!');
@@ -193,6 +193,7 @@ class UserController extends Controller {
         $message->first_name = Input::get('first_name');
         $message->last_name = Input::get('last_name');
         $message->save();
+        
         return redirect()->back();
     }
 

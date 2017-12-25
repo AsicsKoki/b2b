@@ -5,7 +5,9 @@
 	<h1 class="page_title main_page_title">Job description</h1>
 
 	<main class="main_app_container cf">
-
+		@if(Session::has('msg_applied'))
+		    <h4 style="text-align: center; margin-bottom: 15px;color: #ff5c5c;">{{ session('msg_applied') }}</h4>
+		@endif
 		<div class="single_job_header">
 		<span>Views: {{ $ad->page_visits }}</span>
 			<h1 class="single_job_title bold">{{ $ad->position }}</h1>
@@ -43,7 +45,7 @@
 				@if(Session::get('user'))
 	                @if(Session::get('user')->is_admin)
 	                	<a href="{{ route('adminEditAd', ['aid' => $ad->id]) }}" class="btn">Edit Ad</a>
-	                	<a href="{{ route('getDeleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
+	                	<a href="{{ route('deleteAd', ['aid' => $ad->id]) }}" class="btn">Delete Ad</a>
 						@if($ad->approved == 0)
 							<button type="button" data-status="1" data-aid="{{ $ad->id }}" class="btn btn-success set-active_btn">Activate</button>
 						@else
