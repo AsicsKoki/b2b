@@ -303,27 +303,45 @@ class UserController extends Controller {
     public function updateAvatar(Request $request)
     {
 
+        $data = $request->image;
+
+
+        list($type, $data) = explode(';', $data);
+
+        list(, $data)      = explode(',', $data);
+
+
+        $data = base64_decode($data);
+
+        $image_name= time().'.png';
+
+        $path = public_path() . "/photos/" . $image_name;
+
+
+        file_put_contents($path, $data);
+
     // get current time and append the upload file extension to it,
     // then put that name to $photoName variable.
-    $photoName = time().'.'.$request->data_input->getClientOriginalExtension();
+
+   // $photoName = time().'.'.$request->data_input->getClientOriginalExtension();
 
     /*
         talk the select file and move it public directory and make avatars
         folder if doesn't exsit then give it that unique name.
     */
     $user = Session::get('user');
-    $request->data_input->move(public_path('photos'), $photoName);
+  //  $request->data_input->move(public_path('photos'), $photoName);
     if(!$user->image)
     {
     $image = new Image;
     $image->user_id = $user->id;
-    $image->path = '/photos/' . $photoName;
+    $image->path = '/photos/' . $image_name;
     $image->save();
     }else{
         $image = $user->image;
         $image->user_id = $user->id;
         $oldimage = public_path($user->image->path);
-        $image->path = '/photos/' . $photoName;
+        $image->path = '/photos/' . $image_name;
         $image->save();
 
         
@@ -335,6 +353,52 @@ class UserController extends Controller {
     return redirect()->back();
 
     }
+
+        public function imageCropPost(Request $request)
+            {
+
+                $data = $request->image;
+
+
+                list($type, $data) = explode(';', $data);
+
+                list(, $data)      = explode(',', $data);
+
+
+                $data = base64_decode($data);
+
+                $image_name= time().'.png';
+
+                $path = public_path() . "/photos/" . $image_name;
+
+
+                file_put_contents($path, $data);
+
+                $company = Company::find(Auth::user()->id);
+
+                if(!$company->image)
+                {
+                $image = new Image;
+                $image->company_id = $company->id;
+                $image->path = '/photos/' . $image_name;
+                $image->save();
+                }else{
+                    $image = $company->image;
+                    $image->company_id = $company->id;
+                    $oldimage = public_path($company->image->path);
+                    $image->path = '/photos/' . $image_name;
+                    $image->save();
+
+                    if(file_exists($oldimage))
+                    {
+                        unlink($oldimage);
+                    }
+                }
+
+            //  return redirect()->back();
+                return response()->json(['success'=>'done']);
+
+            }
 
     public function getHistory()
     {
@@ -379,6 +443,11 @@ class UserController extends Controller {
         $user->language = $languages;
         $user->save();
 
+    }
+
+    public function imageCrop2()
+    {
+        return view('imageCrop2');
     }
 
 

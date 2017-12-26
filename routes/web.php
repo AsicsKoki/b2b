@@ -169,6 +169,11 @@ Route::get('/sendMail', 'HomeController@sendMail')->name('sendMail');
 
 route::post('/submitPayment', 'HomeController@submitPayment')->name('submitPayment');
 
+Route::get('image-crop', 'CompanyController@imageCrop')->name('imageCrop');
+Route::get('image-crop2', 'UserController@imageCrop2')->name('imageCrop2');
+Route::post('image-crop', 'CompanyController@imageCropPost')->name('imageCropPost');
+Route::post('image-crop2', 'UserController@imageCropPost2')->name('imageCropPost2');
+
 
 // middleware for showing errors on companyRegister-Step-3
 // Route::group(['middleware'=>'web'],function (){
