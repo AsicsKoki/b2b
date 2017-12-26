@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Company as Company;
-use App\User as User;
 use App\Image as Image;
 use App\Cover as Cover;
 use App\BusinessCard as BusinessCard;
@@ -84,7 +83,7 @@ class CompanyController extends Controller {
         'business_phone'                           => 'required',
         'business_email'                           => 'required',
     ]);
-    if(Company::where('username', '=', Input::get('username'))->count() > 0) {
+    if(User::where('username', '=', Input::get('username'))->count() > 0) {
         return Redirect::back()->withErrors(['error', 'User with this username already exists!']);
     }
     $company = new Company(Input::all());
@@ -256,6 +255,57 @@ class CompanyController extends Controller {
     public function getPayment()
     {
         return view('company.payment');
+    }
+
+    public function imageCrop()
+    {
+        return view('imageCrop');
+    }
+
+    public function imageCropPost(Request $request)
+    {
+
+        $data = $request->image;
+
+
+        list($type, $data) = explode(';', $data);
+
+        list(, $data)      = explode(',', $data);
+
+
+        $data = base64_decode($data);
+
+        $image_name= time().'.png';
+
+        $path = public_path() . "/photos/" . $image_name;
+
+
+        file_put_contents($path, $data);
+
+        $company = Company::find(Auth::user()->id);
+
+        if(!$company->image)
+        {
+        $image = new Image;
+        $image->company_id = $company->id;
+        $image->path = '/photos/' . $image_name;
+        $image->save();
+        }else{
+            $image = $company->image;
+            $image->company_id = $company->id;
+            $oldimage = public_path($company->image->path);
+            $image->path = '/photos/' . $image_name;
+            $image->save();
+
+            if(file_exists($oldimage))
+            {
+                unlink($oldimage);
+            }
+        }
+
+      //  return redirect()->back();
+        return response()->json(['success'=>'done']);
+
     }
 
 }

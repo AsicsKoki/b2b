@@ -26,17 +26,14 @@
 						<img src="{{ URL::to('/') . $logo }}" alt="">
 					</div>
 					@if((Auth::check() && Auth::user()->id === $company->id) || (Session::get('user')->is_admin))
-					{{Form::open(array('route' => 'updateCompanyLogo','method'=>'POST', 'files'=>true))}}
-					<input type="hidden" value="{{ $cid }}" name="cid">
+					
 					<div class="update_logo_holder">
-						<a class="btn_edit_profile">Update Logo <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-						<input type="file" name="company_logo" id="company_logo">
-						{{ csrf_field() }}
+						<a href="{{ route('imageCrop') }}" class="btn_edit_profile">Update Logo <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
 						<div class="login_reg_form_item login_reg_form_submit">
-							<input type="submit" value="Update" id="company_logo_submit">
 						</div>
 					</div>
-					{{Form::close()}}
+
 					@endif
 				</div>
 				<div class="company_profile_view_side_info">

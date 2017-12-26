@@ -25,7 +25,7 @@
       						</div>
      		           </form>
 
-						<a class="edit_link" id="avatar">	
+						<a class="edit_link" id="avatar" href="{{ route('imageCrop2') }}">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 						<br>
