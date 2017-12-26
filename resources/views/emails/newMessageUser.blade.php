@@ -24,7 +24,7 @@
                                 <td align="center" valign="top">
                                     <div style="height: 40px; line-height: 40px; font-size: 38px;">&nbsp;</div>
                                     <a href="#" style="display: block; max-width: 192px;">
-                                        <img src="http://antiqueandarts.com/public/photos/naposaologo.png" alt="Unitedspirit" width="192" border="0" style="display: block; width: 192px;" />
+                                        <img src="http://antiqueandarts.com/public/photos/naposaologo.png" alt="" width="192" border="0" style="display: block; width: 192px;" />
                                     </a>
                                     <div class="top_pad2" style="height: 48px; line-height: 48px; font-size: 46px;">&nbsp;</div>
                                 </td>
@@ -34,13 +34,13 @@
                             <tr>
                                 <td align="left" valign="top">
                                     <font face="'Source Sans Pro', sans-serif" color="#1a1a1a" style="font-size: 52px; line-height: 54px; font-weight: 300; letter-spacing: -1.5px;">
-                                        <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 32px; line-height: 34px; font-weight: 300; letter-spacing: -1.5px;">You have new message</span>
+                                        <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #1a1a1a; font-size: 32px; line-height: 34px; font-weight: 300; letter-spacing: -1.5px;">You have new applicant</span>
                                     </font>
 
                                     <div style="height: 21px; line-height: 21px; font-size: 19px;">&nbsp;</div>
                                     <font face="'Source Sans Pro', sans-serif" color="#000000" style="font-size: 20px; line-height: 28px;">
                                         <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #000000; font-size: 20px; line-height: 28px;">
-                                           {{ $user->first_name }} {{ $user->last_name }}, <a href="" style="color: #ff5b5c;">you have recieved an answer for General Things Manager</a>.
+                                            <a href="{{ route('getSpecificJob', ['jid' => $ad->id]) }}" style="color: #ff5b5c;">New applicant for {{ $ad->position }}</a>.
                                          </span>
                                     </font>
 

@@ -19,6 +19,7 @@ class Company extends Authenticatable
      */
     protected $fillable = [
         'company_name',
+        'has_vat',
         'country',
         'foreign_name',
         // 'email',

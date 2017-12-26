@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-@if(session('message'))
+<main class="main_app_container home_page">
+@if(Session::has('message'))
     <h4 style="text-align: center; margin-bottom: 15px;color: #ff5c5c;">{{ session('message') }}</h4>
 @endif
-<main class="main_app_container home_page">
     <div class="home_search_job_employers_section cf">
 
         <!-- Home Job Search Section -->
@@ -55,28 +55,38 @@
 
                     <div class="home_search_job_item search_job_filters_item">
 
-                        <p class="home_search_job_item_title">Country</p>
+                        <p class="home_search_job_item_title">Job Type</p>
 
-                        <p class="job_search_option_triger">Choose type of work<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
+                        <p class="job_search_option_triger">Type<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                         
                         <div class="options_checkbox">
-                            <label for="term">
+                            <label for="job_type">
                                 <span>Permanent</span>
-                                <input type="checkbox" name="term">
+                                <input type="checkbox" value="0" name="job_type">
                             </label>
 
-                            <label for="term">
+                            <label for="job_type">
                                 <span>Temporary</span>
-                                <input type="checkbox" name="term">
+                                <input type="checkbox" value="1" name="job_type">
+                            </label>
+
+                            <label for="job_type">
+                                <span>Internship</span>
+                                <input type="checkbox" value="2" name="job_type">
+                            </label>
+
+                            <label for="job_type">
+                                <span>Distance Job</span>
+                                <input type="checkbox" value="3" name="job_type">
                             </label>
                         </div>
                     </div>
 
                     <div class="home_search_job_item search_job_filters_item">
 
-                        <p class="home_search_job_item_title">City</p>
+                        <p class="home_search_job_item_title">Level</p>
 
-                        <p class="job_search_option_triger">Choose level<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
+                        <p class="job_search_option_triger">Level<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                         
                         <div class="options_checkbox">
                             <label for="career_level">
@@ -86,19 +96,19 @@
 
                             <label for="name8">
                                 <span>Menagment</span>
-                                <input type="checkbox" name="career_level">
+                                <input type="checkbox" value="0" name="career_level">
                             </label>
 
                             <label for="career_level">
                                 <span>Experts</span>
-                                <input type="checkbox" name="career_level">
+                                <input type="checkbox" value="1" name="career_level">
                             </label>
                         </div>
                     </div>
 
                     <div class="home_search_job_item search_job_filters_item">
 
-                        <p class="home_search_job_item_title">Seniority</p>
+                        <p class="home_search_job_item_title">From</p>
 
                         <p class="job_search_option_triger">From..<i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-up" aria-hidden="true"></i></p>
                         
@@ -195,7 +205,7 @@
         <!-- End Top Employers Section -->
     </div>
 </main>
-@if(Session::has('msg'))
+@if(Session::has('msg_registered'))
 <div class="popUp pop_up_registration_success">
     <div class="pop_up_registration_success_content">
         <p>Your registration is complete!</p>

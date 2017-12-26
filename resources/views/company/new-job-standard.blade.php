@@ -7,16 +7,6 @@
 	<form action="{{ route('postNewJob') }}" method="POST" class="new_job_add_choose_form">
 
 		<div class="new_job_add_choose_form_item">
-			<p class="form_title">User <small>(responsible for this job offer and the candidates applying for the position)</small></p>
-			<select name="">
-				<option value="">Arsa</option>
-				<option value="">Sava</option>
-				<option value="">Fiste</option>
-			</select>
-			<p style="font-size: 15px;margin-top: 10px;">(IMPORTANT: In case the account is used by more than one user from your organization, please create separate user accounts for the different users. You can do this in the section "Users" from the main menu.)</p>
-		</div>
-
-		<div class="new_job_add_choose_form_item">
 			<p class="form_title">Ref.No:</p>
 			<input name="ref_number" type="text">
 		</div>	

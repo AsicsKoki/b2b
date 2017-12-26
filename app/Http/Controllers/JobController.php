@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 use App\Mail\NewAd;
+use App\Mail\NewMessageUser;
 
 
 class JobController extends Controller {
@@ -132,34 +133,38 @@ class JobController extends Controller {
 
         // get current time and append the upload file extension to it,
         // then put that name to $fileName variable.
-        $file = $request->file('file_input');
-        $fileName = time().'.'.$file->getClientOriginalExtension();
-
-        /*
-            talk the select file_input and move it public directory
-        */
-        $file->move(public_path('files'), $fileName);
-        $user = Session::get('user');
-
         $message = New Message;
         $message->application_id = $application->id;
         $message->text = Input::get('text');
         $message->first_name = Input::get('first_name');
         $message->last_name = Input::get('last_name');
-        $message->file_id = 
         $message->save();
+        if ($request->file('file_input')) {
+            $file = $request->file('file_input');
+            $fileName = time().'.'.$file->getClientOriginalExtension();
 
-        $file = New File;
-        $file->message_id = $message->id;
-        $file->application_id = $application->id;
-        $file->path = '/files/' . $fileName;
-        $file->save();
-        return redirect()->route('getJobs');
+            /*
+                talk the select file_input and move it public directory
+            */
+            $file->move(public_path('files'), $fileName);
+            $file = New File;
+            $file->message_id = $message->id;
+            $file->application_id = $application->id;
+            $file->path = '/files/' . $fileName;
+            $file->save();
+        }
+        $user = Session::get('user');
+
+        $company = Company::where('id', Input::get('company_id'))->first();
+        $ad = Ad::where('id', Input::get('ad_id'))->first();
+        Mail::to($company->business_email)->send(new NewMessageUser($ad,'You have a new applicant!'));
+        \Session::flash('msg_applied', 'You have successfully applied for this job.');
+        return redirect()->route('getSpecificJob', ['jid' => Input::get('ad_id')]);
     }
 
     public function getConversation($aid)
     {  
-        $application = Application::where('id', $aid)->with('messages')->orderBy('created_at')->with('user')->with('company')->first();
+        $application = Application::where('id', $aid)->with('file')->with('messages')->with('user')->with('company')->first();
         $application->notification = 0;
         $application->update();
         return view('ad.conversation', ['conversation' => $application ]);
