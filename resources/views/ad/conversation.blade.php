@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="page_title main_page_title">Cover letter</h1>
+<h1 class="page_title main_page_title">Job conversation</h1>
 
 <main class="main_app_container">
 	<ul class="comapny_user_coversation">
@@ -10,7 +10,7 @@
 		<li class="comapny_user_coversation_item comapny_user_coversation_applicants">
 			<div class="comapny_user_coversation_item_name">
 				@if(is_null($message->company_name))
-				<p><a href="{{ route('getProfile', ['uid' => $conversation->user_id]) }}"><i class="fa fa-user-circle" aria-hidden="true"></i> {{$message->last_name}} {{ $message->first_name }}</a></p>
+				<p><a href="{{ route('getUserProfile', ['uid' => $conversation->user_id]) }}"><i class="fa fa-user-circle" aria-hidden="true"></i> {{$message->last_name}} {{ $message->first_name }}</a></p>
 				@else
 				<p><a href="{{ route('getCompanyProfile', ['cid' => Auth::user()->id])}}"><i class="fa fa-user-circle" aria-hidden="true"></i>{{ $message->company_name }}</a></p>
 				@endif
@@ -19,12 +19,19 @@
 			 	<p>{{ $message->text }}</p>
 			 </div>
 			 <div class="time"><span class="timestamp_msg">{{ $message->created_at }}</span></div>
-			@if($conversation->file[0])
-				 <a href="{{ URL::to('/') . $conversation->file[0]->path }}" download>Click Here to download {{ $message->first_name }}'s CV
-			@endif
 		</li>
 		@endforeach
 	</ul>
+
+	<form action="{{ route('postSendMessage') }}" method="POST" class="comapny_user_coversation_msg">
+		<textarea name="text" placeholder="Your message..."></textarea>
+		<input type="hidden" class="application_id_msg" name="application_id" value="{{ $conversation->id }}">
+		<input type="hidden" name="company_name" value="{{ Auth::user()->company_name }}">
+		{{ csrf_field() }}
+		<div class="comapny_user_coversation_send_btn">
+			<input type="submit" value="Send" class="confirm_btn">
+		</div>
+	</form>
 </main>
 <script>
 

@@ -62,7 +62,6 @@ class UserController extends Controller {
     {
         Auth::logout();
         session()->flush();
-        Session::flash('message', "You have been logged out.");
         return redirect('/');
     }
 
@@ -111,6 +110,7 @@ class UserController extends Controller {
         $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
         Mail::to($user->email)->send(new ResetPassword($user,'naposao.rs, password reset confirmation!'));
+        \Session::flash('msg', 'Registered! Please check your email!' );
         return redirect()->route('getHome')->with('message', 'An email has been sent to your account, please follow instructions to reset your password');
     }
 
@@ -172,7 +172,7 @@ class UserController extends Controller {
         $user->token = app('App\Http\Controllers\UserController')->RandomString();
         $user->save();
         Mail::to($user->email)->send(new Confirm($user,'Welcome to naposao.rs. Please verify your account!'));
-        \Session::flash('msg_registered', 'Registered! Please check your email!' );
+        \Session::flash('msg', 'Registered! Please check your email!' );
         return redirect()->route('getHome')->with('message', 'Email has been sent to your account, click the link in the email to confirm your account.');
     } else {
         return Redirect::back()->with('error', 'Email or password do not match!');
@@ -193,7 +193,6 @@ class UserController extends Controller {
         $message->first_name = Input::get('first_name');
         $message->last_name = Input::get('last_name');
         $message->save();
-
         return redirect()->back();
     }
 
@@ -206,33 +205,24 @@ class UserController extends Controller {
         return view('user.conversation', ['conversation' => $application ]);
     }
 
-    public function getSearchResults(Request $request)
+    public function getSearchResults()
     {
-        //categories
-        //job_type
-        //term
-        //level
-        //company_type
-        //foreign_languages
-
-        $ads = Ad::when($request->term, function ($query) use ($request) {
-            return $query->where('position', 'LIKE', '%'. Input::get('term') .'%');
-        })
-        // ->when($request->category, function ($query) use ($request) {
-        //         return $query->whereIn('categories', $request->category);
-        // })
-        ->when($request->job_type, function ($query) use ($request) {
-                return $query->whereIn('job_type', $request->job_type);
-        })
-        ->when($request->career_level, function ($query) use ($request) {
-                return $query->whereIn('career_level', $request->career_level);
-        })
-        ->when($request->company_type, function ($query) use ($request) {
-                return $query->whereIn('company_type', $request->company_type);
-        })
-        ->where('approved', 1)->with('company.image')->simplePaginate(10);
-
-        return view('ad.allAds', ['ads' => $ads]);
+        $categories[] = Input::get('category');
+        // return $categories;
+        if (empty($categories[0]) && empty(Input::get('term'))) {
+            $results = Ad::with('company.image')->simplePaginate(10);
+            return view('ad.allAds', ['ads' => $results]);
+        }
+        if (Input::get('term')) {
+            $results = Ad::where('position', 'LIKE', '%'. Input::get('term') .'%')->with('company.image')->with('categories')->simplePaginate(10);
+            return view('ad.allAds', ['ads' => $results]);
+        } else {
+            $results = array();
+            foreach ($categories as $category) {
+                $results = Category::where('id', $categories)->with('ads')->simplePaginate(10);
+            }
+            return view('ad.searchResults', ['ads' => $results]);    
+        }
     }
 
     public function updateEducation()

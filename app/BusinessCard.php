@@ -50,6 +50,7 @@ class BusinessCard extends Model
         'founded_in'                               => 'required',  
         // 'number_of_employees'                      => 'required',
         // 'locations'                                => 'required',
+        'benefits'                                 => 'required',
         'technologies'                             => 'required',
         // 'office_out_country'                       => 'required',
         // 'number_of_employees_bulgaria'             => 'required',

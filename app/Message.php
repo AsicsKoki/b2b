@@ -23,6 +23,6 @@ protected $fillable = [
 
     public function file()
     {
-        return $this->hasOne('App\File');
+        return $this->hasOne('App\File', 'file_id');
     }
 }

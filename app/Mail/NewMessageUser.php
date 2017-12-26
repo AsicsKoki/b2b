@@ -16,10 +16,9 @@ class NewMessageUser extends Mailable
      *
      * @return void
      */
-    public function __construct($ad,$subject)
+    public function __construct()
     {
-        $this->ad = $ad;
-        $this->subject = $subject;
+        //
     }
 
     /**
@@ -29,6 +28,6 @@ class NewMessageUser extends Mailable
      */
     public function build()
     {
-        return $this->from('noreply@naposao.rs')->subject($this->subject)->view('emails.newMessageUser', ['ad' => $this->ad]);
+        return $this->view('view.name');
     }
 }

@@ -24,7 +24,7 @@
                                 <td align="center" valign="top">
                                     <div style="height: 40px; line-height: 40px; font-size: 38px;">&nbsp;</div>
                                     <a href="#" style="display: block; max-width: 192px;">
-                                        <img src="http://antiqueandarts.com/public/photos/naposaologo.png" alt="" width="192" border="0" style="display: block; width: 192px;" />
+                                        <img src="http://antiqueandarts.com/public/photos/naposaologo.png" alt="Unitedspirit" width="192" border="0" style="display: block; width: 192px;" />
                                     </a>
                                     <div class="top_pad2" style="height: 48px; line-height: 48px; font-size: 46px;">&nbsp;</div>
                                 </td>
@@ -46,7 +46,7 @@
 
                                     <div style="height: 6px; line-height: 6px; font-size: 4px;">&nbsp;</div>
                     
-                                    <a href=""></a>
+                                    <a href="http://unitedspirit.antiqueandarts.com/home"></a>
                                     <div style="height: 30px; line-height: 30px; font-size: 28px;">&nbsp;</div>
                                     <table class="mob_btn" cellpadding="0" cellspacing="0" border="0" style="background: #6070E9; border-radius: 4px;">
                                         <tr>

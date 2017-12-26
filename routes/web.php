@@ -49,6 +49,8 @@ Route::get('/logout', 'UserController@logout')->name('logout');
 Route::get('/', 'HomeController@index')->name('getHome');
 Route::get('/404', 'HomeController@get404')->name('get404');
 
+
+
 //User(applicant) related routes
 Route::group(['middleware'=>'usersession'],function (){
 	Route::get('/profile', 'UserController@getUserProfile')->name('getUserProfile');
@@ -143,7 +145,7 @@ Route::get('/addNewJobConfidental', 'JobController@getNewJobConfidental')->name(
 Route::post('/postNewJob', 'JobController@postNewJob')->name('postNewJob');
 Route::get('/getApplicants/{aid}', 'JobController@getApplicants')->name('getApplicants');
 
-Route::get('/application/{aid}', 'JobController@getConversation')->name('getConversation');
+Route::get('/conversation/{aid}', 'JobController@getConversation')->name('getConversation');
 });
 
 // Morao sam da ih izbacim zbog admina
