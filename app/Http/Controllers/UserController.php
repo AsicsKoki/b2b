@@ -303,7 +303,7 @@ class UserController extends Controller {
     public function updateAvatar(Request $request)
     {
 
-        $data = $request->image;
+        $data = $request->img;
 
 
         list($type, $data) = explode(';', $data);
@@ -354,51 +354,51 @@ class UserController extends Controller {
 
     }
 
-        public function imageCropPost(Request $request)
-            {
+        // public function imageCropPost(Request $request)
+        //     {
 
-                $data = $request->image;
-
-
-                list($type, $data) = explode(';', $data);
-
-                list(, $data)      = explode(',', $data);
+        //         $data = $request->image;
 
 
-                $data = base64_decode($data);
+        //         list($type, $data) = explode(';', $data);
 
-                $image_name= time().'.png';
-
-                $path = public_path() . "/photos/" . $image_name;
+        //         list(, $data)      = explode(',', $data);
 
 
-                file_put_contents($path, $data);
+        //         $data = base64_decode($data);
 
-                $company = Company::find(Auth::user()->id);
+        //         $image_name= time().'.png';
 
-                if(!$company->image)
-                {
-                $image = new Image;
-                $image->company_id = $company->id;
-                $image->path = '/photos/' . $image_name;
-                $image->save();
-                }else{
-                    $image = $company->image;
-                    $image->company_id = $company->id;
-                    $oldimage = public_path($company->image->path);
-                    $image->path = '/photos/' . $image_name;
-                    $image->save();
+        //         $path = public_path() . "/photos/" . $image_name;
 
-                    if(file_exists($oldimage))
-                    {
-                        unlink($oldimage);
-                    }
-                }
 
-            //  return redirect()->back();
-                return response()->json(['success'=>'done']);
+        //         file_put_contents($path, $data);
 
-            }
+        //         $company = Company::find(Auth::user()->id);
+
+        //         if(!$company->image)
+        //         {
+        //         $image = new Image;
+        //         $image->company_id = $company->id;
+        //         $image->path = '/photos/' . $image_name;
+        //         $image->save();
+        //         }else{
+        //             $image = $company->image;
+        //             $image->company_id = $company->id;
+        //             $oldimage = public_path($company->image->path);
+        //             $image->path = '/photos/' . $image_name;
+        //             $image->save();
+
+        //             if(file_exists($oldimage))
+        //             {
+        //                 unlink($oldimage);
+        //             }
+        //         }
+
+        //     //  return redirect()->back();
+        //         return response()->json(['success'=>'done']);
+
+        //     }
 
     public function getHistory()
     {

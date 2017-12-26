@@ -2925,6 +2925,16 @@ canvas {
     display: none;
 }
 
+#edit_profile_logo_popup .modal-dialog {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#edit_user_logo_popup .modal-dialog {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .company_profile_view_main input[type="file"] {
     position: relative;
     left: 0px;

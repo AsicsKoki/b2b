@@ -28,7 +28,7 @@
 					@if((Auth::check() && Auth::user()->id === $company->id) || (Session::get('user')->is_admin))
 					
 					<div class="update_logo_holder">
-						<a href="{{ route('imageCrop') }}" class="btn_edit_profile">Update Logo <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+						<a data-toggle="modal" data-target="#edit_profile_logo_popup" class="btn_edit_profile">Update Logo <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 
 						<div class="login_reg_form_item login_reg_form_submit">
 						</div>
@@ -100,6 +100,45 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="edit_profile_logo_popup" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+	<div class="row">
+
+
+				<div class="col-md-4 text-center">
+
+				<div id="company_upload" style="width:350px"></div>
+
+				</div>
+
+				<div class="col-md-4" style="padding-top:30px;padding-left: 85px;">
+
+				<strong>Select Image:</strong>
+
+				<br/>
+
+				<input type="file" id="company_profile_image_upload">
+
+				<br/>
+
+				<button class="btn btn-success company_image_upload_result">Upload Image</button>
+
+				</div>
+
+
+				<div class="col-md-4" style="">
+
+				<div id="company_upload_demo" style="background:#e1e1e1;width:200px;height:200px;margin-top:30px;"></div>
+					<p>Preview</p>
+				</div>
+
+				</div>
+	</div>
+  </div>
+</div>
 	<script> 
 	
 	$('#company_logo').change(function(){
@@ -158,5 +197,88 @@
            }
        });
     })
+	$.ajaxSetup({
+
+headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+
+
+$uploadCrop = $('#company_upload').croppie({
+
+    enableExif: true,
+
+    viewport: {
+
+        width: 200,
+
+        height: 200
+    },
+    boundary: {
+        width: 200,
+
+        height: 200
+    }
+
+});
+
+
+$('#company_profile_image_upload').on('change', function () { 
+
+	var reader = new FileReader();
+
+    reader.onload = function (e) {
+
+    	$uploadCrop.croppie('bind', {
+
+    		url: e.target.result
+
+    	}).then(function(){
+
+    		console.log('jQuery bind complete');
+
+    	});
+
+    }
+
+    reader.readAsDataURL(this.files[0]);
+
+});
+
+
+$('.company_image_upload_result').on('click', function (ev) {
+
+	$uploadCrop.croppie('result', {
+
+		type: 'canvas',
+
+		size: 'viewport'
+
+	}).then(function (resp) {
+
+		$.ajax({
+
+			url: "/image-crop",
+
+			type: "POST",
+
+			data: {"image":resp},
+
+			success: function (data) {
+
+				html = '<img src="' + resp + '" />';
+
+				$("#company_upload_demo").html(html);
+				$('.company_profile_logo_holder img').attr('src',resp);
+
+			}
+
+		});
+
+	});
+
+});
+
 	</script>
 @endsection

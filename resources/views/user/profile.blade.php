@@ -12,7 +12,7 @@
 							<img src="{{ URL::to('/') . $avatar }}" alt="">
 						</span>
 
-						<form action="{{ route('updateAvatar') }}" method="POST" enctype="multipart/form-data" id="upload_avt_form">
+						<!-- <form action="{{ route('updateAvatar') }}" method="POST" enctype="multipart/form-data" id="upload_avt_form">
                             {{Form::open(array('route' => 'updateAvatar','method'=>'POST', 'files'=>true))}}
                             <div class="edit_info_window change_image_edit_info_window" id="avatar_input" style="display:none">
                             	<p class="simulat_choose_img">Choose image</p>
@@ -23,9 +23,9 @@
                                 {{ csrf_field() }}
                   <button type="submit" value="upload" class="confirm_edit_btn blue_btn"><i class="fa fa-check" aria-hidden="true"></i></button>
       						</div>
-     		           </form>
+     		           </form> -->
 
-						<a class="edit_link" id="avatar" href="{{ route('imageCrop2') }}">	
+						<a stlye="display: inline;" id="avatar"  data-toggle="modal" data-target="#edit_user_logo_popup">	
 							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</a>
 						<br>
@@ -154,21 +154,6 @@
 							<button class="add_new_user_job_profile_btn"><i class="fa fa-plus" aria-hidden="true"></i> Add new job</button>
 						</div>
 				</div>
-
-				<!-- <div class="user_profile_about user_profile_item">
-					<p class="user_profile_about_text">
-					<span id="description_span">{{ Session::get('user')->description }}</span>
-						<a class="edit_link" id="description">	
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</a>
-					</p>
-					
-					<div class="edit_info_window" id="description_input" style="display:none">
-						<textarea name="" cols="30" rows="10" width="100%" placeholder="Say something about you"></textarea>
-
-						<button class="confirm_edit_btn blue_btn" id="description_btn">Confirm <i class="fa fa-check" aria-hidden="true"></i></button>
-					</div>
-				</div> -->
 			</div>
 		</div>
 
@@ -384,6 +369,44 @@
 	</div>
 
 </main>
+
+<div id="edit_user_logo_popup" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+	<div class="row">
+
+		<div class="col-md-4 text-center">
+
+		<div id="upload-demo2" style="width:350px"></div>
+
+		</div>
+
+		<div class="col-md-4" style="padding-top:30px;padding-left: 85px;">
+
+		<strong>Select Image:</strong>
+
+		<br/>
+
+		<input type="file" id="upload2">
+
+		<br/>
+
+		<button class="btn btn-success upload-result2">Upload Image</button>
+
+		</div>
+
+
+		<div class="col-md-4" style="">
+
+		<div id="upload-demo-i2" style="background:#e1e1e1;width:200px;height:200px;margin-top:30px;"></div>
+			<p>Preview</p>
+		</div>
+
+		</div>
+	</div>
+  </div>
+</div>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
 <script>
 
@@ -428,12 +451,12 @@
 
 // avatar/ profile image   - nezavrsen
  
-	$('#avatar').click(function(){
-			$(this).css('display', 'none');
-			$('#avatar_input').css('display','block');
-			$('#avatar_input2').css('display','block');
-			$('#avatar_input2 button').css('display','inline-block');
-		});
+	// $('#avatar').click(function(){
+	// 		$(this).css('display', 'none');
+	// 		$('#avatar_input').css('display','block');
+	// 		$('#avatar_input2').css('display','block');
+	// 		$('#avatar_input2 button').css('display','inline-block');
+	// 	});
 
 		$('#avatar_input2').click(function(e){
 			e.preventDefault();
@@ -942,6 +965,97 @@
 				console.log(err);
 			})
 	   });
+
+	   $.ajaxSetup({
+
+headers: {
+
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+}
+
+});
+
+
+$uploadCrop2 = $('#upload-demo2').croppie({
+
+    enableExif: true,
+
+    viewport: {
+
+        width: 200,
+
+        height: 200,
+
+        type: 'circle'
+
+    },
+
+    boundary: {
+
+        width: 300,
+
+        height: 300
+
+    }
+
+});
+
+
+$('#upload2').on('change', function () { 
+
+	var reader = new FileReader();
+
+    reader.onload = function (e) {
+
+    	$uploadCrop2.croppie('bind', {
+
+    		url: e.target.result
+
+    	}).then(function(){
+
+    		console.log('jQuery bind complete');
+
+    	});
+
+    }
+
+    reader.readAsDataURL(this.files[0]);
+
+});
+
+
+$('.upload-result2').on('click', function (ev) {
+
+	$uploadCrop2.croppie('result', {
+
+		type: 'canvas',
+
+		size: 'viewport'
+
+	}).then(function (resp) {
+
+		$.ajax({
+
+			url: "/updateAvatar",
+
+			type: "POST",
+
+			data: {"img":resp},
+
+			success: function (data) {
+
+				html = '<img src="' + resp + '" />';
+
+				$("#upload-demo-i2").html(html);
+				$('.user_profile_image_holder span img').attr('src',resp);
+			}
+		});
+
+	});
+
+});
+
 </script>
 
 @endsection
